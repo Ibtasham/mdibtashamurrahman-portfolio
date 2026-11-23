@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <rect width="64" height="64" rx="14" fill="#050914" />
+  <rect x="2" y="2" width="60" height="60" rx="12" stroke="#1e293b" stroke-width="1.5" />
+  <path d="M12 12H18M12 12V18M52 12H46M52 12V18M12 52H18M12 52V46M52 52H46M52 52V46" stroke="#38bdf8" stroke-width="1.5" stroke-linecap="round" opacity="0.65" />
+  <text x="32" y="40" text-anchor="middle" fill="#f8fafc" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="700" letter-spacing="1.5">IR</text>
+  <rect x="20" y="47" width="24" height="2.5" rx="1.25" fill="#38bdf8" />
+</svg>
