@@ -76,6 +76,7 @@ export interface ProjectScreenshotEntry {
     | 'Awaiting Product Screenshot'
     | 'Verified Screenshot';
   useGeneratedPreview?: boolean;
+  previewSource?: 'live' | 'conceptual';
   imageUrl?: string;
   requirements?: string;
 }
@@ -142,6 +143,9 @@ export interface ProjectEntry {
   githubUrl?: string;
   liveDemoUrl?: string;
   sourceNote: string;
+  roleAndContribution?: string;
+  implementedHighlights?: string[];
+  scopeDistinctionNote?: string;
   oneSentenceProblem: string;
   mainContribution: string;
   summary: string;
@@ -158,13 +162,18 @@ export type ExperimentStage = 'completed' | 'ongoing' | 'proposed';
 export interface ResearchManuscript {
   id: string;
   title: string;
-  status: 'Manuscript in Preparation';
+  cardTitle?: string;
+  workingTitle?: string;
+  status: 'Unpublished Research' | 'Research in Progress' | 'Manuscript in Preparation';
   domain: string;
+  researchArea?: string;
+  centralQuestion?: string;
   datasetsOrBenchmarks: string;
   methods: string[];
   abstract: string;
   motivation: string;
   expectedContribution: string;
+  contributionAreas?: string[];
   keyFocus: string;
   featuredDirection?: boolean;
   relatedProjectId?: string;
@@ -173,6 +182,7 @@ export interface ResearchManuscript {
   completedWork?: string[];
   ongoingWork?: string[];
   proposedWork?: string[];
+  limitations?: string[];
   futureDirections?: string[];
 }
 
@@ -307,12 +317,14 @@ export type VisualArchiveKind =
   | 'Certificate'
   | 'Appointment Letter'
   | 'Official Poster'
-  | 'Portrait';
+  | 'Portrait'
+  | 'Video Submission';
 
 export interface VisualArchiveItem {
   id: string;
   filename: string;
   src: string;
+  mediaType?: 'image' | 'video';
   category: VisualArchiveCategory;
   associatedRecord: string;
   linkedRoute?: string;

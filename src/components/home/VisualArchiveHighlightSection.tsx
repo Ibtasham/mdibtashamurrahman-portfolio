@@ -124,31 +124,44 @@ export function VisualArchiveHighlightSection({
           </div>
         </SectionReveal>
 
-        {/* Compact Archive Category Summary Bar */}
+        {/* Interactive Archive Category & Certificate Summary Bar */}
         <div className="flex flex-col gap-4 rounded-[14px] border border-slate-200 dark:border-slate-800/80 bg-white dark:bg-[#0b1222] p-5 lg:flex-row lg:items-center lg:justify-between">
-          <div className="space-y-1.5">
+          <div className="space-y-2.5 min-w-0">
             <div className="flex items-center gap-2 text-xs font-semibold text-slate-900 dark:text-slate-100">
               <Images
-                className="h-4 w-4 text-cyan-700 dark:text-cyan-400"
+                className="h-4 w-4 text-cyan-700 dark:text-cyan-400 shrink-0"
                 aria-hidden="true"
               />
               <span>Complete Visual Archive Coverage ({VISUAL_ARCHIVE.length} Verified Assets)</span>
             </div>
-            <p className="text-xs leading-relaxed text-slate-600 dark:text-slate-400">
-              Organized across{' '}
-              {VISUAL_ARCHIVE_CATEGORIES.filter((cat) => categoryCounts[cat] > 0)
-                .map((cat) => `${cat} (${categoryCounts[cat]})`)
-                .join(' · ')}
-              .
-            </p>
+            <div className="flex flex-wrap gap-1.5">
+              {VISUAL_ARCHIVE_CATEGORIES.filter((cat) => categoryCounts[cat] > 0).map((cat) => (
+                <Link
+                  key={cat}
+                  to={`/archive?category=${encodeURIComponent(cat)}`}
+                  className="inline-flex items-center gap-1 rounded-[7px] border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-[#060b16] px-2.5 py-1 font-mono text-[11px] text-slate-700 dark:text-slate-300 transition-colors hover:border-blue-500/60 hover:text-blue-700 dark:hover:text-cyan-300"
+                >
+                  <span>{cat}</span>
+                  <span className="text-slate-400 dark:text-slate-500 tabular-nums">
+                    ({categoryCounts[cat]})
+                  </span>
+                </Link>
+              ))}
+            </div>
           </div>
 
           <div className="flex shrink-0 flex-wrap items-center gap-3">
             <Link
+              to="/archive?kind=Certificate"
+              className="inline-flex min-h-[38px] sm:min-h-0 items-center py-1.5 sm:py-0 font-mono text-xs font-medium text-blue-700 dark:text-blue-300 transition-colors hover:text-cyan-700 dark:hover:text-cyan-200"
+            >
+              View Certificates Only
+            </Link>
+            <Link
               to="/awards"
               className="inline-flex min-h-[38px] sm:min-h-0 items-center py-1.5 sm:py-0 text-xs font-medium text-slate-600 dark:text-slate-300 transition-colors hover:text-cyan-700 dark:hover:text-cyan-300"
             >
-              Certificates &amp; Awards
+              Awards &amp; Honors
             </Link>
             <LinkButton to="/archive" variant="secondary" size="sm">
               <span>Explore Full Visual Archive</span>

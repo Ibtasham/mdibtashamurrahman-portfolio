@@ -161,7 +161,72 @@ export const EXPERIENCES: ExperienceEntry[] = [
     missingInfo: ['Group name/number and certificate or verification record optional for completion.'],
   },
 
-  // Campus Ambassador / Director / Associate Roles (12 total: 7 Current, 5 Former)
+  // Campus Ambassador / Lead / Director / Associate Roles (17 total: 10 Current, 7 Former)
+  {
+    id: 'linked-community-bd',
+    role: 'Campus Lead',
+    organization: 'Linked Community Bangladesh',
+    organizationCode: 'LCB',
+    category: 'ambassador',
+    subCategory: 'Organizations',
+    period: 'Nov 2026 – Present',
+    isCurrent: true,
+    location: 'SUST · Hybrid',
+    responsibility:
+      'Lead campus engagement, student peer-network mobilization, and outreach initiatives at SUST for Linked Community Bangladesh starting November 2026.',
+    actualContribution:
+      'Appointed Campus Lead at Shahjalal University of Science and Technology (SUST) starting November 2026 to anchor student community growth and campus activities.',
+    summary:
+      'Serving as Campus Lead for Linked Community Bangladesh at SUST from November 2026, coordinating student community building and collaborative outreach programs.',
+    highlights: [
+      'Appointed Campus Lead representing Linked Community Bangladesh at SUST starting November 2026.',
+      'Driving student engagement, peer learning circles, and campus-wide community coordination.',
+    ],
+  },
+  {
+    id: 'caralox',
+    role: 'Campus Ambassador',
+    organization: 'CaraLox',
+    organizationCode: 'CLX',
+    category: 'ambassador',
+    subCategory: 'Organizations',
+    period: '2026 – Present',
+    isCurrent: true,
+    location: 'SUST, Sylhet · Hybrid',
+    responsibility:
+      'Represent CaraLox across the Shahjalal University of Science and Technology (SUST) campus and coordinate student outreach initiatives.',
+    actualContribution:
+      'Welcomed as official CaraLox Campus Ambassador representing SUST (verified welcome graphic on record).',
+    summary:
+      'Serving as Campus Ambassador for CaraLox at Shahjalal University of Science and Technology (SUST), connecting campus communities with brand and student outreach programs.',
+    highlights: [
+      'Inducted as CaraLox Campus Ambassador for Shahjalal University of Science and Technology (SUST).',
+    ],
+    evidenceUrl: '/assets/aistudio/image_d83bc009.png',
+    evidenceLabel: 'View CaraLox Campus Ambassador Welcome Poster',
+  },
+  {
+    id: 'mytravaly-bd',
+    role: 'Campus Ambassador',
+    organization: 'MyTravaly Bangladesh',
+    organizationCode: 'MTB',
+    category: 'ambassador',
+    subCategory: 'Organizations',
+    period: '2026 – Present',
+    isCurrent: true,
+    location: 'SUST, Sylhet · Hybrid',
+    responsibility:
+      'Represent MyTravaly Bangladesh within the SUST Sylhet campus community and promote modern travel-tech initiatives among university students.',
+    actualContribution:
+      'Onboarded as official MyTravaly Bangladesh Campus Ambassador for SUST (Sylhet Campus, Department of Industrial & Production Engineering), documented on official onboarding boarding-pass card.',
+    summary:
+      'Official Campus Ambassador for MyTravaly Bangladesh representing Shahjalal University of Science and Technology (Sylhet Campus, Department of IPE).',
+    highlights: [
+      'Appointed Campus Ambassador for MyTravaly Bangladesh representing SUST Sylhet (Department of Industrial & Production Engineering).',
+    ],
+    evidenceUrl: '/assets/aistudio/image_7fc09aab.png',
+    evidenceLabel: 'View MyTravaly Campus Ambassador Welcome Card',
+  },
   {
     id: 'elevetr-ai',
     role: 'Campus Director',
@@ -192,8 +257,8 @@ export const EXPERIENCES: ExperienceEntry[] = [
     organizationCode: 'DS360',
     category: 'ambassador',
     subCategory: 'Organizations',
-    period: 'Aug 2026 – Present',
-    isCurrent: true,
+    period: 'Aug 2026 – Nov 2026',
+    isCurrent: false,
     location: 'SUST · Hybrid',
     responsibility:
       'Mobilize SUST students into applied data and career-readiness programs (including P2E Passport to Earning / THE UNBOUND track) in coordination with Data Solution-360.',
@@ -424,14 +489,59 @@ export const EXPERIENCES: ExperienceEntry[] = [
     responsibility:
       'Promote CreateX 2.0 marketing, creativity, and leadership competition rounds among SUST student teams.',
     actualContribution:
-      'Completed campus outreach and team-facing promotion for the inter-university competition hosted with TAFE, BUBT.',
+      'Represented SUST as official CreateX 2.0 Campus Ambassador (announcement poster and signed Certificate of Appreciation from The Trailblazers & BUBT TAFE on record), driving competition promotion and participant engagement.',
     summary:
       'Former Campus Ambassador for CreateX 2.0, an inter-university competition focused on creativity, communication, marketing, and leadership.',
-    highlights: ['Coordinated competition outreach to prospective student teams at SUST.'],
-    missingInfo: [
-      'Exact tenure start/end months not specified in source CV.',
-      'Certificate attachment pending manual upload.',
+    highlights: [
+      'Coordinated competition outreach and participant engagement across prospective student teams at SUST.',
+      'Awarded Certificate of Appreciation signed by BUBT TAFE Director Sudipto Chaki and The Trailblazers leadership.',
     ],
+    evidenceUrl: '/assets/aistudio/IMG_20261116_174151_032655df.png',
+    evidenceLabel: 'View Certificate of Appreciation (CreateX 2.0)',
+    certificateId: 'cert-createx-2',
+    missingInfo: ['Exact tenure start/end months not specified in source record.'],
+  },
+  {
+    id: 'unilever-sparks-ca',
+    role: 'Campus Ambassador Finalist (Top 3 Candidate — Whole SUST)',
+    organization: 'Unilever Sparks Campus Ambassador Program',
+    organizationCode: 'ULV',
+    category: 'ambassador',
+    subCategory: 'Organizations',
+    period: '2026',
+    isCurrent: false,
+    location: 'SUST (Whole Campus Selection)',
+    responsibility:
+      'Represented Industrial & Production Engineering and SUST through competitive campus ambassador screening and leadership evaluation rounds for Unilever Sparks.',
+    actualContribution:
+      'Ranked among the Top 3 candidates across the entire Shahjalal University of Science and Technology (SUST) campus in the Unilever Sparks Campus Ambassador Program.',
+    summary:
+      'Selected in the Top 3 candidates across the whole SUST campus in the Unilever Sparks Campus Ambassador Program.',
+    highlights: [
+      'Placed among the Top 3 candidates out of applicants across Shahjalal University of Science and Technology (SUST).',
+    ],
+  },
+  {
+    id: 'fogg-squad-ca',
+    role: 'Campus Ambassador Candidate (Round-02 Video Submission)',
+    organization: 'The FOGG Squad (FOGG × SUST)',
+    organizationCode: 'FOGG',
+    category: 'ambassador',
+    subCategory: 'Events',
+    period: '2026 · Round 02',
+    isCurrent: false,
+    location: 'SUST, Sylhet',
+    responsibility:
+      'Produced and submitted the Round-02 campus ambassador video campaign ("Bold Moments") representing SUST for The FOGG Squad.',
+    actualContribution:
+      'Created and submitted the official Round-02 campaign film ("FOGG × The FOGG Squad Present: Bold Moments — Be Bold. Own Your Moment.", SUST), archived directly as playable video media.',
+    summary:
+      'Round-02 video submission ("Bold Moments") for The FOGG Squad Campus Ambassador Program representing Shahjalal University of Science and Technology.',
+    highlights: [
+      'Produced and submitted the official Round-02 campus ambassador campaign video ("Bold Moments") at SUST.',
+    ],
+    evidenceUrl: '/assets/aistudio/SnapSave_App_1124189620067326_1080p_6815054f.mp4',
+    evidenceLabel: 'Watch Round-02 Bold Moments Video Submission',
   },
 
   // Event Organization & Volunteering (4 total: 3 Event Organization, 1 Volunteering)
@@ -480,17 +590,16 @@ export const EXPERIENCES: ExperienceEntry[] = [
     organizationCode: 'NA',
     category: 'events_volunteering',
     subCategory: 'Event Organization',
-    period: '2026 (Month/day not recorded)',
+    period: '23 Aug 2026',
     isCurrent: false,
     location: 'SUST, Sylhet',
     responsibility:
       'Coordinate joint event logistics and reception staging across both district student associations at SUST.',
     actualContribution:
-      'Co-organized the joint Freshers’ Reception (2025–26 Session) held at SUST Auditorium (stage group photograph verified in visual archive).',
+      'Co-organized the joint Freshers’ Reception (2025–26 Session) / Noakhali Orientation held at SUST Auditorium on 23 August 2026 (stage group photograph verified in visual archive).',
     summary:
       'Former organizing role jointly coordinating the welcome reception for first-year students from Noakhali and Laxmipur districts at SUST.',
     highlights: ['Coordinated cross-association logistics and program execution.'],
-    missingInfo: ['Exact event date pending manual completion.'],
   },
   {
     id: 'vol-init-3',

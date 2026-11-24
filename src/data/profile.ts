@@ -37,6 +37,9 @@ export const PROFILE = {
     linkedin: 'https://www.linkedin.com/in/md-ibtashamur-rahman-56951029a',
     github: 'https://github.com/Ibtasham',
     factoryMind: 'https://github.com/Ibtasham/FactoryMind',
+    factoryMindDemo: 'https://ibtasham.github.io/FactoryMind/',
+    tikaTrack: 'https://github.com/Ibtasham/TikaTrack',
+    tikaTrackDemo: 'https://ibtasham.github.io/TikaTrack/',
     researchOdysseyCertificate: '/assets/aistudio/Ibtashamur_Rahman_31aca808.pdf',
     cvPdf: '/assets/MD_Ibtashamur_Rahman_CV.pdf',
   },
@@ -73,8 +76,8 @@ export const ABOUT_STORY: AboutStory = {
     'I am an emerging Industrial & Production Engineering professional driven by how analytical problem-solving, applied technology, and disciplined leadership can make real-world production and supply systems faster, cleaner, and more resilient.',
   biographyParagraphs: [
     'Originally from Begumganj, Noakhali and now based in Sylhet as a 2nd Year, 1st Semester undergraduate at Shahjalal University of Science & Technology (SUST, Session 2024–25), my foundation was shaped by consistent academic focus—earning a Government of Bangladesh Talent Pool Scholarship in JSC (2019) and achieving a perfect GPA 5.00 across JSC, SSC at Nasirabad Govt. High School, Chattogram, and HSC at Notre Dame College, Dhaka.',
-    'At Notre Dame College, early exposure to debating ideas and organizing events as Group Representative of the Notre Dame English Club, alongside winning 1st Place in the IT Olympiad and volunteering at iNIT 3.0, taught me to pair technical curiosity with clear communication. That dual track deepened at SUST, where I began translating Industrial & Production Engineering coursework into FactoryMind, an open-source operations optimization suite, and preparing four empirical research manuscripts.',
-    'Beyond laboratories and codebases, I invest heavily in building student ecosystems—serving on executive committees for SUST Science Arena (21st EC), Graduate Development Network (GDN-SUST, 11th EC), Noakhali Association (3rd EC), and Engineer’s Association, while representing 12 national and international organizations and events as Campus Director, Campus Ambassador, or Campus Associate.',
+    'At Notre Dame College, early exposure to debating ideas and organizing events as Group Representative of the Notre Dame English Club, alongside winning 1st Place in the IT Olympiad and volunteering at iNIT 3.0, taught me to pair technical curiosity with clear communication. That dual track deepened at SUST, where I built FactoryMind—an open-source TypeScript & Three.js Industrial Engineering workbench—and TikaTrack—a bilingual offline-first immunization PWA—while authoring three unpublished research manuscripts.',
+    'Beyond laboratories and codebases, I invest heavily in building student ecosystems—serving on executive committees for SUST Science Arena (21st EC), Graduate Development Network (GDN-SUST, 11th EC), Noakhali Association (3rd EC), and Engineer’s Association, serving as Campus Lead at Linked Community Bangladesh (from November 2026) alongside Campus Director and Ambassador roles including Elevetr AI, CaraLox, MyTravaly Bangladesh, and STechNest, and placing among the Top 3 candidates across whole SUST in the Unilever Sparks Campus Ambassador Program.',
   ],
   personalDevelopmentNarrative:
     'From early merit scholarships in Chattogram to college leadership in Dhaka and applied operations research, national case finals, and executive governance at SUST, each stage has strengthened a core habit: breaking complex systems into structured decisions and mobilizing people around clear execution.',
@@ -97,18 +100,6 @@ export const ACADEMIC_INTERESTS: AcademicInterest[] = [
       'Line Balancing & Bottleneck Analysis',
       'Statistical Process Control (SPC)',
       'Discrete-Event Simulation',
-    ],
-  },
-  {
-    id: 'ai-scheduling',
-    title: 'Operations Research & Carbon-Aware Scheduling',
-    domain: 'Combinatorial Optimization',
-    summary:
-      'Balancing makespan, tardiness, time-of-use electricity cost, and grid carbon intensity through exact MIP bounds and metaheuristic search.',
-    topics: [
-      'Mixed-Integer Programming (OR-Tools)',
-      'Genetic Algorithms & Simulated Annealing',
-      'Price–Carbon Decoupling Dynamics',
     ],
   },
   {
@@ -143,11 +134,11 @@ export const FUTURE_ASPIRATIONS: AspirationGoal[] = [
     horizon: 'Academic & Research Trajectory',
     title: 'Advance Decision-Aware Operations & Reliability Literature',
     description:
-      'Complete and refine the four manuscripts currently in preparation on explainable prognostics, carbon-aware scheduling, uncertainty-to-cost alignment, and inventory forecasting for rigorous peer-reviewed contribution.',
+      'Complete and refine the three unpublished research studies on explainable cross-dataset RUL prediction, decision-aware uncertainty calibration, and decision-centric demand forecasting for rigorous peer-reviewed contribution.',
     pillars: [
       'Reproducible Benchmark Validation',
-      'Cost-Aligned Modeling',
-      'Sustainable Manufacturing Focus',
+      'Decision-Aligned Calibration',
+      'Transparent Scope & Limitations',
     ],
   },
   {
@@ -193,13 +184,13 @@ export const DIMENSIONS: DimensionPillar[] = [
   {
     id: 'research',
     title: 'Research',
-    subtitle: 'Operations Optimization & Prognostics',
+    subtitle: 'Prognostics, Uncertainty & Inventory OR',
     summary:
-      'Investigating carbon-aware job-shop scheduling, explainable remaining useful life prediction, and decision-centric inventory forecasting across public benchmarks.',
+      'Investigating explainable cross-dataset RUL prediction, decision-aware maintenance uncertainty under operating shift, and decision-centric inventory forecasting across public benchmarks.',
     highlights: [
-      '4 Manuscripts in Preparation',
+      '3 Unpublished Research Studies',
       'NASA C-MAPSS, FEMTO & M5 Benchmarks',
-      'Explainable ML & Cost-Aware Evaluation',
+      'Explainable ML & Decision Science',
     ],
     route: '/research',
   },
@@ -210,7 +201,7 @@ export const DIMENSIONS: DimensionPillar[] = [
     summary:
       'Translating quantitative optimization and business strategy into working software prototypes and competitive national case finals.',
     highlights: [
-      'Open-Source OR-Tools & Streamlit Suite',
+      'Open-Source FactoryMind IPE Workbench & TikaTrack PWA',
       'Finalist — Innovesta 3.0 (Top 10) & Case Quest 2.0',
       '1st Place — iNIT 3.0 IT Olympiad',
     ],
@@ -221,11 +212,11 @@ export const DIMENSIONS: DimensionPillar[] = [
     title: 'Leadership',
     subtitle: 'Executive Governance & Campus Outreach',
     summary:
-      'Coordinating student organizations, inter-university events, and national outreach programs across 12 ambassador/director roles and executive committees.',
+      'Coordinating student organizations, inter-university events, and national outreach programs—including Campus Lead at Linked Community Bangladesh, Top 3 SUST candidate in Unilever Sparks, and executive committees.',
     highlights: [
-      'Asst. Organizing Secretary — SUST Science Arena',
-      'Organizing Executive — GDN SUST (11th EC)',
-      'Built 200+ Student Community (THE UNBOUND · Data Solution-360)',
+      'Campus Lead — Linked Community Bangladesh (Nov 2026 – Present)',
+      'Asst. Organizing Secretary — SUST Science Arena · GDN-SUST (11th EC)',
+      'Top 3 Candidate (Whole SUST) — Unilever Sparks · 200+ Community (DS360)',
     ],
     route: '/experience',
   },
@@ -243,6 +234,7 @@ export const EDUCATION: EducationEntry[] = [
     grade: '2nd Year, 1st Semester · Session 2024–25',
     details: [
       'Core focus areas: Operations Research, Industry 4.0, Smart Manufacturing, Supply Chain & Data Analytics, Engineering Drawing & Graphics, and Workshop Machinery.',
+      'Completed IQAC, SUST training on "Transforming Higher Education: Drivers and Challenges of OBE Curriculum" (24 Feb 2026).',
       'Serving on executive committees of SUST Science Arena (21st EC), GDN-SUST (11th EC), Noakhali Association (3rd EC), and Engineer’s Association.',
     ],
   },
@@ -256,6 +248,7 @@ export const EDUCATION: EducationEntry[] = [
     status: 'Completed',
     grade: 'GPA 5.00 / 5.00',
     details: [
+      'Awarded Perfect Attendance Certificate (#12404016, dated 30 May 2024) for completing the two-year HSC program with zero absences.',
       'Group Representative at Notre Dame English Club (Feb 2023 – Nov 2023), bridging communication between club members and organizers.',
       'Secured 1st Place in the IT Olympiad at iNIT 3.0 and earned Certificate of Excellence as Event Volunteer at iNIT 3.0 (Mar 2024).',
       'Active member across Notre Dame Science Club, Notre Dame Math Club, and Notre Dame IT Club.',
@@ -349,14 +342,14 @@ export const JOURNEY_MILESTONES: JourneyMilestone[] = [
   {
     id: 'm-factorymind-research',
     year: 'Current Work',
-    title: 'Building FactoryMind & Authoring Four Empirical Research Manuscripts',
+    title: 'Building FactoryMind, TikaTrack & Authoring Three Unpublished Research Manuscripts',
     institution: 'Independent Engineering & Research Portfolio',
     category: 'Engineering & Research',
     detail:
-      'Translated industrial engineering theory into the five-module FactoryMind Streamlit optimization suite while preparing four manuscripts across prognostics, carbon-aware scheduling, and retail replenishment.',
+      'Translated industrial engineering and systems design into the live browser-based FactoryMind workbench (EOQ, MRP, 12-model forecasting, SPC, DES, and 3D Digital Twin) and the bilingual TikaTrack PWA, while developing three unpublished benchmark and simulation research manuscripts across prognostics, uncertainty calibration, and retail replenishment.',
     highlights: [
-      'Integrated OR-Tools MIP, Genetic Algorithms, Simulated Annealing, SPC, ML PdM, and DES for an RMG case study.',
-      '4 manuscripts in preparation spanning NASA C-MAPSS, FEMTO/PRONOSTIA, 2025 European power grids, and 3,999 M5 retail series.',
+      'Deployed FactoryMind (React 19, TypeScript DES/MRP solvers, Three.js 3D twin, 12 tests) and TikaTrack (90 vaccines, ECDSA QR, 46 tests) live on GitHub Pages.',
+      '3 unpublished research studies spanning NASA C-MAPSS FD001/FD003, FEMTO/PRONOSTIA bearings, and M5 retail demand series.',
     ],
     takeaway: 'Shifted from learning textbook models to testing decision-aware impact on benchmarks.',
   },
@@ -370,21 +363,21 @@ export const JOURNEY_MILESTONES: JourneyMilestone[] = [
       'Tested analytical problem-solving and persuasive delivery under time pressure across business case competitions, entrepreneurship rounds, and extempore speaking.',
     highlights: [
       'Speak Up 2026 (18 Sep 2026): 4th Overall Finalist and 1st in 2024–25 Session.',
-      'Innovesta 3.0 Top 10 Finalist (Sep 2026), Case Quest 2.0 Finalist, ShowCase 1.0 National Semi-Finalist, and Hult Prize SUST Semi-Finalist.',
+      'Innovesta 3.0 Top 10 Finalist (Sep 2026), Case Quest 2.0 Finalist, ShowCase 1.0 National Semi-Finalist, Hult Prize SUST Semi-Finalist, and Top 3 Candidate (Whole SUST) in Unilever Sparks Campus Ambassador Program.',
     ],
     takeaway: 'Sharpened structured problem-framing and clear presentation under competition pressure.',
   },
   {
     id: 'm-2026-governance',
     year: '2026 – Present',
-    title: 'Executive Governance & 12 National Campus Representation Tenures',
-    institution: 'SUST Organizations & 12 Partner Platforms',
+    title: 'Executive Governance & Campus Representation Leadership',
+    institution: 'SUST Organizations & National Partner Platforms',
     category: 'Leadership & Outreach',
     detail:
-      'Stepped into multi-organization executive leadership at SUST while directing campus outreach across 12 Campus Ambassador, Campus Director, and Campus Associate roles.',
+      'Stepped into multi-organization executive leadership at SUST while directing campus outreach across Campus Lead, Campus Director, and Campus Ambassador mandates including Linked Community Bangladesh, CaraLox, MyTravaly Bangladesh, Elevetr AI, and The FOGG Squad Round-02 video campaign.',
     highlights: [
       'Executive roles: SUST Science Arena (21st EC), GDN-SUST (11th EC), Noakhali Association (3rd EC), Engineer’s Association, and NDC Association SUST.',
-      'Built a 200+ student community for Data Solution-360 and earned AUSTRPC Certificate of Achievement for Research Odyssey 2.0 (Aug 2026).',
+      'Campus Lead for Linked Community Bangladesh (starting Nov 2026), Campus Ambassador for CaraLox & MyTravaly Bangladesh, 200+ community built for Data Solution-360, and AUSTRPC Certificate of Achievement (Aug 2026).',
     ],
     takeaway: 'Matured from individual contributor to coordinator building lasting student communities.',
   },

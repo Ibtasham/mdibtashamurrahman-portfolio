@@ -10,7 +10,10 @@ import {
   ZoomOut,
 } from 'lucide-react';
 import type { ProjectScreenshotEntry } from '../../types/portfolio';
-import { resolveProjectPreviewImage } from '../../utils/projectMedia';
+import {
+  resolveConceptualPreviewImage,
+  resolveProjectPreviewImage,
+} from '../../utils/projectMedia';
 import { DESIGN_TOKENS } from '../../styles/designSystem';
 import { SurfaceCard } from '../ui/SurfaceCard';
 import { ProjectPreviewImage } from './ProjectPreviewImage';
@@ -139,7 +142,12 @@ export function ProjectZoomGallery({
                     projectId={projectId}
                     title={shot.title}
                     alt={`${projectTitle}: ${shot.title}`}
-                    customUrl={shot.imageUrl}
+                    customUrl={
+                      shot.imageUrl ??
+                      (shot.previewSource === 'conceptual'
+                        ? resolveConceptualPreviewImage(projectId)
+                        : undefined)
+                    }
                     kindLabel={shot.kind}
                     onZoom={() => openAt(idx)}
                   />
@@ -285,7 +293,12 @@ export function ProjectZoomGallery({
               {activeShot.useGeneratedPreview || activeShot.imageUrl ? (
                 <div className="min-h-[300px] w-full overflow-auto">
                   <img
-                    src={resolveProjectPreviewImage(projectId, activeShot.imageUrl)}
+                    src={
+                      activeShot.imageUrl ??
+                      (activeShot.previewSource === 'conceptual'
+                        ? resolveConceptualPreviewImage(projectId)
+                        : resolveProjectPreviewImage(projectId, activeShot.imageUrl))
+                    }
                     alt={`${projectTitle}: ${activeShot.title}`}
                     width={1280}
                     height={720}

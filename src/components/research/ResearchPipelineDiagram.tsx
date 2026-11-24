@@ -20,58 +20,58 @@ interface PipelineStageSpec {
 
 const MACRO_PIPELINE_STAGES: PipelineStageSpec[] = [
   {
-    id: 'ingestion',
-    index: '01 · COMPLETED',
-    title: 'Benchmark Ingestion',
-    statusTag: 'Baselines Prepared',
-    subtitle: 'C-MAPSS · FEMTO · M5 · Job-Shop',
+    id: 'benchmark-prep',
+    index: '01 · BENCHMARKS',
+    title: 'Benchmark & Panel Prep',
+    statusTag: 'Public Testbeds',
+    subtitle: 'C-MAPSS · FEMTO · M5 Retail',
     summary:
-      'Curated run-to-failure engine/bearing sequences, intermittent retail demand series (3,999 M5 series), and public job-shop instances paired with 2025 European grid hourly profiles.',
-    techniques: ['Piecewise RUL Framing', 'M5 Series Filtering', '2025 Grid Alignment'],
+      'Curate run-to-failure turbofan (FD001/FD003) and bearing degradation datasets alongside bottom-level M5 retail item-store demand series under strict benchmark protocols.',
+    techniques: ['NASA C-MAPSS FD001/FD003', 'FEMTO / PRONOSTIA', 'M5 Stratified Panel'],
     linkedStudyId: 'rul-explainable',
-    linkedStudyLabel: 'Explainable C-MAPSS RUL Study',
+    linkedStudyLabel: 'Study 01 · Explainable RUL',
     x: 16,
     dashed: false,
   },
   {
-    id: 'modeling',
-    index: '02 · IMPLEMENTED',
-    title: 'Analytical & ML Core',
-    statusTag: 'Baselines Built',
-    subtitle: 'RF · XGBoost · LSTM · SHAP · OR-Tools',
+    id: 'predictive-explain',
+    index: '02 · STUDY 01',
+    title: 'Explainable RUL & Transfer',
+    statusTag: 'Unpublished Research',
+    subtitle: 'RF · XGBoost · LSTM · SHAP',
     summary:
-      'Comparative modeling using Random Forest, XGBoost, and LSTM for prognostics, SHAP attribution for sensor ranking, and tri-objective job-shop optimization solvers.',
-    techniques: ['Random Forest / XGBoost / LSTM', 'SHAP Feature Attribution', 'Tri-Objective Scheduling'],
-    linkedStudyId: 'carbon-aware-jss',
-    linkedStudyLabel: 'Carbon-Aware JSS Manuscript',
+      'Benchmark lightweight tree ensembles and sequential LSTM models across degradation stages, rank influential sensors via SHAP, test reduced sensor sets, and examine cross-dataset fault transfer.',
+    techniques: ['Random Forest / XGBoost / LSTM', 'SHAP Sensor Reduction', 'Cross-Fault Pooled Training'],
+    linkedStudyId: 'rul-explainable',
+    linkedStudyLabel: 'Inspect RUL Study',
     x: 254,
     dashed: false,
   },
   {
-    id: 'uncertainty',
-    index: '03 · ONGOING',
-    title: 'Uncertainty & Cost Coupling',
-    statusTag: 'Active Evaluation',
-    subtitle: 'Calibration · Price–Carbon Decoupling',
+    id: 'decision-uncertainty',
+    index: '03 · STUDY 02',
+    title: 'Decision-Aware Uncertainty',
+    statusTag: 'Unpublished Research',
+    subtitle: 'DAPE · ETCE · Tail-Brier · DRC',
     summary:
-      'Evaluating prediction-interval calibration under operating-condition shift, sensor-pruning trade-offs, and forecast-error vs. realized replenishment cost gaps.',
-    techniques: ['Interval Coverage Checks', 'Sensor Pruning Sensitivity', 'Cost-Divergence Analysis'],
+      'Connect RUL risk estimates directly to a cost-sensitive newsvendor-style replacement rule under operating-condition shift using closed-loop DAPE evaluation and DRC recalibration.',
+    techniques: ['DAPE Renewal-Reward Loop', 'ETCE & Tail-Brier', 'Decision-Relevant Conformal'],
     linkedStudyId: 'decision-aware-prognostics',
-    linkedStudyLabel: 'Decision-Aware Prognostics Study',
+    linkedStudyLabel: 'Inspect DAPE Study',
     x: 492,
     dashed: false,
   },
   {
-    id: 'policy',
-    index: '04 · PROPOSED',
-    title: 'Policy & Robustness Sweeps',
-    statusTag: 'Proposed Experiments',
-    subtitle: 'Maintenance · Multi-Regime · Stochastic',
+    id: 'inventory-policy',
+    index: '04 · STUDY 03',
+    title: 'Decision-Centric Inventory',
+    statusTag: 'Unpublished Research',
+    subtitle: 'M5 · LightGBM · Lost-Sales Sim',
     summary:
-      'Planned closed-loop asymmetric failure-cost policy sweeps across multi-regime C-MAPSS subsets, multi-echelon inventory extensions, and stochastic machine disruptions.',
-    techniques: ['Asymmetric Cost Curves', 'Multi-Condition Validation', 'Stochastic Disruption Checks'],
+      'Pair point, quantile, and empirical-interval demand forecasters with periodic-review lost-sales replenishment policies under validation-cost strategy selection.',
+    techniques: ['Nine Point Forecasters', 'LightGBM Quantile Model', 'Base-Stock & Review Policies'],
     linkedStudyId: 'decision-centric-demand',
-    linkedStudyLabel: 'Decision-Centric Inventory Study',
+    linkedStudyLabel: 'Inspect Inventory Study',
     x: 730,
     dashed: true,
   },
@@ -79,9 +79,50 @@ const MACRO_PIPELINE_STAGES: PipelineStageSpec[] = [
 
 const STUDY_SHORT_LABELS: Record<string, string> = {
   'rul-explainable': 'Study 01 · Explainable RUL',
-  'decision-aware-prognostics': 'Study 02 · Decision-Aware Prognostics',
-  'carbon-aware-jss': 'Study 03 · Carbon-Aware JSS',
-  'decision-centric-demand': 'Study 04 · M5 Inventory Policy',
+  'decision-aware-prognostics': 'Study 02 · Decision-Aware Uncertainty',
+  'decision-centric-demand': 'Study 03 · Decision-Centric Demand',
+};
+
+const STUDY_STEP_TITLES: Record<string, string[]> = {
+  'rul-explainable': [
+    'FD001 & FD003 Setup',
+    'RF / XGBoost / LSTM Eval',
+    'SHAP & Sensor Pruning',
+    'Cross-Fault Transfer',
+  ],
+  'decision-aware-prognostics': [
+    'Cost-Sensitive Rule',
+    'DAPE Closed Loop',
+    'ETCE / Tail-Brier / DRC',
+    'Shift & Limitations',
+  ],
+  'decision-centric-demand': [
+    'M5 Panel & Sampling',
+    'Point & Quantile Models',
+    'Lost-Sales Policy Sim',
+    'Validation Selection',
+  ],
+};
+
+const STUDY_STEP_SUBTITLES: Record<string, string[]> = {
+  'rul-explainable': [
+    'Single Condition · Fault Modes',
+    'RF · XGBoost · LSTM · RMSE / MAE',
+    'SHAP Rankings · Reduced Sensors',
+    'Pooled Training & FD002/FD004',
+  ],
+  'decision-aware-prognostics': [
+    'Cost-Sensitive Replacement Rule',
+    'C-MAPSS & FEMTO / PRONOSTIA',
+    'Risk Reliability & Quantile DRC',
+    'Out-of-Support Shift & Retraining',
+  ],
+  'decision-centric-demand': [
+    'Bottom-Level Series & Stratified',
+    '9 Point + LightGBM Quantile + Int.',
+    'Single-Echelon Periodic Review',
+    'Aggregation Confound & Multi-Echelon',
+  ],
 };
 
 interface ResearchPipelineDiagramProps {
@@ -92,7 +133,7 @@ export function ResearchPipelineDiagram({ studyId }: ResearchPipelineDiagramProp
   const diagramUid = useId();
   const [selectedMode, setSelectedMode] = useState<string>(studyId ?? 'macro');
   const [selectedStageId, setSelectedStageId] = useState<string>(
-    studyId ? 'step-0' : 'uncertainty',
+    studyId ? 'step-0' : 'decision-uncertainty',
   );
 
   const activeManuscript = useMemo(
@@ -106,42 +147,39 @@ export function ResearchPipelineDiagram({ studyId }: ResearchPipelineDiagramProp
     }
 
     const steps = activeManuscript.methodologySteps ?? [];
+    const customTitles = STUDY_STEP_TITLES[activeManuscript.id] ?? [
+      'Benchmark Framing',
+      'Core Modelling',
+      'Decision Evaluation',
+      'Future Directions',
+    ];
+    const customSubtitles = STUDY_STEP_SUBTITLES[activeManuscript.id] ?? [];
     const xOffsets = [16, 254, 492, 730];
-    const builtStages: PipelineStageSpec[] = steps.slice(0, 3).map((stepText, idx) => {
-      const stageTitles = ['Data & Benchmark Setup', 'Core Modeling & Formulation', 'Empirical Analysis'];
-      const stageStatuses = ['Baseline Scope Defined', 'Manuscript Formulation', 'Evaluation Protocol'];
+
+    return [0, 1, 2, 3].map((idx) => {
+      const isLast = idx === 3;
+      const stepText =
+        steps[idx] ??
+        (isLast
+          ? activeManuscript.futureDirections?.[0] ?? activeManuscript.expectedContribution
+          : activeManuscript.expectedContribution);
       return {
         id: `step-${idx}`,
-        index: `0${idx + 1} · PROTOCOL`,
-        title: stageTitles[idx] ?? `Methodology Step ${idx + 1}`,
-        statusTag: stageStatuses[idx] ?? 'Protocol Stage',
-        subtitle: activeManuscript.methods[idx] ?? activeManuscript.domain,
+        index: `0${idx + 1} · ${isLast ? 'SCOPE & NEXT' : 'METHODOLOGY'}`,
+        title: customTitles[idx] ?? `Stage 0${idx + 1}`,
+        statusTag: isLast ? 'Extensions & Limits' : 'Conceptual Stage',
+        subtitle:
+          customSubtitles[idx] ??
+          activeManuscript.methods[idx % Math.max(1, activeManuscript.methods.length)] ??
+          activeManuscript.domain,
         summary: stepText,
         techniques: activeManuscript.methods,
         linkedStudyId: activeManuscript.id,
         linkedStudyLabel: 'Open Full Study Page',
         x: xOffsets[idx] ?? 16 + idx * 238,
-        dashed: idx === 2,
+        dashed: isLast,
       };
     });
-
-    builtStages.push({
-      id: 'step-3',
-      index: '04 · PROPOSED NEXT',
-      title: 'Planned Validation & Ext.',
-      statusTag: 'Proposed Experiments',
-      subtitle: 'Out-of-Distribution & Future Work',
-      summary:
-        activeManuscript.proposedWork?.[0] ??
-        activeManuscript.expectedContribution,
-      techniques: ['Proposed Extension', activeManuscript.datasetsOrBenchmarks],
-      linkedStudyId: activeManuscript.id,
-      linkedStudyLabel: 'Inspect Manuscript Details',
-      x: 730,
-      dashed: true,
-    });
-
-    return builtStages;
   }, [activeManuscript]);
 
   const activeStage =
@@ -149,7 +187,7 @@ export function ResearchPipelineDiagram({ studyId }: ResearchPipelineDiagramProp
 
   const handleModeSwitch = (mode: string) => {
     setSelectedMode(mode);
-    setSelectedStageId(mode === 'macro' ? 'uncertainty' : 'step-0');
+    setSelectedStageId(mode === 'macro' ? 'decision-uncertainty' : 'step-0');
   };
 
   return (
@@ -157,15 +195,12 @@ export function ResearchPipelineDiagram({ studyId }: ResearchPipelineDiagramProp
       <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200 dark:border-slate-800/80 pb-3">
         <figcaption className="font-mono text-xs font-medium text-slate-900 dark:text-slate-100">
           {activeManuscript
-            ? `Study Methodology Flow · ${STUDY_SHORT_LABELS[activeManuscript.id] ?? activeManuscript.domain}`
-            : 'Empirical Research Architecture · From Public Benchmarks to Decision Policies'}
+            ? `Conceptual Methodology Illustration · ${STUDY_SHORT_LABELS[activeManuscript.id] ?? activeManuscript.domain}`
+            : 'Conceptual Methodology Visualization · Predictive Modelling to Operational Decisions'}
         </figcaption>
         <div className="flex flex-wrap items-center gap-4 font-mono text-[11px]">
           <span className="text-cyan-700 dark:text-cyan-300">
-            Solid = Completed / Active Protocol
-          </span>
-          <span className="text-slate-600 dark:text-slate-400">
-            Dashed = Ongoing / Proposed Extensions
+            Conceptual Explanatory Workflow (No Unpublished Figures)
           </span>
         </div>
       </div>
@@ -187,7 +222,7 @@ export function ResearchPipelineDiagram({ studyId }: ResearchPipelineDiagramProp
                 : 'border-slate-200 bg-slate-50 text-slate-700 hover:border-slate-300 dark:border-slate-800 dark:bg-[#0b1222] dark:text-slate-300 dark:hover:border-slate-700'
             }`}
           >
-            Overall Research Pipeline
+            All 3 Connected Studies
           </button>
           {RESEARCH_MANUSCRIPTS.map((study) => {
             const active = selectedMode === study.id;
@@ -215,8 +250,8 @@ export function ResearchPipelineDiagram({ studyId }: ResearchPipelineDiagramProp
         role="img"
         aria-label={
           activeManuscript
-            ? `Four-stage methodology diagram for ${activeManuscript.title}`
-            : 'Four-stage empirical research pipeline: Benchmark Ingestion, Analytical and ML Core, Uncertainty and Cost Coupling, and Proposed Policy Loops'
+            ? `Conceptual four-stage methodology diagram for ${activeManuscript.title}`
+            : 'Conceptual research architecture connecting benchmark preparation, explainable RUL prediction, decision-aware uncertainty calibration, and decision-centric demand forecasting'
         }
         className="hidden sm:block h-auto w-full"
       >
@@ -410,7 +445,7 @@ export function ResearchPipelineDiagram({ studyId }: ResearchPipelineDiagramProp
             </p>
             <p className={DESIGN_TOKENS.typography.body}>{activeStage.summary}</p>
             <p className="font-mono text-[11px] text-slate-600 dark:text-slate-400">
-              Methods: {activeStage.techniques.join(' · ')}
+              Approaches: {activeStage.techniques.join(' · ')}
             </p>
           </div>
           {!studyId && (

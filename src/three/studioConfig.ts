@@ -286,13 +286,13 @@ export const STUDIO_MODELS: Record<StudioModelId, StudioModelSpec> = {
     id: 'factorymind-cell',
     shortTitle: 'Workcell',
     title: 'FactoryMind · 6-Axis Smart Manufacturing Cell',
-    projectRef: 'Industry 4.0 Scheduling & SPC Concept',
+    projectRef: 'FactoryMind · DES, Line Balancing & SPC Twin',
     projectRoute: '/projects/factorymind',
     subtitle:
       'Articulated robotic handling arm, precision roller conveyor, and optical statistical process control portal executing automated part inspection.',
     conceptualNotice: CONCEPTUAL_STUDIO_DISCLAIMER,
     ipeRelevance:
-      'Smart manufacturing cells unite core Industrial & Production Engineering disciplines: kinematic work-cycle optimization (takt time), conveyor buffer balancing, Automated Optical Statistical Process Control (SPC), and shop-floor dispatch scheduling implemented conceptually in FactoryMind.',
+      'Smart manufacturing cells unite core Industrial & Production Engineering disciplines: kinematic work-cycle optimization (takt time), conveyor buffer balancing, Statistical Process Control (SPC), and shop-floor discrete-event simulation modeled in FactoryMind.',
     ipeDomains: [
       'Cell Cycle & Takt Balancing',
       'Statistical Process Control (SPC)',
@@ -320,7 +320,7 @@ export const STUDIO_MODELS: Record<StudioModelId, StudioModelSpec> = {
         ],
         relatedRecords: [
           {
-            label: 'FactoryMind · Industrial Operations Concept',
+            label: 'FactoryMind · Engineering Workbench',
             kind: 'Project',
             to: '/projects/factorymind',
           },
@@ -428,7 +428,7 @@ export const STUDIO_MODELS: Record<StudioModelId, StudioModelSpec> = {
         ],
         relatedRecords: [
           {
-            label: 'FactoryMind · Interactive SPC Prototype',
+            label: 'FactoryMind · Live Engineering Workbench',
             kind: 'Project',
             to: '/projects/factorymind',
           },
@@ -662,13 +662,13 @@ export const STUDIO_MODELS: Record<StudioModelId, StudioModelSpec> = {
     id: 'carbon-cnc',
     shortTitle: 'Carbon CNC',
     title: 'Operations Research · Carbon-Aware 3-Axis CNC Center',
-    projectRef: 'Tri-Objective Tariff & Grid Carbon Scheduling',
-    projectRoute: '/research/carbon-aware-jss',
+    projectRef: 'Sustainable Scheduling & Power-Aware Operations',
+    projectRoute: '/projects/factorymind',
     subtitle:
       'Vertical machining center paired with a real-time grid tariff & carbon-intensity metering cabinet modeling power-aware job-shop execution.',
     conceptualNotice: CONCEPTUAL_STUDIO_DISCLAIMER,
     ipeRelevance:
-      'Sustainable manufacturing requires scheduling CNC cutting passes not only for minimum makespan, but also for Time-of-Use electricity tariffs and hourly grid carbon intensity (gCO2/kWh)—the core tri-objective operations research model explored in my Carbon-Aware Job-Shop Scheduling study.',
+      'Sustainable manufacturing requires scheduling CNC cutting passes not only for minimum makespan, but also for Time-of-Use electricity tariffs and hourly grid carbon intensity (gCO2/kWh) alongside shop-floor dispatch inside FactoryMind.',
     ipeDomains: [
       'Sustainable Manufacturing',
       'Multi-Objective Job-Shop Scheduling',
@@ -696,9 +696,9 @@ export const STUDIO_MODELS: Record<StudioModelId, StudioModelSpec> = {
         ],
         relatedRecords: [
           {
-            label: 'Carbon-Aware Job-Shop Scheduling Manuscript',
-            kind: 'Research',
-            to: '/research/carbon-aware-jss',
+            label: 'FactoryMind Operations Workbench',
+            kind: 'Project',
+            to: '/projects/factorymind',
           },
         ],
         cameraFocus: { position: [4.2, 2.7, 4.4], target: [-0.35, 1.4, 0] },
@@ -723,9 +723,9 @@ export const STUDIO_MODELS: Record<StudioModelId, StudioModelSpec> = {
         ],
         relatedRecords: [
           {
-            label: 'Carbon-Aware Job-Shop Scheduling Study',
-            kind: 'Research',
-            to: '/research/carbon-aware-jss',
+            label: 'FactoryMind Operations Workbench',
+            kind: 'Project',
+            to: '/projects/factorymind',
           },
         ],
         cameraFocus: { position: [2.1, 1.9, 2.9], target: [-0.35, 0.9, 0.25] },
@@ -750,9 +750,9 @@ export const STUDIO_MODELS: Record<StudioModelId, StudioModelSpec> = {
         ],
         relatedRecords: [
           {
-            label: 'Carbon-Aware JSS Optimization Model',
-            kind: 'Research',
-            to: '/research/carbon-aware-jss',
+            label: 'FactoryMind Operations Workbench',
+            kind: 'Project',
+            to: '/projects/factorymind',
           },
         ],
         cameraFocus: { position: [2.2, 2.05, 2.3], target: [-0.35, 1.45, -0.1] },
@@ -776,11 +776,6 @@ export const STUDIO_MODELS: Record<StudioModelId, StudioModelSpec> = {
           'Smart Grid & Sustainable Operations Research',
         ],
         relatedRecords: [
-          {
-            label: 'Carbon-Aware JSS Manuscript',
-            kind: 'Research',
-            to: '/research/carbon-aware-jss',
-          },
           {
             label: 'FactoryMind · OEE & Power Scheduling',
             kind: 'Project',

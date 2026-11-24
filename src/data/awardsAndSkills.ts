@@ -83,6 +83,17 @@ export const ACHIEVEMENTS: AchievementEntry[] = [
     missingInfo: ['Exact competition date and team name pending manual completion.'],
   },
   {
+    id: 'ach-unilever-sparks',
+    title: 'Unilever Sparks Campus Ambassador Program',
+    placement: 'Top 3 Candidate (Whole SUST)',
+    organization: 'Unilever Bangladesh · SUST Campus Selection',
+    organizationCode: 'ULV',
+    year: '2026',
+    category: 'Competition',
+    details:
+      'Selected among the Top 3 candidates across the entire Shahjalal University of Science and Technology (SUST) campus in the competitive Unilever Sparks Campus Ambassador Program.',
+  },
+  {
     id: 'ach-hult',
     title: 'Hult Prize — SUST Campus Round',
     placement: 'Semi-Finalist',
@@ -117,6 +128,42 @@ export const ACHIEVEMENTS: AchievementEntry[] = [
     details:
       'Awarded signed digital Certificate of Achievement recognizing enthusiasm and commitment during nationwide Bangladesh event outreach for Research Odyssey 2.0.',
     certificateId: 'cert-research-odyssey',
+  },
+  {
+    id: 'ach-createx-2',
+    title: 'CreateX 2.0 — Campus Ambassador Appreciation',
+    placement: 'Certificate of Appreciation',
+    organization: 'The Trailblazers · BUBT TAFE',
+    organizationCode: 'CRX',
+    year: '2026',
+    category: 'Recognition & Volunteering',
+    details:
+      'Presented Certificate of Appreciation for dedicated contribution as Campus Ambassador for CreateX 2.0 representing SUST, organized by The Trailblazers in collaboration with TAFE, BUBT.',
+    certificateId: 'cert-createx-2',
+  },
+  {
+    id: 'ach-ndc-attendance',
+    title: 'Notre Dame College — Perfect Attendance Distinction',
+    placement: 'Perfect Attendance (#12404016)',
+    organization: 'Notre Dame College, Dhaka',
+    organizationCode: 'NDC',
+    year: '30 May 2024',
+    category: 'Academic',
+    details:
+      'Awarded official Perfect Attendance Certificate (#12404016) signed by the Principal upon completing the two-year Higher Secondary course of study at Notre Dame College with perfect attendance.',
+    certificateId: 'cert-ndc-attendance',
+  },
+  {
+    id: 'ach-iqac-obe',
+    title: 'OBE Curriculum Transformation Training (IQAC, SUST)',
+    placement: 'Participation Certificate',
+    organization: 'Institutional Quality Assurance Cell (IQAC), SUST',
+    organizationCode: 'IQAC',
+    year: '24 Feb 2026',
+    category: 'Academic',
+    details:
+      'Completed formal training on "Transforming Higher Education: Drivers and Challenges of OBE Curriculum" conducted by the Institutional Quality Assurance Cell (IQAC), SUST on 24 February 2026.',
+    certificateId: 'cert-iqac-obe',
   },
 ];
 
@@ -195,6 +242,53 @@ export const CERTIFICATES: CertificateAttachment[] = [
     linkedRoute: '/experience/vol-init-3',
     notes:
       'Scanned Certificate of Excellence signed by NDITC Moderator Saikat Lawrence Rozario and Notre Dame College Principal Dr. Fr. Hemanto Pius Rozario, CSC for volunteering in IUB Presents init 3.0.',
+  },
+  {
+    id: 'cert-createx-2',
+    title: 'CreateX 2.0 — Campus Ambassador Certificate of Appreciation',
+    issuer: 'The Trailblazers · BUBT TAFE (Bangladesh University of Business and Technology)',
+    organizationCode: 'CRX',
+    date: '2026',
+    category: 'Experience & Outreach',
+    status: 'Verified Attachment',
+    fileUrl: '/assets/aistudio/IMG_20261116_174151_032655df.png',
+    fileType: 'Image',
+    linkedEntryId: 'createx-2',
+    linkedRoute: '/experience/createx-2',
+    notes:
+      'Certificate of Appreciation for serving as Campus Ambassador for CreateX 2.0, organized by The Trailblazers with BUBT TAFE; signed by Sudipto Chaki (Director, BUBT TAFE), Zinnath Zafar Hiya (Programme Chief & CEO), and Masru Zafar Plabon (Programme Director & Co-Founder).',
+  },
+  {
+    id: 'cert-ndc-attendance',
+    title: 'Notre Dame College — Perfect Attendance Certificate',
+    issuer: 'Notre Dame College, Dhaka',
+    organizationCode: 'NDC',
+    date: '30 May 2024',
+    category: 'Academic',
+    status: 'Verified Attachment',
+    credentialId: '#12404016',
+    fileUrl: '/assets/aistudio/IMG_20260928_154453_aab03d5c.jpg',
+    fileType: 'Image',
+    rotateDeg: 270,
+    linkedEntryId: 'ach-ndc-attendance',
+    linkedRoute: '/awards',
+    notes:
+      'Official Perfect Attendance Certificate (#12404016) dated May 30, 2024 and signed by the Principal of Notre Dame College, Dhaka, recognizing completion of the two-year HSC program with perfect attendance.',
+  },
+  {
+    id: 'cert-iqac-obe',
+    title: 'Training on Transforming Higher Education: Drivers and Challenges of OBE Curriculum',
+    issuer: 'Institutional Quality Assurance Cell (IQAC), SUST',
+    organizationCode: 'IQAC',
+    date: '24 Feb 2026',
+    category: 'Academic',
+    status: 'Verified Attachment',
+    fileUrl: '/assets/aistudio/IMG_20261123_225736_366c2712.jpg',
+    fileType: 'Image',
+    linkedEntryId: 'ach-iqac-obe',
+    linkedRoute: '/awards',
+    notes:
+      'Participation Certificate issued by IQAC, Shahjalal University of Science and Technology (Sylhet-3114) for the February 24, 2026 training on Outcome-Based Education (OBE) curriculum; signed by Dr. Salma Akhter, Dr. Md. Abdul Hamid, and Dr. Mohammad Masud Alam.',
   },
   {
     id: 'cert-init-olympiad',
@@ -294,11 +388,12 @@ export const SKILL_CATEGORIES: SkillCategoryGroup[] = [
         ],
       },
       {
-        name: 'Streamlit Analytical Dashboards',
+        name: 'Interactive TypeScript, React & Three.js Engineering UIs',
         detail:
-          'Building interactive decision-support web tools uniting scheduling, SPC charts, and reliability views.',
+          'Building browser-native engineering workbenches and offline-first PWAs uniting solvers, Recharts, 3D models, and jsPDF exports.',
         evidenceLinks: [
-          { label: 'FactoryMind Streamlit UI', kind: 'Project', to: '/projects/factorymind' },
+          { label: 'FactoryMind Workbench', kind: 'Project', to: '/projects/factorymind' },
+          { label: 'TikaTrack PWA', kind: 'Project', to: '/projects/tikatrack' },
         ],
       },
       {
@@ -353,9 +448,9 @@ export const SKILL_CATEGORIES: SkillCategoryGroup[] = [
         ],
       },
       {
-        name: 'Large-Scale Benchmark Data Analysis',
+        name: 'Benchmark Time-Series & Prognostic Analysis',
         detail:
-          'Processing and evaluating 3,999 real retail time series (M5) and 2025 hourly European power grid datasets.',
+          'Evaluating NASA C-MAPSS (FD001/FD003), FEMTO/PRONOSTIA bearings, and bottom-level M5 retail demand series.',
         evidenceLinks: [
           { label: 'M5 Inventory Study', kind: 'Research', to: '/research/decision-centric-demand' },
           { label: 'Data Solution-360 Role', kind: 'Experience', to: '/experience/data-solution-360' },
@@ -376,7 +471,7 @@ export const SKILL_CATEGORIES: SkillCategoryGroup[] = [
           'Formulating exact linear and mixed-integer production scheduling and resource allocation problems.',
         evidenceLinks: [
           { label: 'FactoryMind Scheduler', kind: 'Project', to: '/projects/factorymind' },
-          { label: 'Carbon-Aware JSS Study', kind: 'Research', to: '/research/carbon-aware-jss' },
+          { label: 'Research & Ongoing Work', kind: 'Research', to: '/research' },
         ],
       },
       {
@@ -388,17 +483,17 @@ export const SKILL_CATEGORIES: SkillCategoryGroup[] = [
         ],
       },
       {
-        name: 'Tri-Objective & Carbon-Aware Scheduling',
+        name: 'Closed-Loop Decision Science & Risk Calibration',
         detail:
-          'Balancing tardiness/makespan, ToU electricity cost, and grid carbon intensity under price–carbon decoupling.',
+          'Framing maintenance replacement rules via DAPE renewal-reward evaluation, ETCE, tail-Brier, and DRC recalibration.',
         evidenceLinks: [
-          { label: 'Carbon-Aware JSS Manuscript', kind: 'Research', to: '/research/carbon-aware-jss' },
+          { label: 'Decision-Aware Uncertainty', kind: 'Research', to: '/research/decision-aware-prognostics' },
         ],
       },
       {
-        name: 'Inventory Replenishment & Maintenance Policy Modeling',
+        name: 'Inventory Replenishment & Quantile Policy Modeling',
         detail:
-          'Lost-sales periodic-review simulation across 59 forecaster–policy pairings and asymmetric failure-cost evaluation.',
+          'Single-echelon periodic-review lost-sales simulation pairing point, LightGBM quantile, and empirical-interval forecasters with review policies.',
         evidenceLinks: [
           { label: 'Inventory Replenishment Study', kind: 'Research', to: '/research/decision-centric-demand' },
           { label: 'Policy Cost Study', kind: 'Research', to: '/research/decision-aware-prognostics' },
@@ -411,38 +506,38 @@ export const SKILL_CATEGORIES: SkillCategoryGroup[] = [
     title: 'Research Methods',
     subtitle: 'Empirical Framing, Synthesis & Academic Writing',
     summary:
-      'Disciplined undergraduate inquiry focused on decision-centric evaluation, baseline integrity, and transparent hypothesis testing.',
+      'Disciplined undergraduate inquiry focused on decision-centric evaluation, baseline integrity, and explicit disclosure of study limitations.',
     items: [
       {
         name: 'Experimental Design & Decision-Centric Framing',
         detail:
-          'Structuring experiments that test realized operational cost alongside statistical accuracy rather than isolated error scores.',
+          'Structuring benchmark and simulation experiments that evaluate realized operational cost alongside statistical accuracy.',
         evidenceLinks: [
-          { label: 'Decision-Aware Prognostics', kind: 'Research', to: '/research/decision-aware-prognostics' },
+          { label: 'Decision-Aware Uncertainty', kind: 'Research', to: '/research/decision-aware-prognostics' },
           { label: 'Decision-Centric Demand', kind: 'Research', to: '/research/decision-centric-demand' },
         ],
       },
       {
         name: 'Systematic Literature Synthesis',
         detail:
-          'Mapping baseline architectures and evaluation gaps across prognostics, sustainable job-shop scheduling, and retail inventory.',
+          'Mapping baseline architectures and evaluation gaps across RUL prognostics, uncertainty calibration, and retail inventory replenishment.',
         evidenceLinks: [
-          { label: 'Research Studies Portfolio', kind: 'Research', to: '/research' },
+          { label: 'Research & Ongoing Work', kind: 'Research', to: '/research' },
         ],
       },
       {
         name: 'Technical Manuscript Preparation',
         detail:
-          'Authoring abstracts, research questions, methodology pipelines, and limitation disclosures across 4 manuscripts in preparation.',
+          'Authoring problem statements, methodology protocols, contribution scopes, and limitation disclosures across 3 unpublished studies.',
         evidenceLinks: [
-          { label: 'Manuscripts in Preparation', kind: 'Research', to: '/research' },
+          { label: 'Unpublished Research Brief', kind: 'Research', to: '/research' },
           { label: 'Think Lab Ambassador', kind: 'Experience', to: '/experience/think-lab' },
         ],
       },
       {
-        name: 'Empirical Verification & Ablation Analysis',
+        name: 'Cross-Dataset & Sensitivity Evaluation',
         detail:
-          'Sensor pruning sensitivity checks, regime-shift stress evaluations, and strict separation of completed vs. proposed tests.',
+          'Sensor pruning sensitivity checks, cross-fault transfer evaluation (FD001/FD003), and regime-shift boundary analysis.',
         evidenceLinks: [
           { label: 'Explainable RUL Study', kind: 'Research', to: '/research/rul-explainable' },
         ],
@@ -477,10 +572,11 @@ export const SKILL_CATEGORIES: SkillCategoryGroup[] = [
       {
         name: 'Campus Outreach & Community Building',
         detail:
-          'Directed SUST representation across 12 national/international ambassador tenures, building a 200+ student learning community.',
+          'Directed SUST representation across 15+ national/international ambassador, Campus Lead, and program finalist tracks—building a 200+ student learning community and earning Top 3 SUST candidate selection in Unilever Sparks.',
         evidenceLinks: [
+          { label: 'Linked Community BD (Campus Lead)', kind: 'Experience', to: '/experience/linked-community-bd' },
           { label: 'Data Solution-360 (200+ Members)', kind: 'Experience', to: '/experience/data-solution-360' },
-          { label: 'Research Odyssey 2.0 Cert', kind: 'Experience', to: '/experience/research-odyssey-2' },
+          { label: 'Unilever Sparks Top 3 (SUST)', kind: 'Award', to: '/awards' },
         ],
       },
       {
@@ -520,7 +616,7 @@ export const SKILL_GROUPS: SkillGroup[] = [
     id: 'sg-data',
     category: 'Programming, Data Analytics & Research Methods',
     items: [
-      'Python & Streamlit Analytical Interfaces',
+      'Python, TypeScript & React Analytical Interfaces',
       'Predictive Maintenance Modeling (RF, XGBoost, LSTM, SHAP)',
       'Uncertainty Calibration & Policy Cost Evaluation',
       'Systematic Literature Synthesis & Manuscript Drafting',

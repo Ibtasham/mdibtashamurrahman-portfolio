@@ -28,19 +28,19 @@ export function ResearchMetricsPanel() {
 
   const experimentDistribution = [
     {
-      label: 'Completed Experiments',
+      label: 'Completed Tracks',
       count: summary.totals.completedExperiments,
       colorClass: 'bg-cyan-600 dark:bg-cyan-400',
       note: 'Baselines & simulations structured',
     },
     {
-      label: 'Ongoing Experiments',
+      label: 'Ongoing Tracks',
       count: summary.totals.ongoingExperiments,
       colorClass: 'bg-blue-600 dark:bg-blue-400',
       note: 'Active evaluation & manuscript prep',
     },
     {
-      label: 'Proposed Experiments',
+      label: 'Proposed Tracks',
       count: summary.totals.proposedExperiments,
       colorClass: 'bg-slate-400 dark:bg-slate-600',
       note: 'Planned robustness & policy sweeps',
@@ -57,7 +57,7 @@ export function ResearchMetricsPanel() {
               Source-Verified Experimental Registry
             </p>
             <h4 className={DESIGN_TOKENS.typography.cardTitleLg}>
-              Execution Stage Distribution ({totalExperiments} Studies)
+              Execution Stage Distribution (3 Studies · {totalExperiments} Tracks)
             </h4>
           </div>
 
@@ -175,7 +175,7 @@ export function ResearchMetricsPanel() {
               aria-hidden="true"
             />
             <p className="leading-relaxed">
-              Charts above reflect strictly verified pipeline counts from portfolio records. Quantitative accuracy/cost plots (NASA C-MAPSS RMSE, carbon savings deltas, M5 cost rankings) are withheld until empirical result tables are cleared for publication.
+              Counts above track strictly benchmark and simulation pipeline stages across the three unpublished studies. Detailed numerical findings, full metric tables, complete manuscript text, and unapproved figures remain private pending formal review.
             </p>
           </div>
         </SurfaceCard>

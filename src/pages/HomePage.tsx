@@ -1,14 +1,10 @@
 import { lazy, Suspense } from 'react';
 import { AboutPreview } from '../components/home/AboutPreview';
 import { HomeV2Hero } from '../components/home-v2/HomeV2Hero';
+import { ProjectsSection } from '../components/home/ProjectsSection';
 import { PROFILE } from '../data/portfolio';
 import { usePageMetadata } from '../hooks/usePageMetadata';
 
-const ProjectsSection = lazy(() =>
-  import('../components/home/ProjectsSection').then((m) => ({
-    default: m.ProjectsSection,
-  })),
-);
 const ResearchSection = lazy(() =>
   import('../components/home/ResearchSection').then((m) => ({
     default: m.ResearchSection,
@@ -70,9 +66,7 @@ export function HomePage() {
     <>
       <HomeV2Hero />
       <AboutPreview />
-      <Suspense fallback={<SectionBandFallback id="projects" />}>
-        <ProjectsSection />
-      </Suspense>
+      <ProjectsSection />
       <Suspense fallback={<SectionBandFallback id="research" />}>
         <ResearchSection />
       </Suspense>

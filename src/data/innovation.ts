@@ -20,26 +20,26 @@ export const INNOVATION_PROFILE_META = {
 export const INNOVATION_ENTRIES: InnovationEntry[] = [
   {
     id: 'inn-factorymind',
-    title: 'FactoryMind — Smart Production & Operations Optimization Suite',
+    title: 'FactoryMind — Inventory & Production Engineering Workbench',
     category: 'Software Prototype',
     stage: 'prototype',
     stageLabel: 'Working Prototype',
-    period: 'Active Open-Source Prototype',
-    teamContext: 'Independent IPE Software Build · Public GitHub Repository',
+    period: 'Live Open-Source Prototype',
+    teamContext: 'Independent IPE Software Build · Live GitHub Pages + Repository',
     problemIdentified:
-      'Manufacturing teams—especially in labor- and throughput-sensitive Ready-Made Garments (RMG) workflows—frequently plan scheduling, inventory sizing, Statistical Process Control (SPC), equipment reliability, and line balancing across disconnected spreadsheets.',
+      'Industrial engineers and production planners routinely analyze EOQ sizing, multi-level MRP explosions, 12-model demand forecasts, line balancing, SPC limits, and discrete-event throughput across disconnected spreadsheets.',
     targetUsers:
-      'Industrial engineers, shop-floor production planners, operations analysts, and IPE undergraduates evaluating multi-stage manufacturing trade-offs.',
+      'Industrial engineers, production planners, operations analysts, and IPE undergraduates testing multi-stage plant trade-offs.',
     proposedSolution:
-      'A unified five-module Streamlit analytical application connecting OR-Tools Mixed-Integer Programming, Genetic Algorithms, and Simulated Annealing scheduling with supply chain allocation, SPC charts, Scikit-Learn predictive maintenance, and Discrete-Event Simulation.',
+      'A browser-native React 19 & TypeScript engineering workbench executing deterministic EOQ/EPQ, multi-level MRP, 5 assembly line-balancing solvers, 12-model cross-validated forecasting, binary-heap DES, SPC control charts, a Three.js 3D Digital Twin, and an approval-gated Decision Assistant.',
     innovationApproach:
-      'Translating standalone Industrial & Production Engineering algorithms into an open-source, interactive decision-support suite centered on a Bangladesh RMG operational scenario.',
+      'Decoupling mathematical operations-research and DES engines completely from UI rendering so every solver executes offline in the browser and passes 12 automated TypeScript unit/integration suites.',
     currentDevelopmentStage:
-      'Working open-source software prototype published at github.com/Ibtasham/FactoryMind with all five analytical engines operational.',
+      'Working open-source workbench live at ibtasham.github.io/FactoryMind and published at github.com/Ibtasham/FactoryMind with 12 automated test suites.',
     validationStatus:
-      'Technical modules implemented and verified on RMG case scenarios; no external factory pilot, paying industrial customers, or commercial business validation claimed.',
+      'Mathematical engines and UI flows verified by automated tests (`npm run verify`) on an illustrative 17-SKU catalog; zero commercial plant pilots or enterprise revenue claimed.',
     futureRoadmap:
-      'Add reproducible benchmark presets, automated module test coverage, carbon-aware scheduling constraints from ongoing research, and pilot usability feedback with SME plant engineers.',
+      'Connect standardized ERP/WMS API connectors alongside CSV/JSON import, add carbon-aware tariff constraints, and collect practitioner feedback on SME manufacturing lines.',
     relatedProjectId: 'factorymind',
   },
   {
@@ -68,30 +68,27 @@ export const INNOVATION_ENTRIES: InnovationEntry[] = [
   },
   {
     id: 'inn-tikatrack',
-    title: 'TikaTrack — Software & Product Concept',
-    category: 'Product Concept',
-    stage: 'idea',
-    stageLabel: 'Idea & Concept',
-    period: 'Concept Record · Source Pending',
-    teamContext: 'Product Development Track · Awaiting Supplied Codebase',
+    title: 'TikaTrack — Bilingual Lifespan Immunization PWA & QR Passport',
+    category: 'Software Prototype',
+    stage: 'prototype',
+    stageLabel: 'Working Prototype',
+    period: 'v12.0.0 Live Open-Source PWA',
+    teamContext: 'Independent Full-Stack PWA · Live GitHub Pages + MIT Repository',
     problemIdentified:
-      'Problem definition, user friction points, and operational scope remain held as an inspectable placeholder until TikaTrack source files and README brief are supplied.',
+      'Households navigating Bangladesh’s DGHS EPI and lifelong immunization schedules rely on fragile paper booklets with no offline bilingual reminder ledger, WHO child growth correlation, or tamper-verifiable digital certificates.',
     targetUsers:
-      'Pending supplied product brief and architecture documentation (no target user demographics or market size figures fabricated).',
+      'Families, caregivers, and public-health learners seeking offline English/বাংলা vaccine schedules, WHO growth tracking, and verified clinic discovery across Bangladesh’s 64 districts.',
     proposedSolution:
-      'Registered product development concept structured for modular documentation of client workflows, core logic, and UI captures once repository files are attached.',
+      'An offline-first React 19 + TypeScript PWA combining 90 documented vaccines across 16 life stages, an atomic VaccinationEvent ledger, Recharts WHO growth percentile curves, ECDSA P-256 / HMAC QR digital passports (`jsQR`), a 175-centre locator, Three.js 3D cold-chain explorer, and offline BM25 RAG TikaBot.',
     innovationApproach:
-      'Modular engineering documentation discipline—separating verified software implementation from unverified product assumptions prior to codebase review.',
+      'Zero-signup local-first browser architecture with Web Crypto public-key QR verification and custom service-worker caching so critical immunization records work reliably offline, paired with optional Firebase/Cloud SQL/Gemini extensions.',
     currentDevelopmentStage:
-      'Idea & documentation slot active in Project Laboratory (/projects/tikatrack); awaiting supplied source package and screenshots.',
+      'Working v12.0.0 open-source PWA live at ibtasham.github.io/TikaTrack with 46 Vitest unit, cryptographic, and service-worker runtime suites.',
     validationStatus:
-      'Unvalidated concept awaiting supplied codebase and product brief; zero user adoption or commercial claims recorded.',
+      'Offline architecture, cryptography, and dose invariants verified via 46 automated tests; explicitly an informational record tool with zero clinical deployment or institutional DGHS equivalence claimed.',
     futureRoadmap:
-      'Inspect supplied TikaTrack codebase, document implemented user workflows, attach verified UI screenshots, and define early user feedback tests.',
+      'Conduct clinic pilot evaluations with pediatric health workers and expand optional Cloud SQL & Web Push notification deployments for community outreach camps.',
     relatedProjectId: 'tikatrack',
-    missingInfo: [
-      'Supplied source code, product brief, and target user definition pending manual completion.',
-    ],
   },
   {
     id: 'inn-innovesta-unbound',
@@ -186,13 +183,13 @@ export const INNOVATION_TIMELINE: InnovationTimelineItem[] = [
   {
     id: 'tl-factorymind',
     period: '2025 – 2026',
-    title: 'FactoryMind — 5-Module Open-Source Operations Prototype Built',
+    title: 'FactoryMind & TikaTrack — Live Browser Workbenches Deployed',
     stage: 'prototype',
     kind: 'Prototype Build',
-    organizationOrContext: 'Independent IPE Engineering · GitHub',
+    organizationOrContext: 'Independent Engineering · GitHub Pages',
     summary:
-      'Translated Industrial & Production Engineering theory (OR-Tools MIP, GA/SA, SPC, ML predictive maintenance, and DES) into an interactive Streamlit software prototype anchored on an RMG case study.',
-    statusNote: 'Working Open-Source Prototype · No Commercial Pilot',
+      'Built and deployed FactoryMind (pure TypeScript EOQ/MRP/Forecasting/SPC/DES workbench + Three.js 3D twin) and TikaTrack (bilingual 90-vaccine offline PWA + ECDSA QR passport) backed by 12 and 46 automated test suites respectively.',
+    statusNote: 'Working Open-Source Prototypes · Zero Commercial Claims',
     linkedInnovationId: 'inn-factorymind',
   },
   {
@@ -233,12 +230,12 @@ export const INNOVATION_TIMELINE: InnovationTimelineItem[] = [
   {
     id: 'tl-future-validation',
     period: '2026 – 2027 Horizon',
-    title: 'Customer Discovery, TikaTrack Documentation & Pilot Testing Roadmap',
+    title: 'Practitioner Discovery, Clinic Pilots & Benchmark Verification Roadmap',
     stage: 'idea',
     kind: 'Future Plan',
     organizationOrContext: 'Planned Validation & Prototyping Milestones',
     summary:
-      'Next phase focuses on documenting TikaTrack upon codebase supply, gathering practicing IE practitioner feedback on FactoryMind workflows, and finalizing reproducible research tooling.',
+      'Next phase focuses on gathering practicing IE practitioner feedback on FactoryMind workflows, exploring community-clinic feedback for TikaTrack, and finalizing reproducible research tooling.',
     statusNote: 'Planned Roadmap · Pre-Validation',
     linkedInnovationId: 'inn-rmg-copilot',
   },
@@ -250,21 +247,21 @@ export const PROBLEM_SOLVING_FRAMEWORK: ProblemSolvingStep[] = [
     title: 'Bottleneck & Root-Cause Framing',
     question: 'Where do operational delays, unplanned failures, or disconnected manual workflows actually occur?',
     methods: ['IPE Systems Mapping', 'Constraint Diagnosis', 'Stakeholder Empathy'],
-    appliedTo: 'RMG line scheduling friction (FactoryMind) and multi-case business diagnostics (Case Quest 2.0, ShowCase 1.0).',
+    appliedTo: 'Plant scheduling/MRP friction (FactoryMind), family immunization gaps (TikaTrack), and business case diagnostics.',
   },
   {
     step: '02',
     title: 'Quantitative & Economic Formulation',
     question: 'How should decisions be scored by real operational cost rather than abstract proxy metrics?',
     methods: ['Mixed-Integer Optimization', 'Asymmetric Cost Modeling', 'Pareto Trade-Offs'],
-    appliedTo: 'Mapping RUL prediction errors to preventive vs. reactive maintenance cost (ForgeMind AI) and carbon-tariff scheduling.',
+    appliedTo: 'Mapping RUL prediction errors to preventive vs. reactive maintenance cost (ForgeMind AI) and decision-centric inventory replenishment.',
   },
   {
     step: '03',
     title: 'Rapid Open-Tooling Prototype',
     question: 'What minimum working analytical interface lets an engineer inspect trade-offs hands-on?',
-    methods: ['Python & OR-Tools', 'Streamlit Interfaces', 'SHAP Feature Reduction'],
-    appliedTo: 'Building the five-module FactoryMind Streamlit suite and C-MAPSS baseline pipeline.',
+    methods: ['TypeScript & React 19', 'Three.js Digital Twins', 'SHAP Feature Reduction'],
+    appliedTo: 'Building the browser-native FactoryMind workbench, TikaTrack offline PWA, and C-MAPSS baseline pipeline.',
   },
   {
     step: '04',
@@ -370,13 +367,13 @@ export const TEAM_COLLABORATION_HIGHLIGHTS: TeamCollaborationHighlight[] = [
 export const FUTURE_INNOVATION_PLANS: FutureInnovationPlan[] = [
   {
     id: 'fip-1',
-    horizon: 'Near-Term · Prototype & Documentation',
-    title: 'Complete TikaTrack Dossier & Expand FactoryMind Usability',
+    horizon: 'Near-Term · Prototype & Practitioner Review',
+    title: 'Expand FactoryMind ERP Connectors & TikaTrack Clinic Pilots',
     stage: 'prototype',
     hypothesis:
-      'Making open-source optimization and software tools thoroughly documented with clean test presets lowers the barrier for student and SME adoption.',
+      'Browser-native engineering workbenches and offline-first health tools gain practical adoption when backed by automated verification suites and seamless data import/export.',
     nextMilestone:
-      'Integrate supplied TikaTrack repository/screenshots and add reproducible scenario presets plus automated tests to FactoryMind.',
+      'Add reproducible SME manufacturing benchmark templates to FactoryMind and evaluate TikaTrack bilingual clinic workflows.',
   },
   {
     id: 'fip-2',
@@ -391,12 +388,12 @@ export const FUTURE_INNOVATION_PLANS: FutureInnovationPlan[] = [
   {
     id: 'fip-3',
     horizon: 'Long-Term · Research-to-Tooling Translation',
-    title: 'Bridge Carbon-Aware Scheduling & Decision-Aware PdM Into Open Tooling',
+    title: 'Bridge Decision-Aware Prognostics & Inventory Optimization Into Open Tooling',
     stage: 'prototype',
     hypothesis:
-      'Embedding uncertainty-aware maintenance cost models and grid-carbon-aware scheduling into accessible open-source software creates tangible operational value.',
+      'Embedding uncertainty-aware maintenance cost models and decision-centric inventory replenishment rules into accessible open-source software creates tangible operational value.',
     nextMilestone:
-      'Release reproducible Python modules connecting ForgeMind AI and carbon-aware scheduling formulations once benchmark experiments conclude.',
+      'Release reproducible Python modules aligned with the predictive maintenance and inventory optimization studies once manuscript reviews conclude.',
   },
 ];
 

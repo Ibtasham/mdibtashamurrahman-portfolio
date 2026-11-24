@@ -13,6 +13,7 @@ const HOME_V2_NAV_ITEMS = [
   { label: 'Innovation', to: '/innovation', matchSectionRoute: '/innovation' },
   { label: 'Experience', to: '/experience', matchSectionRoute: '/experience' },
   { label: 'Achievements', to: '/awards', matchSectionRoute: '/awards' },
+  { label: 'Archive', to: '/archive', matchSectionRoute: '/archive' },
   { label: 'Skills', to: '/skills', matchSectionRoute: '/skills' },
   { label: 'Contact', to: '/contact', matchSectionRoute: '/contact' },
 ] as const;
@@ -98,26 +99,26 @@ export function HomeV2Navbar() {
 
   return (
     <header className="sticky top-0 z-40 border-b border-slate-200/90 bg-white/90 backdrop-blur-md dark:border-blue-500/20 dark:bg-[#050914]/90">
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-2.5 px-4 py-3.5 sm:px-6 lg:px-5 xl:gap-4 xl:px-8">
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-2 px-4 py-3.5 sm:px-6 lg:px-4 xl:gap-4 xl:px-8">
         {/* Left: Engineering emblem + Identity */}
         <Link
           to="/"
           onClick={handleHomeClick}
-          className="group flex min-w-0 shrink-0 items-center gap-2.5 rounded-[10px] py-0.5 pr-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600 dark:focus-visible:ring-cyan-400"
+          className="group flex min-w-0 shrink-0 items-center gap-2 rounded-[10px] py-0.5 pr-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600 dark:focus-visible:ring-cyan-400"
         >
           <EngineeringBrandLogo />
           <div className="min-w-0 leading-tight">
-            <span className="block truncate font-display text-sm font-semibold tracking-normal text-slate-950 transition-colors group-hover:text-blue-700 dark:text-white dark:group-hover:text-cyan-300 xl:text-[15px]">
+            <span className="block truncate font-display text-[13px] font-semibold tracking-normal text-slate-950 transition-colors group-hover:text-blue-700 dark:text-white dark:group-hover:text-cyan-300 xl:text-[15px]">
               {PROFILE.name}
             </span>
-            <span className="block font-mono text-[10.5px] font-medium tracking-[0.12em] text-slate-600 dark:text-slate-400">
+            <span className="block font-mono text-[10px] font-medium tracking-[0.12em] text-slate-600 dark:text-slate-400 xl:text-[10.5px]">
               SUST · IPE
             </span>
           </div>
         </Link>
 
         {/* Center: Primary functional links */}
-        <nav aria-label="Primary homepage navigation" className="hidden lg:flex items-center gap-3.5 xl:gap-7">
+        <nav aria-label="Primary homepage navigation" className="hidden lg:flex items-center gap-2 xl:gap-5">
           {HOME_V2_NAV_ITEMS.map((item) => {
             const isActiveItem =
               item.to === '/'
@@ -129,7 +130,7 @@ export function HomeV2Navbar() {
                 key={item.to}
                 to={item.to}
                 onClick={item.to === '/' ? handleHomeClick : undefined}
-                className={`relative py-2 text-[12.5px] xl:text-[13.5px] font-medium whitespace-nowrap shrink-0 transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600 dark:focus-visible:ring-cyan-400 rounded-[4px] ${
+                className={`relative py-2 text-[11.5px] xl:text-[13.5px] font-medium whitespace-nowrap shrink-0 transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600 dark:focus-visible:ring-cyan-400 rounded-[4px] ${
                   isActiveItem
                     ? 'text-blue-700 dark:text-cyan-300 after:absolute after:inset-x-0 after:-bottom-[1px] after:h-[2.5px] after:rounded-full after:bg-blue-600 after:shadow-[0_0_12px_rgba(37,99,235,0.65)] dark:after:bg-cyan-400 dark:after:shadow-[0_0_14px_rgba(34,211,238,0.9)]'
                     : 'text-slate-600 hover:text-slate-950 dark:text-slate-300 dark:hover:text-white'
@@ -173,7 +174,7 @@ export function HomeV2Navbar() {
           <a
             href={cvUrl}
             download="MD_Ibtashamur_Rahman_CV.pdf"
-            className="hidden sm:inline-flex min-h-[40px] items-center gap-1.5 xl:gap-2 rounded-full border border-blue-600/30 bg-blue-50/90 px-3 xl:px-4 py-1.5 text-[12.5px] xl:text-[13px] font-semibold text-blue-800 transition-all hover:border-blue-600 hover:bg-blue-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600 dark:border-cyan-400/35 dark:bg-[#0b1730]/90 dark:text-slate-100 dark:shadow-[0_0_20px_-6px_rgba(34,211,238,0.35)] dark:hover:border-cyan-400 dark:hover:bg-[#102042] dark:focus-visible:ring-cyan-400 whitespace-nowrap"
+            className="hidden sm:inline-flex min-h-[38px] xl:min-h-[40px] items-center gap-1.5 xl:gap-2 rounded-full border border-blue-600/30 bg-blue-50/90 px-2.5 xl:px-4 py-1.5 text-[11.5px] xl:text-[13px] font-semibold text-blue-800 transition-all hover:border-blue-600 hover:bg-blue-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600 dark:border-cyan-400/35 dark:bg-[#0b1730]/90 dark:text-slate-100 dark:shadow-[0_0_20px_-6px_rgba(34,211,238,0.35)] dark:hover:border-cyan-400 dark:hover:bg-[#102042] dark:focus-visible:ring-cyan-400 whitespace-nowrap"
           >
             <span>Download CV</span>
             <Download className="h-3.5 w-3.5 text-blue-700 dark:text-cyan-300" aria-hidden="true" />

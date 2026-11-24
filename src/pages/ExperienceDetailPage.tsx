@@ -321,6 +321,7 @@ export function ExperienceDetailPage() {
                             src={media.src}
                             alt={media.alt}
                             kind={media.kind}
+                            mediaType={media.mediaType}
                             rotateDeg={media.rotateDeg}
                             focalPosition={media.focalPosition}
                             mode="thumbnail"

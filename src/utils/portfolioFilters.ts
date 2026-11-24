@@ -320,15 +320,14 @@ export function summarizeResearchPortfolio(
   const studyRows: ManuscriptExperimentMatrixRow[] = manuscripts.map((study) => {
     const linked = experiments.filter((exp) => exp.relatedStudyId === study.id);
     const shortTitle =
-      study.id === 'rul-explainable'
-        ? 'Explainable C-MAPSS RUL'
+      study.cardTitle ??
+      (study.id === 'rul-explainable'
+        ? 'Explainable & Cross-Dataset RUL'
         : study.id === 'decision-aware-prognostics'
-          ? 'Decision-Aware Prognostics'
-          : study.id === 'carbon-aware-jss'
-            ? 'Carbon-Aware JSS'
-            : study.id === 'decision-centric-demand'
-              ? 'Decision-Centric M5 Inventory'
-              : study.title;
+          ? 'Decision-Aware Uncertainty'
+          : study.id === 'decision-centric-demand'
+            ? 'Decision-Centric Demand Forecasting'
+            : study.title);
 
     return {
       id: study.id,
@@ -520,6 +519,9 @@ export function filterProjects(
       project.tagline,
       project.oneSentenceProblem,
       project.mainContribution,
+      project.roleAndContribution ?? '',
+      ...(project.implementedHighlights ?? []),
+      ...project.modules.map((m) => `${m.name} ${m.methods.join(' ')}`),
       project.summary,
       project.categoryLabel,
       project.status,
@@ -722,6 +724,7 @@ export const VISUAL_ARCHIVE_KINDS: VisualArchiveKind[] = [
   'Appointment Letter',
   'Official Poster',
   'Portrait',
+  'Video Submission',
 ];
 
 export function countVisualArchiveByCategory(
@@ -743,6 +746,26 @@ export function countVisualArchiveByCategory(
   for (const item of items) {
     counts.All += 1;
     counts[item.category] += 1;
+  }
+  return counts;
+}
+
+export function countVisualArchiveByKind(
+  items: VisualArchiveItem[],
+): Record<VisualArchiveKindFilter, number> {
+  const counts: Record<VisualArchiveKindFilter, number> = {
+    All: 0,
+    'Event Photograph': 0,
+    Certificate: 0,
+    'Appointment Letter': 0,
+    'Official Poster': 0,
+    Portrait: 0,
+    'Video Submission': 0,
+  };
+
+  for (const item of items) {
+    counts.All += 1;
+    counts[item.kind] += 1;
   }
   return counts;
 }
@@ -848,8 +871,8 @@ export function buildManuscriptBibTeX(
   return [
     `@unpublished{${citeKey},`,
     `  author = {${authorName}},`,
-    `  title  = {${study.title}},`,
-    `  note   = {${study.status} — Department of Industrial and Production Engineering, Shahjalal University of Science and Technology (SUST). Benchmarks: ${study.datasetsOrBenchmarks}. Unpublished working manuscript; no DOI assigned.}`,
+    `  title  = {${study.workingTitle ?? study.title}},`,
+    `  note   = {${study.status} — Department of Industrial and Production Engineering, Shahjalal University of Science and Technology (SUST). Benchmarks: ${study.datasetsOrBenchmarks}. Unpublished benchmark and simulation research; no DOI assigned.}`,
     `}`,
   ].join('\n');
 }

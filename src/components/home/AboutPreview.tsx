@@ -463,7 +463,7 @@ export function AboutPreview({ expanded = false }: AboutPreviewProps) {
                   </span>
                 </div>
 
-                <div className={`grid ${DESIGN_TOKENS.spacing.gridGap} sm:grid-cols-2 lg:grid-cols-4`}>
+                <div className={`grid ${DESIGN_TOKENS.spacing.gridGap} sm:grid-cols-2 lg:grid-cols-3`}>
                   {ACADEMIC_INTERESTS.map((interest) => (
                     <SurfaceCard
                       key={interest.id}

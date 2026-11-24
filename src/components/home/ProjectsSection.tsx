@@ -1,15 +1,25 @@
 import { useMemo, useState } from 'react';
 import { motion } from 'motion/react';
-import { ArrowRight, ArrowUpRight, Cpu, Layers, Search } from 'lucide-react';
+import {
+  ArrowRight,
+  ArrowUpRight,
+  Check,
+  Cpu,
+  ExternalLink,
+  Layers,
+  Search,
+} from 'lucide-react';
 import { PROJECTS } from '../../data/portfolio';
 import { useMotionPreference } from '../../hooks/useMotionPreference';
 import { DESIGN_TOKENS } from '../../styles/designSystem';
+import type { ProjectEntry } from '../../types/portfolio';
 import {
   PROJECT_CATEGORIES,
   countProjectsByCategory,
   filterProjects,
   type ProjectCategoryFilter,
 } from '../../utils/portfolioFilters';
+import { FeaturedProjectVisual } from '../projects/FeaturedProjectVisual';
 import { ProjectPreviewImage } from '../projects/ProjectPreviewImage';
 import { ExternalLinkButton, LinkButton } from '../ui/Button';
 import { EmptyState } from '../ui/EmptyState';
@@ -23,7 +33,7 @@ interface ProjectsSectionProps {
 
 const FILTER_OPTIONS: ProjectCategoryFilter[] = ['All', ...PROJECT_CATEGORIES];
 
-function getStageStatusMeta(stage: (typeof PROJECTS)[number]['developmentStage']) {
+function getStageStatusMeta(stage: ProjectEntry['developmentStage']) {
   switch (stage) {
     case 'Active Prototype':
       return {
@@ -55,13 +65,31 @@ export function ProjectsSection({ expanded = false }: ProjectsSectionProps) {
     [selectedCategory, searchQuery],
   );
 
-  const factoryMind = PROJECTS.find((p) => p.id === 'factorymind');
+  const workbenchProjects = useMemo(
+    () => PROJECTS.filter((p) => p.modules.length > 0),
+    [],
+  );
+  const [workbenchProjectId, setWorkbenchProjectId] = useState(
+    workbenchProjects[0]?.id ?? 'factorymind',
+  );
+  const activeWorkbenchProject =
+    workbenchProjects.find((p) => p.id === workbenchProjectId) ??
+    workbenchProjects[0];
+
   const [activeModuleId, setActiveModuleId] = useState(
-    factoryMind?.modules[0]?.id ?? 'scheduling',
+    activeWorkbenchProject?.modules[0]?.id ?? 'inventory-eoq',
   );
   const activeModule =
-    factoryMind?.modules.find((m) => m.id === activeModuleId) ??
-    factoryMind?.modules[0];
+    activeWorkbenchProject?.modules.find((m) => m.id === activeModuleId) ??
+    activeWorkbenchProject?.modules[0];
+
+  const handleSelectWorkbenchProject = (projectId: string) => {
+    setWorkbenchProjectId(projectId);
+    const target = workbenchProjects.find((p) => p.id === projectId);
+    if (target?.modules[0]) {
+      setActiveModuleId(target.modules[0].id);
+    }
+  };
 
   return (
     <section
@@ -75,8 +103,8 @@ export function ProjectsSection({ expanded = false }: ProjectsSectionProps) {
           <SectionHeading
             index="02"
             eyebrow="Featured Projects"
-            title="Engineering, Research & Software Case Studies"
-            description="Evidence-driven engineering documentation spanning open-source manufacturing optimization, C-MAPSS prognostics research, and concept-stage software tracking."
+            title="Engineering, Research & Software Showcase"
+            description="Verified engineering software builds and prognostics research—featuring the FactoryMind industrial engineering workbench, the TikaTrack bilingual immunization PWA, and ForgeMind AI reliability studies."
             actionLabel="Open Full Laboratory"
             actionTo="/projects"
           />
@@ -135,7 +163,7 @@ export function ProjectsSection({ expanded = false }: ProjectsSectionProps) {
           </div>
         </div>
 
-        {/* Project Cards Grid */}
+        {/* Showcase Project Cards */}
         {visibleProjects.length === 0 ? (
           <EmptyState
             title="No Matching Projects"
@@ -147,200 +175,401 @@ export function ProjectsSection({ expanded = false }: ProjectsSectionProps) {
             }}
           />
         ) : (
-          <div className={`grid ${DESIGN_TOKENS.spacing.gridGap} lg:grid-cols-3 md:grid-cols-2`}>
+          <div className="space-y-8">
             {visibleProjects.map((project, idx) => {
               const stageMeta = getStageStatusMeta(project.developmentStage);
+
+              if (project.id === 'factorymind' || project.id === 'tikatrack') {
+                const isFactoryMind = project.id === 'factorymind';
+
+                const cardFrameClasses = isFactoryMind
+                  ? 'border border-emerald-600/25 dark:border-emerald-500/30 bg-white dark:bg-[#070f15] shadow-sm hover:border-emerald-600/45 dark:hover:border-emerald-400/45'
+                  : 'border border-teal-600/25 dark:border-emerald-400/25 bg-gradient-to-br from-emerald-50/45 via-white to-cyan-50/40 dark:from-[#051414] dark:via-[#071a19] dark:to-[#061118] shadow-sm hover:border-teal-600/45 dark:hover:border-emerald-400/45';
+
+                const taglineColor = isFactoryMind
+                  ? 'text-emerald-700 dark:text-emerald-300'
+                  : 'text-teal-700 dark:text-emerald-300';
+
+                const liveDemoBtnClass = isFactoryMind
+                  ? '!bg-emerald-600 !border-emerald-600 hover:!bg-emerald-700 !text-white dark:!bg-emerald-500 dark:!border-emerald-500 dark:hover:!bg-emerald-400 dark:!text-slate-950'
+                  : '!bg-teal-700 !border-teal-700 hover:!bg-teal-800 !text-white dark:!bg-emerald-400 dark:!border-emerald-400 dark:hover:!bg-emerald-300 dark:!text-slate-950';
+
+                const bulletIconColor = isFactoryMind
+                  ? 'text-emerald-600 dark:text-emerald-400'
+                  : 'text-teal-700 dark:text-emerald-400';
+
+                return (
+                  <ScrollRevealItem
+                    key={project.id}
+                    index={idx}
+                    className="min-w-0"
+                  >
+                    <article
+                      className={`group rounded-[16px] p-5 sm:p-6 transition-colors duration-200 ${cardFrameClasses}`}
+                    >
+                      <div className="grid items-start gap-6 lg:grid-cols-12 lg:gap-7">
+                        {/* Interactive Project-Themed Visual (Left on FactoryMind, Right on TikaTrack) */}
+                        <div
+                          className={`min-w-0 lg:col-span-6 ${
+                            isFactoryMind ? 'lg:order-1' : 'lg:order-2'
+                          }`}
+                        >
+                          <FeaturedProjectVisual
+                            projectId={project.id}
+                            title={project.title}
+                            previewAlt={project.previewAlt}
+                          />
+                        </div>
+
+                        {/* Project Dossier & Verifiable Technical Copy */}
+                        <div
+                          className={`min-w-0 flex flex-col justify-between space-y-3.5 lg:col-span-6 ${
+                            isFactoryMind ? 'lg:order-2' : 'lg:order-1'
+                          }`}
+                        >
+                          <div className="space-y-3">
+                            <div className="space-y-1 border-b border-slate-200 dark:border-slate-800/80 pb-2.5">
+                              <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1 font-mono text-[11px]">
+                                <span className="text-slate-600 dark:text-slate-400">
+                                  {project.categoryLabel}
+                                </span>
+                                <span className={`font-medium ${stageMeta.className}`}>
+                                  {stageMeta.glyph} {project.status}
+                                </span>
+                              </div>
+
+                              <h3 className="font-display text-2xl font-bold tracking-tight text-slate-950 dark:text-slate-50">
+                                {project.title}
+                              </h3>
+                              <p className={`text-xs sm:text-sm font-medium ${taglineColor}`}>
+                                {project.tagline}
+                              </p>
+                            </div>
+
+                            <p className="text-xs sm:text-[13px] leading-relaxed text-slate-700 dark:text-slate-300">
+                              {project.summary}
+                            </p>
+
+                            <div className="space-y-0.5">
+                              <p className="font-mono text-[10.5px] text-slate-500">
+                                Problem Addressed
+                              </p>
+                              <p className="text-xs leading-relaxed text-slate-700 dark:text-slate-300">
+                                {project.oneSentenceProblem}
+                              </p>
+                            </div>
+
+                            {project.implementedHighlights &&
+                              project.implementedHighlights.length > 0 && (
+                                <div className="space-y-1.5">
+                                  <p className="font-mono text-[10.5px] text-slate-500">
+                                    Key Implemented Features
+                                  </p>
+                                  <ul className="space-y-1 text-xs leading-relaxed text-slate-700 dark:text-slate-300">
+                                    {project.implementedHighlights.map((highlight) => (
+                                      <li key={highlight} className="flex items-start gap-2">
+                                        <Check
+                                          className={`mt-0.5 h-3.5 w-3.5 shrink-0 ${bulletIconColor}`}
+                                          aria-hidden="true"
+                                        />
+                                        <span>{highlight}</span>
+                                      </li>
+                                    ))}
+                                  </ul>
+                                </div>
+                              )}
+
+                            {project.roleAndContribution && (
+                              <div className="space-y-0.5">
+                                <p className="font-mono text-[10.5px] text-slate-500">
+                                  Role &amp; Contribution
+                                </p>
+                                <p className="text-xs leading-relaxed text-slate-700 dark:text-slate-300">
+                                  {project.roleAndContribution}
+                                </p>
+                              </div>
+                            )}
+
+                            {project.scopeDistinctionNote && (
+                              <p className="rounded-[10px] border border-slate-200 dark:border-slate-800/80 bg-slate-50/90 dark:bg-[#050b13]/80 px-3 py-2 text-[11px] leading-relaxed text-slate-600 dark:text-slate-400">
+                                <span className="font-mono font-semibold text-slate-700 dark:text-slate-300">
+                                  Demo vs. Optional Backend:{' '}
+                                </span>
+                                {project.scopeDistinctionNote}
+                              </p>
+                            )}
+                          </div>
+
+                          <div className="space-y-3 border-t border-slate-200 dark:border-slate-800/80 pt-3">
+                            <div>
+                              <p className="font-mono text-[10.5px] text-slate-500 mb-1">
+                                Technologies &amp; Architecture
+                              </p>
+                              <p className="font-mono text-[11px] leading-relaxed text-slate-700 dark:text-slate-300">
+                                {project.stack.join(' · ')}
+                              </p>
+                            </div>
+
+                            <div className="flex flex-wrap items-center gap-2.5">
+                              {project.liveDemoUrl && (
+                                <ExternalLinkButton
+                                  href={project.liveDemoUrl}
+                                  variant="primary"
+                                  size="sm"
+                                  className={liveDemoBtnClass}
+                                >
+                                  <span>Live Demo</span>
+                                  <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
+                                </ExternalLinkButton>
+                              )}
+
+                              {project.githubUrl && (
+                                <ExternalLinkButton
+                                  href={project.githubUrl}
+                                  variant="secondary"
+                                  size="sm"
+                                >
+                                  <span>GitHub Source</span>
+                                  <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
+                                </ExternalLinkButton>
+                              )}
+
+                              <LinkButton
+                                to={`/projects/${project.id}`}
+                                variant="secondary"
+                                size="sm"
+                              >
+                                <span>Case Study</span>
+                                <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
+                              </LinkButton>
+
+                              {isFactoryMind && (
+                                <LinkButton
+                                  to="/studio?model=factorymind-cell"
+                                  variant="ghost"
+                                  size="sm"
+                                >
+                                  <span>3D Rig</span>
+                                </LinkButton>
+                              )}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </article>
+                  </ScrollRevealItem>
+                );
+              }
+
+              // Research Prototype Card (ForgeMind AI)
               return (
                 <ScrollRevealItem
                   key={project.id}
                   index={idx}
-                  className="flex min-w-0"
+                  className="min-w-0"
                 >
                   <SurfaceCard
                     as="article"
                     variant="interactive"
-                    className="group flex w-full min-w-0 flex-col justify-between p-5"
+                    className="group w-full min-w-0 p-5 sm:p-7"
                   >
-                  <div className="space-y-4">
-                    {/* Header Metadata (Zero-Pill Unboxed) */}
-                    <div className="space-y-1.5 border-b border-slate-200 dark:border-slate-800/80 pb-3">
-                      <div className="flex flex-wrap items-center justify-between gap-x-2 gap-y-1 font-mono text-[11px]">
-                        <span className="text-cyan-700 dark:text-cyan-400">
-                          {project.categoryLabel}
-                        </span>
-                        <span className={`font-medium ${stageMeta.className}`}>
-                          {stageMeta.glyph} {project.status}
-                        </span>
+                    <div className="grid items-start gap-7 lg:grid-cols-12 lg:gap-8">
+                      <div className="min-w-0 lg:col-span-5">
+                        <ProjectPreviewImage
+                          projectId={project.id}
+                          title={project.title}
+                          alt={project.previewAlt}
+                          customUrl={project.previewImageUrl}
+                          kindLabel={project.previewKindLabel}
+                        />
                       </div>
 
-                      <h3 className="font-display text-xl font-bold tracking-tight text-slate-950 dark:text-slate-50">
-                        {project.title}
-                      </h3>
-                      <p className="text-xs font-medium text-blue-700 dark:text-blue-300">
-                        {project.tagline}
-                      </p>
-                    </div>
+                      <div className="min-w-0 flex flex-col justify-between space-y-4 lg:col-span-7">
+                        <div className="space-y-3">
+                          <div className="space-y-1.5 border-b border-slate-200 dark:border-slate-800/80 pb-3">
+                            <div className="flex flex-wrap items-center justify-between gap-x-2 gap-y-1 font-mono text-[11px]">
+                              <span className="text-cyan-700 dark:text-cyan-400">
+                                {project.categoryLabel}
+                              </span>
+                              <span className={`font-medium ${stageMeta.className}`}>
+                                {stageMeta.glyph} {project.status}
+                              </span>
+                            </div>
 
-                    <ProjectPreviewImage
-                      projectId={project.id}
-                      title={project.title}
-                      alt={project.previewAlt}
-                      customUrl={project.previewImageUrl}
-                      kindLabel={project.previewKindLabel}
-                    />
+                            <h3 className="font-display text-xl sm:text-2xl font-bold tracking-tight text-slate-950 dark:text-slate-50">
+                              {project.title}
+                            </h3>
+                            <p className="text-xs sm:text-sm font-medium text-blue-700 dark:text-blue-300">
+                              {project.tagline}
+                            </p>
+                          </div>
 
-                    {/* One-Sentence Problem Statement + Main Technical Contribution */}
-                    <dl className="space-y-2.5 text-xs leading-relaxed">
-                      <div>
-                        <dt className="font-mono text-[10.5px] text-slate-500">
-                          Problem Statement
-                        </dt>
-                        <dd className="mt-0.5 text-slate-700 dark:text-slate-300">
-                          {project.oneSentenceProblem}
-                        </dd>
+                          <dl className="grid gap-3 text-xs leading-relaxed sm:grid-cols-2">
+                            <div>
+                              <dt className="font-mono text-[10.5px] text-slate-500">
+                                Problem Statement
+                              </dt>
+                              <dd className="mt-0.5 text-slate-700 dark:text-slate-300">
+                                {project.oneSentenceProblem}
+                              </dd>
+                            </div>
+
+                            <div>
+                              <dt className="font-mono text-[10.5px] text-slate-500">
+                                Main Technical Contribution
+                              </dt>
+                              <dd className="mt-0.5 text-slate-700 dark:text-slate-300">
+                                {project.mainContribution}
+                              </dd>
+                            </div>
+                          </dl>
+                        </div>
+
+                        <div className="space-y-3 border-t border-slate-200 dark:border-slate-800/80 pt-4">
+                          <div>
+                            <p className="font-mono text-[10.5px] text-slate-500 mb-1">
+                              Technology Stack
+                            </p>
+                            <p className="font-mono text-[11px] leading-relaxed text-slate-700 dark:text-slate-300">
+                              {project.stack.join(' · ')}
+                            </p>
+                          </div>
+
+                          <div className="flex flex-wrap items-center gap-2.5">
+                            <LinkButton
+                              to={`/projects/${project.id}`}
+                              variant="primary"
+                              size="sm"
+                            >
+                              <span>View Case Study</span>
+                              <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
+                            </LinkButton>
+
+                            <LinkButton
+                              to="/studio?model=forgemind-turbofan"
+                              variant="secondary"
+                              size="sm"
+                            >
+                              <span>3D Rig</span>
+                            </LinkButton>
+
+                            <LinkButton
+                              to="/research/decision-aware-prognostics"
+                              variant="ghost"
+                              size="sm"
+                            >
+                              <span>Linked Study</span>
+                            </LinkButton>
+                          </div>
+
+                          <p className="font-mono text-[11px] text-slate-500">
+                            {project.sourceNote}
+                          </p>
+                        </div>
                       </div>
-
-                      <div>
-                        <dt className="font-mono text-[10.5px] text-slate-500">
-                          Main Technical Contribution
-                        </dt>
-                        <dd className="mt-0.5 text-slate-700 dark:text-slate-300">
-                          {project.mainContribution}
-                        </dd>
-                      </div>
-                    </dl>
-                  </div>
-
-                  <div className="mt-5 space-y-4 border-t border-slate-200 dark:border-slate-800/80 pt-4">
-                    <div>
-                      <p className="font-mono text-[10.5px] text-slate-500 mb-1">
-                        Technology Stack
-                      </p>
-                      <p className="font-mono text-[11px] leading-relaxed text-slate-700 dark:text-slate-300">
-                        {project.stack.join(' · ')}
-                      </p>
                     </div>
-
-                    <div className="flex flex-wrap items-center gap-2">
-                      <LinkButton
-                        to={`/projects/${project.id}`}
-                        variant="primary"
-                        size="sm"
-                      >
-                        <span>View Case Study</span>
-                        <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
-                      </LinkButton>
-
-                      {(project.id === 'factorymind' || project.id === 'forgemind-ai') && (
-                        <LinkButton
-                          to={`/studio?model=${
-                            project.id === 'factorymind'
-                              ? 'factorymind-cell'
-                              : 'forgemind-turbofan'
-                          }`}
-                          variant="secondary"
-                          size="sm"
-                        >
-                          <span>3D Rig</span>
-                        </LinkButton>
-                      )}
-
-                      {project.githubUrl && (
-                        <ExternalLinkButton
-                          href={project.githubUrl}
-                          variant="secondary"
-                          size="sm"
-                        >
-                          <span>GitHub</span>
-                          <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
-                        </ExternalLinkButton>
-                      )}
-
-                      {project.liveDemoUrl && (
-                        <ExternalLinkButton
-                          href={project.liveDemoUrl}
-                          variant="secondary"
-                          size="sm"
-                        >
-                          <span>Live Demo</span>
-                          <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
-                        </ExternalLinkButton>
-                      )}
-
-                      {project.id === 'forgemind-ai' && (
-                        <LinkButton
-                          to="/research/decision-aware-prognostics"
-                          variant="ghost"
-                          size="sm"
-                        >
-                          <span>Study</span>
-                        </LinkButton>
-                      )}
-                    </div>
-
-                    {!project.githubUrl && (
-                      <p className="font-mono text-[11px] text-slate-500">
-                        {project.sourceNote}
-                      </p>
-                    )}
-                  </div>
-                </SurfaceCard>
+                  </SurfaceCard>
                 </ScrollRevealItem>
               );
             })}
           </div>
         )}
 
-        {/* Interactive FactoryMind Module Workbench (Expanded Laboratory View) */}
-        {expanded && factoryMind && activeModule && (
+        {/* Interactive Multi-Project Module Workbench (Expanded Laboratory View) */}
+        {expanded && activeWorkbenchProject && activeModule && (
           <SurfaceCard className="p-6 sm:p-8">
             <div className="space-y-5">
               <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-200 dark:border-slate-800/80 pb-4">
                 <div className="flex items-center gap-2 text-xs font-semibold text-slate-800 dark:text-slate-200">
                   <Layers className="h-4 w-4 text-cyan-700 dark:text-cyan-400" aria-hidden="true" />
                   <span>
-                    Interactive Module Workbench · FactoryMind ({factoryMind.modules.length} Implemented Engines)
+                    Interactive Module Workbench · {activeWorkbenchProject.title} (
+                    {activeWorkbenchProject.modules.length} Verified Modules)
                   </span>
                 </div>
-                <span className="font-mono text-[11px] text-slate-600 dark:text-slate-400">
-                  ● Implemented in Python &amp; Streamlit · Bangladesh RMG Scenario
+
+                <div
+                  role="group"
+                  aria-label="Switch active workbench project"
+                  className="inline-flex rounded-[8px] border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-[#060b16] p-0.5"
+                >
+                  {workbenchProjects.map((wp) => {
+                    const isCurrent = wp.id === activeWorkbenchProject.id;
+                    return (
+                      <button
+                        key={wp.id}
+                        type="button"
+                        aria-pressed={isCurrent}
+                        onClick={() => handleSelectWorkbenchProject(wp.id)}
+                        className={`rounded-[6px] px-3 py-1 font-mono text-[11px] transition-colors cursor-pointer whitespace-nowrap shrink-0 ${
+                          isCurrent
+                            ? 'bg-blue-600 text-white font-semibold'
+                            : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'
+                        }`}
+                      >
+                        {wp.title} ({wp.modules.length})
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+
+              <div className="flex flex-wrap items-center justify-between gap-2 text-[11px] font-mono text-slate-600 dark:text-slate-400">
+                <span>
+                  ●{' '}
+                  {activeWorkbenchProject.id === 'factorymind'
+                    ? 'Pure TypeScript & React 19 Workbench · 12 Test Suites'
+                    : 'Offline Bilingual Clinical PWA v12.0.0 · 46 Vitest Suites'}
                 </span>
+                {activeWorkbenchProject.liveDemoUrl && (
+                  <a
+                    href={activeWorkbenchProject.liveDemoUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-1 text-blue-700 dark:text-cyan-300 hover:underline"
+                  >
+                    <span>Open {activeWorkbenchProject.title} Live Demo</span>
+                    <ArrowUpRight className="h-3 w-3" aria-hidden="true" />
+                  </a>
+                )}
               </div>
 
               <div
                 role="tablist"
-                aria-label="FactoryMind modules"
+                aria-label={`${activeWorkbenchProject.title} modules`}
                 className="flex flex-wrap gap-2"
               >
-                {factoryMind.modules.map((mod, idx) => {
+                {activeWorkbenchProject.modules.map((mod, idx) => {
                   const active = mod.id === activeModule.id;
                   return (
                     <button
                       key={mod.id}
-                      id={`fm-tab-${mod.id}`}
+                      id={`wb-tab-${mod.id}`}
                       type="button"
                       role="tab"
                       aria-selected={active}
-                      aria-controls="factorymind-workbench-panel"
+                      aria-controls="project-workbench-panel"
                       tabIndex={active ? 0 : -1}
                       onClick={() => setActiveModuleId(mod.id)}
                       onKeyDown={(e) => {
                         let nextIdx: number | null = null;
                         if (e.key === 'ArrowRight') {
-                          nextIdx = (idx + 1) % factoryMind.modules.length;
+                          nextIdx = (idx + 1) % activeWorkbenchProject.modules.length;
                         } else if (e.key === 'ArrowLeft') {
-                          nextIdx = (idx - 1 + factoryMind.modules.length) % factoryMind.modules.length;
+                          nextIdx =
+                            (idx - 1 + activeWorkbenchProject.modules.length) %
+                            activeWorkbenchProject.modules.length;
                         } else if (e.key === 'Home') {
                           nextIdx = 0;
                         } else if (e.key === 'End') {
-                          nextIdx = factoryMind.modules.length - 1;
+                          nextIdx = activeWorkbenchProject.modules.length - 1;
                         }
                         if (nextIdx !== null) {
                           e.preventDefault();
-                          const target = factoryMind.modules[nextIdx];
+                          const target = activeWorkbenchProject.modules[nextIdx];
                           if (target) {
                             setActiveModuleId(target.id);
-                            document.getElementById(`fm-tab-${target.id}`)?.focus();
+                            document.getElementById(`wb-tab-${target.id}`)?.focus();
                           }
                         }
                       }}
@@ -358,9 +587,9 @@ export function ProjectsSection({ expanded = false }: ProjectsSectionProps) {
 
               <motion.div
                 key={activeModule.id}
-                id="factorymind-workbench-panel"
+                id="project-workbench-panel"
                 role="tabpanel"
-                aria-labelledby={`fm-tab-${activeModule.id}`}
+                aria-labelledby={`wb-tab-${activeModule.id}`}
                 initial={shouldReduceMotion ? false : { opacity: 0, y: 4 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{
@@ -394,7 +623,7 @@ export function ProjectsSection({ expanded = false }: ProjectsSectionProps) {
                   </div>
                   <div>
                     <p className="font-mono text-[11px] text-slate-500 mb-1">
-                      Industrial Application
+                      Applied Domain Scope
                     </p>
                     <p className="text-xs leading-relaxed text-slate-700 dark:text-slate-300">
                       {activeModule.domainContext}
@@ -409,3 +638,4 @@ export function ProjectsSection({ expanded = false }: ProjectsSectionProps) {
     </section>
   );
 }
+

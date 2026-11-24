@@ -2,16 +2,19 @@ import { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
   Activity,
+  AlertTriangle,
   ArrowRight,
   ArrowUpRight,
   BookOpen,
   Box,
   Check,
   CheckCircle2,
+  Compass,
   Copy,
   Database,
   FileText,
   FlaskConical,
+  ShieldCheck,
   Wrench,
 } from 'lucide-react';
 import {
@@ -48,11 +51,13 @@ interface ResearchSectionProps {
   expanded?: boolean;
 }
 
+type OverviewTabId = 'summary' | 'methodology' | 'limitations';
+
 const EXPERIMENT_STAGE_TABS: { id: ExperimentStageFilter; label: string }[] = [
-  { id: 'all', label: 'All Experiments' },
-  { id: 'completed', label: 'Completed' },
-  { id: 'ongoing', label: 'Ongoing' },
-  { id: 'proposed', label: 'Proposed' },
+  { id: 'all', label: 'All Tracks' },
+  { id: 'completed', label: 'Completed Setups' },
+  { id: 'ongoing', label: 'Ongoing Work' },
+  { id: 'proposed', label: 'Proposed Extensions' },
 ];
 
 function StageIcon({ stage }: { stage: ExperimentStage }) {
@@ -86,7 +91,13 @@ export function ResearchSection({ expanded = false }: ResearchSectionProps) {
     useState<ExperimentStageFilter>('all');
   const [expandedStudySpecs, setExpandedStudySpecs] = useState<Record<string, boolean>>({});
   const [activePaper, setActivePaper] = useState<ResearchManuscript | null>(null);
+  const [overviewTab, setOverviewTab] = useState<OverviewTabId>('summary');
   const [copiedBibtexId, setCopiedBibtexId] = useState<string | null>(null);
+
+  const handleOpenOverview = (paper: ResearchManuscript, tab: OverviewTabId = 'summary') => {
+    setOverviewTab(tab);
+    setActivePaper(paper);
+  };
 
   const handleCopyBibtex = async (paper: ResearchManuscript) => {
     try {
@@ -134,158 +145,88 @@ export function ResearchSection({ expanded = false }: ResearchSectionProps) {
         className="pointer-events-none absolute inset-0 ambient-section-light"
       />
 
-      <div className={`relative ${DESIGN_TOKENS.spacing.container} space-y-12`}>
+      <div className={`relative ${DESIGN_TOKENS.spacing.container} space-y-10`}>
         {!expanded && (
           <SectionHeading
             index="03"
-            eyebrow="Research Highlights"
-            title="Prognostics, Optimization & Industrial Analytics"
+            eyebrow="Research & Ongoing Work"
+            title="Predictive Maintenance, Uncertainty & Inventory Decisions"
             description={RESEARCH_PROFILE_META.positioningSummary}
             actionLabel="Full Research Profile"
             actionTo="/research"
           />
         )}
 
-        {/* Five-Bucket Factual Output Taxonomy (Clear Separation of Prep vs Published vs Proposed) */}
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
-          {[
-            {
-              label: 'Manuscripts in Preparation',
-              value: String(RESEARCH_MANUSCRIPTS.length),
-              note: 'Not yet published',
-            },
-            {
-              label: 'Completed Experiments',
-              value: String(experimentCounts.completed),
-              note: 'Baselines finished',
-            },
-            {
-              label: 'Ongoing Experiments',
-              value: String(experimentCounts.ongoing),
-              note: 'Active evaluation',
-            },
-            {
-              label: 'Proposed Experiments',
-              value: String(experimentCounts.proposed),
-              note: 'Planned next-stage',
-            },
-            {
-              label: 'Published Research',
-              value: String(RESEARCH_PUBLISHED_RECORDS.length),
-              note: 'Zero DOIs claimed',
-            },
-          ].map((item, idx) => (
-            <div
-              key={item.label}
-              className={`rounded-[12px] border border-slate-200 dark:border-slate-800/80 bg-white dark:bg-[#0b1222] p-4 space-y-1 ${
-                idx === 4 ? 'col-span-2 sm:col-span-1' : ''
-              }`}
-            >
-              <p className="font-mono text-[11px] text-slate-600 dark:text-slate-400">
-                {item.label}
-              </p>
-              <p className="font-mono text-2xl font-bold text-slate-900 dark:text-slate-50 tabular-nums">
-                {item.value}
-              </p>
-              <p className="font-mono text-[10px] text-cyan-700 dark:text-cyan-400">
-                {item.note}
-              </p>
-            </div>
-          ))}
+        {/* Academic Integrity & Unpublished Scope Notice */}
+        <div className="flex items-start gap-3 rounded-[12px] border border-slate-200 dark:border-slate-800/80 bg-white dark:bg-[#0b1222] px-4 py-3.5 text-xs text-slate-600 dark:text-slate-400">
+          <ShieldCheck
+            className="mt-0.5 h-4 w-4 shrink-0 text-cyan-700 dark:text-cyan-400"
+            aria-hidden="true"
+          />
+          <p className="leading-relaxed">
+            <strong className="font-semibold text-slate-900 dark:text-slate-100">
+              Unpublished Benchmark &amp; Simulation Scope:
+            </strong>{' '}
+            {RESEARCH_PROFILE_META.integrityNotice}
+          </p>
         </div>
 
-        {/* Featured Research Direction: NASA C-MAPSS Uncertainty-Aware Prognostics */}
-        <SurfaceCard variant="accent" className="p-6 sm:p-8">
-          <div className="grid gap-6 lg:grid-cols-12 lg:items-center">
-            <div className="space-y-3 lg:col-span-8">
-              <p className="font-mono text-xs text-cyan-700 dark:text-cyan-400">
-                {RESEARCH_PROFILE_META.featuredDirection.subtitle}
-              </p>
-              <h3 className="font-display text-xl font-bold text-slate-900 dark:text-slate-50 sm:text-2xl text-balance">
-                {RESEARCH_PROFILE_META.featuredDirection.title}
-              </h3>
-              <p className={DESIGN_TOKENS.typography.body}>
-                {RESEARCH_PROFILE_META.featuredDirection.summary}
-              </p>
-              <p className="font-mono text-xs text-slate-600 dark:text-slate-400">
-                Primary Benchmark: {RESEARCH_PROFILE_META.featuredDirection.datasetHighlight}
-              </p>
-            </div>
-
-            <div className="flex flex-wrap gap-3 lg:col-span-4 lg:justify-end">
-              <LinkButton
-                to="/research/decision-aware-prognostics"
-                variant="primary"
-                size="sm"
+        {/* Research Profile at a Glance (3 Connected Threads) */}
+        <SurfaceCard className="overflow-hidden p-0">
+          <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200 dark:border-slate-800/80 bg-slate-50 dark:bg-[#060b16] px-5 py-3">
+            <span className="font-mono text-xs font-semibold text-slate-900 dark:text-slate-100">
+              Research Profile at a Glance · Three Connected Threads
+            </span>
+            <span className="font-mono text-[11px] text-cyan-700 dark:text-cyan-400">
+              {RESEARCH_MANUSCRIPTS.length} Unpublished Studies · {RESEARCH_PUBLISHED_RECORDS.length} Published Papers
+            </span>
+          </div>
+          <div className="divide-y divide-slate-200 dark:divide-slate-800/70">
+            {RESEARCH_MANUSCRIPTS.map((study, idx) => (
+              <div
+                key={study.id}
+                className="grid gap-3 px-5 py-3.5 md:grid-cols-12 md:items-center"
               >
-                <span>Inspect Featured Study</span>
-                <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
-              </LinkButton>
-              <LinkButton
-                to={`/projects/${RESEARCH_PROFILE_META.featuredDirection.relatedProjectId}`}
-                variant="secondary"
-                size="sm"
-              >
-                <span>ForgeMind AI Platform</span>
-                <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
-              </LinkButton>
-            </div>
+                <div className="md:col-span-3 space-y-0.5">
+                  <p className="font-mono text-[10px] text-cyan-700 dark:text-cyan-400">
+                    THREAD 0{idx + 1} · {study.status.toUpperCase()}
+                  </p>
+                  <p className="text-xs font-semibold text-slate-900 dark:text-slate-100">
+                    {study.domain}
+                  </p>
+                </div>
+                <p className="text-xs text-slate-700 dark:text-slate-300 md:col-span-5">
+                  {study.centralQuestion ?? study.researchQuestions?.[0]}
+                </p>
+                <div className="flex flex-wrap items-center justify-between gap-2 md:col-span-4 md:justify-end">
+                  <span className="font-mono text-[11px] text-slate-600 dark:text-slate-400">
+                    {study.methods.slice(0, 4).join(' · ')}
+                  </span>
+                  <button
+                    type="button"
+                    onClick={() => handleOpenOverview(study, 'summary')}
+                    className="font-mono text-[11px] font-medium text-blue-700 dark:text-cyan-300 hover:underline cursor-pointer"
+                  >
+                    Overview →
+                  </button>
+                </div>
+              </div>
+            ))}
           </div>
         </SurfaceCard>
 
-        {/* Interactive Research Methodology Flowchart (Macro Pipeline + Per-Study Switcher) */}
-        <ResearchPipelineDiagram />
-
-        {/* 1. Research Interests (Expanded View) */}
-        {expanded && (
-          <div className="space-y-5 border-t border-slate-200 dark:border-slate-800/80 pt-10">
-            <div className="space-y-1">
-              <p className="font-mono text-xs text-cyan-700 dark:text-cyan-400">
-                01 · Research Positioning &amp; Interests
-              </p>
-              <h3 className={DESIGN_TOKENS.typography.sectionTitle}>
-                Core Inquiry Tracks
-              </h3>
-              <p className="text-sm text-slate-600 dark:text-slate-400 max-w-3xl">
-                {RESEARCH_PROFILE_META.positioningTitle} — {RESEARCH_PROFILE_META.positioningSummary}
-              </p>
-            </div>
-
-            <div className={`grid ${DESIGN_TOKENS.spacing.gridGap} md:grid-cols-2`}>
-              {ACADEMIC_INTERESTS.map((interest) => (
-                <SurfaceCard key={interest.id} className="min-w-0 p-6 space-y-3">
-                  <div className="flex flex-wrap items-baseline justify-between gap-2 border-b border-slate-200 dark:border-slate-800/80 pb-2.5">
-                    <h4 className={DESIGN_TOKENS.typography.cardTitleLg}>
-                      {interest.title}
-                    </h4>
-                    <span className="font-mono text-[11px] text-cyan-700 dark:text-cyan-400">
-                      {interest.domain}
-                    </span>
-                  </div>
-                  <p className={DESIGN_TOKENS.typography.bodyMuted}>
-                    {interest.summary}
-                  </p>
-                  <p className="font-mono text-[11px] text-slate-700 dark:text-slate-300">
-                    {interest.topics.join(' · ')}
-                  </p>
-                </SurfaceCard>
-              ))}
-            </div>
-          </div>
-        )}
-
-        {/* 2. Manuscripts in Preparation & Published Research Distinction */}
-        <div className="space-y-6 border-t border-slate-200 dark:border-slate-800/80 pt-10">
+        {/* Three Individual Research Cards */}
+        <div className="space-y-6">
           <div className="flex flex-wrap items-end justify-between gap-4">
             <div className="space-y-1">
               <p className="font-mono text-xs text-cyan-700 dark:text-cyan-400">
-                {expanded ? '02 · Manuscripts in Preparation' : 'Manuscripts in Preparation'}
+                {expanded ? '01 · Unpublished Research Portfolio' : 'Three Unpublished Research Manuscripts'}
               </p>
               <h3 className={DESIGN_TOKENS.typography.sectionTitle}>
-                Manuscripts Under Development ({RESEARCH_MANUSCRIPTS.length})
+                Research Studies &amp; Detailed Overview Panels ({RESEARCH_MANUSCRIPTS.length})
               </h3>
               <p className="font-mono text-xs text-slate-600 dark:text-slate-400">
-                Published Research: {RESEARCH_PUBLISHED_RECORDS.length} · Completed experiments are separated from working manuscript drafts and proposed future tests.
+                Each study preserves its distinct methods, benchmark scope, contribution areas, limitations, and next research steps.
               </p>
             </div>
 
@@ -319,15 +260,19 @@ export function ResearchSection({ expanded = false }: ResearchSectionProps) {
 
           {visibleManuscripts.length === 0 ? (
             <EmptyState
-              title="No Manuscripts in Domain"
-              message="No manuscripts under development match the selected domain filter."
-              actionLabel="Show All Domains"
+              title="No Studies in Domain"
+              message="No unpublished research studies match the selected filter."
+              actionLabel="Show All Three Studies"
               onAction={() => setSelectedDomain('All')}
             />
           ) : (
-            <div className={`grid ${DESIGN_TOKENS.spacing.gridGap} md:grid-cols-2`}>
+            <div
+              className={`grid ${DESIGN_TOKENS.spacing.gridGap} ${
+                visibleManuscripts.length === 3 ? 'lg:grid-cols-3' : 'md:grid-cols-2'
+              }`}
+            >
               {visibleManuscripts.map((paper, idx) => {
-                const showFullNineSpecs = expanded || Boolean(expandedStudySpecs[paper.id]);
+                const isExpanded = expanded || Boolean(expandedStudySpecs[paper.id]);
 
                 return (
                   <SurfaceCard
@@ -337,70 +282,77 @@ export function ResearchSection({ expanded = false }: ResearchSectionProps) {
                     className="flex min-w-0 flex-col justify-between p-6"
                   >
                     <div className="space-y-4">
-                      {/* 1. Title & Unboxed Status Metadata */}
+                      {/* Card Index, Status Label & Research Area */}
                       <div className="space-y-2">
-                        <div className="flex flex-wrap items-baseline justify-between gap-2 font-mono text-xs">
-                          <span className="text-cyan-700 dark:text-cyan-400">
-                            0{idx + 1} · {paper.domain}
+                        <div className="flex flex-wrap items-center justify-between gap-2 font-mono text-[11px]">
+                          <span className="text-cyan-700 dark:text-cyan-400 font-semibold">
+                            STUDY 0{idx + 1} · {paper.domain}
                           </span>
-                          <span className="text-slate-600 dark:text-slate-400">
-                            {paper.status} · Unpublished
+                          <span className="rounded-[6px] border border-slate-300 dark:border-slate-700/80 bg-slate-100 dark:bg-[#060b16] px-2 py-0.5 text-[10px] font-semibold text-slate-700 dark:text-slate-300">
+                            {paper.status}
                           </span>
                         </div>
 
                         <h4 className={DESIGN_TOKENS.typography.cardTitleLg}>
-                          {paper.title}
+                          {paper.cardTitle ?? paper.title}
                         </h4>
+
+                        <p className="text-xs font-medium text-blue-700 dark:text-blue-300">
+                          {paper.researchArea ?? paper.domain}
+                        </p>
                       </div>
 
-                      {/* Core Structured Fields: Question, Motivation, Dataset, Methodology */}
+                      {/* Public-Facing Summary */}
+                      <p className="text-xs leading-relaxed text-slate-700 dark:text-slate-300">
+                        {paper.abstract}
+                      </p>
+
+                      {/* Technical Approach Tags */}
+                      <div className="space-y-1.5">
+                        <p className="font-mono text-[10px] text-slate-500">
+                          TECHNICAL APPROACH &amp; BENCHMARKS
+                        </p>
+                        <div className="flex flex-wrap gap-1.5">
+                          {paper.methods.map((tag) => (
+                            <span
+                              key={tag}
+                              className="rounded-[6px] border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-[#060b16] px-2 py-0.5 font-mono text-[10px] text-slate-700 dark:text-slate-300"
+                            >
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* Structured Quick-View Details + Expandable Limitations/Directions */}
                       <dl className="divide-y divide-slate-200 dark:divide-slate-800/70 border-y border-slate-200 dark:border-slate-800/70 text-xs">
                         <div className="py-2.5 space-y-1">
-                          <dt className="font-mono text-[11px] text-slate-500">
-                            Research Question
-                          </dt>
-                          <dd className="leading-relaxed text-slate-800 dark:text-slate-200">
-                            {paper.researchQuestions?.[0] ?? paper.keyFocus}
-                          </dd>
-                        </div>
-
-                        <div className="py-2.5 space-y-1">
-                          <dt className="font-mono text-[11px] text-slate-500">
-                            Research Motivation
+                          <dt className="font-mono text-[10px] text-slate-500">
+                            RESEARCH PROBLEM
                           </dt>
                           <dd className="leading-relaxed text-slate-700 dark:text-slate-300">
                             {paper.motivation}
                           </dd>
                         </div>
 
-                        <div className="py-2.5 grid gap-3 sm:grid-cols-2">
-                          <div className="space-y-1">
-                            <dt className="font-mono text-[11px] text-slate-500">
-                              Dataset
-                            </dt>
-                            <dd className="font-mono text-[11px] text-slate-800 dark:text-slate-200">
-                              {paper.datasetsOrBenchmarks}
-                            </dd>
-                          </div>
-                          <div className="space-y-1">
-                            <dt className="font-mono text-[11px] text-slate-500">
-                              Methodology
-                            </dt>
-                            <dd className="font-mono text-[11px] text-cyan-700 dark:text-cyan-300">
-                              {paper.methods.join(' · ')}
-                            </dd>
-                          </div>
+                        <div className="py-2.5 space-y-1">
+                          <dt className="font-mono text-[10px] text-slate-500">
+                            BENCHMARK SCOPE
+                          </dt>
+                          <dd className="font-mono text-[11px] text-slate-800 dark:text-slate-200">
+                            {paper.datasetsOrBenchmarks}
+                          </dd>
                         </div>
 
-                        {showFullNineSpecs && (
+                        {isExpanded && (
                           <>
                             <div className="py-2.5 space-y-1">
-                              <dt className="font-mono text-[11px] text-cyan-700 dark:text-cyan-400">
-                                Completed Work
+                              <dt className="font-mono text-[10px] text-cyan-700 dark:text-cyan-400">
+                                CONTRIBUTION AREAS
                               </dt>
                               <dd className="text-slate-700 dark:text-slate-300 leading-relaxed">
                                 <ul className="space-y-1">
-                                  {(paper.completedWork ?? ['Baseline experiment framing documented.']).map((item) => (
+                                  {(paper.contributionAreas ?? [paper.expectedContribution]).map((item) => (
                                     <li key={item}>• {item}</li>
                                   ))}
                                 </ul>
@@ -408,12 +360,12 @@ export function ResearchSection({ expanded = false }: ResearchSectionProps) {
                             </div>
 
                             <div className="py-2.5 space-y-1">
-                              <dt className="font-mono text-[11px] text-blue-700 dark:text-blue-400">
-                                Ongoing Work
+                              <dt className="font-mono text-[10px] text-amber-700 dark:text-amber-400">
+                                LIMITATIONS
                               </dt>
                               <dd className="text-slate-700 dark:text-slate-300 leading-relaxed">
                                 <ul className="space-y-1">
-                                  {(paper.ongoingWork ?? ['Active evaluation and manuscript drafting.']).map((item) => (
+                                  {(paper.limitations ?? []).map((item) => (
                                     <li key={item}>• {item}</li>
                                   ))}
                                 </ul>
@@ -421,24 +373,15 @@ export function ResearchSection({ expanded = false }: ResearchSectionProps) {
                             </div>
 
                             <div className="py-2.5 space-y-1">
-                              <dt className="font-mono text-[11px] text-slate-500">
-                                Proposed Experiments
+                              <dt className="font-mono text-[10px] text-blue-700 dark:text-blue-400">
+                                FUTURE RESEARCH DIRECTIONS
                               </dt>
                               <dd className="text-slate-700 dark:text-slate-300 leading-relaxed">
                                 <ul className="space-y-1">
-                                  {(paper.proposedWork ?? ['Next-phase validation checks planned.']).map((item) => (
+                                  {(paper.futureDirections ?? []).map((item) => (
                                     <li key={item}>• {item}</li>
                                   ))}
                                 </ul>
-                              </dd>
-                            </div>
-
-                            <div className="py-2.5 space-y-1">
-                              <dt className="font-mono text-[11px] text-slate-500">
-                                Expected Contribution
-                              </dt>
-                              <dd className="leading-relaxed text-slate-800 dark:text-slate-200">
-                                {paper.expectedContribution}
                               </dd>
                             </div>
                           </>
@@ -446,54 +389,52 @@ export function ResearchSection({ expanded = false }: ResearchSectionProps) {
                       </dl>
                     </div>
 
-                    <div className="mt-4 flex flex-wrap items-center justify-between gap-2.5">
+                    <div className="mt-4 flex flex-wrap items-center justify-between gap-2">
                       <div className="flex flex-wrap items-center gap-2">
-                        <LinkButton
-                          to={`/research/${paper.id}`}
+                        <Button
+                          type="button"
                           variant="primary"
                           size="sm"
-                          className="!min-h-[40px] sm:!min-h-[34px] !px-3.5"
+                          onClick={() => handleOpenOverview(paper, 'summary')}
+                          className="!min-h-[38px] sm:!min-h-[34px] !px-3"
                         >
-                          <span>Open Study Page</span>
-                          <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
-                        </LinkButton>
+                          <BookOpen className="h-3.5 w-3.5" aria-hidden="true" />
+                          <span>Overview Panel</span>
+                        </Button>
 
                         <LinkButton
-                          to={`/studio?model=${resolveStudioModelId(paper.id)}`}
+                          to={`/research/${paper.id}`}
                           variant="secondary"
                           size="sm"
-                          className="!min-h-[40px] sm:!min-h-[34px] !px-2.5"
+                          className="!min-h-[38px] sm:!min-h-[34px] !px-2.5"
                         >
-                          <Box className="h-3.5 w-3.5" aria-hidden="true" />
-                          <span>3D Rig</span>
+                          <span>Full Study</span>
+                          <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
                         </LinkButton>
                       </div>
 
-                      <div className="flex items-center gap-2">
+                      <div className="flex items-center gap-1.5">
                         {!expanded && (
                           <Button
                             type="button"
                             variant="ghost"
                             size="sm"
-                            aria-expanded={showFullNineSpecs}
+                            aria-expanded={isExpanded}
                             onClick={() => toggleStudySpecs(paper.id)}
-                            className="!px-2.5 !min-h-[40px] sm:!min-h-[34px] text-slate-700 dark:text-slate-300"
+                            className="!px-2 !min-h-[38px] sm:!min-h-[34px] text-slate-700 dark:text-slate-300"
                           >
-                            <span>
-                              {showFullNineSpecs ? 'Hide Stages' : 'Work & Contribution'}
-                            </span>
+                            <span>{isExpanded ? 'Compact' : 'Limits & Next'}</span>
                           </Button>
                         )}
-                        <Button
-                          type="button"
+                        <LinkButton
+                          to={`/studio?model=${resolveStudioModelId(paper.id)}`}
                           variant="ghost"
                           size="sm"
-                          onClick={() => setActivePaper(paper)}
-                          className="!px-2.5 !min-h-[40px] sm:!min-h-[34px] text-cyan-700 hover:text-cyan-800 dark:text-cyan-300 dark:hover:text-cyan-200"
+                          className="!min-h-[38px] sm:!min-h-[34px] !px-2 text-cyan-700 dark:text-cyan-300"
                         >
-                          <BookOpen className="h-3.5 w-3.5" aria-hidden="true" />
-                          <span>Abstract</span>
-                        </Button>
+                          <Box className="h-3.5 w-3.5" aria-hidden="true" />
+                          <span>3D</span>
+                        </LinkButton>
                       </div>
                     </div>
                   </SurfaceCard>
@@ -502,14 +443,14 @@ export function ResearchSection({ expanded = false }: ResearchSectionProps) {
             </div>
           )}
 
-          {/* Published Research Section (Explicitly 0 Records, Zero Fabricated Claims) */}
+          {/* Published Research Disclosure (Zero Fabricated Claims) */}
           <SurfaceCard className="p-5 flex flex-wrap items-center justify-between gap-3">
             <div className="space-y-1">
               <p className="font-mono text-xs text-slate-800 dark:text-slate-200">
                 Published Research ({RESEARCH_PUBLISHED_RECORDS.length} · Peer-Reviewed / Preprints)
               </p>
               <p className="text-xs text-slate-600 dark:text-slate-400">
-                No peer-reviewed journal articles, conference proceedings, or DOIs are currently published. Manuscripts in preparation and completed baseline experiments are listed separately above without claiming acceptance.
+                No peer-reviewed journal articles, conference proceedings, DOIs, or acceptance claims are published. All three studies above remain Unpublished Research based on benchmark and simulation experiments.
               </p>
             </div>
             <span className="font-mono text-xs text-slate-600 dark:text-slate-400 tabular-nums shrink-0">
@@ -518,19 +459,60 @@ export function ResearchSection({ expanded = false }: ResearchSectionProps) {
           </SurfaceCard>
         </div>
 
-        {/* 3. Experimental Pipeline Tracker + Verified Charts (Completed / Ongoing / Proposed) */}
+        {/* Conceptual Methodology Visualization */}
+        <ResearchPipelineDiagram />
+
+        {/* Expanded Research Profile Sections (/research route) */}
+        {expanded && (
+          <div className="space-y-5 border-t border-slate-200 dark:border-slate-800/80 pt-10">
+            <div className="space-y-1">
+              <p className="font-mono text-xs text-cyan-700 dark:text-cyan-400">
+                02 · Research Positioning &amp; Core Inquiry Tracks
+              </p>
+              <h3 className={DESIGN_TOKENS.typography.sectionTitle}>
+                Research Focus Areas
+              </h3>
+              <p className="text-sm text-slate-600 dark:text-slate-400 max-w-3xl">
+                {RESEARCH_PROFILE_META.positioningTitle} — {RESEARCH_PROFILE_META.positioningSummary}
+              </p>
+            </div>
+
+            <div className={`grid ${DESIGN_TOKENS.spacing.gridGap} md:grid-cols-3`}>
+              {ACADEMIC_INTERESTS.map((interest) => (
+                <SurfaceCard key={interest.id} className="min-w-0 p-6 space-y-3">
+                  <div className="flex flex-wrap items-baseline justify-between gap-2 border-b border-slate-200 dark:border-slate-800/80 pb-2.5">
+                    <h4 className={DESIGN_TOKENS.typography.cardTitleLg}>
+                      {interest.title}
+                    </h4>
+                    <span className="font-mono text-[11px] text-cyan-700 dark:text-cyan-400">
+                      {interest.domain}
+                    </span>
+                  </div>
+                  <p className={DESIGN_TOKENS.typography.bodyMuted}>
+                    {interest.summary}
+                  </p>
+                  <p className="font-mono text-[11px] text-slate-700 dark:text-slate-300">
+                    {interest.topics.join(' · ')}
+                  </p>
+                </SurfaceCard>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Experimental Pipeline Tracker + Stage Counts */}
         {expanded && (
           <div className="space-y-6 border-t border-slate-200 dark:border-slate-800/80 pt-10">
             <div className="flex flex-col gap-4 xl:flex-row xl:items-end xl:justify-between">
               <div className="space-y-1">
                 <p className="font-mono text-xs text-cyan-700 dark:text-cyan-400">
-                  03 · Experimental Pipeline Tracker
+                  03 · Experimental &amp; Ongoing Work Tracker
                 </p>
                 <h3 className={DESIGN_TOKENS.typography.sectionTitle}>
-                  Completed, Ongoing &amp; Proposed Experiments
+                  Completed Setups, Ongoing Evaluations &amp; Future Extensions
                 </h3>
                 <p className="text-xs text-slate-600 dark:text-slate-400 sm:text-sm">
-                  Explicit separation of completed baseline runs, ongoing evaluations, and proposed experiments—using strictly source-verified portfolio counts.
+                  Separating benchmark setups from ongoing analysis and proposed future extensions—keeping confidential numerical findings unpublished.
                 </p>
               </div>
 
@@ -560,14 +542,13 @@ export function ResearchSection({ expanded = false }: ResearchSectionProps) {
               </div>
             </div>
 
-            {/* Source-Verified Experiment Stage Distribution Charts */}
             <ResearchMetricsPanel />
 
             {visibleExperiments.length === 0 ? (
               <EmptyState
-                title="No Matching Experiments"
-                message="Switch to All Experiments to inspect completed baselines, ongoing evaluations, and proposed work."
-                actionLabel="Show All Experiments"
+                title="No Matching Tracks"
+                message="Switch to All Tracks to inspect completed setups, ongoing work, and proposed extensions."
+                actionLabel="Show All Tracks"
                 onAction={() => setExperimentStage('all')}
               />
             ) : (
@@ -611,7 +592,7 @@ export function ResearchSection({ expanded = false }: ResearchSectionProps) {
                           to={`/research/${exp.relatedStudyId}`}
                           className="inline-flex min-h-[38px] sm:min-h-0 items-center gap-1 py-1.5 sm:py-0 text-cyan-700 hover:text-cyan-800 dark:text-cyan-300 dark:hover:text-cyan-200"
                         >
-                          <span>Study Details</span>
+                          <span>Study Overview</span>
                           <ArrowRight className="h-3 w-3" aria-hidden="true" />
                         </Link>
                       )}
@@ -623,17 +604,17 @@ export function ResearchSection({ expanded = false }: ResearchSectionProps) {
           </div>
         )}
 
-        {/* 4 & 5. Datasets + Methodology (Expanded View) */}
+        {/* Datasets + Methodology Protocol */}
         {expanded && (
           <div className="grid gap-10 border-t border-slate-200 dark:border-slate-800/80 pt-10 lg:grid-cols-12">
             <div className="min-w-0 space-y-5 lg:col-span-6">
               <div className="space-y-1">
                 <div className="flex items-center gap-2 font-mono text-xs text-cyan-700 dark:text-cyan-400">
                   <Database className="h-3.5 w-3.5" aria-hidden="true" />
-                  <span>04 · Datasets &amp; Benchmarks</span>
+                  <span>04 · Public Benchmarks &amp; Simulation Panels</span>
                 </div>
                 <h3 className={DESIGN_TOKENS.typography.cardTitleLg}>
-                  Public Experimental Testbeds
+                  Datasets Evaluated Across Studies
                 </h3>
               </div>
 
@@ -649,7 +630,7 @@ export function ResearchSection({ expanded = false }: ResearchSectionProps) {
                         {ds.name}
                       </h4>
                       <span className="font-mono text-[11px] text-cyan-700 dark:text-cyan-400">
-                        {ds.featured ? 'Featured Dataset' : ds.domain}
+                        {ds.featured ? 'Primary Prognostics Benchmark' : ds.domain}
                       </span>
                     </div>
                     <p className="font-mono text-[11px] text-slate-600 dark:text-slate-400">
@@ -667,10 +648,10 @@ export function ResearchSection({ expanded = false }: ResearchSectionProps) {
               <div className="space-y-1">
                 <div className="flex items-center gap-2 font-mono text-xs text-cyan-700 dark:text-cyan-400">
                   <FlaskConical className="h-3.5 w-3.5" aria-hidden="true" />
-                  <span>05 · Research Methodology</span>
+                  <span>05 · Shared Evaluation Protocol</span>
                 </div>
                 <h3 className={DESIGN_TOKENS.typography.cardTitleLg}>
-                  Decision-Centric Evaluation Protocol
+                  Decision-Centric Methodology Principles
                 </h3>
               </div>
 
@@ -695,17 +676,17 @@ export function ResearchSection({ expanded = false }: ResearchSectionProps) {
           </div>
         )}
 
-        {/* 6 & 7. Research Tools + Working Research Notes (Expanded View) */}
+        {/* Research Tools + Research Thread Notes */}
         {expanded && (
           <div className="space-y-10 border-t border-slate-200 dark:border-slate-800/80 pt-10">
             <div className="space-y-5">
               <div className="space-y-1">
                 <div className="flex items-center gap-2 font-mono text-xs text-cyan-700 dark:text-cyan-400">
                   <Wrench className="h-3.5 w-3.5" aria-hidden="true" />
-                  <span>06 · Research Tools &amp; Technical Capabilities</span>
+                  <span>06 · Technical Approaches &amp; Analytical Stack</span>
                 </div>
                 <h3 className={DESIGN_TOKENS.typography.cardTitleLg}>
-                  Computational &amp; Analytical Stack
+                  Methods Across the Three Studies
                 </h3>
               </div>
 
@@ -727,10 +708,10 @@ export function ResearchSection({ expanded = false }: ResearchSectionProps) {
               <div className="space-y-1">
                 <div className="flex items-center gap-2 font-mono text-xs text-cyan-700 dark:text-cyan-400">
                   <FileText className="h-3.5 w-3.5" aria-hidden="true" />
-                  <span>07 · Research Notes &amp; Technical Working Memos</span>
+                  <span>07 · Key Motivations Across Research Threads</span>
                 </div>
                 <h3 className={DESIGN_TOKENS.typography.cardTitleLg}>
-                  Technical Observations Under Study
+                  Central Analytical Questions
                 </h3>
               </div>
 
@@ -757,7 +738,7 @@ export function ResearchSection({ expanded = false }: ResearchSectionProps) {
                         to={`/research/${note.relatedStudyId}`}
                         className="inline-flex min-h-[38px] sm:min-h-0 items-center gap-1 py-1.5 sm:py-0 sm:pt-2 font-mono text-xs text-cyan-700 hover:text-cyan-800 dark:text-cyan-300 dark:hover:text-cyan-200"
                       >
-                        <span>Linked Study</span>
+                        <span>Open Study Page</span>
                         <ArrowRight className="h-3 w-3" aria-hidden="true" />
                       </Link>
                     )}
@@ -768,7 +749,7 @@ export function ResearchSection({ expanded = false }: ResearchSectionProps) {
           </div>
         )}
 
-        {/* 8 & 9. Collaboration Interests + Future Directions (Expanded View) */}
+        {/* Collaboration Interests + Future Directions */}
         {expanded && (
           <div className="grid gap-6 border-t border-slate-200 dark:border-slate-800/80 pt-10 lg:grid-cols-2">
             <SurfaceCard className="p-6 space-y-5">
@@ -777,7 +758,7 @@ export function ResearchSection({ expanded = false }: ResearchSectionProps) {
                   08 · Collaboration Interests
                 </p>
                 <h3 className={DESIGN_TOKENS.typography.cardTitleLg}>
-                  Openness to Academic &amp; International Research Collaboration
+                  Openness to Mentored &amp; Benchmark Research Collaboration
                 </h3>
                 <p className={DESIGN_TOKENS.typography.bodyMuted}>
                   {RESEARCH_PROFILE_META.collaborationSummary}
@@ -814,10 +795,10 @@ export function ResearchSection({ expanded = false }: ResearchSectionProps) {
                   09 · Future Research Directions
                 </p>
                 <h3 className={DESIGN_TOKENS.typography.cardTitleLg}>
-                  Next-Stage Methodological Roadmap
+                  Next-Stage Methodological &amp; Validation Roadmap
                 </h3>
                 <p className={DESIGN_TOKENS.typography.bodyMuted}>
-                  Planned extensions building directly upon current C-MAPSS prognostics, carbon-aware scheduling, and inventory simulation work.
+                  Planned extensions identified directly from the limitations of the three unpublished studies.
                 </p>
               </div>
 
@@ -838,58 +819,187 @@ export function ResearchSection({ expanded = false }: ResearchSectionProps) {
         )}
       </div>
 
+      {/* Detailed Research Overview Panel Modal */}
       <Modal
         open={activePaper !== null}
         onClose={() => setActivePaper(null)}
-        title={activePaper?.title ?? ''}
+        title={activePaper?.cardTitle ?? activePaper?.title ?? ''}
         subtitle={
           activePaper
-            ? `${activePaper.domain} · ${activePaper.status}`
+            ? `${activePaper.researchArea ?? activePaper.domain} · ${activePaper.status}`
             : undefined
         }
       >
         {activePaper && (
           <div className="space-y-5 text-sm text-slate-700 dark:text-slate-300">
-            <div className="space-y-2">
-              <h4 className="font-mono text-xs text-blue-700 dark:text-blue-400">
-                Abstract Summary
-              </h4>
-              <p className={DESIGN_TOKENS.typography.editorialAbstract}>
-                {activePaper.abstract}
-              </p>
+            {/* Overview Panel Navigation Tabs */}
+            <div
+              role="tablist"
+              aria-label="Detailed research overview sections"
+              className="flex flex-wrap gap-2 border-b border-slate-200 dark:border-slate-800/80 pb-3"
+            >
+              {(
+                [
+                  { id: 'summary', label: 'Summary & Problem' },
+                  { id: 'methodology', label: 'Methodology & Approaches' },
+                  { id: 'limitations', label: 'Contributions, Limits & Future' },
+                ] as const
+              ).map((tab) => {
+                const active = overviewTab === tab.id;
+                return (
+                  <button
+                    key={tab.id}
+                    type="button"
+                    role="tab"
+                    aria-selected={active}
+                    onClick={() => setOverviewTab(tab.id)}
+                    className={`min-h-[36px] rounded-[8px] border px-3 py-1.5 text-xs font-medium transition-colors cursor-pointer ${
+                      active
+                        ? 'border-blue-600 bg-blue-50 text-blue-700 dark:border-cyan-400/70 dark:bg-blue-600/20 dark:text-cyan-200'
+                        : 'border-slate-200 bg-slate-50 text-slate-600 hover:text-slate-900 dark:border-slate-800 dark:bg-[#060b16] dark:text-slate-400 dark:hover:text-slate-200'
+                    }`}
+                  >
+                    {tab.label}
+                  </button>
+                );
+              })}
             </div>
 
-            <div className="grid gap-4 border-y border-slate-200 dark:border-slate-800/80 py-4 sm:grid-cols-2">
-              <div>
-                <p className="font-mono text-[11px] text-slate-500">
-                  Datasets / Benchmarks
-                </p>
-                <p className="mt-1 font-mono text-xs text-slate-800 dark:text-slate-200">
-                  {activePaper.datasetsOrBenchmarks}
-                </p>
-              </div>
-              <div>
-                <p className="font-mono text-[11px] text-slate-500">
-                  Key Research Focus
-                </p>
-                <p className="mt-1 text-xs text-slate-800 dark:text-slate-200">
-                  {activePaper.keyFocus}
-                </p>
-              </div>
-            </div>
+            {overviewTab === 'summary' && (
+              <div className="space-y-4">
+                {activePaper.workingTitle && (
+                  <div className="rounded-[10px] border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-[#060b16] p-3.5 space-y-1">
+                    <p className="font-mono text-[10px] text-slate-500">
+                      WORKING MANUSCRIPT TITLE · {activePaper.status.toUpperCase()}
+                    </p>
+                    <p className="text-xs font-semibold leading-relaxed text-slate-900 dark:text-slate-100">
+                      {activePaper.workingTitle}
+                    </p>
+                  </div>
+                )}
 
-            <div>
-              <p className="font-mono text-xs text-blue-700 dark:text-blue-400 mb-2">
-                Methodology &amp; Techniques
-              </p>
-              <p className="font-mono text-xs leading-relaxed text-slate-700 dark:text-slate-300">
-                {activePaper.methods.join(' · ')}
-              </p>
-            </div>
+                <div className="space-y-1.5">
+                  <h4 className="font-mono text-xs text-cyan-700 dark:text-cyan-400">
+                    Public-Facing Summary
+                  </h4>
+                  <p className={DESIGN_TOKENS.typography.editorialAbstract}>
+                    {activePaper.abstract}
+                  </p>
+                </div>
+
+                <div className="space-y-1.5">
+                  <h4 className="font-mono text-xs text-blue-700 dark:text-blue-400">
+                    Research Problem &amp; Motivation
+                  </h4>
+                  <p className="text-xs leading-relaxed text-slate-700 dark:text-slate-300">
+                    {activePaper.motivation}
+                  </p>
+                </div>
+
+                <div className="grid gap-4 border-y border-slate-200 dark:border-slate-800/80 py-3.5 sm:grid-cols-2">
+                  <div>
+                    <p className="font-mono text-[10px] text-slate-500">
+                      CENTRAL RESEARCH QUESTION
+                    </p>
+                    <p className="mt-1 text-xs font-medium text-slate-800 dark:text-slate-200">
+                      {activePaper.centralQuestion ?? activePaper.researchQuestions?.[0]}
+                    </p>
+                  </div>
+                  <div>
+                    <p className="font-mono text-[10px] text-slate-500">
+                      DATASETS &amp; BENCHMARKS
+                    </p>
+                    <p className="mt-1 font-mono text-xs text-slate-800 dark:text-slate-200">
+                      {activePaper.datasetsOrBenchmarks}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {overviewTab === 'methodology' && (
+              <div className="space-y-4">
+                <div className="space-y-2">
+                  <p className="font-mono text-xs text-cyan-700 dark:text-cyan-400">
+                    Technical Approaches &amp; Tags
+                  </p>
+                  <div className="flex flex-wrap gap-1.5">
+                    {activePaper.methods.map((tag) => (
+                      <span
+                        key={tag}
+                        className="rounded-[6px] border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-[#060b16] px-2.5 py-1 font-mono text-[11px] text-slate-700 dark:text-slate-300"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  <p className="font-mono text-xs text-blue-700 dark:text-blue-400">
+                    Study Scope &amp; Methodology Steps
+                  </p>
+                  <ol className="space-y-2 text-xs leading-relaxed text-slate-700 dark:text-slate-300">
+                    {(activePaper.methodologySteps ?? []).map((step, i) => (
+                      <li
+                        key={step}
+                        className="rounded-[8px] border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-[#060b16] p-3"
+                      >
+                        <span className="font-mono text-[11px] font-semibold text-cyan-700 dark:text-cyan-400 mr-2">
+                          0{i + 1}.
+                        </span>
+                        {step}
+                      </li>
+                    ))}
+                  </ol>
+                </div>
+
+                <ResearchPipelineDiagram studyId={activePaper.id} />
+              </div>
+            )}
+
+            {overviewTab === 'limitations' && (
+              <div className="space-y-4">
+                <div className="space-y-2">
+                  <p className="font-mono text-xs text-cyan-700 dark:text-cyan-400">
+                    Contribution Areas to Communicate
+                  </p>
+                  <ul className="space-y-1.5 text-xs leading-relaxed text-slate-700 dark:text-slate-300">
+                    {(activePaper.contributionAreas ?? [activePaper.expectedContribution]).map((item) => (
+                      <li key={item}>• {item}</li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="rounded-[10px] border border-amber-500/30 bg-amber-50/50 dark:bg-amber-950/15 p-4 space-y-2">
+                  <div className="flex items-center gap-2 font-mono text-xs text-amber-800 dark:text-amber-300">
+                    <AlertTriangle className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
+                    <span>Declared Limitations &amp; Scope Boundaries</span>
+                  </div>
+                  <ul className="space-y-1.5 text-xs leading-relaxed text-slate-700 dark:text-slate-300">
+                    {(activePaper.limitations ?? []).map((item) => (
+                      <li key={item}>• {item}</li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="rounded-[10px] border border-blue-500/30 bg-blue-50/50 dark:bg-blue-950/15 p-4 space-y-2">
+                  <div className="flex items-center gap-2 font-mono text-xs text-blue-800 dark:text-blue-300">
+                    <Compass className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
+                    <span>Future Research Directions</span>
+                  </div>
+                  <ul className="space-y-1.5 text-xs leading-relaxed text-slate-700 dark:text-slate-300">
+                    {(activePaper.futureDirections ?? []).map((item) => (
+                      <li key={item}>• {item}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            )}
 
             <div className="border-t border-slate-200 dark:border-slate-800 pt-4 flex flex-wrap items-center justify-between gap-3 text-xs text-slate-600 dark:text-slate-400">
               <div className="flex flex-wrap items-center gap-3">
-                <span>Status: {activePaper.status}</span>
+                <span>Status: {activePaper.status} (Benchmark / Simulation Study)</span>
                 <Button
                   type="button"
                   variant="secondary"

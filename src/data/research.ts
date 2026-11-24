@@ -9,45 +9,53 @@ import type {
 } from "../types/portfolio";
 
 export const RESEARCH_PROFILE_META = {
-  positioningTitle: 'Emerging Undergraduate Researcher · Industrial & Production Engineering',
+  positioningTitle: 'Undergraduate Researcher · Industrial & Production Engineering (SUST)',
   positioningSummary:
-    'Undergraduate researcher at Shahjalal University of Science & Technology (SUST, B.Sc. IPE, Session 2024–25) investigating how applied machine learning, uncertainty quantification, and mathematical optimization translate into reliable manufacturing decisions, sustainable scheduling, and cost-aware maintenance.',
+    'Three connected unpublished research studies connecting predictive modelling with operational decisions in industrial and supply-chain systems—spanning explainable cross-dataset RUL prediction, decision-aware uncertainty calibration under operating shift, and decision-centric demand forecasting for inventory replenishment.',
+  integrityNotice:
+    'All three works are Unpublished Research conducted strictly on public benchmarks and simulation testbeds. Complete manuscripts, confidential numerical results, full result tables, and unapproved figures are withheld prior to formal review and publication, with zero operational fleet or commercial deployment claims.',
   featuredDirection: {
-    title: 'Uncertainty-Aware Predictive Maintenance & Prognostics on NASA C-MAPSS',
-    subtitle: 'Featured Research Direction · Linked to ForgeMind AI',
+    title: 'Decision-Aware Uncertainty & Explainable Prognostics Across Benchmark Regimes',
+    subtitle: 'Featured Research Thread · Benchmark & Simulation Studies',
     summary:
-      'Studying Remaining Useful Life (RUL) modeling, SHAP-guided sensor reduction, and probabilistic interval calibration on NASA C-MAPSS turbofan engine degradation datasets—evaluating whether uncertainty metrics genuinely improve downstream maintenance policy cost under operating-condition shifts.',
-    datasetHighlight: 'NASA C-MAPSS Turbofan Benchmarks (FD001 & Multi-Regime Subsets)',
+      'Connecting sensor-level Remaining Useful Life (RUL) explainability and cross-dataset generalization on NASA C-MAPSS (FD001 / FD003) with closed-loop DAPE maintenance risk calibration across turbofan and FEMTO/PRONOSTIA bearing prognostics under operating-condition shift.',
+    datasetHighlight: 'NASA C-MAPSS (FD001 / FD003 & Operating Shift) · FEMTO / PRONOSTIA Bearings · M5 Retail Panel',
     relatedProjectId: 'forgemind-ai',
   },
   collaborationSummary:
-    'Open to undergraduate research mentorship, international co-authorship, reproducible benchmark validation, and collaborative studies across industrial analytics, reliability engineering, and operations optimization.',
+    'Open to undergraduate research mentorship, reproducible benchmark replication, and collaborative studies across reliability engineering, uncertainty quantification, and operations research.',
   collaborationTracks: [
     {
       title: 'Faculty-Mentored & Lab Research',
-      detail: 'Contributing data pipelines, comparative modeling, and simulation experiments to IPE, reliability, or operations research groups.',
+      detail:
+        'Contributing data pipelines, comparative modeling, and simulation experiments to Industrial & Production Engineering, reliability, and operations research groups.',
     },
     {
-      title: 'International Benchmark Replication',
-      detail: 'Collaborating across NASA C-MAPSS, FEMTO/PRONOSTIA, job-shop energy benchmarks, and M5 retail replenishment studies.',
+      title: 'Public Benchmark Replication',
+      detail:
+        'Reproducible experimentation on NASA C-MAPSS, FEMTO/PRONOSTIA bearing testbeds, and the M5 retail competition demand dataset.',
     },
     {
-      title: 'Open-Source Analytical Tooling',
-      detail: 'Building inspectable Python, OR-Tools, and Streamlit research companions bridging optimization theory with practice.',
+      title: 'Analytical Decision Tooling',
+      detail:
+        'Connecting academic optimization and predictive maintenance methods with inspectable Python and TypeScript decision-support interfaces.',
     },
   ],
   futureDirections: [
     {
-      title: 'Decision-Aware Prognostics Under Distribution Shift',
-      detail: 'Formalizing maintenance cost policy loss alongside statistical calibration checks when operating regimes change between training and deployment.',
+      title: 'Multi-Condition RUL & Hardware Validation',
+      detail:
+        'Extending C-MAPSS explainability and cross-fault studies to multi-operating-condition subsets (FD002/FD004), alternative recurrent architectures, sensitivity analysis, and target-hardware validation.',
     },
     {
-      title: 'Grid-Coupled Carbon & Tariff Manufacturing Optimization',
-      detail: 'Extending tri-objective scheduling toward stochastic machine breakdowns and dynamic renewable grid intensity.',
+      title: 'Domain-Adaptive Recalibration Under Severe Shift',
+      detail:
+        'Investigating domain-adaptive retraining when target operating regimes fall outside training support, addressing cases where post-hoc recalibration alone cannot recover maintenance performance.',
     },
     {
-      title: 'Unified Uncertainty-to-Decision Evaluation',
-      detail: 'Cross-domain synthesis connecting probabilistic forecasting errors in inventory replenishment and RUL prediction to operational cost.',
+      title: 'Multi-Echelon & Protection-Interval Inventory Modelling',
+      detail:
+        'Expanding lost-sales M5 evaluation toward direct protection-interval quantile modelling, longer rolling-origin windows, stochastic lead times, backorders, and multi-echelon networks.',
     },
   ],
 };
@@ -55,155 +63,172 @@ export const RESEARCH_PROFILE_META = {
 export const RESEARCH_MANUSCRIPTS: ResearchManuscript[] = [
   {
     id: 'rul-explainable',
-    title:
-      'Machine Learning for Remaining Useful Life Prediction of Turbofan Engines: A Lightweight and Explainable Comparative Approach',
-    status: 'Manuscript in Preparation',
-    domain: 'Prognostics & Predictive Maintenance',
-    datasetsOrBenchmarks: 'NASA C-MAPSS FD001',
-    methods: ['Random Forest', 'XGBoost', 'LSTM', 'SHAP Explainability', 'Sensor Reduction'],
-    keyFocus: 'Model interpretability and sensor footprint reduction for resource-constrained industrial deployment.',
+    cardTitle: 'Explainable & Cross-Dataset RUL Prediction',
+    title: 'Explainable and Cross-Dataset RUL Prediction for Turbofan Engines',
+    workingTitle:
+      'Machine Learning for Remaining Useful Life Prediction of Turbofan Engines: A Lightweight, Explainable, and Cross-Dataset Generalization Study',
+    status: 'Unpublished Research',
+    domain: 'Predictive Maintenance',
+    researchArea: 'Predictive Maintenance, Machine Learning and Explainable AI',
+    centralQuestion:
+      'How reliably can models estimate equipment remaining useful life across fault modes?',
+    datasetsOrBenchmarks: 'NASA C-MAPSS FD001 & FD003 (Single Operating Condition, Distinct Fault Modes)',
+    methods: ['NASA C-MAPSS', 'FD001 / FD003', 'Random Forest', 'XGBoost', 'LSTM', 'SHAP'],
+    keyFocus:
+      'Comparing lightweight tree ensembles and sequence learning across accuracy, SHAP interpretability, sensor reduction, and cross-dataset fault-mode generalization.',
     abstract:
-      'Compares Random Forest, XGBoost, and Long Short-Term Memory (LSTM) architectures for Remaining Useful Life (RUL) prediction on the NASA C-MAPSS FD001 turbofan degradation dataset. Incorporates SHAP-based feature attribution and systematic sensor reduction to evaluate accuracy–complexity trade-offs for resource-constrained predictive maintenance.',
+      'This study investigates machine-learning approaches for estimating the Remaining Useful Life (RUL) of turbofan engines using NASA\'s C-MAPSS degradation benchmark. It compares tree-based models and a sequence-learning approach, examines how model behaviour changes across degradation stages, and uses explainability techniques to identify influential sensor measurements. The work also studies whether models trained on one fault-mode dataset transfer reliably to another, and evaluates sensor-reduction and pooled-training strategies as practical considerations for predictive-maintenance modelling.',
     motivation:
-      'Industrial predictive maintenance workflows frequently rely on black-box deep models using full sensor arrays, creating high telemetry overhead and limited interpretability for maintenance engineers.',
+      'Predictive-maintenance models are often evaluated on data drawn from conditions similar to their training data. A model may perform well in that setting yet fail when equipment exhibits a different fault mechanism. The study examines model accuracy, interpretability, sensor requirements and generalization together, rather than relying on a single aggregate prediction metric.',
     expectedContribution:
-      'Provide a structured empirical comparison showing whether SHAP-guided sensor reduction enables lightweight tree ensembles to retain competitive RUL estimation while reducing sensor footprint.',
+      'Provides a controlled benchmark synthesis combining comparative model evaluation, SHAP-led sensor-reduction trade-offs, and cross-dataset fault-mode generalization experiments.',
+    contributionAreas: [
+      'A comparative evaluation of lightweight tree ensembles and sequence learning under a common evaluation protocol.',
+      'An explainability-led investigation of sensor importance and a practical sensor-reduction experiment.',
+      'A controlled examination of cross-dataset fault-mode generalization and pooled training.',
+    ],
     featuredDirection: true,
     relatedProjectId: 'forgemind-ai',
     researchQuestions: [
-      'How do lightweight tree ensembles (Random Forest, XGBoost) compare against sequential LSTM baselines on NASA C-MAPSS FD001 under constrained sensor subsets?',
-      'Which physical engine sensor channels contribute most consistently under SHAP attribution as turbofans degrade toward failure?',
+      'How reliably can models estimate equipment remaining useful life across fault modes?',
+      'Can reduced sensor subsets selected via SHAP attribution retain useful predictive performance compared with full telemetry arrays?',
     ],
     methodologySteps: [
-      'Ingest and normalize NASA C-MAPSS FD001 run-to-failure engine cycles using piecewise RUL targets.',
-      'Train comparative Random Forest, XGBoost, and LSTM baselines across unified feature windows.',
-      'Rank sensor channels via SHAP attribution and evaluate accuracy–complexity trade-offs under progressive sensor pruning.',
+      'Prepare NASA C-MAPSS FD001 and FD003 datasets sharing a single operating condition while differing in fault-mode composition.',
+      'Evaluate Random Forest and XGBoost on cycle-level sensor features alongside an LSTM on sequential windows using RMSE, MAE, the NASA scoring function, aligned test instances, repeated random seeds, and degradation-stage analysis.',
+      'Apply SHAP attribution independently across tree-based models to rank influential sensor measurements and retrain models on selected reduced sensor subsets.',
+      'Test cross-dataset fault-mode transfer by training on one dataset and evaluating on the other, followed by pooled-training experiments.',
     ],
     completedWork: [
-      'Baseline preprocessing and comparative Random Forest, XGBoost, and LSTM pipeline structure established on FD001.',
-      'Initial SHAP feature attribution workflow scoped to rank engine sensor importance.',
+      'Unified preprocessing and comparative Random Forest, XGBoost, and LSTM evaluation protocol structured on FD001 and FD003.',
+      'Independent tree-model SHAP sensor importance workflow and reduced-sensor retraining setup established.',
     ],
     ongoingWork: [
-      'Refining sensor-reduction sensitivity experiments and manuscript drafting/formatting.',
+      'Synthesis of degradation-stage behaviour, cross-dataset transfer observations, and pooled-training manuscript refinement.',
     ],
     proposedWork: [
-      'Cross-validate lightweight reduced-sensor feature sets against multi-condition C-MAPSS subsets.',
+      'Extend benchmark evaluation to multi-operating-condition FD002 and FD004 subsets and alternative recurrent architectures.',
+    ],
+    limitations: [
+      'Scope is limited to NASA C-MAPSS FD001 and FD003, both operating under a single operating condition.',
+      'Reported benchmark findings must not be treated as proof of operational performance in a real industrial fleet.',
     ],
     futureDirections: [
-      'Integrate SHAP-selected sensor profiles into edge-deployable condition monitoring tooling.',
+      'Evaluate multi-condition FD002/FD004 subsets alongside alternative recurrent architectures and more extensive LSTM tuning.',
+      'Conduct formal sensitivity analysis and validate reduced-sensor pipelines on real industrial sensor streams and target hardware.',
     ],
   },
   {
     id: 'decision-aware-prognostics',
-    title:
-      'Do Uncertainty Metrics Predict Maintenance Cost? A Decision-Aware Evaluation of Probabilistic Prognostics Under Operating-Condition Shift',
-    status: 'Manuscript in Preparation',
-    domain: 'Decision-Aware Reliability Engineering',
-    datasetsOrBenchmarks: 'NASA C-MAPSS Turbofan Engines · FEMTO/PRONOSTIA Bearings',
-    methods: ['Probabilistic RUL', 'Calibration & Coverage Metrics', 'Cost-Based Maintenance Policy Evaluation'],
-    keyFocus: 'Testing whether statistical calibration metrics actually translate into lower realized maintenance cost under domain shift.',
+    cardTitle: 'Decision-Aware Uncertainty for Predictive Maintenance',
+    title: 'Decision-Aware Uncertainty for Maintenance under Operating Shift',
+    workingTitle:
+      'Does Uncertainty-Aware Prognostics Actually Reduce Maintenance Cost Under Operating-Condition Shift? A Decision-Theoretic Evaluation Framework with Cross-Domain Evidence',
+    status: 'Unpublished Research',
+    domain: 'Decision-Aware Uncertainty',
+    researchArea: 'Prognostics, Uncertainty Quantification and Decision Science',
+    centralQuestion:
+      'Do uncertainty estimates lead to better maintenance actions under operating shift?',
+    datasetsOrBenchmarks: 'NASA C-MAPSS Turbofan Data · FEMTO / PRONOSTIA Bearing Data',
+    methods: ['DAPE', 'C-MAPSS', 'FEMTO / PRONOSTIA', 'ETCE', 'Tail-Brier', 'DRC'],
+    keyFocus:
+      'Closed-loop DAPE decision evaluation, decision-relevant risk calibration (ETCE & tail-Brier), and Decision-Relevant Conformal (DRC) recalibration under operating shift.',
     abstract:
-      'Investigates whether conventional probabilistic accuracy, interval coverage, and calibration metrics of Remaining Useful Life (RUL) models reliably predict downstream maintenance cost under operating-condition shifts across NASA C-MAPSS turbofan engines and FEMTO/PRONOSTIA bearing datasets.',
+      'This study asks whether uncertainty estimates in remaining-useful-life prediction actually improve maintenance decisions when operating conditions shift. It frames replacement decisions through a cost-sensitive decision rule and develops a closed-loop evaluation approach linking predictions, uncertainty calibration, maintenance actions and long-run cost. The work examines why conventional accuracy and interval-calibration measures may not reflect the reliability of the specific risk estimate used by a maintenance policy, and explores decision-relevant recalibration methods across turbofan and bearing prognostics data.',
     motivation:
-      'Prognostic models are routinely ranked by symmetric calibration or prediction-interval coverage without verifying whether those statistical rankings actually reduce asymmetric replacement and unplanned failure costs when operating conditions shift.',
+      'A prognostic model can have competitive prediction accuracy or apparently satisfactory interval coverage while still producing poor maintenance actions. Under distribution shift, an overconfident model may delay intervention, while an overly conservative model may encourage unnecessary maintenance. The manuscript focuses on calibrating the risk quantity that the replacement decision actually uses.',
     expectedContribution:
-      'Establish a decision-aware evaluation framing linking RUL uncertainty metrics to simulated maintenance policy cost across shifting engine and bearing operating regimes.',
+      'Connects decision theory, closed-loop maintenance cost evaluation (DAPE), and trigger-aligned calibration (ETCE, tail-Brier, DRC) across shifting engine and bearing regimes.',
+    contributionAreas: [
+      'A decision-theoretic explanation of why maintenance decisions may depend on a calibrated risk score rather than general interval coverage.',
+      'A closed-loop framework (DAPE) for evaluating prognostic systems through the costs of the actions they induce.',
+      'Decision-relevant calibration metrics and recalibration strategies designed around the maintenance trigger.',
+    ],
     featuredDirection: true,
     relatedProjectId: 'forgemind-ai',
     researchQuestions: [
-      'Do standard probabilistic calibration and prediction-interval coverage metrics consistently correlate with lower realized maintenance cost?',
-      'How severely do uncertainty-driven maintenance thresholds degrade when operating conditions shift between training and evaluation regimes?',
+      'Do uncertainty estimates lead to better maintenance actions under operating shift?',
+      'Why can conventional accuracy and interval-coverage scores diverge from the risk-score reliability required by a cost-sensitive replacement rule?',
     ],
     methodologySteps: [
-      'Construct probabilistic RUL intervals and record statistical calibration and coverage scores across benchmark engines and bearings.',
-      'Define preventive vs. corrective failure cost ratios inside a discrete maintenance policy evaluator.',
-      'Measure alignment between statistical uncertainty rankings and realized maintenance policy cost under operating shift.',
+      'Formulate single-unit replacement with a decision lead time as a cost-sensitive newsvendor-style rule driven by planned versus corrective maintenance costs.',
+      'Couple prediction, uncertainty calibration, action triggers, and long-run renewal-reward cost inside the Decision-Aware Prognostics Evaluation (DAPE) loop.',
+      'Measure trigger-level risk reliability via Expected Tail Calibration Error (ETCE) and tail-Brier-style metrics, then apply Decision-Relevant Conformal (DRC) quantile calibration alongside post-hoc and online baselines.',
+      'Compare predictors, recalibration strategies, and multiple operating-condition shift scenarios across NASA C-MAPSS turbofan and FEMTO/PRONOSTIA bearing data using statistical and sensitivity analyses.',
     ],
     completedWork: [
-      'Experimental problem formulation and cross-benchmark evaluation scope defined across NASA C-MAPSS and FEMTO/PRONOSTIA.',
+      'Cost-sensitive replacement formulation and closed-loop DAPE evaluation structure defined across C-MAPSS and FEMTO/PRONOSTIA.',
+      'Decision-relevant risk calibration (ETCE / tail-Brier) and DRC quantile recalibration baselines organized for cross-domain shift testing.',
     ],
     ongoingWork: [
-      'Evaluating probabilistic interval calibration behaviors and manuscript preparation.',
+      'Refining statistical and sensitivity analyses across operating-shift comparisons while keeping private metrics unpublished.',
     ],
     proposedWork: [
-      'Full cross-regime maintenance policy cost simulation sweeps across asymmetric preventive-to-failure cost ratios.',
+      'Investigate domain-adaptive retraining strategies when target operating conditions fall outside training support.',
+    ],
+    limitations: [
+      'Constrained by the small number of run-to-failure bearing units and simplified deterministic age-indexed renewal modelling.',
+      'Uses limited Monte Carlo seeds, normalized cost parameters, and reveals scenarios where post-hoc recalibration alone cannot recover out-of-support shifts.',
     ],
     futureDirections: [
-      'Design decision-aware recalibration triggers for non-stationary industrial fleets.',
-    ],
-  },
-  {
-    id: 'carbon-aware-jss',
-    title:
-      'Tri-objective Carbon-Aware Job-Shop Scheduling Under Real Hourly Electricity Prices and Grid Carbon Intensity: Price–Carbon Decoupling and Delivery-Neutral Savings',
-    status: 'Manuscript in Preparation',
-    domain: 'Sustainable Manufacturing & Scheduling',
-    datasetsOrBenchmarks: 'Public Job-Shop Benchmarks · 2025 Hourly Data (4 European Grids)',
-    methods: ['Tri-Objective Optimization', 'Job-Shop Scheduling', 'Time-of-Use Tariff & Carbon Modeling'],
-    keyFocus: 'Quantifying delivery-neutral carbon emission reductions where electricity price and grid carbon intensity decouple.',
-    abstract:
-      'Formulates and simulates tri-objective job-shop scheduling under real 2025 hourly electricity prices and grid carbon intensity across four European power grids on public benchmark instances. Examines price–carbon decoupling dynamics and demonstrates how scheduling flexibility achieves delivery-neutral emission savings.',
-    motivation:
-      'Cost-minimizing schedules assume cheaper off-peak electricity hours are automatically cleaner, yet real 2025 grid series reveal frequent periods where wholesale electricity prices and marginal carbon intensity decouple.',
-    expectedContribution:
-      'Characterize when tri-objective job-shop scheduling can leverage residual slack to achieve delivery-neutral operational carbon reductions without incurring late-order penalties.',
-    relatedProjectId: 'factorymind',
-    researchQuestions: [
-      'When hourly electricity prices and grid carbon intensity decouple, can tri-objective scheduling reduce emissions without sacrificing makespan or tardiness commitments?',
-    ],
-    methodologySteps: [
-      'Pair standard public job-shop benchmark instances with 2025 hourly tariff and carbon intensity series across four European grids.',
-      'Optimize simultaneously over delivery tardiness/makespan, energy cost, and operational carbon emissions.',
-      'Analyze delivery-neutral Pareto flexibility where emissions decline without late-order penalties.',
-    ],
-    completedWork: [
-      'Tri-objective formulation and benchmark simulation runs across four European grid datasets compiled for analysis.',
-    ],
-    ongoingWork: [
-      'Synthesizing price–carbon decoupling findings and preparing manuscript tables and discussion.',
-    ],
-    proposedWork: [
-      'Extend deterministic job-shop baselines to stochastic processing disruptions and dynamic real-time dispatch.',
-    ],
-    futureDirections: [
-      'Incorporate carbon-aware scheduling modules into open-source manufacturing tooling such as FactoryMind.',
+      'Pursue domain-adaptive model retraining rather than relying solely on post-hoc recalibration when target regimes leave training support.',
+      'Perform real-fleet validation once public benchmark evaluation and manuscript review conclude.',
     ],
   },
   {
     id: 'decision-centric-demand',
-    title:
+    cardTitle: 'Decision-Centric Demand Forecasting & Inventory Optimization',
+    title: 'Decision-Centric Demand Forecasting for Inventory Replenishment',
+    workingTitle:
       'Beyond Forecast Accuracy: Decision-Centric Evaluation of Demand Forecasting for Inventory Replenishment under Intermittent and Shifting Retail Demand',
-    status: 'Manuscript in Preparation',
-    domain: 'Supply Chain & Inventory Analytics',
-    datasetsOrBenchmarks: '3,999 Real Retail Series (M5 Dataset) · 59 Forecaster–Policy Pairings',
-    methods: ['Lost-Sales Periodic-Review Simulation', 'Intermittent Demand Forecasting', 'Inventory Cost Analysis'],
-    keyFocus: 'Measuring the disconnect between point/probabilistic forecast error and actual replenishment cost.',
+    status: 'Unpublished Research',
+    domain: 'Inventory & Operations Research',
+    researchArea: 'Operations Research, Demand Forecasting and Inventory Control',
+    centralQuestion:
+      'Does a more accurate forecast necessarily produce a better replenishment decision?',
+    datasetsOrBenchmarks: 'M5 Retail Dataset (Bottom-Level Item-Store Series & Stratified Sample)',
+    methods: ['M5 Dataset', 'LightGBM', 'Intermittent Demand', 'Inventory Control', 'Quantile Forecasting'],
+    keyFocus:
+      'Comparing point, quantile, and calibrated empirical-interval forecasters paired with replenishment policies under periodic-review lost-sales economics.',
     abstract:
-      'Measures the empirical gap between standard forecast accuracy metrics and realized inventory replenishment cost across 3,999 real retail demand series from the M5 competition dataset, evaluated via a lost-sales periodic-review simulation spanning 59 forecaster–policy pairings under intermittent and shifting demand.',
+      'This study investigates whether choosing a demand-forecasting model by prediction accuracy necessarily leads to better inventory replenishment decisions. Using a retail demand panel and a simulated lost-sales, periodic-review inventory system, it compares forecasting approaches together with replenishment policies under a margin-based cost framework. The work emphasizes the interaction between forecasts, demand uncertainty, safety-stock decisions and replenishment rules, and explores how strategy selection can be made using validation-period decision costs.',
     motivation:
-      'Retail replenishment pipelines often select demand forecasters using aggregate point or quantile error scores even though intermittent and shifting demand creates highly nonlinear holding versus lost-sales cost consequences.',
+      'Forecasting systems are commonly ranked by statistical error, but replenishment decisions balance the cost of holding excess inventory against the cost of unmet demand. Under intermittent and skewed demand, a lower forecast error does not necessarily imply a lower inventory cost or a better service outcome. The study evaluates forecasting and inventory policy as a combined decision system.',
     expectedContribution:
-      'Document how statistical forecast accuracy rankings diverge from realized periodic-review replenishment cost across 3,999 intermittent retail series and 59 forecaster–policy pairings.',
+      'Evaluates forecasting models and replenishment rules as a coupled decision system and examines portfolio-level validation-cost strategy selection.',
+    contributionAreas: [
+      'A decision-centric comparison of demand forecasters and replenishment policies, rather than treating forecast error as the only objective.',
+      'A simulation framework that connects retail demand forecasts to inventory costs and service outcomes.',
+      'An investigation of validation-based strategy selection at portfolio level and the limits of per-item selection and empirical calibration.',
+    ],
     relatedProjectId: 'factorymind',
     researchQuestions: [
-      'How well do traditional point and quantile forecast error metrics rank inventory replenishment policies when demand is intermittent and non-stationary?',
+      'Does a more accurate forecast necessarily produce a better replenishment decision?',
+      'Can validation-period decision costs guide forecaster–policy selection more effectively than statistical forecast error alone?',
     ],
     methodologySteps: [
-      'Filter 3,999 intermittent and shifting demand series from the M5 retail benchmark.',
-      'Simulate lost-sales periodic-review replenishment across 59 forecaster–policy pairings.',
-      'Evaluate correlation and rank discrepancies between statistical accuracy scores and realized holding/stockout cost.',
+      'Sample bottom-level item-store demand series and a stratified evaluation panel from the M5 retail dataset.',
+      'Evaluate nine point-forecasting methods alongside a trained quantile forecasting approach (including LightGBM) and calibrated empirical-interval variants.',
+      'Simulate single-echelon, periodic-review, lost-sales replenishment with deterministic lead time and a margin-based cost model across base-stock and alternative review-policy families.',
+      'Select strategies using a dedicated validation period while reserving a separate test block for economic cost, service outcome, paired uncertainty, and sensitivity checks.',
     ],
     completedWork: [
-      'Large-scale periodic-review simulation matrix framed across 3,999 M5 series and 59 forecaster–policy pairings.',
+      'Single-echelon periodic-review lost-sales simulation pairing forecasting families and replenishment policies on stratified M5 demand series.',
+      'Validation-period versus reserved-test-block evaluation design and margin-based cost framing established.',
     ],
     ongoingWork: [
-      'Structured synthesis of forecast-error versus replenishment-cost divergence for manuscript completion.',
+      'Documenting aggregation-confound diagnostics and portfolio-level strategy selection limits in manuscript revision.',
     ],
     proposedWork: [
-      'Evaluate multi-echelon lead-time uncertainty interaction with intermittent demand forecasters.',
+      'Test direct protection-interval quantile modelling and longer rolling-origin evaluation windows.',
+    ],
+    limitations: [
+      'Identifies an aggregation confound between daily quantile aggregation and direct protection-interval calibration, alongside an upper-edge quantile grid.',
+      'Scope reflects a single retail dataset and test period, assumed cost parameters, one ML family, deterministic lead times, and a lost-sales-only setting.',
     ],
     futureDirections: [
-      'Unify decision-centric evaluation principles across both inventory forecasting and predictive maintenance domains.',
+      'Incorporate additional retail datasets, longer rolling-origin evaluation, and direct protection-interval quantile modelling.',
+      'Extend simulation settings to stochastic lead times, backorders, and multi-echelon inventory networks.',
     ],
   },
 ];
@@ -213,86 +238,98 @@ export const RESEARCH_PUBLISHED_RECORDS: ResearchPublicationRecord[] = [];
 export const RESEARCH_EXPERIMENTS: ResearchExperiment[] = [
   {
     id: 'exp-cmapss-fd001-baseline',
-    title: 'NASA C-MAPSS FD001 Multi-Model Baseline & SHAP Pipeline',
+    title: 'NASA C-MAPSS FD001 & FD003 Multi-Model & Cross-Dataset Setup',
     stage: 'completed',
     stageLabel: 'Completed Experiment',
     domain: 'Predictive Maintenance',
-    dataset: 'NASA C-MAPSS FD001',
+    dataset: 'NASA C-MAPSS FD001 / FD003',
     summary:
-      'Constructed comparative Random Forest, XGBoost, and LSTM baselines with SHAP feature attribution workflow to examine sensor contribution across run-to-failure cycles.',
+      'Structured Random Forest, XGBoost, and LSTM baselines with aligned test instances, repeated random seeds, SHAP feature attribution, and cross-fault transfer runs.',
     relatedStudyId: 'rul-explainable',
     relatedProjectId: 'forgemind-ai',
   },
   {
-    id: 'exp-europe-grid-jss',
-    title: 'Tri-Objective Job-Shop Scheduling Under 2025 European Grid Series',
+    id: 'exp-dape-shift-setup',
+    title: 'DAPE Closed-Loop Maintenance Framework & Risk Calibration Runs',
     stage: 'completed',
     stageLabel: 'Completed Experiment',
-    domain: 'Engineering Optimization',
-    dataset: 'Job-Shop Benchmarks · 4 European Grids',
+    domain: 'Decision-Aware Uncertainty',
+    dataset: 'NASA C-MAPSS · FEMTO / PRONOSTIA',
     summary:
-      'Simulated tri-objective schedules balancing delivery timing, electricity price, and hourly grid carbon intensity across four real 2025 European grid profiles.',
-    relatedStudyId: 'carbon-aware-jss',
-    relatedProjectId: 'factorymind',
+      'Constructed cost-sensitive newsvendor-style replacement evaluator linking RUL predictions, ETCE/tail-Brier diagnostics, and Decision-Relevant Conformal (DRC) recalibration.',
+    relatedStudyId: 'decision-aware-prognostics',
+    relatedProjectId: 'forgemind-ai',
   },
   {
     id: 'exp-m5-replenishment',
-    title: 'Lost-Sales Periodic-Review Simulation Across 3,999 M5 Retail Series',
+    title: 'Lost-Sales Periodic-Review Simulation Across M5 Retail Series',
     stage: 'completed',
     stageLabel: 'Completed Experiment',
-    domain: 'Industrial & Supply Chain Analytics',
-    dataset: 'M5 Competition Dataset (3,999 Series)',
+    domain: 'Inventory & Operations Research',
+    dataset: 'M5 Retail Competition Dataset',
     summary:
-      'Executed comparative evaluation of 59 forecaster–policy pairings under intermittent retail demand to inspect forecast error vs. replenishment cost gaps.',
+      'Built single-echelon lost-sales inventory simulation pairing nine point-forecasting methods, trained quantile forecasting, and empirical intervals with replenishment policy families.',
     relatedStudyId: 'decision-centric-demand',
     relatedProjectId: 'factorymind',
   },
   {
-    id: 'exp-cmapss-shift-calibration',
-    title: 'Uncertainty Calibration Sensitivity Under Operating-Condition Shift',
-    stage: 'ongoing',
-    stageLabel: 'Ongoing Experiment',
-    domain: 'Uncertainty-Aware Prognostics',
-    dataset: 'NASA C-MAPSS & FEMTO/PRONOSTIA',
-    summary:
-      'Analyzing how prediction interval coverage and probabilistic calibration metrics behave when turbofan and bearing operating conditions shift across subsets.',
-    relatedStudyId: 'decision-aware-prognostics',
-    relatedProjectId: 'forgemind-ai',
-  },
-  {
     id: 'exp-sensor-pruning',
-    title: 'Progressive Sensor Footprint Reduction & Trade-Off Analysis',
+    title: 'SHAP Sensor Reduction & Pooled-Training Synthesis',
     stage: 'ongoing',
     stageLabel: 'Ongoing Experiment',
-    domain: 'Explainable Applied ML',
-    dataset: 'NASA C-MAPSS FD001',
+    domain: 'Predictive Maintenance',
+    dataset: 'NASA C-MAPSS FD001 / FD003',
     summary:
-      'Testing systematic sensor removal guided by SHAP rankings to weigh computational compactness against RUL prediction stability.',
+      'Evaluating whether reduced sensor subsets retain useful predictive stability across degradation stages and fault-mode shifts under pooled training.',
     relatedStudyId: 'rul-explainable',
     relatedProjectId: 'forgemind-ai',
   },
   {
-    id: 'exp-policy-cost-sweep',
-    title: 'Decision-Aware Maintenance Policy Cost Sweep (ForgeMind AI)',
-    stage: 'proposed',
-    stageLabel: 'Proposed Experiment',
-    domain: 'Maintenance Policy Optimization',
-    dataset: 'NASA C-MAPSS Multi-Regime Subsets',
+    id: 'exp-cmapss-shift-calibration',
+    title: 'Out-of-Support Shift & Sensitivity Analysis in Prognostics',
+    stage: 'ongoing',
+    stageLabel: 'Ongoing Experiment',
+    domain: 'Decision-Aware Uncertainty',
+    dataset: 'NASA C-MAPSS & FEMTO/PRONOSTIA',
     summary:
-      'Proposed evaluation translating probabilistic RUL bounds directly into preventive vs. unexpected-failure replacement cost curves across asymmetric cost ratios.',
+      'Examining sensitivity checks across operating-condition shift scenarios and documenting boundary cases where post-hoc recalibration cannot recover performance.',
     relatedStudyId: 'decision-aware-prognostics',
     relatedProjectId: 'forgemind-ai',
   },
   {
-    id: 'exp-carbon-stochastic-ext',
-    title: 'Stochastic Breakdown Extension for Carbon-Aware Scheduling',
+    id: 'exp-cmapss-fd002-fd004',
+    title: 'Multi-Condition FD002/FD004 & Hardware Validation Extension',
     stage: 'proposed',
     stageLabel: 'Proposed Experiment',
-    domain: 'Smart Manufacturing Systems',
-    dataset: 'Public Job-Shop Instances + Hourly Grid Signals',
+    domain: 'Predictive Maintenance',
+    dataset: 'NASA C-MAPSS FD002 / FD004 & Field Hardware',
     summary:
-      'Proposed integration of machine health triggers with hourly grid carbon intensity inside open-source scheduling tooling.',
-    relatedStudyId: 'carbon-aware-jss',
+      'Proposed expansion to multi-operating-condition turbofan subsets, alternative recurrent architectures, broader LSTM tuning, and real industrial sensor validation.',
+    relatedStudyId: 'rul-explainable',
+    relatedProjectId: 'forgemind-ai',
+  },
+  {
+    id: 'exp-domain-adaptive-retrain',
+    title: 'Domain-Adaptive Retraining Beyond Post-Hoc Recalibration',
+    stage: 'proposed',
+    stageLabel: 'Proposed Experiment',
+    domain: 'Decision-Aware Uncertainty',
+    dataset: 'Cross-Regime Engine & Bearing Benchmarks',
+    summary:
+      'Proposed domain-adaptive retraining methods for target operating conditions falling outside training support, paired with real-fleet validation.',
+    relatedStudyId: 'decision-aware-prognostics',
+    relatedProjectId: 'forgemind-ai',
+  },
+  {
+    id: 'exp-m5-multi-echelon',
+    title: 'Direct Protection-Interval Quantiles & Multi-Echelon Inventory',
+    stage: 'proposed',
+    stageLabel: 'Proposed Experiment',
+    domain: 'Inventory & Operations Research',
+    dataset: 'Multi-Dataset Retail & Rolling-Origin Panels',
+    summary:
+      'Proposed extensions addressing protection-interval quantile calibration, stochastic lead times, backorders, and multi-echelon inventory structures.',
+    relatedStudyId: 'decision-centric-demand',
     relatedProjectId: 'factorymind',
   },
 ];
@@ -300,104 +337,96 @@ export const RESEARCH_EXPERIMENTS: ResearchExperiment[] = [
 export const RESEARCH_DATASETS: ResearchDatasetEntry[] = [
   {
     id: 'ds-cmapss',
-    name: 'NASA C-MAPSS Turbofan Engine Degradation',
+    name: 'NASA C-MAPSS Turbofan Engine Degradation (FD001 / FD003 & Shift)',
     domain: 'Aerospace & Industrial Prognostics',
-    scope: 'Run-to-failure multivariate sensor trajectories (FD001 & multi-regime subsets)',
-    usage: 'Comparative RUL modeling, SHAP sensor reduction, and uncertainty-aware maintenance policy evaluation.',
+    scope: 'Run-to-failure multivariate sensor trajectories across single-condition fault modes and operating-condition shifts',
+    usage: 'Comparative RUL modeling, SHAP sensor reduction, cross-dataset generalization, and DAPE cost-aware calibration.',
     featured: true,
   },
   {
     id: 'ds-femto',
     name: 'FEMTO / PRONOSTIA Bearing Dataset',
     domain: 'Rotating Machinery Reliability',
-    scope: 'Accelerated degradation vibration & thermal run-to-failure testbeds',
-    usage: 'Cross-benchmark verification of probabilistic calibration under operating-condition shift.',
-  },
-  {
-    id: 'ds-grids',
-    name: 'Public Job-Shop Benchmarks + 2025 European Grid Series',
-    domain: 'Sustainable Manufacturing Scheduling',
-    scope: 'Hourly electricity tariffs and carbon intensity across four European power grids',
-    usage: 'Evaluating price–carbon decoupling and delivery-neutral emission savings.',
+    scope: 'Accelerated degradation run-to-failure bearing vibration testbed across operating regimes',
+    usage: 'Cross-domain evaluation of decision-relevant risk calibration (ETCE, tail-Brier, DRC) under operating shift.',
   },
   {
     id: 'ds-m5',
-    name: 'M5 Retail Competition Demand Dataset (3,999 Series)',
+    name: 'M5 Retail Competition Demand Dataset',
     domain: 'Supply Chain & Inventory Replenishment',
-    scope: 'Intermittent and shifting retail demand time series',
-    usage: '59 forecaster–policy lost-sales periodic-review simulations.',
+    scope: 'Bottom-level intermittent and shifting item-store retail demand series (stratified sample)',
+    usage: 'Comparing point, quantile, and empirical-interval forecasting paired with periodic-review lost-sales inventory policies.',
   },
 ];
 
 export const RESEARCH_METHODOLOGY: ResearchMethodologyStep[] = [
   {
     step: '01',
-    title: 'Operational & Decision Framing',
+    title: 'Decision-Theoretic Problem Framing',
     description:
-      'Formulate mathematical or machine learning objectives around real engineering trade-offs—maintenance replacement cost, delivery tardiness, energy emissions, or inventory stockouts—rather than isolated accuracy scores.',
+      'Connect predictive models directly to operational decisions—whether sensor footprint reduction, preventive vs. corrective replacement rules, or margin-based inventory replenishment.',
   },
   {
     step: '02',
-    title: 'Public Benchmark Standardization',
+    title: 'Reproducible Public Benchmarks & Simulation',
     description:
-      'Curate transparent, reproducible public datasets (NASA C-MAPSS, FEMTO/PRONOSTIA, job-shop instances, M5 retail series) with explicit operating splits and zero synthetic metric inflation.',
+      'Conduct controlled experiments strictly on established public testbeds (NASA C-MAPSS, FEMTO/PRONOSTIA, M5 retail series) using explicit validation/test splits.',
   },
   {
     step: '03',
-    title: 'Comparative & Explainable Modeling',
+    title: 'Explainability & Risk-Score Calibration',
     description:
-      'Benchmark lightweight interpretable models alongside deep/metaheuristic baselines (Random Forest, XGBoost, LSTM, SHAP, OR-Tools MIP, GA, SA).',
+      'Examine SHAP sensor attribution, Expected Tail Calibration Error (ETCE), tail-Brier reliability, and Decision-Relevant Conformal (DRC) quantile alignment.',
   },
   {
     step: '04',
-    title: 'Policy Simulation & Robustness Checks',
+    title: 'Limitation Disclosure & Boundary Testing',
     description:
-      'Test whether statistical intervals and predictions hold up inside closed-loop maintenance or replenishment cost simulations under operating-condition shifts.',
+      'Identify structural scope limits—single operating conditions, limited bearing units, aggregation confounds, and out-of-support regimes—before claiming generalization.',
   },
 ];
 
 export const RESEARCH_TOOL_GROUPS: ResearchToolGroup[] = [
   {
-    category: 'Machine Learning & Prognostics',
-    tools: ['Python', 'Scikit-Learn', 'XGBoost', 'LSTM Networks', 'SHAP Explainability', 'Calibration & Coverage Analysis'],
+    category: 'Predictive Maintenance & Explainable AI',
+    tools: ['Python', 'Random Forest', 'XGBoost', 'LSTM Networks', 'SHAP Explainability', 'NASA Scoring & Degradation Analysis'],
   },
   {
-    category: 'Operations Research & Simulation',
-    tools: ['Google OR-Tools (MIP)', 'Genetic Algorithms', 'Simulated Annealing', 'Discrete-Event Simulation', 'Lost-Sales Inventory Simulation'],
+    category: 'Uncertainty Quantification & Decision Science',
+    tools: ['DAPE Closed-Loop Evaluator', 'ETCE & Tail-Brier Metrics', 'Decision-Relevant Conformal (DRC)', 'Renewal-Reward Cost Analysis'],
   },
   {
-    category: 'Manufacturing Analytics & Software',
-    tools: ['Statistical Process Control (SPC)', 'Streamlit Analytical UI', 'Git / Reproducible Pipelines', 'Technical Manuscript Writing'],
+    category: 'Inventory Control & Demand Forecasting',
+    tools: ['LightGBM Quantile Forecasting', 'Point & Empirical-Interval Forecasters', 'Periodic-Review Lost-Sales Simulation', 'Base-Stock Policy Comparison'],
   },
 ];
 
 export const RESEARCH_NOTES: ResearchNoteEntry[] = [
   {
-    id: 'note-uncertainty-cost',
-    title: 'Working Note: Why Statistical Interval Coverage Alone Can Misrank Maintenance Policies',
-    dateLabel: 'Working Research Memo · Prognostics',
-    topic: 'Uncertainty-Aware Reliability',
-    summary:
-      'Symmetric interval coverage rewards narrow uniform bounds, whereas preventive vs. run-to-failure maintenance costs are strongly asymmetric under degradation shift.',
-    relatedStudyId: 'decision-aware-prognostics',
-  },
-  {
     id: 'note-shap-sensors',
-    title: 'Working Note: Sensor Footprint Reduction Trade-Offs in NASA C-MAPSS FD001',
-    dateLabel: 'Working Research Memo · Explainable ML',
-    topic: 'Lightweight Diagnostics',
+    title: 'Research Thread 01: Accuracy vs. Fault-Mode Generalization in RUL Prediction',
+    dateLabel: 'Unpublished Research · Predictive Maintenance',
+    topic: 'Cross-Dataset & Sensor Reduction',
     summary:
-      'Ranking multi-sensor channels with SHAP helps identify redundant telemetry streams before committing embedded monitoring bandwidth.',
+      'Models evaluated on matched conditions can struggle under fault-mode shift; pairing SHAP sensor selection with cross-dataset and pooled tests clarifies practical trade-offs.',
     relatedStudyId: 'rul-explainable',
   },
   {
-    id: 'note-forecast-gap',
-    title: 'Working Note: Disconnecting Point Forecast Error from Replenishment Cost',
-    dateLabel: 'Working Research Memo · Supply Chain',
-    topic: 'Decision-Centric Analytics',
+    id: 'note-uncertainty-cost',
+    title: 'Research Thread 02: Trigger-Aligned Risk Calibration vs. General Interval Coverage',
+    dateLabel: 'Unpublished Research · Decision-Aware Prognostics',
+    topic: 'DAPE · ETCE · DRC',
     summary:
-      'Under intermittent retail demand, standard point error improvements do not guarantee proportional holding or lost-sales cost reductions inside periodic-review policies.',
+      'Maintenance actions rely on a specific quantile or risk threshold rather than symmetric interval coverage, motivating decision-relevant metrics and recalibration around the trigger.',
+    relatedStudyId: 'decision-aware-prognostics',
+  },
+  {
+    id: 'note-forecast-gap',
+    title: 'Research Thread 03: Forecast Error Rankings vs. Periodic-Review Inventory Cost',
+    dateLabel: 'Unpublished Research · Operations Research',
+    topic: 'Validation-Based Policy Selection',
+    summary:
+      'Under intermittent retail demand, lower point error does not automatically yield lower holding and lost-sales costs; evaluating forecasters alongside replenishment rules exposes key limits.',
     relatedStudyId: 'decision-centric-demand',
   },
 ];
-

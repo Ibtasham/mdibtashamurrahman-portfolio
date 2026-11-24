@@ -229,6 +229,7 @@ export function ExperienceSection({ expanded = false }: ExperienceSectionProps) 
                   src={primaryPhoto.src}
                   alt={primaryPhoto.alt}
                   kind={primaryPhoto.kind}
+                  mediaType={primaryPhoto.mediaType}
                   rotateDeg={primaryPhoto.rotateDeg}
                   focalPosition={primaryPhoto.focalPosition}
                   mode="thumbnail"
@@ -612,8 +613,7 @@ export function ExperienceSection({ expanded = false }: ExperienceSectionProps) 
             )}
           </div>
 
-          <SectionReveal>
-            {visibleItems.length === 0 ? (
+          {visibleItems.length === 0 ? (
               <EmptyState
                 title="No Matching Experience Records"
                 message="No roles match the selected category, tenure status, or search keywords."
@@ -694,7 +694,6 @@ export function ExperienceSection({ expanded = false }: ExperienceSectionProps) 
                 {visibleItems.map((item) => renderRoleCard(item, 'grid'))}
               </div>
             )}
-          </SectionReveal>
 
           {!expanded && filtered.length > visibleItems.length && (
             <div className="flex justify-center pt-2">

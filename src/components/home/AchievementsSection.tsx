@@ -185,7 +185,8 @@ export function AchievementsSection({ expanded = false }: AchievementsSectionPro
                           logoUrl={award.organizationLogoUrl}
                           active={
                             award.placement.includes('1st') ||
-                            award.placement.includes('GPA 5.00')
+                            award.placement.includes('GPA 5.00') ||
+                            award.placement.includes('Top 3')
                           }
                         />
                         <div className="min-w-0 flex-1 space-y-0.5">

@@ -48,6 +48,6 @@ export const DESIGN_TOKENS = {
     durationFast: 0.16,
     durationBase: 0.28,
     durationReveal: 0.42,
-    viewport: { once: true, amount: 0.1 } as const,
+    viewport: { once: true, amount: 'some' } as const,
   },
 } as const;

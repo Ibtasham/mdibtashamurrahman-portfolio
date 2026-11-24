@@ -75,9 +75,9 @@ export const VIRTUAL_GUIDE_TOUR_STEPS: readonly VirtualGuideStep[] = [
     label: 'Research',
     route: '/research',
     routeLabel: 'Explore Research Pipeline',
-    title: 'Manuscripts & Benchmark Experiments',
+    title: 'Unpublished Research & Methodology',
     speech:
-      'Here are my four manuscripts currently in preparation across explainable Remaining Useful Life modeling, decision-aware maintenance, carbon-aware job-shop scheduling, and intermittent demand forecasting—strictly separating completed setups from ongoing and proposed work.',
+      'Here are my three unpublished research studies spanning explainable cross-dataset RUL prediction, decision-aware uncertainty for maintenance under operating shift, and decision-centric demand forecasting for inventory replenishment—conducted on public benchmarks and simulations.',
   },
   {
     id: 'innovation',
@@ -99,7 +99,7 @@ export const VIRTUAL_GUIDE_TOUR_STEPS: readonly VirtualGuideStep[] = [
     routeLabel: 'Inspect All Leadership Roles',
     title: 'Executive Governance & Outreach',
     speech:
-      'Alongside coursework and research, I serve in five active executive and committee roles at SUST—including SUST Science Arena, GDN-SUST, and the Noakhali Association—and have represented 12 national partner initiatives as Campus Director or Ambassador.',
+      'Alongside coursework and research, I serve in five active executive and committee roles at SUST—including SUST Science Arena, GDN-SUST, and the Noakhali Association—serve as Campus Lead for Linked Community Bangladesh starting November 2026, and represent platforms including CaraLox, MyTravaly Bangladesh, Elevetr AI, and STechNest.',
   },
   {
     id: 'awards',
@@ -110,7 +110,7 @@ export const VIRTUAL_GUIDE_TOUR_STEPS: readonly VirtualGuideStep[] = [
     routeLabel: 'Browse Certificates & Honors',
     title: 'Verified Awards & Visual Proof',
     speech:
-      'Every academic scholarship, 1st Place IT Olympiad win at iNIT 3.0, Speak Up 2026 extempore distinction, and certificate is organized here with interactive preview modals and documentary photographs.',
+      'Every academic scholarship, 1st Place IT Olympiad win at iNIT 3.0, Speak Up 2026 extempore distinction, Top 3 candidate placement across whole SUST in the Unilever Sparks Campus Ambassador Program, and verified certificate is organized here with interactive preview modals and documentary photographs.',
   },
   {
     id: 'skills',

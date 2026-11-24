@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import {
   AlertCircle,
   ArrowUpRight,
+  Award,
   Calendar,
   ChevronLeft,
   ChevronRight,
@@ -11,11 +12,13 @@ import {
   FolderOpen,
   Link2,
   RotateCcw,
+  RotateCw,
   ZoomIn,
   ZoomOut,
 } from 'lucide-react';
 import type { VisualArchiveItem } from '../../types/portfolio';
-import { ArchiveMediaFrame } from './ArchiveMediaFrame';
+import { resolvePublicAssetUrl } from '../../utils/virtualGuide';
+import { ArchiveMediaFrame, isArchiveVideoAsset } from './ArchiveMediaFrame';
 import { Modal } from './Modal';
 
 interface ArchiveLightboxModalProps {
@@ -34,6 +37,7 @@ export function ArchiveLightboxModal({
   onClose,
 }: ArchiveLightboxModalProps) {
   const [zoom, setZoom] = useState<1 | 1.5 | 2>(1);
+  const [extraRotate, setExtraRotate] = useState<0 | 90 | 180 | 270>(0);
 
   const currentIndex = item
     ? items.findIndex((candidate) => candidate.id === item.id)
@@ -46,6 +50,7 @@ export function ArchiveLightboxModal({
 
   useEffect(() => {
     setZoom(1);
+    setExtraRotate(0);
   }, [item?.id]);
 
   useEffect(() => {
@@ -63,7 +68,9 @@ export function ArchiveLightboxModal({
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [item, previousItem, nextItem, onSelect]);
 
-  const widthStyle = zoom === 1 ? '100%' : zoom === 1.5 ? '150%' : '200%';
+  const isVideo = item ? isArchiveVideoAsset(item.src, item.kind, item.mediaType) : false;
+  const widthStyle = !isVideo && zoom === 1.5 ? '150%' : !isVideo && zoom === 2 ? '200%' : '100%';
+  const resolvedDownloadHref = item ? resolvePublicAssetUrl(item.src) : '';
 
   return (
     <Modal
@@ -74,57 +81,82 @@ export function ArchiveLightboxModal({
     >
       {item && (
         <div className="space-y-5 text-sm text-slate-700 dark:text-slate-300">
-          {/* Zoom Controls Bar */}
-          <div className="flex flex-wrap items-center justify-between gap-2 rounded-[10px] border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-[#060b16] px-3 py-2">
-            <span className="font-mono text-[11px] text-slate-600 dark:text-slate-400 tabular-nums">
-              Evidence Zoom · {Math.round(zoom * 100)}%
-            </span>
-            <div className="flex flex-wrap items-center gap-1.5" role="group" aria-label="Image zoom controls">
-              <button
-                type="button"
-                disabled={zoom === 1}
-                onClick={() => setZoom((z) => (z === 2 ? 1.5 : 1))}
-                aria-label="Zoom out image"
-                className="inline-flex min-h-[38px] sm:min-h-[34px] items-center gap-1 rounded-[8px] border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#0b1222] px-2.5 py-1 text-xs font-medium text-slate-700 dark:text-slate-200 transition-colors hover:border-blue-500/60 disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer whitespace-nowrap shrink-0"
-              >
-                <ZoomOut className="h-3.5 w-3.5" aria-hidden="true" />
-              </button>
-              {ZOOM_LEVELS.map((level) => (
+          {/* Zoom or Video Controls Bar */}
+          {isVideo ? (
+            <div className="flex flex-wrap items-center justify-between gap-2 rounded-[10px] border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-[#060b16] px-3 py-2">
+              <span className="font-mono text-[11px] text-cyan-700 dark:text-cyan-400">
+                Video Submission · Use Player Controls Below
+              </span>
+              <span className="font-mono text-[11px] text-slate-500">
+                1080p MP4
+              </span>
+            </div>
+          ) : (
+            <div className="flex flex-wrap items-center justify-between gap-2 rounded-[10px] border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-[#060b16] px-3 py-2">
+              <span className="font-mono text-[11px] text-slate-600 dark:text-slate-400 tabular-nums">
+                Evidence Zoom · {Math.round(zoom * 100)}%
+              </span>
+              <div className="flex flex-wrap items-center gap-1.5" role="group" aria-label="Image zoom controls">
                 <button
-                  key={level}
                   type="button"
-                  aria-pressed={zoom === level}
-                  onClick={() => setZoom(level)}
-                  className={`min-h-[38px] sm:min-h-[34px] rounded-[8px] border px-2.5 py-1 font-mono text-xs font-medium transition-colors cursor-pointer whitespace-nowrap shrink-0 tabular-nums ${
-                    zoom === level
-                      ? 'border-blue-600 bg-blue-50 text-blue-700 dark:border-blue-500/80 dark:bg-blue-600/20 dark:text-cyan-200'
-                      : 'border-slate-200 dark:border-slate-800 bg-white dark:bg-[#0b1222] text-slate-600 dark:text-slate-300 hover:border-blue-500/50'
-                  }`}
+                  disabled={zoom === 1}
+                  onClick={() => setZoom((z) => (z === 2 ? 1.5 : 1))}
+                  aria-label="Zoom out image"
+                  className="inline-flex min-h-[38px] sm:min-h-[34px] items-center gap-1 rounded-[8px] border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#0b1222] px-2.5 py-1 text-xs font-medium text-slate-700 dark:text-slate-200 transition-colors hover:border-blue-500/60 disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer whitespace-nowrap shrink-0"
                 >
-                  {Math.round(level * 100)}%
+                  <ZoomOut className="h-3.5 w-3.5" aria-hidden="true" />
                 </button>
-              ))}
-              <button
-                type="button"
-                disabled={zoom === 2}
-                onClick={() => setZoom((z) => (z === 1 ? 1.5 : 2))}
-                aria-label="Zoom in image"
-                className="inline-flex min-h-[38px] sm:min-h-[34px] items-center gap-1 rounded-[8px] border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#0b1222] px-2.5 py-1 text-xs font-medium text-slate-700 dark:text-slate-200 transition-colors hover:border-blue-500/60 disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer whitespace-nowrap shrink-0"
-              >
-                <ZoomIn className="h-3.5 w-3.5" aria-hidden="true" />
-              </button>
-              {zoom > 1 && (
+                {ZOOM_LEVELS.map((level) => (
+                  <button
+                    key={level}
+                    type="button"
+                    aria-pressed={zoom === level}
+                    onClick={() => setZoom(level)}
+                    className={`min-h-[38px] sm:min-h-[34px] rounded-[8px] border px-2.5 py-1 font-mono text-xs font-medium transition-colors cursor-pointer whitespace-nowrap shrink-0 tabular-nums ${
+                      zoom === level
+                        ? 'border-blue-600 bg-blue-50 text-blue-700 dark:border-blue-500/80 dark:bg-blue-600/20 dark:text-cyan-200'
+                        : 'border-slate-200 dark:border-slate-800 bg-white dark:bg-[#0b1222] text-slate-600 dark:text-slate-300 hover:border-blue-500/50'
+                    }`}
+                  >
+                    {Math.round(level * 100)}%
+                  </button>
+                ))}
                 <button
                   type="button"
-                  onClick={() => setZoom(1)}
+                  disabled={zoom === 2}
+                  onClick={() => setZoom((z) => (z === 1 ? 1.5 : 2))}
+                  aria-label="Zoom in image"
+                  className="inline-flex min-h-[38px] sm:min-h-[34px] items-center gap-1 rounded-[8px] border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#0b1222] px-2.5 py-1 text-xs font-medium text-slate-700 dark:text-slate-200 transition-colors hover:border-blue-500/60 disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer whitespace-nowrap shrink-0"
+                >
+                  <ZoomIn className="h-3.5 w-3.5" aria-hidden="true" />
+                </button>
+                <button
+                  type="button"
+                  onClick={() =>
+                    setExtraRotate((prev) => ((prev + 90) % 360) as 0 | 90 | 180 | 270)
+                  }
+                  aria-label="Rotate image 90 degrees"
                   className="inline-flex min-h-[38px] sm:min-h-[34px] items-center gap-1 rounded-[8px] border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#0b1222] px-2.5 py-1 text-xs font-medium text-slate-700 dark:text-slate-200 transition-colors hover:border-blue-500/60 cursor-pointer whitespace-nowrap shrink-0"
                 >
-                  <RotateCcw className="h-3 w-3" aria-hidden="true" />
-                  <span>Reset</span>
+                  <RotateCw className="h-3.5 w-3.5" aria-hidden="true" />
+                  <span className="hidden sm:inline">Rotate</span>
                 </button>
-              )}
+                {(zoom > 1 || extraRotate !== 0) && (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setZoom(1);
+                      setExtraRotate(0);
+                    }}
+                    className="inline-flex min-h-[38px] sm:min-h-[34px] items-center gap-1 rounded-[8px] border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#0b1222] px-2.5 py-1 text-xs font-medium text-slate-700 dark:text-slate-200 transition-colors hover:border-blue-500/60 cursor-pointer whitespace-nowrap shrink-0"
+                  >
+                    <RotateCcw className="h-3 w-3" aria-hidden="true" />
+                    <span>Reset</span>
+                  </button>
+                )}
+              </div>
             </div>
-          </div>
+          )}
 
           {/* High-Resolution Lightbox Stage */}
           <div className="relative overflow-hidden rounded-[12px] border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-[#060b16] p-2">
@@ -137,7 +169,9 @@ export function ArchiveLightboxModal({
                   src={item.src}
                   alt={item.alt}
                   kind={item.kind}
+                  mediaType={item.mediaType}
                   rotateDeg={item.rotateDeg}
+                  extraRotateDeg={extraRotate}
                   mode="lightbox"
                   className="rounded-[8px]"
                 />
@@ -235,7 +269,7 @@ export function ArchiveLightboxModal({
           <div className="flex flex-wrap items-center justify-between gap-3 border-t border-slate-200 dark:border-slate-800/80 pt-4">
             <div className="flex flex-wrap items-center gap-3">
               <a
-                href={item.src}
+                href={resolvedDownloadHref}
                 download={item.filename}
                 className="inline-flex min-h-[38px] items-center justify-center gap-1.5 rounded-[10px] border border-slate-300 dark:border-slate-700 bg-white dark:bg-[#0b1222] px-3.5 py-2 text-xs font-medium text-slate-900 dark:text-slate-100 transition-colors hover:border-blue-500/60 hover:bg-slate-100 dark:hover:bg-[#101a30]"
               >
@@ -247,7 +281,7 @@ export function ArchiveLightboxModal({
               </a>
 
               <a
-                href={item.src}
+                href={resolvedDownloadHref}
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex min-h-[40px] sm:min-h-[38px] items-center gap-1 font-mono text-xs font-medium text-slate-600 dark:text-slate-300 transition-colors hover:text-cyan-700 dark:hover:text-cyan-300"
@@ -257,16 +291,29 @@ export function ArchiveLightboxModal({
               </a>
             </div>
 
-            {item.linkedRoute && (
-              <Link
-                to={item.linkedRoute}
-                onClick={onClose}
-                className="inline-flex min-h-[38px] items-center gap-1.5 rounded-[10px] bg-[#2563eb] px-3.5 py-2 text-xs font-semibold text-white transition-colors hover:bg-[#1d4ed8]"
-              >
-                <span>Open Linked Profile Entry</span>
-                <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
-              </Link>
-            )}
+            <div className="flex flex-wrap items-center gap-2.5">
+              {item.certificateId && (
+                <Link
+                  to="/skills#certificates-gallery"
+                  onClick={onClose}
+                  className="inline-flex min-h-[38px] items-center gap-1.5 rounded-[10px] border border-cyan-600/35 dark:border-cyan-500/40 bg-cyan-50 dark:bg-cyan-500/10 px-3 py-2 text-xs font-medium text-cyan-800 dark:text-cyan-300 transition-colors hover:border-cyan-600/60"
+                >
+                  <Award className="h-3.5 w-3.5" aria-hidden="true" />
+                  <span>Certificate Registry</span>
+                </Link>
+              )}
+
+              {item.linkedRoute && (
+                <Link
+                  to={item.linkedRoute}
+                  onClick={onClose}
+                  className="inline-flex min-h-[38px] items-center gap-1.5 rounded-[10px] bg-[#2563eb] px-3.5 py-2 text-xs font-semibold text-white transition-colors hover:bg-[#1d4ed8]"
+                >
+                  <span>Open Linked Profile Entry</span>
+                  <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
+                </Link>
+              )}
+            </div>
           </div>
         </div>
       )}

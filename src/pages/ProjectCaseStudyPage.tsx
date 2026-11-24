@@ -221,24 +221,24 @@ export function ProjectCaseStudyPage() {
               </p>
 
               <div className="flex flex-wrap items-center gap-3 pt-1">
-                {project.githubUrl && (
+                {project.liveDemoUrl && (
                   <ExternalLinkButton
-                    href={project.githubUrl}
+                    href={project.liveDemoUrl}
                     variant="primary"
                     size="sm"
                   >
-                    <span>View Public Source Code</span>
+                    <span>Live Demo</span>
                     <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
                   </ExternalLinkButton>
                 )}
 
-                {project.liveDemoUrl && (
+                {project.githubUrl && (
                   <ExternalLinkButton
-                    href={project.liveDemoUrl}
-                    variant="secondary"
+                    href={project.githubUrl}
+                    variant={project.liveDemoUrl ? 'secondary' : 'primary'}
                     size="sm"
                   >
-                    <span>Live Demo</span>
+                    <span>GitHub Source Code</span>
                     <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
                   </ExternalLinkButton>
                 )}
@@ -250,7 +250,7 @@ export function ProjectCaseStudyPage() {
                         ? 'factorymind-cell'
                         : 'forgemind-turbofan'
                     }`}
-                    variant={project.githubUrl ? 'secondary' : 'primary'}
+                    variant={project.githubUrl || project.liveDemoUrl ? 'secondary' : 'primary'}
                     size="sm"
                   >
                     <span>Inspect 3D Assembly</span>
@@ -296,7 +296,9 @@ export function ProjectCaseStudyPage() {
                         : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'
                     }`}
                   >
-                    Conceptual Preview
+                    {project.previewKindLabel === 'Verified Product Screenshot'
+                      ? 'Live UI Preview'
+                      : 'Conceptual Preview'}
                   </button>
                   <button
                     type="button"
@@ -382,6 +384,31 @@ export function ProjectCaseStudyPage() {
               {caseStudy.overviewSummary}
             </p>
           </div>
+
+          {(project.roleAndContribution || project.scopeDistinctionNote) && (
+            <div className="grid gap-4 md:grid-cols-2">
+              {project.roleAndContribution && (
+                <SurfaceCard className="p-5 space-y-1.5">
+                  <p className="font-mono text-[11px] text-cyan-700 dark:text-cyan-400">
+                    Role &amp; Verifiable Contributions
+                  </p>
+                  <p className="text-xs leading-relaxed text-slate-700 dark:text-slate-300">
+                    {project.roleAndContribution}
+                  </p>
+                </SurfaceCard>
+              )}
+              {project.scopeDistinctionNote && (
+                <SurfaceCard className="p-5 space-y-1.5">
+                  <p className="font-mono text-[11px] text-slate-600 dark:text-slate-400">
+                    Static Demo vs. Optional Backend Scope
+                  </p>
+                  <p className="text-xs leading-relaxed text-slate-700 dark:text-slate-300">
+                    {project.scopeDistinctionNote}
+                  </p>
+                </SurfaceCard>
+              )}
+            </div>
+          )}
 
           {maturitySummary && (
             <div className="grid gap-4 sm:grid-cols-3">
@@ -548,7 +575,7 @@ export function ProjectCaseStudyPage() {
             )}
           </div>
 
-          {/* Interactive Module Breakdown (FactoryMind) */}
+          {/* Interactive Module Breakdown */}
           {project.modules.length > 0 && activeModule && (
             <SurfaceCard className="p-6 space-y-5">
               <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200 dark:border-slate-800/80 pb-3">
@@ -557,10 +584,10 @@ export function ProjectCaseStudyPage() {
                     className="h-4 w-4 text-cyan-700 dark:text-cyan-400"
                     aria-hidden="true"
                   />
-                  <span>Implemented Engine Specification ({project.modules.length})</span>
+                  <span>Implemented Module Specification ({project.modules.length})</span>
                 </div>
                 <span className="font-mono text-[11px] text-slate-600 dark:text-slate-400">
-                  Interactive Module Explorer
+                  Interactive Subsystem Explorer
                 </span>
               </div>
 

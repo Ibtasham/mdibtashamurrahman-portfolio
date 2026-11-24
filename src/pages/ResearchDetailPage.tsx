@@ -2,15 +2,18 @@ import { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import {
   Activity,
+  AlertTriangle,
   ArrowLeft,
   ArrowRight,
   ArrowUpRight,
   Box,
   Check,
   CheckCircle2,
+  Compass,
   Copy,
   FileCode2,
   FlaskConical,
+  ShieldCheck,
 } from 'lucide-react';
 import { PROFILE, RESEARCH_MANUSCRIPTS } from '../data/portfolio';
 import { usePageMetadata } from '../hooks/usePageMetadata';
@@ -28,10 +31,10 @@ export function ResearchDetailPage() {
   const [copiedBibtex, setCopiedBibtex] = useState(false);
 
   usePageMetadata({
-    title: study ? `${study.title} — Research Study` : 'Research Study Not Found',
+    title: study ? `${study.cardTitle ?? study.title} — Research Study` : 'Research Study Not Found',
     description: study
       ? study.abstract
-      : 'Research manuscript details in Industrial & Production Engineering.',
+      : 'Unpublished research study details in Industrial & Production Engineering.',
     path: study ? `/research/${study.id}` : '/research',
     schemaType: 'ScholarlyArticle',
   });
@@ -56,11 +59,11 @@ export function ResearchDetailPage() {
           This research study entry could not be located.
         </h1>
         <p className={DESIGN_TOKENS.typography.body}>
-          Return to the Research &amp; Academic Profile to inspect active studies and manuscripts.
+          Return to Research &amp; Ongoing Work to inspect the three active unpublished studies.
         </p>
         <LinkButton to="/research" variant="primary" size="md">
           <ArrowLeft className="h-4 w-4" aria-hidden="true" />
-          <span>Back to Research Profile</span>
+          <span>Back to Research &amp; Ongoing Work</span>
         </LinkButton>
       </section>
     );
@@ -80,23 +83,39 @@ export function ResearchDetailPage() {
             className="inline-flex items-center gap-1.5 font-mono text-xs text-slate-600 dark:text-slate-400 transition-colors duration-150 hover:text-cyan-700 dark:hover:text-cyan-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600 dark:focus-visible:ring-cyan-400 rounded-[4px]"
           >
             <ArrowLeft className="h-3.5 w-3.5" aria-hidden="true" />
-            <span>Back to Research Profile</span>
+            <span>Back to Research &amp; Ongoing Work</span>
           </Link>
 
           <div className="space-y-4 max-w-4xl">
             <div className="space-y-1 font-mono text-xs">
               <p className="text-cyan-700 dark:text-cyan-400">
-                {study.domain}
-                {study.featuredDirection ? ' · Featured NASA C-MAPSS Direction' : ''}
+                {study.researchArea ?? study.domain}
               </p>
               <p className="text-slate-600 dark:text-slate-400">
-                Status: {study.status} (Unpublished Working Manuscript · No DOI Assigned)
+                Status: {study.status} (Benchmark &amp; Simulation Study · No DOI Assigned)
               </p>
             </div>
 
             <h1 className={`${DESIGN_TOKENS.typography.pageTitle} text-balance`}>{study.title}</h1>
 
+            {study.workingTitle && (
+              <p className="font-mono text-xs leading-relaxed text-slate-600 dark:text-slate-400">
+                Working manuscript title: {study.workingTitle}
+              </p>
+            )}
+
             <p className={DESIGN_TOKENS.typography.editorialLead}>{study.abstract}</p>
+
+            <div className="flex flex-wrap gap-1.5 pt-1">
+              {study.methods.map((tag) => (
+                <span
+                  key={tag}
+                  className="rounded-[6px] border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#0b1222] px-2.5 py-1 font-mono text-[11px] text-slate-700 dark:text-slate-300"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
 
             <div className="flex flex-wrap items-center gap-3 pt-2">
               {study.relatedProjectId && (
@@ -126,7 +145,7 @@ export function ResearchDetailPage() {
                 className="inline-flex min-h-[38px] items-center gap-2 rounded-[10px] border border-slate-300 dark:border-slate-700/80 bg-white dark:bg-[#0b1222] px-3.5 py-2 text-xs font-medium text-slate-800 dark:text-slate-200 transition-colors hover:border-blue-500/60 hover:text-blue-700 dark:hover:text-white cursor-pointer"
               >
                 <FileCode2 className="h-3.5 w-3.5 text-cyan-700 dark:text-cyan-400" aria-hidden="true" />
-                <span>{showBibtex ? 'Hide BibTeX Draft' : 'Working BibTeX'}</span>
+                <span>{showBibtex ? 'Hide BibTeX Reference' : 'Unpublished BibTeX'}</span>
               </button>
 
               <a
@@ -135,7 +154,7 @@ export function ResearchDetailPage() {
                 )}`}
                 className="inline-flex min-h-[38px] items-center gap-2 rounded-[10px] border border-slate-300 dark:border-slate-700/80 bg-white dark:bg-[#0b1222] px-4 py-2 text-xs font-semibold text-slate-800 dark:text-slate-200 transition-colors hover:border-blue-500/60 hover:text-blue-700 dark:hover:text-white"
               >
-                <span>Collaborate / Request Working Draft</span>
+                <span>Research Inquiry</span>
                 <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
               </a>
             </div>
@@ -144,7 +163,7 @@ export function ResearchDetailPage() {
               <SurfaceCard className="p-4 space-y-2.5">
                 <div className="flex flex-wrap items-center justify-between gap-2">
                   <span className="font-mono text-[11px] text-cyan-700 dark:text-cyan-400">
-                    Working Manuscript Citation (@unpublished · No DOI Assigned)
+                    Working Reference (@unpublished · No DOI Assigned)
                   </span>
                   <button
                     type="button"
@@ -176,27 +195,43 @@ export function ResearchDetailPage() {
       </header>
 
       <div className={`${DESIGN_TOKENS.spacing.container} divide-y divide-slate-200 dark:divide-slate-800/80`}>
-        {/* Interactive Study Methodology Diagram */}
+        {/* Academic Integrity & Confidentiality Note */}
+        <section className="py-6">
+          <div className="flex items-start gap-2.5 rounded-[12px] border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#0b1222] px-4 py-3 text-xs text-slate-600 dark:text-slate-400">
+            <ShieldCheck
+              className="mt-0.5 h-4 w-4 shrink-0 text-cyan-700 dark:text-cyan-400"
+              aria-hidden="true"
+            />
+            <p className="leading-relaxed">
+              <strong className="font-semibold text-slate-900 dark:text-slate-100">
+                Confidentiality &amp; Benchmark Scope:
+              </strong>{' '}
+              This study is {study.status} conducted on benchmark and simulation environments. Complete manuscript files, unpublished numerical result tables, and unapproved figures remain private and are not published here.
+            </p>
+          </div>
+        </section>
+
+        {/* Conceptual Study Methodology Visualization */}
         <section className="py-10">
           <ResearchPipelineDiagram studyId={study.id} />
         </section>
 
-        {/* Scope, Motivation, Datasets, Research Questions & Contribution */}
+        {/* Scope, Motivation, Research Questions, Methodology & Contribution Areas */}
         <section className="py-12 grid gap-8 lg:grid-cols-12">
           <div className="space-y-5 lg:col-span-5">
             <div className="space-y-2">
               <p className="font-mono text-xs text-cyan-700 dark:text-cyan-400">
-                Benchmarks, Motivation &amp; Contribution
+                Problem, Motivation &amp; Contributions
               </p>
               <h2 className={DESIGN_TOKENS.typography.cardTitleLg}>
-                Study Parameters
+                Study Overview Parameters
               </h2>
             </div>
 
             <SurfaceCard className="p-5 space-y-4">
               <div>
                 <p className="font-mono text-[11px] text-slate-500">
-                  Datasets / Benchmarks
+                  Datasets &amp; Benchmark Scope
                 </p>
                 <p className="mt-1 font-mono text-xs text-slate-800 dark:text-slate-200">
                   {study.datasetsOrBenchmarks}
@@ -204,7 +239,7 @@ export function ResearchDetailPage() {
               </div>
               <div className="border-t border-slate-200 dark:border-slate-800/80 pt-3">
                 <p className="font-mono text-[11px] text-slate-500">
-                  Research Motivation
+                  Research Problem &amp; Motivation
                 </p>
                 <p className="mt-1 text-xs leading-relaxed text-slate-700 dark:text-slate-300">
                   {study.motivation}
@@ -212,7 +247,7 @@ export function ResearchDetailPage() {
               </div>
               <div className="border-t border-slate-200 dark:border-slate-800/80 pt-3">
                 <p className="font-mono text-[11px] text-slate-500">
-                  Methods &amp; Analytical Stack
+                  Technical Approaches
                 </p>
                 <p className="mt-1 font-mono text-xs leading-relaxed text-cyan-700 dark:text-cyan-300">
                   {study.methods.join(' · ')}
@@ -220,11 +255,13 @@ export function ResearchDetailPage() {
               </div>
               <div className="border-t border-slate-200 dark:border-slate-800/80 pt-3">
                 <p className="font-mono text-[11px] text-slate-500">
-                  Expected Contribution
+                  Contribution Areas to Communicate
                 </p>
-                <p className="mt-1 text-xs leading-relaxed text-slate-800 dark:text-slate-200">
-                  {study.expectedContribution}
-                </p>
+                <ul className="mt-1.5 space-y-1.5 text-xs leading-relaxed text-slate-800 dark:text-slate-200">
+                  {(study.contributionAreas ?? [study.expectedContribution]).map((area) => (
+                    <li key={area}>• {area}</li>
+                  ))}
+                </ul>
               </div>
             </SurfaceCard>
           </div>
@@ -232,17 +269,17 @@ export function ResearchDetailPage() {
           <div className="space-y-5 lg:col-span-7">
             <div className="space-y-2">
               <p className="font-mono text-xs text-cyan-700 dark:text-cyan-400">
-                Empirical Formulation
+                Research Design
               </p>
               <h2 className={DESIGN_TOKENS.typography.cardTitleLg}>
-                Research Questions &amp; Methodology
+                Research Questions &amp; Methodology Scope
               </h2>
             </div>
 
             {study.researchQuestions && study.researchQuestions.length > 0 && (
               <SurfaceCard className="p-5 space-y-2.5">
                 <h3 className="font-mono text-xs font-semibold text-slate-800 dark:text-slate-200">
-                  Research Questions
+                  Central Research Questions
                 </h3>
                 <ul className="space-y-2 text-sm text-slate-700 dark:text-slate-300">
                   {study.researchQuestions.map((q) => (
@@ -255,9 +292,9 @@ export function ResearchDetailPage() {
             {study.methodologySteps && study.methodologySteps.length > 0 && (
               <SurfaceCard className="p-5 space-y-2.5">
                 <h3 className="font-mono text-xs font-semibold text-slate-800 dark:text-slate-200">
-                  Methodology Sequence
+                  Study Scope &amp; Methodology Sequence
                 </h3>
-                <ol className="space-y-2 text-sm text-slate-700 dark:text-slate-300">
+                <ol className="space-y-2.5 text-sm text-slate-700 dark:text-slate-300">
                   {study.methodologySteps.map((step, index) => (
                     <li key={step}>
                       <span className="font-mono text-xs text-cyan-700 dark:text-cyan-400 mr-2">
@@ -272,29 +309,70 @@ export function ResearchDetailPage() {
           </div>
         </section>
 
-        {/* Explicit Separation: Completed vs Ongoing vs Proposed */}
+        {/* Limitations & Future Research Directions */}
         <section className="py-12 space-y-6">
           <div className="space-y-1">
             <p className="font-mono text-xs text-cyan-700 dark:text-cyan-400">
-              Experimental Verification Status
+              Scope Boundaries &amp; Next Steps
             </p>
             <h2 className={DESIGN_TOKENS.typography.sectionTitle}>
-              Completed, Ongoing &amp; Proposed Work
+              Limitations &amp; Future Research Directions
             </h2>
             <p className="text-xs text-slate-600 dark:text-slate-400 sm:text-sm">
-              Explicit distinction between completed baseline setups, active manuscript work, and proposed extensions—with zero fabricated numeric scores or acceptance claims.
+              Explicit boundary conditions identified in the study alongside planned next-stage research extensions.
             </p>
           </div>
 
-          <div className="grid gap-5 md:grid-cols-3">
-            <SurfaceCard variant="accent" className="p-5 space-y-3">
+          <div className="grid gap-6 md:grid-cols-2">
+            <SurfaceCard className="p-6 space-y-3 border-amber-500/25">
+              <div className="flex items-center gap-2 border-b border-slate-200 dark:border-slate-800/80 pb-2.5">
+                <AlertTriangle
+                  className="h-4 w-4 text-amber-700 dark:text-amber-400"
+                  aria-hidden="true"
+                />
+                <h3 className={DESIGN_TOKENS.typography.cardTitle}>
+                  Study Limitations
+                </h3>
+              </div>
+              <ul className="space-y-2 text-xs leading-relaxed text-slate-700 dark:text-slate-300 sm:text-sm">
+                {(study.limitations ?? ['Scope restricted to benchmark and simulation evaluation.']).map(
+                  (item) => (
+                    <li key={item}>• {item}</li>
+                  ),
+                )}
+              </ul>
+            </SurfaceCard>
+
+            <SurfaceCard variant="accent" className="p-6 space-y-3">
+              <div className="flex items-center gap-2 border-b border-slate-200 dark:border-slate-800/80 pb-2.5">
+                <Compass
+                  className="h-4 w-4 text-cyan-700 dark:text-cyan-400"
+                  aria-hidden="true"
+                />
+                <h3 className={DESIGN_TOKENS.typography.cardTitle}>
+                  Future Research Directions
+                </h3>
+              </div>
+              <ul className="space-y-2 text-xs leading-relaxed text-slate-700 dark:text-slate-300 sm:text-sm">
+                {(study.futureDirections ?? ['Planned validation beyond initial benchmark constraints.']).map(
+                  (dir) => (
+                    <li key={dir}>• {dir}</li>
+                  ),
+                )}
+              </ul>
+            </SurfaceCard>
+          </div>
+
+          {/* Explicit Separation: Completed vs Ongoing vs Proposed Work */}
+          <div className="grid gap-5 md:grid-cols-3 pt-2">
+            <SurfaceCard className="p-5 space-y-3">
               <div className="flex items-center gap-2 border-b border-slate-200 dark:border-slate-800/80 pb-2.5">
                 <CheckCircle2
                   className="h-4 w-4 text-cyan-700 dark:text-cyan-400"
                   aria-hidden="true"
                 />
                 <h3 className={DESIGN_TOKENS.typography.cardTitle}>
-                  Completed Work
+                  Completed Setups
                 </h3>
               </div>
               <ul className="space-y-2 text-xs leading-relaxed text-slate-700 dark:text-slate-300">
@@ -313,11 +391,11 @@ export function ResearchDetailPage() {
                   aria-hidden="true"
                 />
                 <h3 className={DESIGN_TOKENS.typography.cardTitle}>
-                  Ongoing Work
+                  Ongoing Synthesis
                 </h3>
               </div>
               <ul className="space-y-2 text-xs leading-relaxed text-slate-700 dark:text-slate-300">
-                {(study.ongoingWork ?? ['Active evaluation and manuscript drafting.']).map(
+                {(study.ongoingWork ?? ['Active evaluation and manuscript refinement.']).map(
                   (item) => (
                     <li key={item}>• {item}</li>
                   ),
@@ -332,7 +410,7 @@ export function ResearchDetailPage() {
                   aria-hidden="true"
                 />
                 <h3 className={DESIGN_TOKENS.typography.cardTitle}>
-                  Proposed Experiments
+                  Proposed Next Steps
                 </h3>
               </div>
               <ul className="space-y-2 text-xs leading-relaxed text-slate-700 dark:text-slate-300">
@@ -344,19 +422,6 @@ export function ResearchDetailPage() {
               </ul>
             </SurfaceCard>
           </div>
-
-          {study.futureDirections && study.futureDirections.length > 0 && (
-            <SurfaceCard className="p-5 space-y-2">
-              <p className="font-mono text-xs text-cyan-700 dark:text-cyan-400">
-                Future Research Direction
-              </p>
-              <ul className="space-y-1.5 text-sm text-slate-700 dark:text-slate-300">
-                {study.futureDirections.map((dir) => (
-                  <li key={dir}>• {dir}</li>
-                ))}
-              </ul>
-            </SurfaceCard>
-          )}
         </section>
 
         {/* Previous / Next Study Navigation */}
@@ -373,7 +438,7 @@ export function ResearchDetailPage() {
             ) : (
               <LinkButton to="/research" variant="ghost" size="sm">
                 <ArrowLeft className="h-3.5 w-3.5" aria-hidden="true" />
-                <span>All Research Studies</span>
+                <span>All 3 Research Studies</span>
               </LinkButton>
             )}
 
@@ -384,7 +449,7 @@ export function ResearchDetailPage() {
               </LinkButton>
             ) : (
               <LinkButton to="/research" variant="ghost" size="sm">
-                <span>Back to Research Profile</span>
+                <span>Back to Research &amp; Ongoing Work</span>
                 <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
               </LinkButton>
             )}

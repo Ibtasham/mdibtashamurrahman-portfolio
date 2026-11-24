@@ -37,12 +37,12 @@ const SYSTEM_TRACKS: SystemTrack[] = [
   {
     id: 'sustainability',
     code: 'SYS-03',
-    label: 'Carbon & Grid',
-    input: '2025 Grid Carbon & TOU Tariffs',
-    engine: 'Carbon-Aware JSS Formulation',
-    output: 'Price–Carbon Trade-off Bounds',
-    route: '/research/carbon-aware-jss',
-    routeLabel: 'View Scheduling Study',
+    label: 'Inventory & OR',
+    input: 'M5 Retail Demand Panel',
+    engine: 'LightGBM · Lost-Sales Sim',
+    output: 'Decision-Centric Replenishment',
+    route: '/research/decision-centric-demand',
+    routeLabel: 'View Inventory Study',
   },
 ];
 
@@ -201,7 +201,7 @@ export function HeroSystemsSchematic() {
               ? 'RMG Line & Jobs'
               : activeTrack.id === 'prognostics'
                 ? 'C-MAPSS Sensors'
-                : 'EU Grid & Tariffs'}
+                : 'M5 Retail Panel'}
           </text>
           <text
             x="14"
@@ -245,7 +245,7 @@ export function HeroSystemsSchematic() {
               ? 'MIP · GA · SA'
               : activeTrack.id === 'prognostics'
                 ? 'XAI & Prob. ML'
-                : 'Multi-Obj. MIP'}
+                : 'LightGBM · Q'}
           </text>
           <text
             x="166"
@@ -289,7 +289,7 @@ export function HeroSystemsSchematic() {
               ? 'FactoryMind UI'
               : activeTrack.id === 'prognostics'
                 ? 'Cost-Aware RUL'
-                : 'Carbon Bounds'}
+                : 'Replenishment'}
           </text>
           <text
             x="304"

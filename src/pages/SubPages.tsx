@@ -97,9 +97,9 @@ export function ProjectsPage() {
 
 export function ResearchPage() {
   usePageMetadata({
-    title: 'Research Profile & Manuscripts',
+    title: 'Research & Ongoing Work',
     description:
-      'SUST Industrial & Production Engineering research on NASA C-MAPSS prognostics, carbon-aware scheduling, and inventory policy.',
+      'Three unpublished undergraduate IPE studies spanning explainable cross-dataset RUL prediction, decision-aware uncertainty calibration, and decision-centric demand forecasting.',
     path: '/research',
     schemaType: 'CollectionPage',
   });
@@ -107,9 +107,9 @@ export function ResearchPage() {
   return (
     <>
       <PageBanner
-        section="Research & Academic Profile"
-        title="Empirical Prognostics, Optimization & Industrial Analytics"
-        subtitle="Undergraduate research profile in Industrial & Production Engineering covering NASA C-MAPSS uncertainty-aware predictive maintenance, sustainable scheduling, and inventory replenishment."
+        section="Research & Ongoing Work"
+        title="Predictive Maintenance, Decision Uncertainty & Inventory Optimization"
+        subtitle="Three connected unpublished studies conducted on public benchmarks and simulations—uniting Industrial & Production Engineering, machine learning, and decision science."
       />
       <ResearchSection expanded />
     </>
@@ -193,7 +193,7 @@ export function ArchivePage() {
       <PageBanner
         section="Visual Achievement Archive"
         title="Photographs, Certificates & Official Letters"
-        subtitle="Organized visual archive across awards, public speaking, leadership activities, campus ambassador outreach, volunteering, university events, and portraits—with editable metadata and transparent confirmation flags."
+        subtitle="Curated visual record spanning competition awards, extempore speaking, executive leadership, campus ambassador campaigns, volunteering, academic milestones, and portraits—searchable by category, media type, and event."
       />
       <VisualArchiveGallery />
     </>

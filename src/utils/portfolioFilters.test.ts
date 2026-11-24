@@ -39,6 +39,7 @@ import {
   countProjectsByCategory,
   countResearchExperimentsByStage,
   countVisualArchiveByCategory,
+  countVisualArchiveByKind,
   filterAchievements,
   filterCertificates,
   filterEducationEntries,
@@ -79,7 +80,7 @@ test('countExperiencesByCategory totals and 6-dimension grouping stay consistent
     counts.executive + counts.ambassador + counts.events_volunteering,
     counts.all,
   );
-  assert.equal(counts.ambassador, 12);
+  assert.equal(counts.ambassador, 17);
   assert.equal(counts.event_organization, 3);
   assert.equal(counts.volunteering, 1);
 
@@ -89,7 +90,7 @@ test('countExperiencesByCategory totals and 6-dimension grouping stay consistent
   const grouped = groupExperiencesByDimension(EXPERIENCES);
   assert.equal(grouped.currentPositions.length + grouped.formerPositions.length, EXPERIENCES.length);
   assert.equal(grouped.executiveCommittee.length, 7);
-  assert.equal(grouped.campusAmbassador.length, 12);
+  assert.equal(grouped.campusAmbassador.length, 17);
   assert.equal(grouped.eventOrganization.length, 3);
   assert.equal(grouped.volunteering.length, 1);
 
@@ -110,6 +111,15 @@ test('filterExperiences filters by category, current status, and search query', 
   const odyssey = filterExperiences(EXPERIENCES, 'all', 'all', 'Research Odyssey');
   assert.equal(odyssey.length, 1);
   assert.equal(odyssey[0]?.id, 'research-odyssey-2');
+
+  const linkedCommunity = filterExperiences(EXPERIENCES, 'ambassador', 'current', 'Linked Community');
+  assert.equal(linkedCommunity.length, 1);
+  assert.equal(linkedCommunity[0]?.role, 'Campus Lead');
+  assert.equal(linkedCommunity[0]?.period, 'Nov 2026 – Present');
+
+  const unilever = filterExperiences(EXPERIENCES, 'ambassador', 'former', 'Unilever Sparks');
+  assert.equal(unilever.length, 1);
+  assert.ok(unilever[0]?.role.includes('Top 3 Candidate'));
 });
 
 test('status counts, leadership ordering, certificates, and detail navigation are consistent', () => {
@@ -154,7 +164,11 @@ test('journey filtering and counts are consistent with milestone dataset', () =>
 test('about profile, academic interests, and future aspirations stay populated', () => {
   assert.equal(ABOUT_STORY.portrait.src, '/assets/portrait-card.webp');
   assert.ok(ABOUT_STORY.biographyParagraphs.length >= 3);
-  assert.equal(ACADEMIC_INTERESTS.length, 4);
+  assert.equal(ACADEMIC_INTERESTS.length, 3);
+  assert.equal(
+    ACADEMIC_INTERESTS.some((item) => item.id === 'ai-scheduling'),
+    false,
+  );
   assert.equal(FUTURE_ASPIRATIONS.length, 3);
 });
 
@@ -165,32 +179,43 @@ test('filterAchievements returns expected subsets including Recognition & Volunt
   assert.equal(speaking[0]?.id, 'ach-speakup');
 
   const volunteering = filterAchievements(ACHIEVEMENTS, 'Recognition & Volunteering');
-  assert.equal(volunteering.length, 2);
+  assert.equal(volunteering.length, 3);
+
+  const academicAwards = filterAchievements(ACHIEVEMENTS, 'Academic');
+  assert.equal(academicAwards.length, 3);
+  assert.ok(academicAwards.some((a) => a.id === 'ach-ndc-attendance'));
+  assert.ok(academicAwards.some((a) => a.id === 'ach-iqac-obe'));
 
   const counts = countAchievementsByCategory(ACHIEVEMENTS);
   assert.equal(
     counts.Competition + counts.Academic + counts['Public Speaking'] + counts['Recognition & Volunteering'],
     counts.All,
   );
+
+  const unileverAward = ACHIEVEMENTS.find((a) => a.id === 'ach-unilever-sparks');
+  assert.ok(unileverAward);
+  assert.equal(unileverAward.placement, 'Top 3 Candidate (Whole SUST)');
+  assert.equal(unileverAward.category, 'Competition');
 });
 
-test('filterResearchByDomain returns exact manuscript matches and 9-field completeness', () => {
-  assert.equal(filterResearchByDomain(RESEARCH_MANUSCRIPTS, 'All').length, 4);
-  const sustainable = filterResearchByDomain(
+test('filterResearchByDomain returns exact manuscript matches and brief-grounded completeness', () => {
+  assert.equal(filterResearchByDomain(RESEARCH_MANUSCRIPTS, 'All').length, 3);
+  const inventory = filterResearchByDomain(
     RESEARCH_MANUSCRIPTS,
-    'Sustainable Manufacturing & Scheduling',
+    'Inventory & Operations Research',
   );
-  assert.equal(sustainable.length, 1);
-  assert.equal(sustainable[0]?.id, 'carbon-aware-jss');
+  assert.equal(inventory.length, 1);
+  assert.equal(inventory[0]?.id, 'decision-centric-demand');
 
   for (const study of RESEARCH_MANUSCRIPTS) {
+    assert.equal(study.status, 'Unpublished Research');
     assert.ok(study.motivation.length > 20);
     assert.ok(study.expectedContribution.length > 20);
     assert.ok((study.researchQuestions?.length ?? 0) >= 1);
-    assert.ok((study.methodologySteps?.length ?? 0) >= 3);
-    assert.ok((study.completedWork?.length ?? 0) >= 1);
-    assert.ok((study.ongoingWork?.length ?? 0) >= 1);
-    assert.ok((study.proposedWork?.length ?? 0) >= 1);
+    assert.ok((study.methodologySteps?.length ?? 0) >= 4);
+    assert.ok((study.contributionAreas?.length ?? 0) >= 3);
+    assert.ok((study.limitations?.length ?? 0) >= 2);
+    assert.ok((study.futureDirections?.length ?? 0) >= 2);
   }
 
   const portfolioSummary = summarizeResearchPortfolio(
@@ -198,12 +223,12 @@ test('filterResearchByDomain returns exact manuscript matches and 9-field comple
     RESEARCH_EXPERIMENTS,
     RESEARCH_PUBLISHED_RECORDS.length,
   );
-  assert.equal(portfolioSummary.totals.manuscriptsInPrep, 4);
+  assert.equal(portfolioSummary.totals.manuscriptsInPrep, 3);
   assert.equal(portfolioSummary.totals.publishedResearch, 0);
   assert.equal(portfolioSummary.totals.completedExperiments, 3);
   assert.equal(portfolioSummary.totals.ongoingExperiments, 2);
-  assert.equal(portfolioSummary.totals.proposedExperiments, 2);
-  assert.equal(portfolioSummary.studyRows.length, 4);
+  assert.equal(portfolioSummary.totals.proposedExperiments, 3);
+  assert.equal(portfolioSummary.studyRows.length, 3);
 });
 
 test('validateContactForm rejects empty or invalid inputs and accepts complete inquiries', () => {
@@ -288,12 +313,15 @@ test('certificate gallery counts and filters by category, status, and query', ()
   );
 
   const verified = filterCertificates(CERTIFICATES, 'All', 'verified');
-  assert.equal(verified.length, 5);
+  assert.equal(verified.length, 8);
   assert.ok(verified.some((c) => c.id === 'cert-research-odyssey'));
   assert.ok(verified.some((c) => c.id === 'cert-speakup-2026'));
   assert.ok(verified.some((c) => c.id === 'cert-innovesta-3'));
   assert.ok(verified.some((c) => c.id === 'cert-showcase-1'));
   assert.ok(verified.some((c) => c.id === 'cert-init-volunteer'));
+  assert.ok(verified.some((c) => c.id === 'cert-createx-2'));
+  assert.ok(verified.some((c) => c.id === 'cert-ndc-attendance' && c.rotateDeg === 270));
+  assert.ok(verified.some((c) => c.id === 'cert-iqac-obe'));
 
   const austSearch = filterCertificates(CERTIFICATES, 'All', 'all', 'AUSTRPC');
   assert.equal(austSearch.length, 1);
@@ -310,7 +338,7 @@ test('project laboratory features FactoryMind, ForgeMind AI, and TikaTrack with 
   assert.equal(counts.All, 3);
   assert.equal(counts.Engineering, 2);
   assert.equal(counts.Research, 2);
-  assert.equal(counts['AI/ML'], 2);
+  assert.equal(counts['AI/ML'], 3);
   assert.equal(counts.Software, 2);
   assert.equal(counts.Innovation, 2);
 
@@ -320,8 +348,10 @@ test('project laboratory features FactoryMind, ForgeMind AI, and TikaTrack with 
 
   const factoryMind = PROJECTS.find((p) => p.id === 'factorymind');
   assert.equal(factoryMind?.githubUrl, 'https://github.com/Ibtasham/FactoryMind');
-  assert.equal(factoryMind?.modules.length, 5);
+  assert.equal(factoryMind?.liveDemoUrl, 'https://ibtasham.github.io/FactoryMind/');
+  assert.equal(factoryMind?.modules.length, 6);
   assert.equal(factoryMind?.developmentStage, 'Active Prototype');
+  assert.equal(factoryMind?.previewKindLabel, 'Verified Product Screenshot');
 
   const forgeMind = PROJECTS.find((p) => p.id === 'forgemind-ai');
   assert.equal(forgeMind?.githubUrl, undefined);
@@ -330,10 +360,12 @@ test('project laboratory features FactoryMind, ForgeMind AI, and TikaTrack with 
   assert.ok((forgeMind?.caseStudy.secondaryItems?.length ?? 0) >= 3);
 
   const tikaTrack = PROJECTS.find((p) => p.id === 'tikatrack');
-  assert.equal(tikaTrack?.githubUrl, undefined);
-  assert.equal(tikaTrack?.developmentStage, 'Developing Concept');
-  assert.equal(tikaTrack?.caseStudy.secondaryKind, 'pending');
-  assert.equal(tikaTrack?.previewKindLabel, 'Concept Blueprint');
+  assert.equal(tikaTrack?.githubUrl, 'https://github.com/Ibtasham/TikaTrack');
+  assert.equal(tikaTrack?.liveDemoUrl, 'https://ibtasham.github.io/TikaTrack/');
+  assert.equal(tikaTrack?.modules.length, 4);
+  assert.equal(tikaTrack?.developmentStage, 'Active Prototype');
+  assert.equal(tikaTrack?.caseStudy.secondaryKind, 'proposed');
+  assert.equal(tikaTrack?.previewKindLabel, 'Verified Product Screenshot');
 
   for (const project of PROJECTS) {
     assert.ok(project.oneSentenceProblem.length > 20);
@@ -346,8 +378,8 @@ test('project laboratory features FactoryMind, ForgeMind AI, and TikaTrack with 
   }
 
   assert.deepEqual(summarizeProjectMaturity(factoryMind!), {
-    implemented: 5,
-    experimentalOrProposed: 0,
+    implemented: 6,
+    experimentalOrProposed: 1,
     plannedOrPending: 1,
   });
   assert.deepEqual(summarizeProjectMaturity(forgeMind!), {
@@ -356,8 +388,8 @@ test('project laboratory features FactoryMind, ForgeMind AI, and TikaTrack with 
     plannedOrPending: 0,
   });
   assert.deepEqual(summarizeProjectMaturity(tikaTrack!), {
-    implemented: 0,
-    experimentalOrProposed: 0,
+    implemented: 4,
+    experimentalOrProposed: 1,
     plannedOrPending: 1,
   });
 
@@ -379,9 +411,9 @@ test('project laboratory features FactoryMind, ForgeMind AI, and TikaTrack with 
 
 test('research dashboard separates experiment stages, manuscripts, and keeps zero fabricated publications', () => {
   assert.equal(RESEARCH_PUBLISHED_RECORDS.length, 0);
-  assert.equal(RESEARCH_MANUSCRIPTS.length, 4);
-  assert.ok(RESEARCH_MANUSCRIPTS.every((m) => m.status === 'Manuscript in Preparation'));
-  assert.ok(RESEARCH_PROFILE_META.featuredDirection.title.includes('NASA C-MAPSS'));
+  assert.equal(RESEARCH_MANUSCRIPTS.length, 3);
+  assert.ok(RESEARCH_MANUSCRIPTS.every((m) => m.status === 'Unpublished Research'));
+  assert.ok(RESEARCH_PROFILE_META.featuredDirection.title.includes('Prognostics'));
 
   const stageCounts = countResearchExperimentsByStage(RESEARCH_EXPERIMENTS);
   assert.equal(
@@ -401,7 +433,7 @@ test('research dashboard separates experiment stages, manuscripts, and keeps zer
   const studyNav = getResearchNavigation(RESEARCH_MANUSCRIPTS, 'decision-aware-prognostics');
   assert.equal(studyNav.study?.id, 'decision-aware-prognostics');
   assert.equal(studyNav.previous?.id, 'rul-explainable');
-  assert.equal(studyNav.next?.id, 'carbon-aware-jss');
+  assert.equal(studyNav.next?.id, 'decision-centric-demand');
   assert.equal(getResearchNavigation(RESEARCH_MANUSCRIPTS, 'nonexistent').study, null);
 });
 
@@ -422,8 +454,8 @@ test('innovation entries include all 7 fields, separate maturity stages, and kee
     stageCounts.idea + stageCounts.prototype + stageCounts.validated + stageCounts.launched,
     stageCounts.all,
   );
-  assert.equal(stageCounts.prototype, 2);
-  assert.equal(stageCounts.idea, 4);
+  assert.equal(stageCounts.prototype, 3);
+  assert.equal(stageCounts.idea, 3);
   assert.equal(stageCounts.validated, 0);
   assert.equal(stageCounts.launched, 0);
   assert.ok(INNOVATION_PROFILE_META.transparencyStatement.includes('Validated Solutions (0)'));
@@ -431,7 +463,7 @@ test('innovation entries include all 7 fields, separate maturity stages, and kee
   const prototypes = filterInnovationEntries(INNOVATION_ENTRIES, 'prototype');
   assert.deepEqual(
     prototypes.map((p) => p.id),
-    ['inn-factorymind', 'inn-forgemind'],
+    ['inn-factorymind', 'inn-forgemind', 'inn-tikatrack'],
   );
 
   const searchHult = filterInnovationEntries(INNOVATION_ENTRIES, 'all', 'Hult Prize');
@@ -452,9 +484,13 @@ test('project search, interactive education timeline filtering, section nav mapp
   assert.equal(cmapssMatches.length, 1);
   assert.equal(cmapssMatches[0]?.id, 'forgemind-ai');
 
-  const streamlitResearch = filterProjects(PROJECTS, 'Research', 'OR-Tools');
-  assert.equal(streamlitResearch.length, 1);
-  assert.equal(streamlitResearch[0]?.id, 'factorymind');
+  const factoryMindDes = filterProjects(PROJECTS, 'Research', 'DES');
+  assert.equal(factoryMindDes.length, 1);
+  assert.equal(factoryMindDes[0]?.id, 'factorymind');
+
+  const tikaTrackEcdsa = filterProjects(PROJECTS, 'Software', 'ECDSA');
+  assert.equal(tikaTrackEcdsa.length, 1);
+  assert.equal(tikaTrackEcdsa[0]?.id, 'tikatrack');
 
   assert.equal(filterProjects(PROJECTS, 'All', 'nonexistent-query').length, 0);
 
@@ -485,10 +521,10 @@ test('project search, interactive education timeline filtering, section nav mapp
   assert.equal(PROFILE.links.cvPdf, '/assets/MD_Ibtashamur_Rahman_CV.pdf');
 });
 
-test('visual achievement archive indexes all 45 unique assets with category, grouping, and homepage restraint', () => {
-  assert.equal(VISUAL_ARCHIVE.length, 45);
+test('visual achievement archive indexes all 52 unique assets including certificates, posters, and video submissions', () => {
+  assert.equal(VISUAL_ARCHIVE.length, 52);
   const uniqueFilenames = new Set(VISUAL_ARCHIVE.map((item) => item.filename));
-  assert.equal(uniqueFilenames.size, 45);
+  assert.equal(uniqueFilenames.size, 52);
 
   for (const item of VISUAL_ARCHIVE) {
     assert.ok(item.src.startsWith('/assets/aistudio/'));
@@ -499,8 +535,8 @@ test('visual achievement archive indexes all 45 unique assets with category, gro
   }
 
   const counts = countVisualArchiveByCategory(VISUAL_ARCHIVE);
-  assert.equal(counts.All, 45);
-  assert.equal(counts['Academic achievements'], 5);
+  assert.equal(counts.All, 52);
+  assert.equal(counts['Academic achievements'], 7);
   assert.equal(counts['University events'], 2);
   assert.equal(counts.Volunteering, 2);
   assert.equal(counts['Personal photographs'], 9);
@@ -509,7 +545,15 @@ test('visual achievement archive indexes all 45 unique assets with category, gro
     (sum, cat) => sum + counts[cat],
     0,
   );
-  assert.equal(categorySum, 45);
+  assert.equal(categorySum, 52);
+
+  const kindCounts = countVisualArchiveByKind(VISUAL_ARCHIVE);
+  assert.equal(kindCounts.All, 52);
+  assert.equal(kindCounts.Certificate, 7);
+  assert.equal(kindCounts['Video Submission'], 1);
+
+  const ndcAttendance = VISUAL_ARCHIVE.find((i) => i.id === 'va-ndc-perfect-attendance-cert');
+  assert.equal(ndcAttendance?.rotateDeg, 270);
 
   const highlights = getHomepageArchiveHighlights(VISUAL_ARCHIVE);
   assert.equal(highlights.length, 4);
@@ -520,7 +564,12 @@ test('visual achievement archive indexes all 45 unique assets with category, gro
     VISUAL_ARCHIVE,
     'Campus ambassador experiences',
   );
-  assert.equal(ambassadorMedia.length, 12);
+  assert.equal(ambassadorMedia.length, 17);
+
+  const videoSubmissions = filterVisualArchive(VISUAL_ARCHIVE, 'All', 'Video Submission');
+  assert.equal(videoSubmissions.length, 1);
+  assert.equal(videoSubmissions[0]?.id, 'va-fogg-squad-video');
+  assert.equal(videoSubmissions[0]?.mediaType, 'video');
 
   const showcaseMatches = filterVisualArchive(VISUAL_ARCHIVE, 'All', 'Certificate', 'ShowCase');
   assert.equal(showcaseMatches.length, 1);
@@ -529,17 +578,26 @@ test('visual achievement archive indexes all 45 unique assets with category, gro
   const gdnMedia = getVisualArchiveForExperience(VISUAL_ARCHIVE, 'gdn-11ec');
   assert.equal(gdnMedia.length, 4);
 
-  const speakupMedia = getVisualArchiveForAchievement(VISUAL_ARCHIVE, 'ach-speakup');
-  assert.equal(speakupMedia.length, 3);
+  const createxMedia = getVisualArchiveForExperience(VISUAL_ARCHIVE, 'createx-2');
+  assert.equal(createxMedia.length, 2);
 
-  assert.equal(getVisualArchiveForEducation(VISUAL_ARCHIVE, 'sust-ipe').length, 2);
-  assert.equal(getVisualArchiveForEducation(VISUAL_ARCHIVE, 'ndc-hsc').length, 4);
-  assert.equal(getVisualArchiveForJourney(VISUAL_ARCHIVE, 'm-2023-ndc').length, 5);
+  const foggMedia = getVisualArchiveForExperience(VISUAL_ARCHIVE, 'fogg-squad-ca');
+  assert.equal(foggMedia.length, 1);
+
+  const speakupMedia = getVisualArchiveForAchievement(VISUAL_ARCHIVE, 'ach-speakup');
+  assert.equal(speakupMedia.length, 4);
+
+  assert.equal(getVisualArchiveForEducation(VISUAL_ARCHIVE, 'sust-ipe').length, 3);
+  assert.equal(getVisualArchiveForEducation(VISUAL_ARCHIVE, 'ndc-hsc').length, 5);
+  assert.equal(getVisualArchiveForJourney(VISUAL_ARCHIVE, 'm-2023-ndc').length, 6);
 
   const groups = groupVisualArchiveByEvent(VISUAL_ARCHIVE);
-  assert.ok(groups.some((g) => g.eventGroup === 'Speak Up 2026 — SUSC' && g.items.length === 3));
+  assert.ok(groups.some((g) => g.eventGroup === 'Speak Up 2026 — SUSC' && g.items.length === 4));
   assert.ok(
     groups.some((g) => g.eventGroup === 'GDN-SUST 11th Executive Committee' && g.items.length === 4),
+  );
+  assert.ok(
+    groups.some((g) => g.eventGroup === 'CreateX 2.0 — The Trailblazers & BUBT TAFE' && g.items.length === 2),
   );
 });
 
@@ -548,7 +606,7 @@ test('buildManuscriptBibTeX formats unpublished draft citations honestly and pro
   assert.ok(study);
   const bibtex = buildManuscriptBibTeX(study, PROFILE.name);
   assert.ok(bibtex.startsWith('@unpublished{rahman_'));
-  assert.ok(bibtex.includes(study.title));
+  assert.ok(bibtex.includes(study.workingTitle ?? study.title));
   assert.ok(bibtex.includes('no DOI assigned'));
   assert.equal('phone' in PROFILE, false);
   assert.ok(!PROFILE.publicLocation.toLowerCase().includes('shahporan'));

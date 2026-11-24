@@ -8,8 +8,8 @@ interface UseInViewRevealOptions {
 }
 
 export function useInViewReveal<T extends HTMLElement = HTMLDivElement>({
-  threshold = 0.12,
-  rootMargin = '0px 0px -28px 0px',
+  threshold = 0.01,
+  rootMargin = '60px 0px 60px 0px',
 }: UseInViewRevealOptions = {}) {
   const ref = useRef<T | null>(null);
   const { prefersReducedMotion } = useMotionPreference();
@@ -38,11 +38,18 @@ export function useInViewReveal<T extends HTMLElement = HTMLDivElement>({
     const element = ref.current;
     if (!element) return;
 
-    const rect = element.getBoundingClientRect();
-    const viewportHeight =
-      window.innerHeight || document.documentElement.clientHeight;
-    if (rect.top < viewportHeight * 0.96 && rect.bottom > 0) {
-      setIsVisible(true);
+    const checkViewportOverlap = () => {
+      const rect = element.getBoundingClientRect();
+      const viewportHeight =
+        window.innerHeight || document.documentElement.clientHeight;
+      if (rect.top <= viewportHeight + 40 && rect.bottom >= -40) {
+        setIsVisible(true);
+        return true;
+      }
+      return false;
+    };
+
+    if (checkViewportOverlap()) {
       return;
     }
 
@@ -61,8 +68,18 @@ export function useInViewReveal<T extends HTMLElement = HTMLDivElement>({
 
     observer.observe(element);
 
+    const handleScroll = () => {
+      if (checkViewportOverlap()) {
+        observer.disconnect();
+        window.removeEventListener('scroll', handleScroll);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
     return () => {
       observer.disconnect();
+      window.removeEventListener('scroll', handleScroll);
     };
   }, [hasIntersectionObserver, prefersReducedMotion, rootMargin, threshold]);
 
