@@ -13,7 +13,7 @@ export function NotFoundPage() {
   });
 
   return (
-    <section className="relative overflow-hidden bg-slate-50 dark:bg-[#050914] bg-blueprint-grid py-20 sm:py-28">
+    <section className="relative overflow-hidden bg-wood-canvas dark:bg-[#050914] bg-blueprint-grid py-20 sm:py-28">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 ambient-hero-light"
@@ -32,7 +32,7 @@ export function NotFoundPage() {
             </p>
           </div>
 
-          <div className="flex flex-wrap gap-3 border-t border-slate-200 dark:border-slate-800/80 pt-5">
+          <div className="flex flex-wrap gap-3 border-t border-wood-subtle dark:border-slate-800/80 pt-5">
             <LinkButton to="/" variant="primary" size="md">
               <ArrowLeft className="h-4 w-4" aria-hidden="true" />
               <span>Return to Overview</span>
@@ -43,7 +43,7 @@ export function NotFoundPage() {
             </LinkButton>
           </div>
 
-          <div className="grid gap-3 border-t border-slate-200 dark:border-slate-800/80 pt-5 sm:grid-cols-2">
+          <div className="grid gap-3 border-t border-wood-subtle dark:border-slate-800/80 pt-5 sm:grid-cols-2">
             <LinkButton to="/research" variant="ghost" size="sm" className="justify-start">
               <FlaskConical className="h-3.5 w-3.5 text-cyan-700 dark:text-cyan-400" aria-hidden="true" />
               <span>Research &amp; Manuscripts</span>

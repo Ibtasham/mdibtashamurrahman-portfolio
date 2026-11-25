@@ -70,8 +70,8 @@ export function ResearchDetailPage() {
   }
 
   return (
-    <article className="bg-slate-50 dark:bg-[#050914]">
-      <header className="relative overflow-hidden border-b border-slate-200 dark:border-slate-800/80 bg-slate-50 dark:bg-[#050914] bg-blueprint-grid py-12 sm:py-16">
+    <article className="bg-wood-canvas dark:bg-[#050914]">
+      <header className="relative overflow-hidden border-b border-wood-subtle dark:border-slate-800/80 bg-wood-canvas dark:bg-[#050914] bg-blueprint-grid py-12 sm:py-16">
         <div
           aria-hidden="true"
           className="pointer-events-none absolute inset-0 ambient-hero-light"
@@ -80,7 +80,7 @@ export function ResearchDetailPage() {
         <div className={`relative ${DESIGN_TOKENS.spacing.container} space-y-6`}>
           <Link
             to="/research"
-            className="inline-flex items-center gap-1.5 font-mono text-xs text-slate-600 dark:text-slate-400 transition-colors duration-150 hover:text-cyan-700 dark:hover:text-cyan-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600 dark:focus-visible:ring-cyan-400 rounded-[4px]"
+            className="inline-flex items-center gap-1.5 font-mono text-xs text-wood-muted dark:text-slate-400 transition-colors duration-150 hover:text-cyan-700 dark:hover:text-cyan-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600 dark:focus-visible:ring-cyan-400 rounded-[4px]"
           >
             <ArrowLeft className="h-3.5 w-3.5" aria-hidden="true" />
             <span>Back to Research &amp; Ongoing Work</span>
@@ -91,7 +91,7 @@ export function ResearchDetailPage() {
               <p className="text-cyan-700 dark:text-cyan-400">
                 {study.researchArea ?? study.domain}
               </p>
-              <p className="text-slate-600 dark:text-slate-400">
+              <p className="text-wood-muted dark:text-slate-400">
                 Status: {study.status} (Benchmark &amp; Simulation Study · No DOI Assigned)
               </p>
             </div>
@@ -99,7 +99,7 @@ export function ResearchDetailPage() {
             <h1 className={`${DESIGN_TOKENS.typography.pageTitle} text-balance`}>{study.title}</h1>
 
             {study.workingTitle && (
-              <p className="font-mono text-xs leading-relaxed text-slate-600 dark:text-slate-400">
+              <p className="font-mono text-xs leading-relaxed text-wood-muted dark:text-slate-400">
                 Working manuscript title: {study.workingTitle}
               </p>
             )}
@@ -110,7 +110,7 @@ export function ResearchDetailPage() {
               {study.methods.map((tag) => (
                 <span
                   key={tag}
-                  className="rounded-[6px] border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#0b1222] px-2.5 py-1 font-mono text-[11px] text-slate-700 dark:text-slate-300"
+                  className="rounded-[6px] border border-wood-subtle dark:border-slate-800 bg-wood-surface dark:bg-[#0b1222] px-2.5 py-1 font-mono text-[11px] text-wood-walnut dark:text-slate-300"
                 >
                   {tag}
                 </span>
@@ -142,7 +142,7 @@ export function ResearchDetailPage() {
                 type="button"
                 onClick={() => setShowBibtex((prev) => !prev)}
                 aria-expanded={showBibtex}
-                className="inline-flex min-h-[38px] items-center gap-2 rounded-[10px] border border-slate-300 dark:border-slate-700/80 bg-white dark:bg-[#0b1222] px-3.5 py-2 text-xs font-medium text-slate-800 dark:text-slate-200 transition-colors hover:border-blue-500/60 hover:text-blue-700 dark:hover:text-white cursor-pointer"
+                className="inline-flex min-h-[38px] items-center gap-2 rounded-[10px] border border-wood-default dark:border-slate-700/80 bg-wood-surface dark:bg-[#0b1222] px-3.5 py-2 text-xs font-medium text-wood-ink dark:text-slate-200 transition-colors hover:border-blue-500/60 hover:bg-wood-hover hover:text-blue-700 dark:hover:text-white cursor-pointer"
               >
                 <FileCode2 className="h-3.5 w-3.5 text-cyan-700 dark:text-cyan-400" aria-hidden="true" />
                 <span>{showBibtex ? 'Hide BibTeX Reference' : 'Unpublished BibTeX'}</span>
@@ -152,7 +152,7 @@ export function ResearchDetailPage() {
                 href={`mailto:${PROFILE.email}?subject=${encodeURIComponent(
                   `Research Inquiry: ${study.title}`,
                 )}`}
-                className="inline-flex min-h-[38px] items-center gap-2 rounded-[10px] border border-slate-300 dark:border-slate-700/80 bg-white dark:bg-[#0b1222] px-4 py-2 text-xs font-semibold text-slate-800 dark:text-slate-200 transition-colors hover:border-blue-500/60 hover:text-blue-700 dark:hover:text-white"
+                className="inline-flex min-h-[38px] items-center gap-2 rounded-[10px] border border-wood-default dark:border-slate-700/80 bg-wood-surface dark:bg-[#0b1222] px-4 py-2 text-xs font-semibold text-wood-ink dark:text-slate-200 transition-colors hover:border-blue-500/60 hover:bg-wood-hover hover:text-blue-700 dark:hover:text-white"
               >
                 <span>Research Inquiry</span>
                 <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
@@ -170,7 +170,7 @@ export function ResearchDetailPage() {
                     onClick={() =>
                       void handleCopyBibtex(buildManuscriptBibTeX(study, PROFILE.name))
                     }
-                    className="inline-flex items-center gap-1.5 rounded-[7px] border border-slate-300 dark:border-slate-700 px-2.5 py-1 font-mono text-[11px] text-slate-700 dark:text-slate-200 hover:border-blue-500 cursor-pointer"
+                    className="inline-flex items-center gap-1.5 rounded-[7px] border border-wood-default dark:border-slate-700 px-2.5 py-1 font-mono text-[11px] text-wood-walnut dark:text-slate-200 hover:border-blue-500 cursor-pointer"
                   >
                     {copiedBibtex ? (
                       <>
@@ -185,7 +185,7 @@ export function ResearchDetailPage() {
                     )}
                   </button>
                 </div>
-                <pre className="overflow-x-auto whitespace-pre-wrap break-words rounded-[8px] border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-[#050914] p-3 font-mono text-[11px] leading-relaxed text-slate-700 dark:text-slate-300">
+                <pre className="overflow-x-auto whitespace-pre-wrap break-words rounded-[8px] border border-wood-subtle dark:border-slate-800 bg-wood-inset dark:bg-[#050914] p-3 font-mono text-[11px] leading-relaxed text-wood-walnut dark:text-slate-300">
                   {buildManuscriptBibTeX(study, PROFILE.name)}
                 </pre>
               </SurfaceCard>
@@ -194,16 +194,16 @@ export function ResearchDetailPage() {
         </div>
       </header>
 
-      <div className={`${DESIGN_TOKENS.spacing.container} divide-y divide-slate-200 dark:divide-slate-800/80`}>
+      <div className={`${DESIGN_TOKENS.spacing.container} divide-y divide-wood-subtle dark:divide-slate-800/80`}>
         {/* Academic Integrity & Confidentiality Note */}
         <section className="py-6">
-          <div className="flex items-start gap-2.5 rounded-[12px] border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#0b1222] px-4 py-3 text-xs text-slate-600 dark:text-slate-400">
+          <div className="flex items-start gap-2.5 rounded-[12px] border border-wood-subtle dark:border-slate-800 bg-wood-surface dark:bg-[#0b1222] px-4 py-3 text-xs text-wood-muted dark:text-slate-400">
             <ShieldCheck
               className="mt-0.5 h-4 w-4 shrink-0 text-cyan-700 dark:text-cyan-400"
               aria-hidden="true"
             />
             <p className="leading-relaxed">
-              <strong className="font-semibold text-slate-900 dark:text-slate-100">
+              <strong className="font-semibold text-wood-ink dark:text-slate-100">
                 Confidentiality &amp; Benchmark Scope:
               </strong>{' '}
               This study is {study.status} conducted on benchmark and simulation environments. Complete manuscript files, unpublished numerical result tables, and unapproved figures remain private and are not published here.
@@ -230,34 +230,34 @@ export function ResearchDetailPage() {
 
             <SurfaceCard className="p-5 space-y-4">
               <div>
-                <p className="font-mono text-[11px] text-slate-500">
+                <p className="font-mono text-[11px] text-wood-muted">
                   Datasets &amp; Benchmark Scope
                 </p>
-                <p className="mt-1 font-mono text-xs text-slate-800 dark:text-slate-200">
+                <p className="mt-1 font-mono text-xs text-wood-ink dark:text-slate-200">
                   {study.datasetsOrBenchmarks}
                 </p>
               </div>
-              <div className="border-t border-slate-200 dark:border-slate-800/80 pt-3">
-                <p className="font-mono text-[11px] text-slate-500">
+              <div className="border-t border-wood-subtle dark:border-slate-800/80 pt-3">
+                <p className="font-mono text-[11px] text-wood-muted">
                   Research Problem &amp; Motivation
                 </p>
-                <p className="mt-1 text-xs leading-relaxed text-slate-700 dark:text-slate-300">
+                <p className="mt-1 text-xs leading-relaxed text-wood-walnut dark:text-slate-300">
                   {study.motivation}
                 </p>
               </div>
-              <div className="border-t border-slate-200 dark:border-slate-800/80 pt-3">
-                <p className="font-mono text-[11px] text-slate-500">
+              <div className="border-t border-wood-subtle dark:border-slate-800/80 pt-3">
+                <p className="font-mono text-[11px] text-wood-muted">
                   Technical Approaches
                 </p>
                 <p className="mt-1 font-mono text-xs leading-relaxed text-cyan-700 dark:text-cyan-300">
                   {study.methods.join(' · ')}
                 </p>
               </div>
-              <div className="border-t border-slate-200 dark:border-slate-800/80 pt-3">
-                <p className="font-mono text-[11px] text-slate-500">
+              <div className="border-t border-wood-subtle dark:border-slate-800/80 pt-3">
+                <p className="font-mono text-[11px] text-wood-muted">
                   Contribution Areas to Communicate
                 </p>
-                <ul className="mt-1.5 space-y-1.5 text-xs leading-relaxed text-slate-800 dark:text-slate-200">
+                <ul className="mt-1.5 space-y-1.5 text-xs leading-relaxed text-wood-ink dark:text-slate-200">
                   {(study.contributionAreas ?? [study.expectedContribution]).map((area) => (
                     <li key={area}>• {area}</li>
                   ))}
@@ -278,10 +278,10 @@ export function ResearchDetailPage() {
 
             {study.researchQuestions && study.researchQuestions.length > 0 && (
               <SurfaceCard className="p-5 space-y-2.5">
-                <h3 className="font-mono text-xs font-semibold text-slate-800 dark:text-slate-200">
+                <h3 className="font-mono text-xs font-semibold text-wood-ink dark:text-slate-200">
                   Central Research Questions
                 </h3>
-                <ul className="space-y-2 text-sm text-slate-700 dark:text-slate-300">
+                <ul className="space-y-2 text-sm text-wood-walnut dark:text-slate-300">
                   {study.researchQuestions.map((q) => (
                     <li key={q}>• {q}</li>
                   ))}
@@ -291,10 +291,10 @@ export function ResearchDetailPage() {
 
             {study.methodologySteps && study.methodologySteps.length > 0 && (
               <SurfaceCard className="p-5 space-y-2.5">
-                <h3 className="font-mono text-xs font-semibold text-slate-800 dark:text-slate-200">
+                <h3 className="font-mono text-xs font-semibold text-wood-ink dark:text-slate-200">
                   Study Scope &amp; Methodology Sequence
                 </h3>
-                <ol className="space-y-2.5 text-sm text-slate-700 dark:text-slate-300">
+                <ol className="space-y-2.5 text-sm text-wood-walnut dark:text-slate-300">
                   {study.methodologySteps.map((step, index) => (
                     <li key={step}>
                       <span className="font-mono text-xs text-cyan-700 dark:text-cyan-400 mr-2">
@@ -318,14 +318,14 @@ export function ResearchDetailPage() {
             <h2 className={DESIGN_TOKENS.typography.sectionTitle}>
               Limitations &amp; Future Research Directions
             </h2>
-            <p className="text-xs text-slate-600 dark:text-slate-400 sm:text-sm">
+            <p className="text-xs text-wood-muted dark:text-slate-400 sm:text-sm">
               Explicit boundary conditions identified in the study alongside planned next-stage research extensions.
             </p>
           </div>
 
           <div className="grid gap-6 md:grid-cols-2">
             <SurfaceCard className="p-6 space-y-3 border-amber-500/25">
-              <div className="flex items-center gap-2 border-b border-slate-200 dark:border-slate-800/80 pb-2.5">
+              <div className="flex items-center gap-2 border-b border-wood-subtle dark:border-slate-800/80 pb-2.5">
                 <AlertTriangle
                   className="h-4 w-4 text-amber-700 dark:text-amber-400"
                   aria-hidden="true"
@@ -334,7 +334,7 @@ export function ResearchDetailPage() {
                   Study Limitations
                 </h3>
               </div>
-              <ul className="space-y-2 text-xs leading-relaxed text-slate-700 dark:text-slate-300 sm:text-sm">
+              <ul className="space-y-2 text-xs leading-relaxed text-wood-walnut dark:text-slate-300 sm:text-sm">
                 {(study.limitations ?? ['Scope restricted to benchmark and simulation evaluation.']).map(
                   (item) => (
                     <li key={item}>• {item}</li>
@@ -344,7 +344,7 @@ export function ResearchDetailPage() {
             </SurfaceCard>
 
             <SurfaceCard variant="accent" className="p-6 space-y-3">
-              <div className="flex items-center gap-2 border-b border-slate-200 dark:border-slate-800/80 pb-2.5">
+              <div className="flex items-center gap-2 border-b border-wood-subtle dark:border-slate-800/80 pb-2.5">
                 <Compass
                   className="h-4 w-4 text-cyan-700 dark:text-cyan-400"
                   aria-hidden="true"
@@ -353,7 +353,7 @@ export function ResearchDetailPage() {
                   Future Research Directions
                 </h3>
               </div>
-              <ul className="space-y-2 text-xs leading-relaxed text-slate-700 dark:text-slate-300 sm:text-sm">
+              <ul className="space-y-2 text-xs leading-relaxed text-wood-walnut dark:text-slate-300 sm:text-sm">
                 {(study.futureDirections ?? ['Planned validation beyond initial benchmark constraints.']).map(
                   (dir) => (
                     <li key={dir}>• {dir}</li>
@@ -366,7 +366,7 @@ export function ResearchDetailPage() {
           {/* Explicit Separation: Completed vs Ongoing vs Proposed Work */}
           <div className="grid gap-5 md:grid-cols-3 pt-2">
             <SurfaceCard className="p-5 space-y-3">
-              <div className="flex items-center gap-2 border-b border-slate-200 dark:border-slate-800/80 pb-2.5">
+              <div className="flex items-center gap-2 border-b border-wood-subtle dark:border-slate-800/80 pb-2.5">
                 <CheckCircle2
                   className="h-4 w-4 text-cyan-700 dark:text-cyan-400"
                   aria-hidden="true"
@@ -375,7 +375,7 @@ export function ResearchDetailPage() {
                   Completed Setups
                 </h3>
               </div>
-              <ul className="space-y-2 text-xs leading-relaxed text-slate-700 dark:text-slate-300">
+              <ul className="space-y-2 text-xs leading-relaxed text-wood-walnut dark:text-slate-300">
                 {(study.completedWork ?? ['Baseline experiment framing documented.']).map(
                   (item) => (
                     <li key={item}>• {item}</li>
@@ -385,7 +385,7 @@ export function ResearchDetailPage() {
             </SurfaceCard>
 
             <SurfaceCard className="p-5 space-y-3">
-              <div className="flex items-center gap-2 border-b border-slate-200 dark:border-slate-800/80 pb-2.5">
+              <div className="flex items-center gap-2 border-b border-wood-subtle dark:border-slate-800/80 pb-2.5">
                 <Activity
                   className="h-4 w-4 text-blue-700 dark:text-blue-400"
                   aria-hidden="true"
@@ -394,7 +394,7 @@ export function ResearchDetailPage() {
                   Ongoing Synthesis
                 </h3>
               </div>
-              <ul className="space-y-2 text-xs leading-relaxed text-slate-700 dark:text-slate-300">
+              <ul className="space-y-2 text-xs leading-relaxed text-wood-walnut dark:text-slate-300">
                 {(study.ongoingWork ?? ['Active evaluation and manuscript refinement.']).map(
                   (item) => (
                     <li key={item}>• {item}</li>
@@ -404,16 +404,16 @@ export function ResearchDetailPage() {
             </SurfaceCard>
 
             <SurfaceCard className="p-5 space-y-3">
-              <div className="flex items-center gap-2 border-b border-slate-200 dark:border-slate-800/80 pb-2.5">
+              <div className="flex items-center gap-2 border-b border-wood-subtle dark:border-slate-800/80 pb-2.5">
                 <FlaskConical
-                  className="h-4 w-4 text-slate-600 dark:text-slate-400"
+                  className="h-4 w-4 text-wood-muted dark:text-slate-400"
                   aria-hidden="true"
                 />
                 <h3 className={DESIGN_TOKENS.typography.cardTitle}>
                   Proposed Next Steps
                 </h3>
               </div>
-              <ul className="space-y-2 text-xs leading-relaxed text-slate-700 dark:text-slate-300">
+              <ul className="space-y-2 text-xs leading-relaxed text-wood-walnut dark:text-slate-300">
                 {(study.proposedWork ?? ['Next-phase robustness and policy checks planned.']).map(
                   (item) => (
                     <li key={item}>• {item}</li>

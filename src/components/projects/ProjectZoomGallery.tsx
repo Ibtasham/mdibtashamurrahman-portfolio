@@ -152,18 +152,18 @@ export function ProjectZoomGallery({
                     onZoom={() => openAt(idx)}
                   />
                 ) : (
-                  <div className="overflow-hidden rounded-[10px] border border-dashed border-slate-300 dark:border-slate-700/80 bg-slate-100 dark:bg-[#060b16]">
+                  <div className="overflow-hidden rounded-[10px] border border-dashed border-wood-default dark:border-slate-700/80 bg-wood-inset dark:bg-[#060b16]">
                     <div className="flex aspect-video w-full flex-col items-center justify-center gap-2 p-6 text-center">
-                      <ImageIcon className="h-6 w-6 text-slate-500" aria-hidden="true" />
-                      <span className="font-mono text-xs font-medium text-slate-700 dark:text-slate-300">
+                      <ImageIcon className="h-6 w-6 text-wood-muted dark:text-slate-500" aria-hidden="true" />
+                      <span className="font-mono text-xs font-medium text-wood-walnut dark:text-slate-300">
                         {shot.kind}
                       </span>
-                      <span className="max-w-sm text-xs leading-relaxed text-slate-600 dark:text-slate-400">
+                      <span className="max-w-sm text-xs leading-relaxed text-wood-muted dark:text-slate-400">
                         {shot.requirements ??
                           'Reserved for verified application screenshots or empirical benchmark figures.'}
                       </span>
                     </div>
-                    <div className="flex items-center justify-between gap-2 border-t border-slate-200 dark:border-slate-800/80 bg-white dark:bg-[#0b1222] px-3 py-1.5 font-mono text-[10.5px] text-slate-600 dark:text-slate-400">
+                    <div className="flex items-center justify-between gap-2 border-t border-wood-subtle dark:border-slate-800/80 bg-wood-surface dark:bg-[#0b1222] px-3 py-1.5 font-mono text-[10.5px] text-wood-muted dark:text-slate-400">
                       <span>◌ Pending Capture Attachment</span>
                       <button
                         type="button"
@@ -203,17 +203,17 @@ export function ProjectZoomGallery({
             ref={dialogRef}
             tabIndex={-1}
             onClick={(e) => e.stopPropagation()}
-            className="flex max-h-[92vh] w-full max-w-5xl flex-col overflow-hidden rounded-[16px] border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#0b1222] shadow-2xl focus:outline-none"
+            className="flex max-h-[92vh] w-full max-w-5xl flex-col overflow-hidden rounded-[16px] border border-wood-subtle dark:border-slate-800 bg-wood-surface dark:bg-[#0b1222] shadow-2xl focus:outline-none"
           >
             {/* Header Bar */}
-            <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-200 dark:border-slate-800/80 px-5 py-3.5">
+            <div className="flex flex-wrap items-center justify-between gap-3 border-b border-wood-subtle dark:border-slate-800/80 px-5 py-3.5">
               <div className="min-w-0 space-y-0.5">
                 <p className="font-mono text-[11px] text-cyan-700 dark:text-cyan-400">
                   {projectTitle} · {activeShot.kind} ({activeIndex + 1}/{screenshots.length})
                 </p>
                 <h3
                   id={headingId}
-                  className="font-display text-base font-semibold text-slate-950 dark:text-slate-50 truncate"
+                  className="font-display text-base font-semibold text-wood-ink dark:text-slate-50 truncate"
                 >
                   {activeShot.title}
                 </h3>
@@ -224,7 +224,7 @@ export function ProjectZoomGallery({
                   <div
                     role="group"
                     aria-label="Image zoom controls"
-                    className="flex items-center gap-1 rounded-[8px] border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-[#060b16] p-1"
+                    className="flex items-center gap-1 rounded-[8px] border border-wood-subtle dark:border-slate-800 bg-wood-inset dark:bg-[#060b16] p-1"
                   >
                     <button
                       type="button"
@@ -233,7 +233,7 @@ export function ProjectZoomGallery({
                       onClick={() =>
                         setZoomScale((z) => Math.max(1, Number((z - 0.5).toFixed(2))))
                       }
-                      className="inline-flex min-h-[36px] min-w-[36px] sm:min-h-[32px] sm:min-w-[32px] items-center justify-center rounded-[6px] text-slate-700 dark:text-slate-300 hover:bg-slate-200/70 dark:hover:bg-slate-800 disabled:opacity-40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600 dark:focus-visible:ring-cyan-400 cursor-pointer"
+                      className="inline-flex min-h-[36px] min-w-[36px] sm:min-h-[32px] sm:min-w-[32px] items-center justify-center rounded-[6px] text-wood-walnut dark:text-slate-300 hover:bg-wood-hover dark:hover:bg-slate-800 disabled:opacity-40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600 dark:focus-visible:ring-cyan-400 cursor-pointer"
                     >
                       <ZoomOut className="h-3.5 w-3.5" aria-hidden="true" />
                     </button>
@@ -247,7 +247,7 @@ export function ProjectZoomGallery({
                         className={`min-h-[36px] sm:min-h-[32px] rounded-[6px] px-2.5 py-1 font-mono text-[11px] tabular-nums transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600 dark:focus-visible:ring-cyan-400 cursor-pointer ${
                           zoomScale === preset
                             ? 'bg-blue-600 text-white'
-                            : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'
+                            : 'text-wood-muted dark:text-slate-400 hover:text-wood-ink dark:hover:text-slate-200'
                         }`}
                       >
                         {Math.round(preset * 100)}%
@@ -261,7 +261,7 @@ export function ProjectZoomGallery({
                       onClick={() =>
                         setZoomScale((z) => Math.min(2.5, Number((z + 0.5).toFixed(2))))
                       }
-                      className="inline-flex min-h-[36px] min-w-[36px] sm:min-h-[32px] sm:min-w-[32px] items-center justify-center rounded-[6px] text-slate-700 dark:text-slate-300 hover:bg-slate-200/70 dark:hover:bg-slate-800 disabled:opacity-40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600 dark:focus-visible:ring-cyan-400 cursor-pointer"
+                      className="inline-flex min-h-[36px] min-w-[36px] sm:min-h-[32px] sm:min-w-[32px] items-center justify-center rounded-[6px] text-wood-walnut dark:text-slate-300 hover:bg-wood-hover dark:hover:bg-slate-800 disabled:opacity-40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600 dark:focus-visible:ring-cyan-400 cursor-pointer"
                     >
                       <ZoomIn className="h-3.5 w-3.5" aria-hidden="true" />
                     </button>
@@ -270,7 +270,7 @@ export function ProjectZoomGallery({
                       type="button"
                       aria-label="Reset zoom"
                       onClick={() => setZoomScale(1)}
-                      className="inline-flex min-h-[36px] min-w-[36px] sm:min-h-[32px] sm:min-w-[32px] items-center justify-center rounded-[6px] text-slate-700 dark:text-slate-300 hover:bg-slate-200/70 dark:hover:bg-slate-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600 dark:focus-visible:ring-cyan-400 cursor-pointer"
+                      className="inline-flex min-h-[36px] min-w-[36px] sm:min-h-[32px] sm:min-w-[32px] items-center justify-center rounded-[6px] text-wood-walnut dark:text-slate-300 hover:bg-wood-hover dark:hover:bg-slate-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600 dark:focus-visible:ring-cyan-400 cursor-pointer"
                     >
                       <RotateCcw className="h-3.5 w-3.5" aria-hidden="true" />
                     </button>
@@ -281,7 +281,7 @@ export function ProjectZoomGallery({
                   type="button"
                   onClick={closeViewer}
                   aria-label="Close zoom viewer"
-                  className="inline-flex h-9 w-9 items-center justify-center rounded-[8px] border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-[#060b16] text-slate-700 dark:text-slate-300 hover:border-blue-500/60 hover:text-slate-950 dark:hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600 dark:focus-visible:ring-cyan-400 cursor-pointer"
+                  className="inline-flex h-9 w-9 items-center justify-center rounded-[8px] border border-wood-subtle dark:border-slate-800 bg-wood-inset dark:bg-[#060b16] text-wood-walnut dark:text-slate-300 hover:border-blue-500/60 hover:text-wood-ink dark:hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600 dark:focus-visible:ring-cyan-400 cursor-pointer"
                 >
                   <X className="h-4 w-4" aria-hidden="true" />
                 </button>
@@ -289,7 +289,7 @@ export function ProjectZoomGallery({
             </div>
 
             {/* Viewport Stage */}
-            <div className="relative flex-1 overflow-auto bg-slate-100 dark:bg-[#050914] p-4 sm:p-6">
+            <div className="relative flex-1 overflow-auto bg-wood-inset dark:bg-[#050914] p-4 sm:p-6">
               {activeShot.useGeneratedPreview || activeShot.imageUrl ? (
                 <div className="min-h-[300px] w-full overflow-auto">
                   <img
@@ -313,18 +313,18 @@ export function ProjectZoomGallery({
                             maxHeight: 'none',
                           }
                     }
-                    className={`mx-auto block rounded-[8px] border border-slate-200 dark:border-slate-800 transition-all duration-200 ease-out ${
+                    className={`mx-auto block rounded-[8px] border border-wood-subtle dark:border-slate-800 transition-all duration-200 ease-out ${
                       zoomScale === 1 ? 'max-h-[58vh] w-auto max-w-full' : ''
                     }`}
                   />
                 </div>
               ) : (
-                <div className="flex min-h-[280px] flex-col items-center justify-center gap-3 rounded-[10px] border border-dashed border-slate-300 dark:border-slate-700 bg-white dark:bg-[#060b16] p-8 text-center">
-                  <ImageIcon className="h-8 w-8 text-slate-500" aria-hidden="true" />
-                  <p className="font-mono text-xs font-semibold text-slate-800 dark:text-slate-200">
+                <div className="flex min-h-[280px] flex-col items-center justify-center gap-3 rounded-[10px] border border-dashed border-wood-default dark:border-slate-700 bg-wood-surface dark:bg-[#060b16] p-8 text-center">
+                  <ImageIcon className="h-8 w-8 text-wood-muted dark:text-slate-500" aria-hidden="true" />
+                  <p className="font-mono text-xs font-semibold text-wood-ink dark:text-slate-200">
                     {activeShot.kind}
                   </p>
-                  <p className="max-w-md text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+                  <p className="max-w-md text-sm leading-relaxed text-wood-muted dark:text-slate-400">
                     {activeShot.caption}
                   </p>
                   {activeShot.requirements && (
@@ -337,8 +337,8 @@ export function ProjectZoomGallery({
             </div>
 
             {/* Footer Caption & Gallery Nav */}
-            <div className="flex flex-wrap items-center justify-between gap-3 border-t border-slate-200 dark:border-slate-800/80 px-5 py-3.5">
-              <p className="max-w-3xl text-xs leading-relaxed text-slate-600 dark:text-slate-400">
+            <div className="flex flex-wrap items-center justify-between gap-3 border-t border-wood-subtle dark:border-slate-800/80 px-5 py-3.5">
+              <p className="max-w-3xl text-xs leading-relaxed text-wood-muted dark:text-slate-400">
                 {activeShot.caption}
               </p>
 
@@ -347,7 +347,7 @@ export function ProjectZoomGallery({
                   <button
                     type="button"
                     onClick={stepPrev}
-                    className="inline-flex min-h-[34px] items-center gap-1 rounded-[8px] border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-[#060b16] px-3 py-1.5 font-mono text-xs text-slate-700 dark:text-slate-300 hover:border-blue-500/60 cursor-pointer"
+                    className="inline-flex min-h-[34px] items-center gap-1 rounded-[8px] border border-wood-subtle dark:border-slate-800 bg-wood-inset dark:bg-[#060b16] px-3 py-1.5 font-mono text-xs text-wood-walnut dark:text-slate-300 hover:border-blue-500/60 cursor-pointer"
                   >
                     <ChevronLeft className="h-3.5 w-3.5" aria-hidden="true" />
                     <span>Prev</span>
@@ -355,7 +355,7 @@ export function ProjectZoomGallery({
                   <button
                     type="button"
                     onClick={stepNext}
-                    className="inline-flex min-h-[34px] items-center gap-1 rounded-[8px] border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-[#060b16] px-3 py-1.5 font-mono text-xs text-slate-700 dark:text-slate-300 hover:border-blue-500/60 cursor-pointer"
+                    className="inline-flex min-h-[34px] items-center gap-1 rounded-[8px] border border-wood-subtle dark:border-slate-800 bg-wood-inset dark:bg-[#060b16] px-3 py-1.5 font-mono text-xs text-wood-walnut dark:text-slate-300 hover:border-blue-500/60 cursor-pointer"
                   >
                     <span>Next</span>
                     <ChevronRight className="h-3.5 w-3.5" aria-hidden="true" />

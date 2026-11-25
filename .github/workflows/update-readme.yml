@@ -1,0 +1,53 @@
+name: Auto-Sync Portfolio README
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: readme-sync-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  sync-readme:
+    name: Regenerate README.md from portfolio data
+    runs-on: ubuntu-latest
+    if: "!contains(github.event.head_commit.message, '[skip ci]')"
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Verify portfolio integrity & README generator
+        run: npx tsx --test src/data/integrity.test.ts src/utils/readmeGenerator.test.ts
+
+      - name: Sync README.md
+        run: npm run readme:sync
+
+      - name: Commit updated README.md if changed
+        run: |
+          if ! git diff --quiet README.md; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add README.md
+            git commit -m "docs: auto-sync portfolio README from src/data [skip ci]"
+            git push
+          else
+            echo "README.md is already in sync."
+          fi

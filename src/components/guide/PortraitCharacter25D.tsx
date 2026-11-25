@@ -105,17 +105,17 @@ export function PortraitCharacter25D({
       {/* Back depth plate — subtle blueprint plane floating behind portrait */}
       <div
         aria-hidden="true"
-        className="guide-25d-backplate bg-blueprint-grid pointer-events-none absolute -inset-1.5 rounded-[14px] border border-blue-500/25 bg-slate-100/85 dark:border-cyan-400/25 dark:bg-[#081022]/95 shadow-inner"
+        className="guide-25d-backplate bg-blueprint-grid pointer-events-none absolute -inset-1.5 rounded-[14px] border border-blue-500/25 bg-wood-inset/85 dark:border-cyan-400/25 dark:bg-[#081022]/95 shadow-inner"
       />
 
       {/* Ambient ground shadow */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -bottom-2 inset-x-3 h-3 rounded-full bg-slate-900/20 blur-md dark:bg-black/65"
+        className="pointer-events-none absolute -bottom-2 inset-x-3 h-3 rounded-full bg-wood-ink/20 blur-md dark:bg-black/65"
       />
 
       {/* Portrait plane — authoritative original photograph strictly undistorted */}
-      <div className="guide-25d-portrait relative aspect-[3/4] overflow-hidden rounded-[12px] border border-slate-300/90 bg-slate-200 dark:border-cyan-400/35 dark:bg-[#0b1222] shadow-[0_14px_30px_-10px_rgba(15,23,42,0.28)] dark:shadow-[0_18px_36px_-10px_rgba(2,6,23,0.85)]">
+      <div className="guide-25d-portrait relative aspect-[3/4] overflow-hidden rounded-[12px] border border-wood-default/90 bg-wood-inset dark:border-cyan-400/35 dark:bg-[#0b1222] shadow-[0_14px_30px_-10px_rgba(44,30,15,0.28)] dark:shadow-[0_18px_36px_-10px_rgba(2,6,23,0.85)]">
         <img
           ref={imgRef}
           src={portraitSrc}

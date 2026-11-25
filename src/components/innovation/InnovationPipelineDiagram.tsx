@@ -59,16 +59,16 @@ export function InnovationPipelineDiagram({
   counts,
 }: InnovationPipelineDiagramProps) {
   return (
-    <figure className="space-y-4 rounded-[14px] border border-slate-200 dark:border-slate-800/80 bg-slate-100 dark:bg-[#060b16] p-4 sm:p-6">
-      <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200 dark:border-slate-800/80 pb-3">
-        <figcaption className="font-mono text-xs font-medium text-slate-800 dark:text-slate-200">
+    <figure className="space-y-4 rounded-[14px] border border-wood-subtle dark:border-slate-800/80 bg-wood-inset/80 dark:bg-[#060b16] p-4 sm:p-6">
+      <div className="flex flex-wrap items-center justify-between gap-2 border-b border-wood-subtle dark:border-slate-800/80 pb-3">
+        <figcaption className="font-mono text-xs font-medium text-wood-ink dark:text-slate-200">
           Venture Maturity Pipeline · Ideas vs. Prototypes vs. Validation &amp; Launch
         </figcaption>
         <div className="flex flex-wrap items-center gap-4 font-mono text-[11px]">
           <span className="text-cyan-700 dark:text-cyan-300">
             Solid = Active Evidence
           </span>
-          <span className="text-slate-600 dark:text-slate-400">
+          <span className="text-wood-muted dark:text-slate-400">
             Dashed = Zero Claimed Yet
           </span>
         </div>
@@ -209,7 +209,7 @@ export function InnovationPipelineDiagram({
 
       {/* Accessible interactive stage selector strip synced with diagram */}
       <div className="flex flex-col sm:flex-row sm:flex-wrap sm:items-center sm:justify-between gap-3 pt-1">
-        <span className="font-mono text-[11px] text-slate-600 dark:text-slate-400">
+        <span className="font-mono text-[11px] text-wood-muted dark:text-slate-400">
           Select a maturity stage to filter entries below:
         </span>
         <div className="grid grid-cols-1 min-[400px]:grid-cols-2 sm:flex sm:flex-wrap gap-2">
@@ -226,7 +226,7 @@ export function InnovationPipelineDiagram({
                 className={`min-h-[40px] sm:min-h-[34px] rounded-[8px] border px-3 py-1.5 sm:py-1 font-mono text-[11px] text-left sm:text-center transition-colors duration-150 sm:whitespace-nowrap sm:shrink-0 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600 dark:focus-visible:ring-cyan-400 ${
                   isSelected
                     ? 'border-blue-600 bg-blue-50 text-blue-700 dark:border-cyan-400/70 dark:bg-blue-600/20 dark:text-cyan-200'
-                    : 'border-slate-200 bg-white text-slate-700 hover:border-slate-300 hover:text-slate-900 dark:border-slate-800 dark:bg-[#0b1222] dark:text-slate-300 dark:hover:border-slate-700 dark:hover:text-white'
+                    : 'border-wood-subtle bg-wood-surface text-wood-walnut hover:border-wood-default hover:text-wood-ink dark:border-slate-800 dark:bg-[#0b1222] dark:text-slate-300 dark:hover:border-slate-700 dark:hover:text-white'
                 }`}
               >
                 {node.title} ({counts[node.stage]})

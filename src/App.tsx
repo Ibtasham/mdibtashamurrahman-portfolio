@@ -78,7 +78,7 @@ function AppShell() {
   const isMainHome = location.pathname === '/' || location.pathname === '/home-v2';
 
   return (
-    <div className="flex min-h-screen flex-col bg-slate-50 text-slate-900 dark:bg-[#050914] dark:text-slate-100">
+    <div className="flex min-h-screen flex-col bg-wood-canvas text-wood-ink dark:bg-[#050914] dark:text-slate-100">
       {!isFullscreenStudio && (
         <a
           href="#main-content"

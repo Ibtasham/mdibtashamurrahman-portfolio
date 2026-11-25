@@ -339,11 +339,11 @@ test('project laboratory features FactoryMind, ForgeMind AI, and TikaTrack with 
   assert.equal(counts.Engineering, 2);
   assert.equal(counts.Research, 2);
   assert.equal(counts['AI/ML'], 3);
-  assert.equal(counts.Software, 2);
+  assert.equal(counts.Software, 3);
   assert.equal(counts.Innovation, 2);
 
   assert.equal(filterProjectsByCategory(PROJECTS, 'Engineering').length, 2);
-  assert.equal(filterProjectsByCategory(PROJECTS, 'Software').length, 2);
+  assert.equal(filterProjectsByCategory(PROJECTS, 'Software').length, 3);
   assert.equal(filterProjectsByCategory(PROJECTS, 'Innovation').length, 2);
 
   const factoryMind = PROJECTS.find((p) => p.id === 'factorymind');
@@ -354,8 +354,14 @@ test('project laboratory features FactoryMind, ForgeMind AI, and TikaTrack with 
   assert.equal(factoryMind?.previewKindLabel, 'Verified Product Screenshot');
 
   const forgeMind = PROJECTS.find((p) => p.id === 'forgemind-ai');
-  assert.equal(forgeMind?.githubUrl, undefined);
-  assert.equal(forgeMind?.developmentStage, 'Research Prototype');
+  assert.equal(forgeMind?.githubUrl, 'https://github.com/ibta10/ForgeMind-Ai');
+  assert.equal(
+    forgeMind?.liveDemoUrl,
+    'https://forge-mind-ai-wheat.vercel.app/?subset=FD002&model=gradient_boosting',
+  );
+  assert.equal(forgeMind?.modules.length, 6);
+  assert.equal(forgeMind?.developmentStage, 'Active Prototype');
+  assert.equal(forgeMind?.previewKindLabel, 'Verified Product Screenshot');
   assert.equal(forgeMind?.caseStudy.secondaryKind, 'proposed');
   assert.ok((forgeMind?.caseStudy.secondaryItems?.length ?? 0) >= 3);
 
@@ -383,9 +389,9 @@ test('project laboratory features FactoryMind, ForgeMind AI, and TikaTrack with 
     plannedOrPending: 1,
   });
   assert.deepEqual(summarizeProjectMaturity(forgeMind!), {
-    implemented: 2,
-    experimentalOrProposed: 2,
-    plannedOrPending: 0,
+    implemented: 6,
+    experimentalOrProposed: 1,
+    plannedOrPending: 1,
   });
   assert.deepEqual(summarizeProjectMaturity(tikaTrack!), {
     implemented: 4,
@@ -484,9 +490,9 @@ test('project search, interactive education timeline filtering, section nav mapp
   assert.equal(cmapssMatches.length, 1);
   assert.equal(cmapssMatches[0]?.id, 'forgemind-ai');
 
-  const factoryMindDes = filterProjects(PROJECTS, 'Research', 'DES');
-  assert.equal(factoryMindDes.length, 1);
-  assert.equal(factoryMindDes[0]?.id, 'factorymind');
+  const factoryMindEoq = filterProjects(PROJECTS, 'Research', 'EOQ');
+  assert.equal(factoryMindEoq.length, 1);
+  assert.equal(factoryMindEoq[0]?.id, 'factorymind');
 
   const tikaTrackEcdsa = filterProjects(PROJECTS, 'Software', 'ECDSA');
   assert.equal(tikaTrackEcdsa.length, 1);

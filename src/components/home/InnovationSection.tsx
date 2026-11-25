@@ -128,7 +128,7 @@ export function InnovationSection({ expanded = false }: InnovationSectionProps) 
   return (
     <section
       id="innovation"
-      className={`relative border-b border-slate-200 dark:border-slate-800/80 bg-slate-50 dark:bg-[#050914] ${
+      className={`relative border-b border-wood-subtle dark:border-slate-800/80 bg-wood-canvas dark:bg-[#050914] ${
         expanded ? 'py-10 sm:py-14' : DESIGN_TOKENS.spacing.sectionY
       }`}
     >
@@ -179,12 +179,12 @@ export function InnovationSection({ expanded = false }: InnovationSectionProps) 
           ].map((item) => (
             <div
               key={item.stage}
-              className="rounded-[12px] border border-slate-200 dark:border-slate-800/80 bg-white dark:bg-[#0b1222] p-4 space-y-1"
+              className="rounded-[12px] border border-wood-subtle dark:border-slate-800/80 bg-wood-surface dark:bg-[#0b1222] p-4 space-y-1"
             >
-              <p className="font-mono text-[11px] text-slate-600 dark:text-slate-400">
+              <p className="font-mono text-[11px] text-wood-muted dark:text-slate-400">
                 {item.label}
               </p>
-              <p className="font-mono text-2xl font-bold text-slate-900 dark:text-slate-50 tabular-nums">
+              <p className="font-mono text-2xl font-bold text-wood-ink dark:text-slate-50 tabular-nums">
                 {item.value}
               </p>
               <p className="font-mono text-[10px] text-cyan-700 dark:text-cyan-400">
@@ -202,7 +202,7 @@ export function InnovationSection({ expanded = false }: InnovationSectionProps) 
         />
 
         {/* Band 01 / Main Entries: 7-Point Innovation & Prototype Dossiers */}
-        <div className="space-y-6 border-t border-slate-200 dark:border-slate-800/80 pt-10">
+        <div className="space-y-6 border-t border-wood-subtle dark:border-slate-800/80 pt-10">
           <div className="space-y-4">
             <div className="space-y-1">
               <p className="font-mono text-xs text-cyan-700 dark:text-cyan-400">
@@ -213,7 +213,7 @@ export function InnovationSection({ expanded = false }: InnovationSectionProps) 
               <h3 className={DESIGN_TOKENS.typography.sectionTitle}>
                 Structured Problem-to-Solution Entries
               </h3>
-              <p className="font-mono text-xs text-slate-600 dark:text-slate-400">
+              <p className="font-mono text-xs text-wood-muted dark:text-slate-400">
                 {INNOVATION_PROFILE_META.ventureReadinessNote}
               </p>
             </div>
@@ -235,7 +235,7 @@ export function InnovationSection({ expanded = false }: InnovationSectionProps) 
                       className={`min-h-[40px] sm:min-h-[38px] rounded-[10px] border px-3 py-2 text-xs font-medium transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600 dark:focus-visible:ring-cyan-400 whitespace-nowrap shrink-0 cursor-pointer ${
                         active
                           ? 'border-blue-600 bg-blue-50 text-blue-700 dark:border-blue-500/80 dark:bg-blue-600/20 dark:text-cyan-200'
-                          : 'border-slate-200 bg-white text-slate-600 hover:border-slate-300 hover:text-slate-900 dark:border-slate-800 dark:bg-[#0b1222] dark:text-slate-400 dark:hover:border-slate-700 dark:hover:text-slate-200'
+                          : 'border-wood-subtle bg-wood-surface text-wood-muted hover:border-wood-default hover:text-wood-ink dark:border-slate-800 dark:bg-[#0b1222] dark:text-slate-400 dark:hover:border-slate-700 dark:hover:text-slate-200'
                       }`}
                     >
                       {tab.label} ({stageCounts[tab.id]})
@@ -247,7 +247,7 @@ export function InnovationSection({ expanded = false }: InnovationSectionProps) 
               {expanded && (
                 <div className="relative w-full lg:max-w-xs">
                   <Search
-                    className="pointer-events-none absolute left-3 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-slate-500"
+                    className="pointer-events-none absolute left-3 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-wood-muted dark:text-slate-500"
                     aria-hidden="true"
                   />
                   <label htmlFor="innovation-search" className="sr-only">
@@ -259,7 +259,7 @@ export function InnovationSection({ expanded = false }: InnovationSectionProps) 
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     placeholder="Filter ideas, users, prototypes..."
-                    className="h-[38px] w-full rounded-[10px] border border-slate-300 dark:border-slate-800 bg-white dark:bg-[#0b1222] pl-9 pr-3 text-xs text-slate-900 dark:text-slate-200 placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:border-blue-600 dark:focus:border-blue-500/70 focus:outline-none focus:ring-2 focus:ring-cyan-600/30 dark:focus:ring-cyan-400/40"
+                    className="h-[38px] w-full rounded-[10px] border border-wood-default dark:border-slate-800 bg-wood-input dark:bg-[#0b1222] pl-9 pr-3 text-xs text-wood-ink dark:text-slate-200 placeholder:text-wood-muted/70 dark:placeholder:text-slate-500 focus:border-blue-600 dark:focus:border-blue-500/70 focus:outline-none focus:ring-2 focus:ring-cyan-600/30 dark:focus:ring-cyan-400/40"
                   />
                 </div>
               )}
@@ -280,7 +280,7 @@ export function InnovationSection({ expanded = false }: InnovationSectionProps) 
                 >
                   <div className="space-y-4">
                     <div className="flex flex-wrap items-center justify-between gap-2 font-mono text-xs">
-                      <span className="inline-flex items-center gap-1.5 text-slate-800 dark:text-slate-200">
+                      <span className="inline-flex items-center gap-1.5 text-wood-ink dark:text-slate-200">
                         <StageIcon stage={entry.stage} />
                         <span>{entry.stageLabel}</span>
                       </span>
@@ -293,66 +293,66 @@ export function InnovationSection({ expanded = false }: InnovationSectionProps) 
                       <h4 className={DESIGN_TOKENS.typography.cardTitleLg}>
                         {entry.title}
                       </h4>
-                      <p className="font-mono text-[11px] text-slate-600 dark:text-slate-400">
+                      <p className="font-mono text-[11px] text-wood-muted dark:text-slate-400">
                         {entry.period} · {entry.teamContext}
                       </p>
                     </div>
 
-                    <dl className="space-y-3 border-t border-slate-200 dark:border-slate-800/80 pt-3 text-xs leading-relaxed">
+                    <dl className="space-y-3 border-t border-wood-subtle dark:border-slate-800/80 pt-3 text-xs leading-relaxed">
                       <div className="space-y-0.5">
                         <dt className="font-mono text-[11px] text-cyan-700 dark:text-cyan-400">
                           1. Problem Identified
                         </dt>
-                        <dd className="text-slate-700 dark:text-slate-300">
+                        <dd className="text-wood-walnut dark:text-slate-300">
                           {entry.problemIdentified}
                         </dd>
                       </div>
                       <div className="space-y-0.5">
-                        <dt className="font-mono text-[11px] text-slate-500 dark:text-slate-400">
+                        <dt className="font-mono text-[11px] text-wood-muted dark:text-slate-400">
                           2. Target Users
                         </dt>
-                        <dd className="text-slate-700 dark:text-slate-300">
+                        <dd className="text-wood-walnut dark:text-slate-300">
                           {entry.targetUsers}
                         </dd>
                       </div>
                       <div className="space-y-0.5">
-                        <dt className="font-mono text-[11px] text-slate-500 dark:text-slate-400">
+                        <dt className="font-mono text-[11px] text-wood-muted dark:text-slate-400">
                           3. Proposed Solution
                         </dt>
-                        <dd className="text-slate-700 dark:text-slate-300">
+                        <dd className="text-wood-walnut dark:text-slate-300">
                           {entry.proposedSolution}
                         </dd>
                       </div>
                       <div className="grid gap-3 pt-1 sm:grid-cols-2">
                         <div className="space-y-0.5">
-                          <dt className="font-mono text-[11px] text-slate-500 dark:text-slate-400">
+                          <dt className="font-mono text-[11px] text-wood-muted dark:text-slate-400">
                             4. Innovation Approach
                           </dt>
-                          <dd className="text-slate-600 dark:text-slate-400">
+                          <dd className="text-wood-muted dark:text-slate-400">
                             {entry.innovationApproach}
                           </dd>
                         </div>
                         <div className="space-y-0.5">
-                          <dt className="font-mono text-[11px] text-slate-500 dark:text-slate-400">
+                          <dt className="font-mono text-[11px] text-wood-muted dark:text-slate-400">
                             5. Current Development Stage
                           </dt>
-                          <dd className="text-slate-600 dark:text-slate-400">
+                          <dd className="text-wood-muted dark:text-slate-400">
                             {entry.currentDevelopmentStage}
                           </dd>
                         </div>
                         <div className="space-y-0.5">
-                          <dt className="font-mono text-[11px] text-slate-500 dark:text-slate-400">
+                          <dt className="font-mono text-[11px] text-wood-muted dark:text-slate-400">
                             6. Validation Status
                           </dt>
-                          <dd className="text-slate-600 dark:text-slate-400">
+                          <dd className="text-wood-muted dark:text-slate-400">
                             {entry.validationStatus}
                           </dd>
                         </div>
                         <div className="space-y-0.5">
-                          <dt className="font-mono text-[11px] text-slate-500 dark:text-slate-400">
+                          <dt className="font-mono text-[11px] text-wood-muted dark:text-slate-400">
                             7. Future Roadmap
                           </dt>
-                          <dd className="text-slate-600 dark:text-slate-400">
+                          <dd className="text-wood-muted dark:text-slate-400">
                             {entry.futureRoadmap}
                           </dd>
                         </div>
@@ -360,13 +360,13 @@ export function InnovationSection({ expanded = false }: InnovationSectionProps) 
                     </dl>
                   </div>
 
-                  <div className="flex flex-wrap items-center justify-between gap-3 border-t border-slate-200 dark:border-slate-800/80 pt-4">
+                  <div className="flex flex-wrap items-center justify-between gap-3 border-t border-wood-subtle dark:border-slate-800/80 pt-4">
                     <Button
                       type="button"
                       variant="primary"
                       size="sm"
                       onClick={() => setActiveDossier(entry)}
-                      className="!min-h-[40px] sm:!min-h-[34px] !px-3.5"
+                      className="!min-h-[40px] sm:!min-h-[34px] !px-3"
                     >
                       <FileSearch className="h-3.5 w-3.5" aria-hidden="true" />
                       <span>Inspect 7-Point Dossier</span>
@@ -383,7 +383,7 @@ export function InnovationSection({ expanded = false }: InnovationSectionProps) 
                         <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
                       </LinkButton>
                     ) : (
-                      <span className="font-mono text-[11px] text-slate-500">
+                      <span className="font-mono text-[11px] text-wood-muted dark:text-slate-500">
                         Stage: {entry.stageLabel}
                       </span>
                     )}
@@ -416,8 +416,8 @@ export function InnovationSection({ expanded = false }: InnovationSectionProps) 
 
           {!expanded && (
             <div className="space-y-12">
-              <div className="flex flex-wrap items-center justify-between gap-4 rounded-[12px] border border-slate-200 dark:border-slate-800/80 bg-white dark:bg-[#0b1222] px-5 py-4">
-                <p className="text-xs text-slate-600 dark:text-slate-400">
+              <div className="flex flex-wrap items-center justify-between gap-4 rounded-[12px] border border-wood-subtle dark:border-slate-800/80 bg-wood-surface dark:bg-[#0b1222] px-5 py-4">
+                <p className="text-xs text-wood-muted dark:text-slate-400">
                   Explore the interactive innovation timeline, 5-step problem-solving framework, competition records, team collaborations, and future startup hypotheses.
                 </p>
                 <LinkButton to="/innovation" variant="secondary" size="sm">
@@ -435,7 +435,7 @@ export function InnovationSection({ expanded = false }: InnovationSectionProps) 
         {expanded && (
           <>
             {/* Band 02: Interactive Innovation Timeline */}
-            <div className="space-y-6 border-t border-slate-200 dark:border-slate-800/80 pt-10">
+            <div className="space-y-6 border-t border-wood-subtle dark:border-slate-800/80 pt-10">
               <div className="flex flex-col gap-4 xl:flex-row xl:items-end xl:justify-between">
                 <div className="space-y-1">
                   <p className="font-mono text-xs text-cyan-700 dark:text-cyan-400">
@@ -444,7 +444,7 @@ export function InnovationSection({ expanded = false }: InnovationSectionProps) 
                   <h3 className={DESIGN_TOKENS.typography.sectionTitle}>
                     Progression From Competitions to Prototypes &amp; Discovery
                   </h3>
-                  <p className="text-xs text-slate-600 dark:text-slate-400 sm:text-sm">
+                  <p className="text-xs text-wood-muted dark:text-slate-400 sm:text-sm">
                     Select any chronological milestone to inspect its context, validation state, and linked prototype or case entry.
                   </p>
                 </div>
@@ -478,7 +478,7 @@ export function InnovationSection({ expanded = false }: InnovationSectionProps) 
                         className={`min-h-[40px] sm:min-h-[36px] rounded-[10px] border px-3 py-1.5 text-xs font-medium transition-colors duration-150 whitespace-nowrap shrink-0 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600 dark:focus-visible:ring-cyan-400 ${
                           active
                             ? 'border-blue-600 bg-blue-50 text-blue-700 dark:border-blue-500/80 dark:bg-blue-600/20 dark:text-cyan-200'
-                            : 'border-slate-200 bg-white text-slate-600 hover:border-slate-300 hover:text-slate-900 dark:border-slate-800 dark:bg-[#0b1222] dark:text-slate-400 dark:hover:border-slate-700 dark:hover:text-slate-200'
+                            : 'border-wood-subtle bg-wood-surface text-wood-muted hover:border-wood-default hover:text-wood-ink dark:border-slate-800 dark:bg-[#0b1222] dark:text-slate-400 dark:hover:border-slate-700 dark:hover:text-slate-200'
                         }`}
                       >
                         {tab.label}
@@ -502,18 +502,18 @@ export function InnovationSection({ expanded = false }: InnovationSectionProps) 
                         className={`w-full rounded-[12px] border p-4 text-left transition-all duration-150 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600 dark:focus-visible:ring-cyan-400 ${
                           isActive
                             ? 'border-blue-600/75 bg-blue-50 dark:border-blue-500/75 dark:bg-[#101a30]'
-                            : 'border-slate-200 bg-white hover:border-slate-300 dark:border-slate-800/80 dark:bg-[#0b1222] dark:hover:border-slate-700'
+                            : 'border-wood-subtle bg-wood-surface hover:border-wood-default dark:border-slate-800/80 dark:bg-[#0b1222] dark:hover:border-slate-700'
                         }`}
                       >
                         <div className="flex items-center justify-between gap-2 font-mono text-[11px]">
                           <span className="text-cyan-700 dark:text-cyan-400 tabular-nums">
                             {item.period}
                           </span>
-                          <span className="text-slate-600 dark:text-slate-400">
+                          <span className="text-wood-muted dark:text-slate-400">
                             {item.kind}
                           </span>
                         </div>
-                        <p className="mt-1.5 font-display text-sm font-semibold text-slate-900 dark:text-slate-100">
+                        <p className="mt-1.5 font-display text-sm font-semibold text-wood-ink dark:text-slate-100">
                           {item.title}
                         </p>
                       </button>
@@ -527,20 +527,20 @@ export function InnovationSection({ expanded = false }: InnovationSectionProps) 
                     variant="accent"
                     className="p-6 sm:p-8 lg:col-span-7 space-y-5"
                   >
-                    <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200 dark:border-slate-800/80 pb-4 font-mono text-xs">
+                    <div className="flex flex-wrap items-center justify-between gap-2 border-b border-wood-subtle dark:border-slate-800/80 pb-4 font-mono text-xs">
                       <span className="text-cyan-700 dark:text-cyan-400">
                         {activeTimelineItem.period} · {activeTimelineItem.kind}
                       </span>
-                      <span className="text-slate-700 dark:text-slate-300">
+                      <span className="text-wood-walnut dark:text-slate-300">
                         {activeTimelineItem.statusNote}
                       </span>
                     </div>
 
                     <div className="space-y-2">
-                      <h4 className="font-display text-xl font-semibold text-slate-900 dark:text-slate-50">
+                      <h4 className="font-display text-xl font-semibold text-wood-ink dark:text-slate-50">
                         {activeTimelineItem.title}
                       </h4>
-                      <p className="font-mono text-xs text-slate-600 dark:text-slate-400">
+                      <p className="font-mono text-xs text-wood-muted dark:text-slate-400">
                         {activeTimelineItem.organizationOrContext}
                       </p>
                     </div>
@@ -550,7 +550,7 @@ export function InnovationSection({ expanded = false }: InnovationSectionProps) 
                     </p>
 
                     {activeTimelineItem.linkedInnovationId && (
-                      <div className="border-t border-slate-200 dark:border-slate-800/80 pt-4">
+                      <div className="border-t border-wood-subtle dark:border-slate-800/80 pt-4">
                         <Button
                           type="button"
                           variant="primary"
@@ -570,7 +570,7 @@ export function InnovationSection({ expanded = false }: InnovationSectionProps) 
             </div>
 
             {/* Band 03: Problem-Solving Framework */}
-            <div className="space-y-6 border-t border-slate-200 dark:border-slate-800/80 pt-10">
+            <div className="space-y-6 border-t border-wood-subtle dark:border-slate-800/80 pt-10">
               <div className="space-y-1">
                 <p className="font-mono text-xs text-cyan-700 dark:text-cyan-400">
                   03 · Problem-Solving Framework
@@ -590,19 +590,19 @@ export function InnovationSection({ expanded = false }: InnovationSectionProps) 
                       <p className="font-mono text-xs text-cyan-700 dark:text-cyan-400 tabular-nums">
                         Step {step.step}
                       </p>
-                      <h4 className="font-display text-sm font-semibold text-slate-900 dark:text-slate-50">
+                      <h4 className="font-display text-sm font-semibold text-wood-ink dark:text-slate-50">
                         {step.title}
                       </h4>
-                      <p className="text-xs leading-relaxed text-slate-600 dark:text-slate-400">
+                      <p className="text-xs leading-relaxed text-wood-muted dark:text-slate-400">
                         {step.question}
                       </p>
                     </div>
 
-                    <div className="space-y-2 border-t border-slate-200 dark:border-slate-800/80 pt-3">
-                      <p className="font-mono text-[10.5px] text-slate-700 dark:text-slate-300">
+                    <div className="space-y-2 border-t border-wood-subtle dark:border-slate-800/80 pt-3">
+                      <p className="font-mono text-[10.5px] text-wood-walnut dark:text-slate-300">
                         {step.methods.join(' · ')}
                       </p>
-                      <p className="text-[11px] leading-relaxed text-slate-500">
+                      <p className="text-[11px] leading-relaxed text-wood-muted dark:text-slate-500">
                         {step.appliedTo}
                       </p>
                     </div>
@@ -612,7 +612,7 @@ export function InnovationSection({ expanded = false }: InnovationSectionProps) 
             </div>
 
             {/* Band 04: Innovation Competitions & Team Collaboration */}
-            <div className="grid gap-8 border-t border-slate-200 dark:border-slate-800/80 pt-10 lg:grid-cols-12">
+            <div className="grid gap-8 border-t border-wood-subtle dark:border-slate-800/80 pt-10 lg:grid-cols-12">
               <div className="space-y-5 lg:col-span-7">
                 <div className="space-y-1">
                   <p className="font-mono text-xs text-cyan-700 dark:text-cyan-400">
@@ -635,7 +635,7 @@ export function InnovationSection({ expanded = false }: InnovationSectionProps) 
                         </span>
                       </div>
 
-                      <p className="font-mono text-[11px] text-slate-600 dark:text-slate-400">
+                      <p className="font-mono text-[11px] text-wood-muted dark:text-slate-400">
                         {comp.organizer} · {comp.year}
                         {comp.teamName ? ` · ${comp.teamName}` : ''}
                       </p>
@@ -645,7 +645,7 @@ export function InnovationSection({ expanded = false }: InnovationSectionProps) 
                       </p>
 
                       {comp.missingInfo && (
-                        <p className="font-mono text-[11px] text-slate-500">
+                        <p className="font-mono text-[11px] text-wood-muted dark:text-slate-500">
                           Pending Note: {comp.missingInfo}
                         </p>
                       )}
@@ -673,7 +673,7 @@ export function InnovationSection({ expanded = false }: InnovationSectionProps) 
                           aria-hidden="true"
                         />
                         <div className="space-y-0.5">
-                          <h4 className="font-display text-sm font-semibold text-slate-900 dark:text-slate-50">
+                          <h4 className="font-display text-sm font-semibold text-wood-ink dark:text-slate-50">
                             {collab.context}
                           </h4>
                           <p className="font-mono text-[11px] text-blue-700 dark:text-blue-300">
@@ -684,7 +684,7 @@ export function InnovationSection({ expanded = false }: InnovationSectionProps) 
                       <p className={DESIGN_TOKENS.typography.bodyMuted}>
                         {collab.focus}
                       </p>
-                      <p className="font-mono text-[11px] text-slate-500">
+                      <p className="font-mono text-[11px] text-wood-muted dark:text-slate-500">
                         Collaborators: {collab.collaborators}
                       </p>
                     </SurfaceCard>
@@ -694,7 +694,7 @@ export function InnovationSection({ expanded = false }: InnovationSectionProps) 
             </div>
 
             {/* Band 05: Future Innovation Plans & Pre-Validation Roadmap */}
-            <div className="space-y-6 border-t border-slate-200 dark:border-slate-800/80 pt-10">
+            <div className="space-y-6 border-t border-wood-subtle dark:border-slate-800/80 pt-10">
               <div className="space-y-1">
                 <p className="font-mono text-xs text-cyan-700 dark:text-cyan-400">
                   06 · Future Innovation Plans
@@ -702,7 +702,7 @@ export function InnovationSection({ expanded = false }: InnovationSectionProps) 
                 <h3 className={DESIGN_TOKENS.typography.sectionTitle}>
                   Next-Stage Prototyping &amp; Discovery Roadmap
                 </h3>
-                <p className="text-xs text-slate-600 dark:text-slate-400 sm:text-sm max-w-3xl">
+                <p className="text-xs text-wood-muted dark:text-slate-400 sm:text-sm max-w-3xl">
                   {INNOVATION_PROFILE_META.transparencyStatement}
                 </p>
               </div>
@@ -724,11 +724,11 @@ export function InnovationSection({ expanded = false }: InnovationSectionProps) 
                         {plan.hypothesis}
                       </p>
                     </div>
-                    <div className="border-t border-slate-200 dark:border-slate-800/80 pt-3">
-                      <p className="font-mono text-[10.5px] text-slate-500">
+                    <div className="border-t border-wood-subtle dark:border-slate-800/80 pt-3">
+                      <p className="font-mono text-[10.5px] text-wood-muted dark:text-slate-500">
                         Next Concrete Milestone
                       </p>
-                      <p className="mt-1 text-xs text-slate-700 dark:text-slate-300">
+                      <p className="mt-1 text-xs text-wood-walnut dark:text-slate-300">
                         {plan.nextMilestone}
                       </p>
                     </div>
@@ -753,11 +753,11 @@ export function InnovationSection({ expanded = false }: InnovationSectionProps) 
       >
         {activeDossier && (
           <div className="space-y-4 text-sm">
-            <p className="font-mono text-xs text-slate-600 dark:text-slate-400">
+            <p className="font-mono text-xs text-wood-muted dark:text-slate-400">
               Team / Context: {activeDossier.teamContext}
             </p>
 
-            <div className="space-y-3 border-t border-slate-200 dark:border-slate-800/80 pt-4">
+            <div className="space-y-3 border-t border-wood-subtle dark:border-slate-800/80 pt-4">
               {[
                 { num: '1', label: 'Problem Identified', value: activeDossier.problemIdentified },
                 { num: '2', label: 'Target Users', value: activeDossier.targetUsers },
@@ -773,12 +773,12 @@ export function InnovationSection({ expanded = false }: InnovationSectionProps) 
               ].map((field) => (
                 <div
                   key={field.num}
-                  className="rounded-[10px] border border-slate-200 dark:border-slate-800/80 bg-slate-100/80 dark:bg-[#080e1c] p-3.5 space-y-1"
+                  className="rounded-[10px] border border-wood-subtle dark:border-slate-800/80 bg-wood-inset/80 dark:bg-[#080e1c] p-3.5 space-y-1"
                 >
                   <p className="font-mono text-[11px] text-cyan-700 dark:text-cyan-400">
                     {field.num}. {field.label}
                   </p>
-                  <p className="text-xs leading-relaxed text-slate-800 dark:text-slate-200 sm:text-sm">
+                  <p className="text-xs leading-relaxed text-wood-ink dark:text-slate-200 sm:text-sm">
                     {field.value}
                   </p>
                 </div>
@@ -786,11 +786,11 @@ export function InnovationSection({ expanded = false }: InnovationSectionProps) 
             </div>
 
             {activeDossier.missingInfo && activeDossier.missingInfo.length > 0 && (
-              <div className="rounded-[10px] border border-slate-200 dark:border-slate-800/80 bg-slate-100 dark:bg-[#060b16] p-3.5 space-y-1">
-                <p className="font-mono text-[11px] text-slate-600 dark:text-slate-400">
+              <div className="rounded-[10px] border border-wood-subtle dark:border-slate-800/80 bg-wood-inset dark:bg-[#060b16] p-3.5 space-y-1">
+                <p className="font-mono text-[11px] text-wood-muted dark:text-slate-400">
                   Records Ready for Manual Completion
                 </p>
-                <ul className="space-y-1 text-xs text-slate-600 dark:text-slate-400">
+                <ul className="space-y-1 text-xs text-wood-muted dark:text-slate-400">
                   {activeDossier.missingInfo.map((item) => (
                     <li key={item}>· {item}</li>
                   ))}
@@ -798,7 +798,7 @@ export function InnovationSection({ expanded = false }: InnovationSectionProps) 
               </div>
             )}
 
-            <div className="flex flex-wrap items-center justify-between gap-3 border-t border-slate-200 dark:border-slate-800/80 pt-4">
+            <div className="flex flex-wrap items-center justify-between gap-3 border-t border-wood-subtle dark:border-slate-800/80 pt-4">
               {activeDossier.relatedProjectId ? (
                 <LinkButton
                   to={`/projects/${activeDossier.relatedProjectId}`}

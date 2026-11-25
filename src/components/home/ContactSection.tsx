@@ -23,7 +23,7 @@ import { SectionReveal } from '../ui/SectionReveal';
 import { SurfaceCard } from '../ui/SurfaceCard';
 
 const INPUT_CLASS =
-  'w-full rounded-[10px] border border-slate-300 dark:border-slate-800 bg-white dark:bg-[#060b16] px-3.5 py-2.5 text-sm text-slate-900 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500 transition-colors duration-150 focus:border-blue-600 dark:focus:border-blue-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600/40 dark:focus-visible:ring-cyan-400/70';
+  'w-full rounded-[10px] border border-wood-default dark:border-slate-800 bg-wood-input dark:bg-[#060b16] px-3.5 py-2.5 text-sm text-wood-ink dark:text-slate-100 placeholder:text-wood-muted/70 dark:placeholder:text-slate-500 transition-colors duration-150 focus:border-blue-600 dark:focus:border-blue-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600/40 dark:focus-visible:ring-cyan-400/70';
 
 export function ContactSection() {
   const [form, setForm] = useState<ContactFormInput>({
@@ -98,7 +98,7 @@ export function ContactSection() {
   return (
     <section
       id="contact"
-      className={`relative bg-slate-50 dark:bg-[#050914] ${DESIGN_TOKENS.spacing.sectionY}`}
+      className={`relative bg-wood-canvas dark:bg-[#050914] ${DESIGN_TOKENS.spacing.sectionY}`}
     >
       <div
         aria-hidden="true"
@@ -128,19 +128,19 @@ export function ContactSection() {
                 </div>
 
                 <div className="space-y-4 text-sm">
-                  <div className="flex flex-wrap items-start justify-between gap-3 border-b border-slate-200 dark:border-slate-800/80 pb-3.5">
+                  <div className="flex flex-wrap items-start justify-between gap-3 border-b border-wood-subtle dark:border-slate-800/80 pb-3.5">
                     <div className="flex min-w-0 items-start gap-3">
                       <Mail
                         className="mt-0.5 h-4 w-4 shrink-0 text-blue-700 dark:text-blue-400"
                         aria-hidden="true"
                       />
                       <div className="min-w-0">
-                        <p className="text-xs text-slate-600 dark:text-slate-400">
+                        <p className="text-xs text-wood-muted dark:text-slate-400">
                           Email
                         </p>
                         <a
                           href={`mailto:${PROFILE.email}`}
-                          className="break-all font-mono text-xs text-slate-900 dark:text-slate-100 transition-colors hover:text-cyan-700 dark:hover:text-cyan-300"
+                          className="break-all font-mono text-xs text-wood-ink dark:text-slate-100 transition-colors hover:text-cyan-700 dark:hover:text-cyan-300"
                         >
                           {PROFILE.email}
                         </a>
@@ -171,46 +171,46 @@ export function ContactSection() {
                     </Button>
                   </div>
 
-                  <div className="flex items-start gap-3 border-b border-slate-200 dark:border-slate-800/80 pb-3.5">
+                  <div className="flex items-start gap-3 border-b border-wood-subtle dark:border-slate-800/80 pb-3.5">
                     <Building2
                       className="mt-0.5 h-4 w-4 shrink-0 text-blue-700 dark:text-blue-400"
                       aria-hidden="true"
                     />
                     <div>
-                      <p className="text-xs text-slate-600 dark:text-slate-400">
+                      <p className="text-xs text-wood-muted dark:text-slate-400">
                         Academic Affiliation
                       </p>
-                      <p className="text-xs font-medium text-slate-900 dark:text-slate-100">
+                      <p className="text-xs font-medium text-wood-ink dark:text-slate-100">
                         {PROFILE.academicBase}
                       </p>
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-3 border-b border-slate-200 dark:border-slate-800/80 pb-3.5">
+                  <div className="flex items-start gap-3 border-b border-wood-subtle dark:border-slate-800/80 pb-3.5">
                     <MapPin
                       className="mt-0.5 h-4 w-4 shrink-0 text-blue-700 dark:text-blue-400"
                       aria-hidden="true"
                     />
                     <div>
-                      <p className="text-xs text-slate-600 dark:text-slate-400">
+                      <p className="text-xs text-wood-muted dark:text-slate-400">
                         Region
                       </p>
-                      <p className="text-xs text-slate-800 dark:text-slate-200">
+                      <p className="text-xs text-wood-walnut dark:text-slate-200">
                         {PROFILE.publicLocation} · Origin: {PROFILE.locationPermanent}
                       </p>
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-3 border-b border-slate-200 dark:border-slate-800/80 pb-3.5">
+                  <div className="flex items-start gap-3 border-b border-wood-subtle dark:border-slate-800/80 pb-3.5">
                     <Lock
-                      className="mt-0.5 h-4 w-4 shrink-0 text-slate-600 dark:text-slate-400"
+                      className="mt-0.5 h-4 w-4 shrink-0 text-wood-muted dark:text-slate-400"
                       aria-hidden="true"
                     />
                     <div>
-                      <p className="text-xs text-slate-600 dark:text-slate-400">
+                      <p className="text-xs text-wood-muted dark:text-slate-400">
                         Contact Privacy
                       </p>
-                      <p className="text-xs leading-relaxed text-slate-600 dark:text-slate-400">
+                      <p className="text-xs leading-relaxed text-wood-muted dark:text-slate-400">
                         {PROFILE.privacyNote}
                       </p>
                     </div>
@@ -254,7 +254,7 @@ export function ContactSection() {
                     <div className="space-y-1.5">
                       <label
                         htmlFor="contact-name"
-                        className="block text-xs font-medium text-slate-700 dark:text-slate-300"
+                        className="block text-xs font-medium text-wood-walnut dark:text-slate-300"
                       >
                         Full Name
                       </label>
@@ -282,7 +282,7 @@ export function ContactSection() {
                     <div className="space-y-1.5">
                       <label
                         htmlFor="contact-email"
-                        className="block text-xs font-medium text-slate-700 dark:text-slate-300"
+                        className="block text-xs font-medium text-wood-walnut dark:text-slate-300"
                       >
                         Email Address
                       </label>
@@ -313,7 +313,7 @@ export function ContactSection() {
                   <div className="space-y-1.5">
                     <label
                       htmlFor="contact-subject"
-                      className="block text-xs font-medium text-slate-700 dark:text-slate-300"
+                      className="block text-xs font-medium text-wood-walnut dark:text-slate-300"
                     >
                       Subject
                     </label>
@@ -343,7 +343,7 @@ export function ContactSection() {
                   <div className="space-y-1.5">
                     <label
                       htmlFor="contact-message"
-                      className="block text-xs font-medium text-slate-700 dark:text-slate-300"
+                      className="block text-xs font-medium text-wood-walnut dark:text-slate-300"
                     >
                       Message
                     </label>
@@ -376,7 +376,7 @@ export function ContactSection() {
                       <span>Prepare Inquiry</span>
                     </Button>
 
-                    <span className="font-mono text-xs text-slate-600 dark:text-slate-400">
+                    <span className="font-mono text-xs text-wood-muted dark:text-slate-400">
                       Direct to {PROFILE.email}
                     </span>
                   </div>
@@ -384,7 +384,7 @@ export function ContactSection() {
                   {submittedHref && (
                     <div
                       role="status"
-                      className="rounded-[10px] border border-cyan-600/35 dark:border-cyan-500/40 bg-cyan-50 dark:bg-cyan-500/10 p-4 text-xs text-cyan-950 dark:text-cyan-100 space-y-3"
+                      className="rounded-[10px] border border-cyan-600/35 dark:border-cyan-500/40 bg-cyan-100/60 dark:bg-cyan-500/10 p-4 text-xs text-cyan-950 dark:text-cyan-100 space-y-3"
                     >
                       <p className="font-medium">
                         Inquiry validated and ready for {form.name}.

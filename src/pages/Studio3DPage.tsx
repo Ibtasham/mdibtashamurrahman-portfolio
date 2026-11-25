@@ -22,7 +22,7 @@ export function Studio3DPage() {
   return (
     <section
       aria-label="Interactive 3D Engineering Studio"
-      className="h-screen w-screen overflow-hidden bg-slate-50 dark:bg-[#050914]"
+      className="h-screen w-screen overflow-hidden bg-wood-canvas dark:bg-[#050914]"
     >
       <IndustrialStudioViewport mode="fullscreen" initialModel={initialModel} />
     </section>

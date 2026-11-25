@@ -72,7 +72,7 @@ function formatMaturityLabel(state: ProjectMaturityState) {
     default:
       return {
         glyph: '◌',
-        className: 'text-slate-600 dark:text-slate-400',
+        className: 'text-wood-muted dark:text-slate-400',
       };
   }
 }
@@ -164,9 +164,9 @@ export function ProjectCaseStudyPage() {
   const isSourcePending = project.developmentStage === 'Developing Concept';
 
   return (
-    <article className="bg-slate-50 dark:bg-[#050914]">
+    <article className="bg-wood-canvas dark:bg-[#050914]">
       {/* Hero Banner */}
-      <header className="relative overflow-hidden border-b border-slate-200 dark:border-slate-800/80 bg-slate-50 dark:bg-[#050914] bg-blueprint-grid py-12 sm:py-16">
+      <header className="relative overflow-hidden border-b border-wood-subtle dark:border-slate-800/80 bg-wood-canvas dark:bg-[#050914] bg-blueprint-grid py-12 sm:py-16">
         <div
           aria-hidden="true"
           className="pointer-events-none absolute inset-0 ambient-hero-light"
@@ -175,7 +175,7 @@ export function ProjectCaseStudyPage() {
         <div className={`relative ${DESIGN_TOKENS.spacing.container} space-y-8`}>
           <Link
             to="/projects"
-            className="inline-flex items-center gap-1.5 font-mono text-xs text-slate-600 dark:text-slate-400 transition-colors duration-150 hover:text-cyan-700 dark:hover:text-cyan-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600 dark:focus-visible:ring-cyan-400 rounded-[4px]"
+            className="inline-flex items-center gap-1.5 font-mono text-xs text-wood-muted dark:text-slate-400 transition-colors duration-150 hover:text-cyan-700 dark:hover:text-cyan-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600 dark:focus-visible:ring-cyan-400 rounded-[4px]"
           >
             <ArrowLeft className="h-3.5 w-3.5" aria-hidden="true" />
             <span>Back to Project Laboratory</span>
@@ -187,11 +187,11 @@ export function ProjectCaseStudyPage() {
                 <span className="text-cyan-700 dark:text-cyan-400">
                   {project.categoryLabel}
                 </span>
-                <span aria-hidden="true" className="text-slate-400">·</span>
+                <span aria-hidden="true" className="text-wood-default">·</span>
                 <span
                   className={
                     isSourcePending
-                      ? 'text-slate-600 dark:text-slate-400'
+                      ? 'text-wood-muted dark:text-slate-400'
                       : project.developmentStage === 'Active Prototype'
                         ? 'text-emerald-700 dark:text-emerald-300'
                         : 'text-cyan-700 dark:text-cyan-300'
@@ -216,7 +216,7 @@ export function ProjectCaseStudyPage() {
                 {project.summary}
               </p>
 
-              <p className="font-mono text-xs text-slate-600 dark:text-slate-400">
+              <p className="font-mono text-xs text-wood-muted dark:text-slate-400">
                 {project.context} · {project.sourceNote}
               </p>
 
@@ -270,7 +270,7 @@ export function ProjectCaseStudyPage() {
                 )}
 
                 {!project.githubUrl && (
-                  <p className="font-mono text-xs text-slate-500">
+                  <p className="font-mono text-xs text-wood-muted">
                     {isSourcePending
                       ? 'Complete source code & UI captures pending supply.'
                       : 'Source repository currently private.'}
@@ -284,7 +284,7 @@ export function ProjectCaseStudyPage() {
                 <div
                   role="group"
                   aria-label="Case study hero visualization mode"
-                  className="inline-flex rounded-[10px] border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#0b1222] p-1"
+                  className="inline-flex rounded-[10px] border border-wood-subtle dark:border-slate-800 bg-wood-surface dark:bg-[#0b1222] p-1"
                 >
                   <button
                     type="button"
@@ -293,7 +293,7 @@ export function ProjectCaseStudyPage() {
                     className={`rounded-[7px] px-3 py-1.5 font-mono text-[11px] font-medium transition-colors cursor-pointer ${
                       heroViewMode === 'blueprint'
                         ? 'bg-blue-600 text-white'
-                        : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'
+                        : 'text-wood-muted dark:text-slate-400 hover:text-wood-ink dark:hover:text-slate-200'
                     }`}
                   >
                     {project.previewKindLabel === 'Verified Product Screenshot'
@@ -307,7 +307,7 @@ export function ProjectCaseStudyPage() {
                     className={`rounded-[7px] px-3 py-1.5 font-mono text-[11px] font-medium transition-colors cursor-pointer ${
                       heroViewMode === '3d'
                         ? 'bg-blue-600 text-white'
-                        : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'
+                        : 'text-wood-muted dark:text-slate-400 hover:text-wood-ink dark:hover:text-slate-200'
                     }`}
                   >
                     Interactive 3D Rig
@@ -319,7 +319,7 @@ export function ProjectCaseStudyPage() {
               (project.id === 'factorymind' || project.id === 'forgemind-ai') ? (
                 <Suspense
                   fallback={
-                    <div className="flex h-[390px] sm:h-[430px] w-full items-center justify-center rounded-[16px] border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-[#050914] font-mono text-xs text-slate-500">
+                    <div className="flex h-[390px] sm:h-[430px] w-full items-center justify-center rounded-[16px] border border-wood-subtle dark:border-slate-800 bg-wood-inset dark:bg-[#050914] font-mono text-xs text-wood-muted">
                       Loading interactive 3D engineering rig...
                     </div>
                   }
@@ -345,7 +345,7 @@ export function ProjectCaseStudyPage() {
           {/* 12-Section Quick Jump Bar */}
           <nav
             aria-label="Case study sections"
-            className="flex flex-wrap gap-x-4 gap-y-2 border-t border-slate-200 dark:border-slate-800/80 pt-5 font-mono text-xs"
+            className="flex flex-wrap gap-x-4 gap-y-2 border-t border-wood-subtle dark:border-slate-800/80 pt-5 font-mono text-xs"
           >
             {CASE_STUDY_ANCHORS.map((anchor) => {
               const active = activeAnchor === anchor.id;
@@ -358,7 +358,7 @@ export function ProjectCaseStudyPage() {
                   className={`whitespace-nowrap transition-colors ${
                     active
                       ? 'font-semibold text-cyan-700 dark:text-cyan-300 underline decoration-cyan-600/50 dark:decoration-cyan-400/50 underline-offset-4'
-                      : 'text-slate-600 dark:text-slate-400 hover:text-cyan-700 dark:hover:text-cyan-300'
+                      : 'text-wood-muted dark:text-slate-400 hover:text-cyan-700 dark:hover:text-cyan-300'
                   }`}
                 >
                   {anchor.label}
@@ -370,7 +370,7 @@ export function ProjectCaseStudyPage() {
       </header>
 
       {/* Main 12-Section Case Study Dossier */}
-      <div className={`${DESIGN_TOKENS.spacing.container} divide-y divide-slate-200 dark:divide-slate-800/80`}>
+      <div className={`${DESIGN_TOKENS.spacing.container} divide-y divide-wood-subtle dark:divide-slate-800/80`}>
         {/* 01. Overview */}
         <section id="cs-overview" className="scroll-mt-24 py-12 sm:py-16 space-y-6">
           <div className="space-y-2 max-w-3xl">
@@ -392,17 +392,17 @@ export function ProjectCaseStudyPage() {
                   <p className="font-mono text-[11px] text-cyan-700 dark:text-cyan-400">
                     Role &amp; Verifiable Contributions
                   </p>
-                  <p className="text-xs leading-relaxed text-slate-700 dark:text-slate-300">
+                  <p className="text-xs leading-relaxed text-wood-walnut dark:text-slate-300">
                     {project.roleAndContribution}
                   </p>
                 </SurfaceCard>
               )}
               {project.scopeDistinctionNote && (
                 <SurfaceCard className="p-5 space-y-1.5">
-                  <p className="font-mono text-[11px] text-slate-600 dark:text-slate-400">
+                  <p className="font-mono text-[11px] text-wood-muted dark:text-slate-400">
                     Static Demo vs. Optional Backend Scope
                   </p>
-                  <p className="text-xs leading-relaxed text-slate-700 dark:text-slate-300">
+                  <p className="text-xs leading-relaxed text-wood-walnut dark:text-slate-300">
                     {project.scopeDistinctionNote}
                   </p>
                 </SurfaceCard>
@@ -416,10 +416,10 @@ export function ProjectCaseStudyPage() {
                 <p className="font-mono text-[11px] text-emerald-700 dark:text-emerald-300">
                   ● Implemented Capabilities
                 </p>
-                <p className="font-mono text-2xl font-bold text-slate-950 dark:text-slate-50 tabular-nums">
+                <p className="font-mono text-2xl font-bold text-wood-ink dark:text-slate-50 tabular-nums">
                   {maturitySummary.implemented}
                 </p>
-                <p className="text-xs text-slate-600 dark:text-slate-400">
+                <p className="text-xs text-wood-muted dark:text-slate-400">
                   Built features verified inside current scope
                 </p>
               </SurfaceCard>
@@ -428,22 +428,22 @@ export function ProjectCaseStudyPage() {
                 <p className="font-mono text-[11px] text-cyan-700 dark:text-cyan-300">
                   ◐ Experimental / Proposed
                 </p>
-                <p className="font-mono text-2xl font-bold text-slate-950 dark:text-slate-50 tabular-nums">
+                <p className="font-mono text-2xl font-bold text-wood-ink dark:text-slate-50 tabular-nums">
                   {maturitySummary.experimentalOrProposed}
                 </p>
-                <p className="text-xs text-slate-600 dark:text-slate-400">
+                <p className="text-xs text-wood-muted dark:text-slate-400">
                   Active research tracks or queued experiments
                 </p>
               </SurfaceCard>
 
               <SurfaceCard className="p-5 space-y-1">
-                <p className="font-mono text-[11px] text-slate-600 dark:text-slate-400">
+                <p className="font-mono text-[11px] text-wood-muted dark:text-slate-400">
                   ○ Planned / Awaiting Source
                 </p>
-                <p className="font-mono text-2xl font-bold text-slate-950 dark:text-slate-50 tabular-nums">
+                <p className="font-mono text-2xl font-bold text-wood-ink dark:text-slate-50 tabular-nums">
                   {maturitySummary.plannedOrPending}
                 </p>
-                <p className="text-xs text-slate-600 dark:text-slate-400">
+                <p className="text-xs text-wood-muted dark:text-slate-400">
                   Roadmap items or unpopulated source records
                 </p>
               </SurfaceCard>
@@ -466,7 +466,7 @@ export function ProjectCaseStudyPage() {
               </p>
             </div>
 
-            <div className="space-y-3 border-t border-slate-200 dark:border-slate-800/80 pt-6 lg:border-t-0 lg:border-l lg:pt-0 lg:pl-8">
+            <div className="space-y-3 border-t border-wood-subtle dark:border-slate-800/80 pt-6 lg:border-t-0 lg:border-l lg:pt-0 lg:pl-8">
               <p className="font-mono text-xs text-cyan-700 dark:text-cyan-400">
                 03 · Motivation
               </p>
@@ -478,7 +478,7 @@ export function ProjectCaseStudyPage() {
               </p>
             </div>
 
-            <div className="space-y-3 border-t border-slate-200 dark:border-slate-800/80 pt-6 lg:border-t-0 lg:border-l lg:pt-0 lg:pl-8">
+            <div className="space-y-3 border-t border-wood-subtle dark:border-slate-800/80 pt-6 lg:border-t-0 lg:border-l lg:pt-0 lg:pl-8">
               <p className="font-mono text-xs text-cyan-700 dark:text-cyan-400">
                 04 · Proposed Solution
               </p>
@@ -532,7 +532,7 @@ export function ProjectCaseStudyPage() {
             }`}
           >
             <SurfaceCard variant="accent" className="p-6 space-y-4">
-              <div className="flex items-center gap-2 border-b border-slate-200 dark:border-slate-800/80 pb-3">
+              <div className="flex items-center gap-2 border-b border-wood-subtle dark:border-slate-800/80 pb-3">
                 <CheckCircle2
                   className="h-4 w-4 text-emerald-700 dark:text-emerald-300"
                   aria-hidden="true"
@@ -541,7 +541,7 @@ export function ProjectCaseStudyPage() {
                   {caseStudy.implementedHeading}
                 </h3>
               </div>
-              <ul className="space-y-2.5 text-sm leading-relaxed text-slate-700 dark:text-slate-300">
+              <ul className="space-y-2.5 text-sm leading-relaxed text-wood-walnut dark:text-slate-300">
                 {caseStudy.implementedItems.map((item) => (
                   <li key={item}>• {item}</li>
                 ))}
@@ -550,7 +550,7 @@ export function ProjectCaseStudyPage() {
 
             {caseStudy.secondaryItems && (
               <SurfaceCard className="p-6 space-y-4">
-                <div className="flex items-center gap-2 border-b border-slate-200 dark:border-slate-800/80 pb-3">
+                <div className="flex items-center gap-2 border-b border-wood-subtle dark:border-slate-800/80 pb-3">
                   {caseStudy.secondaryKind === 'proposed' ? (
                     <FlaskConical
                       className="h-4 w-4 text-cyan-700 dark:text-cyan-400"
@@ -558,7 +558,7 @@ export function ProjectCaseStudyPage() {
                     />
                   ) : (
                     <Clock
-                      className="h-4 w-4 text-slate-600 dark:text-slate-400"
+                      className="h-4 w-4 text-wood-muted dark:text-slate-400"
                       aria-hidden="true"
                     />
                   )}
@@ -566,7 +566,7 @@ export function ProjectCaseStudyPage() {
                     {caseStudy.secondaryHeading}
                   </h3>
                 </div>
-                <ul className="space-y-2.5 text-sm leading-relaxed text-slate-700 dark:text-slate-300">
+                <ul className="space-y-2.5 text-sm leading-relaxed text-wood-walnut dark:text-slate-300">
                   {caseStudy.secondaryItems.map((item) => (
                     <li key={item}>• {item}</li>
                   ))}
@@ -578,15 +578,15 @@ export function ProjectCaseStudyPage() {
           {/* Interactive Module Breakdown */}
           {project.modules.length > 0 && activeModule && (
             <SurfaceCard className="p-6 space-y-5">
-              <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200 dark:border-slate-800/80 pb-3">
-                <div className="flex items-center gap-2 text-xs font-semibold text-slate-800 dark:text-slate-200">
+              <div className="flex flex-wrap items-center justify-between gap-2 border-b border-wood-subtle dark:border-slate-800/80 pb-3">
+                <div className="flex items-center gap-2 text-xs font-semibold text-wood-ink dark:text-slate-200">
                   <Layers
                     className="h-4 w-4 text-cyan-700 dark:text-cyan-400"
                     aria-hidden="true"
                   />
                   <span>Implemented Module Specification ({project.modules.length})</span>
                 </div>
-                <span className="font-mono text-[11px] text-slate-600 dark:text-slate-400">
+                <span className="font-mono text-[11px] text-wood-muted dark:text-slate-400">
                   Interactive Subsystem Explorer
                 </span>
               </div>
@@ -631,7 +631,7 @@ export function ProjectCaseStudyPage() {
                       className={`min-h-[38px] rounded-[10px] border px-3 py-2 text-xs font-medium transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600 dark:focus-visible:ring-cyan-400 whitespace-nowrap shrink-0 cursor-pointer ${
                         active
                           ? 'border-blue-600 bg-blue-50 text-blue-700 dark:border-blue-500/80 dark:bg-blue-600/20 dark:text-cyan-200'
-                          : 'border-slate-200 bg-slate-100 text-slate-600 hover:border-slate-300 hover:text-slate-900 dark:border-slate-800 dark:bg-[#060b16] dark:text-slate-400 dark:hover:border-slate-700 dark:hover:text-slate-200'
+                          : 'border-wood-subtle bg-wood-inset text-wood-muted hover:border-wood-default hover:text-wood-ink dark:border-slate-800 dark:bg-[#060b16] dark:text-slate-400 dark:hover:border-slate-700 dark:hover:text-slate-200'
                       }`}
                     >
                       {mod.name}
@@ -644,7 +644,7 @@ export function ProjectCaseStudyPage() {
                 id="cs-module-panel"
                 role="tabpanel"
                 aria-labelledby={`cs-tab-${activeModule.id}`}
-                className="grid gap-4 border-t border-slate-200 dark:border-slate-800/80 pt-4 sm:grid-cols-2"
+                className="grid gap-4 border-t border-wood-subtle dark:border-slate-800/80 pt-4 sm:grid-cols-2"
               >
                 <div className="space-y-1.5">
                   <h4 className={DESIGN_TOKENS.typography.cardTitle}>
@@ -654,12 +654,12 @@ export function ProjectCaseStudyPage() {
                     {activeModule.description}
                   </p>
                 </div>
-                <div className="space-y-2 text-xs text-slate-700 dark:text-slate-300">
-                  <p className="font-mono text-[11px] text-slate-500">
+                <div className="space-y-2 text-xs text-wood-walnut dark:text-slate-300">
+                  <p className="font-mono text-[11px] text-wood-muted">
                     Methods &amp; Domain Context
                   </p>
                   <p>{activeModule.methods.join(' · ')}</p>
-                  <p className="text-slate-600 dark:text-slate-400">
+                  <p className="text-wood-muted dark:text-slate-400">
                     {activeModule.domainContext}
                   </p>
                 </div>
@@ -669,16 +669,16 @@ export function ProjectCaseStudyPage() {
 
           {/* Grouped Technology Stack */}
           <div className="space-y-4 pt-2">
-            <p className="font-mono text-xs text-slate-600 dark:text-slate-400">
+            <p className="font-mono text-xs text-wood-muted dark:text-slate-400">
               Technology Stack Breakdown
             </p>
             <div className="grid gap-4 md:grid-cols-3">
               {caseStudy.technologyStackGroups.map((group) => (
                 <SurfaceCard key={group.group} className="p-5 space-y-2.5">
-                  <h3 className="font-mono text-xs font-semibold text-slate-800 dark:text-slate-200">
+                  <h3 className="font-mono text-xs font-semibold text-wood-ink dark:text-slate-200">
                     {group.group}
                   </h3>
-                  <ul className="space-y-1.5 text-xs text-slate-700 dark:text-slate-300">
+                  <ul className="space-y-1.5 text-xs text-wood-walnut dark:text-slate-300">
                     {group.items.map((item) => (
                       <li key={item}>• {item}</li>
                     ))}
@@ -720,56 +720,56 @@ export function ProjectCaseStudyPage() {
                     type="button"
                     aria-pressed={featureFilter === item.id}
                     onClick={() => setFeatureFilter(item.id)}
-                    className={`min-h-[34px] rounded-[8px] border px-3 py-1 font-mono text-[11px] transition-colors whitespace-nowrap shrink-0 cursor-pointer ${
-                      featureFilter === item.id
-                        ? 'border-blue-600/80 dark:border-cyan-400/70 bg-blue-50 dark:bg-blue-600/20 text-blue-900 dark:text-cyan-200'
-                        : 'border-slate-200 dark:border-slate-800 bg-white dark:bg-[#0b1222] text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'
-                    }`}
-                  >
-                    {item.label}
-                  </button>
-                ))}
-              </div>
-            )}
-          </div>
+                      className={`min-h-[34px] rounded-[8px] border px-3 py-1 font-mono text-[11px] transition-colors whitespace-nowrap shrink-0 cursor-pointer ${
+                        featureFilter === item.id
+                          ? 'border-blue-600/80 dark:border-cyan-400/70 bg-blue-50 dark:bg-blue-600/20 text-blue-900 dark:text-cyan-200'
+                          : 'border-wood-subtle dark:border-slate-800 bg-wood-surface dark:bg-[#0b1222] text-wood-muted dark:text-slate-400 hover:text-wood-ink dark:hover:text-slate-200'
+                      }`}
+                    >
+                      {item.label}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
 
-          <div className="grid gap-4 md:grid-cols-2">
-            {filteredFeatures.length === 0 ? (
-              <SurfaceCard className="p-6 md:col-span-2 text-center space-y-2">
-                <p className={DESIGN_TOKENS.typography.bodyMuted}>
-                  No core features recorded under this maturity filter for {project.title}.
-                </p>
-                <button
-                  type="button"
-                  onClick={() => setFeatureFilter('all')}
-                  className="font-mono text-xs text-blue-700 dark:text-cyan-300 underline cursor-pointer"
-                >
-                  Show All Features
-                </button>
-              </SurfaceCard>
-            ) : (
-              filteredFeatures.map((feature) => {
-                const stateMeta = formatMaturityLabel(feature.maturity);
-                return (
-                  <SurfaceCard key={feature.id} className="p-5 space-y-2.5">
-                    <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200 dark:border-slate-800/80 pb-2.5">
-                      <h3 className={DESIGN_TOKENS.typography.cardTitle}>
-                        {feature.name}
-                      </h3>
-                      <span className={`font-mono text-[11px] font-medium ${stateMeta.className}`}>
-                        {stateMeta.glyph} {feature.maturity}
-                      </span>
-                    </div>
-                    <p className={DESIGN_TOKENS.typography.body}>
-                      {feature.description}
-                    </p>
-                    <p className="font-mono text-[11px] text-slate-500">
-                      Basis: {feature.technicalBasis}
-                    </p>
-                  </SurfaceCard>
-                );
-              })
-            )}
+            <div className="grid gap-4 md:grid-cols-2">
+              {filteredFeatures.length === 0 ? (
+                <SurfaceCard className="p-6 md:col-span-2 text-center space-y-2">
+                  <p className={DESIGN_TOKENS.typography.bodyMuted}>
+                    No core features recorded under this maturity filter for {project.title}.
+                  </p>
+                  <button
+                    type="button"
+                    onClick={() => setFeatureFilter('all')}
+                    className="font-mono text-xs text-blue-700 dark:text-cyan-300 underline cursor-pointer"
+                  >
+                    Show All Features
+                  </button>
+                </SurfaceCard>
+              ) : (
+                filteredFeatures.map((feature) => {
+                  const stateMeta = formatMaturityLabel(feature.maturity);
+                  return (
+                    <SurfaceCard key={feature.id} className="p-5 space-y-2.5">
+                      <div className="flex flex-wrap items-center justify-between gap-2 border-b border-wood-subtle dark:border-slate-800/80 pb-2.5">
+                        <h3 className={DESIGN_TOKENS.typography.cardTitle}>
+                          {feature.name}
+                        </h3>
+                        <span className={`font-mono text-[11px] font-medium ${stateMeta.className}`}>
+                          {stateMeta.glyph} {feature.maturity}
+                        </span>
+                      </div>
+                      <p className={DESIGN_TOKENS.typography.body}>
+                        {feature.description}
+                      </p>
+                      <p className="font-mono text-[11px] text-wood-muted">
+                        Basis: {feature.technicalBasis}
+                      </p>
+                    </SurfaceCard>
+                  );
+                })
+              )}
           </div>
         </section>
 
@@ -812,20 +812,20 @@ export function ProjectCaseStudyPage() {
                   Decision {String(idx + 1).padStart(2, '0')}
                 </p>
                 <div className="space-y-1">
-                  <p className="font-mono text-[10.5px] text-slate-500">Challenge</p>
-                  <p className="text-xs font-medium text-slate-900 dark:text-slate-100 leading-relaxed">
+                  <p className="font-mono text-[10.5px] text-wood-muted">Challenge</p>
+                  <p className="text-xs font-medium text-wood-ink dark:text-slate-100 leading-relaxed">
                     {entry.challenge}
                   </p>
                 </div>
-                <div className="space-y-1 border-t border-slate-200 dark:border-slate-800/80 pt-2.5">
-                  <p className="font-mono text-[10.5px] text-slate-500">Decision &amp; Rationale</p>
-                  <p className="text-xs text-slate-700 dark:text-slate-300 leading-relaxed">
+                <div className="space-y-1 border-t border-wood-subtle dark:border-slate-800/80 pt-2.5">
+                  <p className="font-mono text-[10.5px] text-wood-muted">Decision &amp; Rationale</p>
+                  <p className="text-xs text-wood-walnut dark:text-slate-300 leading-relaxed">
                     {entry.decision} {entry.rationale}
                   </p>
                 </div>
-                <div className="space-y-1 border-t border-slate-200 dark:border-slate-800/80 pt-2.5">
-                  <p className="font-mono text-[10.5px] text-slate-500">Known Trade-Off</p>
-                  <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                <div className="space-y-1 border-t border-wood-subtle dark:border-slate-800/80 pt-2.5">
+                  <p className="font-mono text-[10.5px] text-wood-muted">Known Trade-Off</p>
+                  <p className="text-xs text-wood-muted dark:text-slate-400 leading-relaxed">
                     {entry.tradeoff}
                   </p>
                 </div>
@@ -869,7 +869,7 @@ export function ProjectCaseStudyPage() {
               <h3 className={DESIGN_TOKENS.typography.cardTitleLg}>
                 Technical &amp; Empirical Constraints
               </h3>
-              <ul className="space-y-2.5 text-sm leading-relaxed text-slate-700 dark:text-slate-300">
+              <ul className="space-y-2.5 text-sm leading-relaxed text-wood-walnut dark:text-slate-300">
                 {caseStudy.currentLimitations.map((item) => (
                   <li key={item}>• {item}</li>
                 ))}
@@ -880,7 +880,7 @@ export function ProjectCaseStudyPage() {
               <h3 className={DESIGN_TOKENS.typography.cardTitleLg}>
                 Present Milestone State
               </h3>
-              <ul className="space-y-2.5 text-sm leading-relaxed text-slate-700 dark:text-slate-300">
+              <ul className="space-y-2.5 text-sm leading-relaxed text-wood-walnut dark:text-slate-300">
                 {caseStudy.currentProgress.map((item) => (
                   <li key={item}>• {item}</li>
                 ))}
@@ -905,7 +905,7 @@ export function ProjectCaseStudyPage() {
               <h3 className={DESIGN_TOKENS.typography.cardTitleLg}>
                 Planned Engineering &amp; Research Roadmap
               </h3>
-              <ul className="space-y-2.5 text-sm leading-relaxed text-slate-700 dark:text-slate-300">
+              <ul className="space-y-2.5 text-sm leading-relaxed text-wood-walnut dark:text-slate-300">
                 {caseStudy.futureDevelopment.map((item) => (
                   <li key={item}>• {item}</li>
                 ))}
@@ -923,7 +923,7 @@ export function ProjectCaseStudyPage() {
           {/* Previous / Next Case Study Navigation */}
           <nav
             aria-label="Navigate between project case studies"
-            className="flex flex-wrap items-center justify-between gap-4 border-t border-slate-200 dark:border-slate-800/80 pt-8"
+            className="flex flex-wrap items-center justify-between gap-4 border-t border-wood-subtle dark:border-slate-800/80 pt-8"
           >
             {previous ? (
               <LinkButton

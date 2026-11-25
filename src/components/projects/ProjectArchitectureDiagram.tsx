@@ -28,7 +28,7 @@ function getStateDisplay(state: ProjectArchitectureLayer['state']) {
     default:
       return {
         glyph: '◌',
-        textClass: 'text-slate-600 dark:text-slate-400',
+        textClass: 'text-wood-muted dark:text-slate-400',
       };
   }
 }
@@ -126,15 +126,15 @@ export function ProjectArchitectureDiagram({
         id={`${diagramUid}-panel`}
         role="tabpanel"
         aria-labelledby={`${diagramUid}-tab-${activeLayer.id}`}
-        className="rounded-[10px] border border-slate-200 dark:border-slate-800/80 bg-slate-50/90 dark:bg-[#050914] p-4 space-y-3"
+        className="rounded-[10px] border border-wood-subtle dark:border-slate-800/80 bg-wood-inset/80 dark:bg-[#050914] p-4 space-y-3"
       >
-        <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200 dark:border-slate-800/80 pb-2.5">
+        <div className="flex flex-wrap items-center justify-between gap-2 border-b border-wood-subtle dark:border-slate-800/80 pb-2.5">
           <div className="flex flex-wrap items-center gap-2 font-mono text-xs">
             <span className="font-semibold text-cyan-700 dark:text-cyan-400">
               {activeLayer.stage}
             </span>
-            <span aria-hidden="true" className="text-slate-400">·</span>
-            <span className="font-sans font-semibold text-slate-900 dark:text-slate-100">
+            <span aria-hidden="true" className="text-wood-muted">·</span>
+            <span className="font-sans font-semibold text-wood-ink dark:text-slate-100">
               {activeLayer.title}
             </span>
           </div>
@@ -143,38 +143,38 @@ export function ProjectArchitectureDiagram({
           </span>
         </div>
 
-        <p className="text-xs leading-relaxed text-slate-700 dark:text-slate-300">
+        <p className="text-xs leading-relaxed text-wood-walnut dark:text-slate-300">
           {activeLayer.detail}
         </p>
 
         <div className="grid gap-3 pt-1 sm:grid-cols-3 text-xs">
           {activeLayer.inputs && (
             <div>
-              <p className="font-mono text-[10.5px] text-slate-500 mb-0.5">Inputs</p>
-              <p className="text-slate-700 dark:text-slate-300 leading-relaxed">
+              <p className="font-mono text-[10.5px] text-wood-muted mb-0.5">Inputs</p>
+              <p className="text-wood-walnut dark:text-slate-300 leading-relaxed">
                 {activeLayer.inputs}
               </p>
             </div>
           )}
           {activeLayer.outputs && (
             <div>
-              <p className="font-mono text-[10.5px] text-slate-500 mb-0.5">Outputs</p>
-              <p className="text-slate-700 dark:text-slate-300 leading-relaxed">
+              <p className="font-mono text-[10.5px] text-wood-muted mb-0.5">Outputs</p>
+              <p className="text-wood-walnut dark:text-slate-300 leading-relaxed">
                 {activeLayer.outputs}
               </p>
             </div>
           )}
           <div>
-            <p className="font-mono text-[10.5px] text-slate-500 mb-0.5">
+            <p className="font-mono text-[10.5px] text-wood-muted mb-0.5">
               Technologies &amp; Verification
             </p>
             {activeLayer.technologies && (
-              <p className="font-mono text-[11px] text-slate-800 dark:text-slate-200">
+              <p className="font-mono text-[11px] text-wood-ink dark:text-slate-200">
                 {activeLayer.technologies.join(' · ')}
               </p>
             )}
             {activeLayer.verificationNote && (
-              <p className="mt-1 text-[11px] text-slate-600 dark:text-slate-400">
+              <p className="mt-1 text-[11px] text-wood-muted dark:text-slate-400">
                 {activeLayer.verificationNote}
               </p>
             )}
@@ -190,9 +190,9 @@ export function ProjectArchitectureDiagram({
     const isUiActive = activeLayer?.id === 'fm-ui';
 
     return (
-      <figure className="space-y-4 rounded-[14px] border border-slate-200 dark:border-slate-800/80 bg-white dark:bg-[#060b16] p-4 sm:p-6">
-        <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200 dark:border-slate-800/80 pb-3">
-          <figcaption className="font-mono text-xs font-medium text-slate-800 dark:text-slate-200">
+      <figure className="space-y-4 rounded-[14px] border border-wood-subtle dark:border-slate-800/80 bg-wood-surface dark:bg-[#060b16] p-4 sm:p-6">
+        <div className="flex flex-wrap items-center justify-between gap-2 border-b border-wood-subtle dark:border-slate-800/80 pb-3">
+          <figcaption className="font-mono text-xs font-medium text-wood-ink dark:text-slate-200">
             FactoryMind · Pure TypeScript Engine &amp; React 19 Workbench Topology
           </figcaption>
           <span className="font-mono text-[11px] text-emerald-700 dark:text-emerald-300">
@@ -223,7 +223,7 @@ export function ProjectArchitectureDiagram({
                   className={`min-h-[32px] rounded-[8px] border px-2.5 py-1 font-mono text-[11px] transition-colors whitespace-nowrap shrink-0 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600 dark:focus-visible:ring-cyan-400 ${
                     selected
                       ? 'border-blue-600/80 dark:border-cyan-400/70 bg-blue-50 dark:bg-blue-600/20 text-blue-900 dark:text-cyan-200'
-                      : 'border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-[#0b1222] text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'
+                      : 'border-wood-subtle dark:border-slate-800 bg-wood-inset dark:bg-[#0b1222] text-wood-muted dark:text-slate-400 hover:text-wood-ink dark:hover:text-slate-200'
                   }`}
                 >
                   {layer.stage} · {layer.title.split(',')[0]?.split(' ')[0]}
@@ -407,8 +407,8 @@ export function ProjectArchitectureDiagram({
         </svg>
 
         {activeEngine && (
-          <p className="font-mono text-[11px] text-slate-600 dark:text-slate-400">
-            Selected Engine Focus: <span className="text-slate-900 dark:text-slate-100 font-semibold">{activeEngine.title}</span> — {activeEngine.detail}
+          <p className="font-mono text-[11px] text-wood-muted dark:text-slate-400">
+            Selected Engine Focus: <span className="text-wood-ink dark:text-slate-100 font-semibold">{activeEngine.title}</span> — {activeEngine.detail}
           </p>
         )}
 
@@ -421,14 +421,14 @@ export function ProjectArchitectureDiagram({
     const isSel = (id: string) => activeLayer?.id === id;
 
     return (
-      <figure className="space-y-4 rounded-[14px] border border-slate-200 dark:border-slate-800/80 bg-white dark:bg-[#060b16] p-4 sm:p-6">
-        <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200 dark:border-slate-800/80 pb-3">
-          <figcaption className="font-mono text-xs font-medium text-slate-800 dark:text-slate-200">
+      <figure className="space-y-4 rounded-[14px] border border-wood-subtle dark:border-slate-800/80 bg-wood-surface dark:bg-[#060b16] p-4 sm:p-6">
+        <div className="flex flex-wrap items-center justify-between gap-2 border-b border-wood-subtle dark:border-slate-800/80 pb-3">
+          <figcaption className="font-mono text-xs font-medium text-wood-ink dark:text-slate-200">
             ForgeMind AI · Implemented Baselines vs. Experimental &amp; Proposed Tracks
           </figcaption>
           <div className="flex flex-wrap items-center gap-4 font-mono text-[11px]">
             <span className="text-cyan-700 dark:text-cyan-300">Solid = Implemented</span>
-            <span className="text-slate-600 dark:text-slate-400">Dashed = Experimental / Proposed</span>
+            <span className="text-wood-muted dark:text-slate-400">Dashed = Experimental / Proposed</span>
           </div>
         </div>
 
@@ -454,7 +454,7 @@ export function ProjectArchitectureDiagram({
                   className={`min-h-[32px] rounded-[8px] border px-2.5 py-1 font-mono text-[11px] transition-colors whitespace-nowrap shrink-0 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600 dark:focus-visible:ring-cyan-400 ${
                     selected
                       ? 'border-blue-600/80 dark:border-cyan-400/70 bg-blue-50 dark:bg-blue-600/20 text-blue-900 dark:text-cyan-200'
-                      : 'border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-[#0b1222] text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'
+                      : 'border-wood-subtle dark:border-slate-800 bg-wood-inset dark:bg-[#0b1222] text-wood-muted dark:text-slate-400 hover:text-wood-ink dark:hover:text-slate-200'
                   }`}
                 >
                   {layer.stage} · {layer.state}
@@ -660,14 +660,14 @@ export function ProjectArchitectureDiagram({
   const isTikaSel = (id: string) => activeLayer?.id === id;
 
   return (
-    <figure className="space-y-4 rounded-[14px] border border-slate-200 dark:border-slate-800/80 bg-white dark:bg-[#060b16] p-4 sm:p-6">
-      <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200 dark:border-slate-800/80 pb-3">
-        <figcaption className="font-mono text-xs font-medium text-slate-800 dark:text-slate-200">
+    <figure className="space-y-4 rounded-[14px] border border-wood-subtle dark:border-slate-800/80 bg-wood-surface dark:bg-[#060b16] p-4 sm:p-6">
+      <div className="flex flex-wrap items-center justify-between gap-2 border-b border-wood-subtle dark:border-slate-800/80 pb-3">
+        <figcaption className="font-mono text-xs font-medium text-wood-ink dark:text-slate-200">
           TikaTrack · Offline-First Bilingual Clinical PWA &amp; Optional Cloud Architecture
         </figcaption>
         <div className="flex flex-wrap items-center gap-4 font-mono text-[11px]">
           <span className="text-emerald-700 dark:text-emerald-300">● Offline Static PWA</span>
-          <span className="text-slate-600 dark:text-slate-400">Dashed = Optional Cloud / Gemini Server</span>
+          <span className="text-wood-muted dark:text-slate-400">Dashed = Optional Cloud / Gemini Server</span>
         </div>
       </div>
 
@@ -693,7 +693,7 @@ export function ProjectArchitectureDiagram({
                 className={`min-h-[32px] rounded-[8px] border px-2.5 py-1 font-mono text-[11px] transition-colors whitespace-nowrap shrink-0 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600 dark:focus-visible:ring-cyan-400 ${
                   selected
                     ? 'border-teal-700/80 dark:border-emerald-400/70 bg-emerald-50 dark:bg-emerald-500/15 text-teal-900 dark:text-emerald-200'
-                    : 'border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-[#0b1222] text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'
+                    : 'border-wood-subtle dark:border-slate-800 bg-wood-inset dark:bg-[#0b1222] text-wood-muted dark:text-slate-400 hover:text-wood-ink dark:hover:text-slate-200'
                 }`}
               >
                 {layer.stage} · {layer.state}

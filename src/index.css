@@ -12,28 +12,40 @@
   --color-charcoal: #101a30;
   --color-electric: #3b82f6;
   --color-cyan-accent: #22d3ee;
+
+  --color-wood-canvas: #e8dac4;
+  --color-wood-alt: #dfceb4;
+  --color-wood-surface: #f4ebe0;
+  --color-wood-hover: #eee2d1;
+  --color-wood-inset: #dac7aa;
+  --color-wood-input: #f8f1e7;
+  --color-wood-subtle: #cbb89d;
+  --color-wood-default: #b8a080;
+  --color-wood-ink: #1c140d;
+  --color-wood-walnut: #35281c;
+  --color-wood-muted: #574330;
 }
 
 :root {
-  /* Light Editorial Engineering Paper Palette */
-  --ds-bg-canvas: #f8fafc;
-  --ds-bg-canvas-alt: #f1f5f9;
-  --ds-surface-1: #ffffff;
-  --ds-surface-2: #f8fafc;
-  --ds-surface-inset: #f1f5f9;
-  --ds-surface-overlay: #ffffff;
+  /* Light Warm Wooden-Industrial Drafting Studio Palette */
+  --ds-bg-canvas: #e8dac4;
+  --ds-bg-canvas-alt: #dfceb4;
+  --ds-surface-1: #f4ebe0;
+  --ds-surface-2: #eee2d1;
+  --ds-surface-inset: #dac7aa;
+  --ds-surface-overlay: #f4ebe0;
 
   /* Borders */
-  --ds-border-subtle: rgba(15, 23, 42, 0.1);
-  --ds-border-default: rgba(15, 23, 42, 0.16);
+  --ds-border-subtle: rgba(74, 52, 33, 0.2);
+  --ds-border-default: rgba(74, 52, 33, 0.3);
   --ds-border-accent: rgba(37, 99, 235, 0.45);
-  --ds-border-cyan: rgba(14, 116, 144, 0.36);
+  --ds-border-cyan: rgba(14, 116, 144, 0.42);
 
   /* Text */
-  --ds-text-primary: #0f172a;
-  --ds-text-secondary: #334155;
-  --ds-text-muted: #475569;
-  --ds-text-dim: #64748b;
+  --ds-text-primary: #1c140d;
+  --ds-text-secondary: #35281c;
+  --ds-text-muted: #574330;
+  --ds-text-dim: #6d5742;
 
   /* Brand Accents */
   --ds-accent-blue: #2563eb;
@@ -41,13 +53,16 @@
   --ds-accent-cyan: #0e7490;
 
   /* SVG Schematic Tokens (Light) */
-  --ds-svg-canvas: #f8fafc;
-  --ds-svg-node: #ffffff;
-  --ds-svg-node-alt: #eef2ff;
-  --ds-svg-text: #0f172a;
-  --ds-svg-subtext: #475569;
-  --ds-svg-accent: #0284c7;
-  --ds-svg-border-muted: #cbd5e1;
+  --ds-svg-canvas: #e8dac4;
+  --ds-svg-node: #f4ebe0;
+  --ds-svg-node-alt: #e9dccb;
+  --ds-svg-text: #1c140d;
+  --ds-svg-subtext: #574330;
+  --ds-svg-accent: #0369a1;
+  --ds-svg-border-muted: #b8a080;
+
+  /* Seamless IPE Machinery Drafting Pattern (Light Wooden Studio) */
+  --ds-ipe-machine-bg: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='560' height='560' viewBox='0 0 560 560'><g fill='none' stroke-linecap='round' stroke-linejoin='round'><g stroke='rgba(74,50,24,0.125)' stroke-width='1.2'><rect x='46' y='28' width='64' height='28' rx='3'/><path d='M54 56 L58 84 L98 84 L102 56 M66 84 L70 112 L86 112 L90 84 M73 112 L73 148 L83 148 L83 112 M73 122 L83 129 M73 134 L83 141'/><path d='M32 174 L124 174 L124 192 L32 192 Z M46 174 L46 152 L110 152 L110 174'/><circle cx='392' cy='102' r='44' stroke-dasharray='7 6'/><circle cx='392' cy='102' r='31'/><circle cx='392' cy='102' r='12'/><path d='M392 48 V58 M392 146 V156 M338 102 H348 M436 102 H446 M354 64 L361 71 M423 133 L430 140 M430 64 L423 71 M361 133 L354 140 M369 53 L373 62 M411 142 L415 151 M415 53 L411 62 M373 142 L369 151'/><circle cx='468' cy='154' r='26' stroke-dasharray='6 5'/><circle cx='468' cy='154' r='17'/><circle cx='468' cy='154' r='7'/><path d='M468 122 V130 M468 178 V186 M436 154 H444 M492 154 H500 M446 132 L452 138 M484 170 L490 176 M490 132 L484 138 M452 170 L446 176'/><path d='M132 428 L224 428 L218 412 L138 412 Z M150 412 L150 394 L206 394 L206 412'/><circle cx='178' cy='378' r='16'/><circle cx='178' cy='378' r='6'/><path d='M165 368 L112 302 L134 290 L189 362'/><circle cx='120' cy='296' r='13'/><circle cx='120' cy='296' r='5'/><path d='M109 288 L46 312 L52 328 L116 306'/><circle cx='42' cy='320' r='8'/><path d='M34 316 H18 V309 M34 324 H18 V331'/><rect x='294' y='354' width='220' height='24' rx='12'/><circle cx='306' cy='366' r='6'/><circle cx='366' cy='366' r='4.5'/><circle cx='432' cy='366' r='4.5'/><circle cx='502' cy='366' r='6'/><rect x='324' y='330' width='34' height='24' rx='2'/><rect x='392' y='324' width='38' height='30' rx='2'/><path d='M382 354 V304 H440 V354'/><rect x='458' y='334' width='30' height='20' rx='2'/><circle cx='248' cy='230' r='26'/><circle cx='248' cy='230' r='19'/><circle cx='248' cy='230' r='10'/><circle cx='248' cy='209' r='3'/><circle cx='269' cy='230' r='3'/><circle cx='248' cy='251' r='3'/><circle cx='227' cy='230' r='3'/><path d='M48 486 H220 V498 H66 V526 L54 514 L48 486 Z M66 486 V470 L55 480 V486 M102 482 H134 V502 H102 V526 L112 514 V502'/><path d='M144 486 V492 M156 486 V491 M168 486 V493 M180 486 V491 M192 486 V492 M204 486 V491'/></g><g stroke='rgba(14,116,144,0.105)' stroke-width='0.95' stroke-dasharray='8 4 2 4'><line x1='78' y1='18' x2='78' y2='206'/><line x1='328' y1='102' x2='456' y2='102'/><line x1='392' y1='38' x2='392' y2='166'/><path d='M52 268 A 140 140 0 0 1 190 250'/><line x1='280' y1='366' x2='528' y2='366'/><path d='M266 508 H332 M272 503 L266 508 L272 513 M326 503 L332 508 L326 513'/></g></g></svg>");
 
   /* Radii */
   --ds-radius-sm: 6px;
@@ -56,9 +71,9 @@
   --ds-radius-xl: 18px;
 
   /* Shadows */
-  --ds-shadow-surface: 0 1px 3px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.04);
-  --ds-shadow-elevated: 0 12px 28px -10px rgba(15, 23, 42, 0.12), 0 0 0 1px rgba(37, 99, 235, 0.16);
-  --ds-shadow-modal: 0 24px 56px -16px rgba(15, 23, 42, 0.25), 0 0 0 1px rgba(15, 23, 42, 0.1);
+  --ds-shadow-surface: 0 1px 3px rgba(45, 28, 12, 0.08), 0 1px 2px rgba(45, 28, 12, 0.05);
+  --ds-shadow-elevated: 0 12px 28px -10px rgba(45, 28, 12, 0.16), 0 0 0 1px rgba(37, 99, 235, 0.18);
+  --ds-shadow-modal: 0 24px 56px -16px rgba(45, 28, 12, 0.28), 0 0 0 1px rgba(74, 52, 33, 0.14);
 
   /* Timing */
   --ds-ease: cubic-bezier(0.16, 1, 0.3, 1);
@@ -101,6 +116,9 @@
   --ds-svg-accent: #22d3ee;
   --ds-svg-border-muted: #334155;
 
+  /* Seamless IPE Machinery Drafting Pattern (Dark Precision Blueprint) */
+  --ds-ipe-machine-bg: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='560' height='560' viewBox='0 0 560 560'><g fill='none' stroke-linecap='round' stroke-linejoin='round'><g stroke='rgba(56,189,248,0.13)' stroke-width='1.2'><rect x='46' y='28' width='64' height='28' rx='3'/><path d='M54 56 L58 84 L98 84 L102 56 M66 84 L70 112 L86 112 L90 84 M73 112 L73 148 L83 148 L83 112 M73 122 L83 129 M73 134 L83 141'/><path d='M32 174 L124 174 L124 192 L32 192 Z M46 174 L46 152 L110 152 L110 174'/><circle cx='392' cy='102' r='44' stroke-dasharray='7 6'/><circle cx='392' cy='102' r='31'/><circle cx='392' cy='102' r='12'/><path d='M392 48 V58 M392 146 V156 M338 102 H348 M436 102 H446 M354 64 L361 71 M423 133 L430 140 M430 64 L423 71 M361 133 L354 140 M369 53 L373 62 M411 142 L415 151 M415 53 L411 62 M373 142 L369 151'/><circle cx='468' cy='154' r='26' stroke-dasharray='6 5'/><circle cx='468' cy='154' r='17'/><circle cx='468' cy='154' r='7'/><path d='M468 122 V130 M468 178 V186 M436 154 H444 M492 154 H500 M446 132 L452 138 M484 170 L490 176 M490 132 L484 138 M452 170 L446 176'/><path d='M132 428 L224 428 L218 412 L138 412 Z M150 412 L150 394 L206 394 L206 412'/><circle cx='178' cy='378' r='16'/><circle cx='178' cy='378' r='6'/><path d='M165 368 L112 302 L134 290 L189 362'/><circle cx='120' cy='296' r='13'/><circle cx='120' cy='296' r='5'/><path d='M109 288 L46 312 L52 328 L116 306'/><circle cx='42' cy='320' r='8'/><path d='M34 316 H18 V309 M34 324 H18 V331'/><rect x='294' y='354' width='220' height='24' rx='12'/><circle cx='306' cy='366' r='6'/><circle cx='366' cy='366' r='4.5'/><circle cx='432' cy='366' r='4.5'/><circle cx='502' cy='366' r='6'/><rect x='324' y='330' width='34' height='24' rx='2'/><rect x='392' y='324' width='38' height='30' rx='2'/><path d='M382 354 V304 H440 V354'/><rect x='458' y='334' width='30' height='20' rx='2'/><circle cx='248' cy='230' r='26'/><circle cx='248' cy='230' r='19'/><circle cx='248' cy='230' r='10'/><circle cx='248' cy='209' r='3'/><circle cx='269' cy='230' r='3'/><circle cx='248' cy='251' r='3'/><circle cx='227' cy='230' r='3'/><path d='M48 486 H220 V498 H66 V526 L54 514 L48 486 Z M66 486 V470 L55 480 V486 M102 482 H134 V502 H102 V526 L112 514 V502'/><path d='M144 486 V492 M156 486 V491 M168 486 V493 M180 486 V491 M192 486 V492 M204 486 V491'/></g><g stroke='rgba(59,130,246,0.14)' stroke-width='0.95' stroke-dasharray='8 4 2 4'><line x1='78' y1='18' x2='78' y2='206'/><line x1='328' y1='102' x2='456' y2='102'/><line x1='392' y1='38' x2='392' y2='166'/><path d='M52 268 A 140 140 0 0 1 190 250'/><line x1='280' y1='366' x2='528' y2='366'/><path d='M266 508 H332 M272 503 L266 508 L272 513 M326 503 L332 508 L326 513'/></g></g></svg>");
+
   /* Shadows */
   --ds-shadow-surface: 0 1px 2px rgba(2, 6, 23, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.03);
   --ds-shadow-elevated: 0 14px 36px -14px rgba(2, 6, 23, 0.72), 0 0 0 1px rgba(59, 130, 246, 0.12);
@@ -132,11 +150,27 @@
   }
 }
 
+html:not(.dark) body {
+  background-color: var(--ds-bg-canvas);
+  background-image:
+    repeating-linear-gradient(
+      92deg,
+      rgba(92, 60, 28, 0.022) 0px,
+      rgba(92, 60, 28, 0.022) 2px,
+      transparent 2px,
+      transparent 11px,
+      rgba(255, 246, 232, 0.03) 11px,
+      rgba(255, 246, 232, 0.03) 14px,
+      transparent 14px,
+      transparent 28px
+    );
+}
+
 /* Precision Architectural Grid */
 .bg-blueprint-grid {
   background-image:
-    linear-gradient(to right, rgba(37, 99, 235, 0.06) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(37, 99, 235, 0.06) 1px, transparent 1px);
+    linear-gradient(to right, rgba(92, 60, 28, 0.085) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(92, 60, 28, 0.085) 1px, transparent 1px);
   background-size: 48px 48px;
 }
 
@@ -146,11 +180,19 @@
     linear-gradient(to bottom, rgba(59, 130, 246, 0.05) 1px, transparent 1px);
 }
 
+/* Industrial & Production Engineering (IPE) CAD Machinery Wallpaper */
+.bg-ipe-machinery,
+#main-content > div > section:not(#hero-v2):not(#studio-canvas) {
+  background-image: var(--ds-ipe-machine-bg);
+  background-size: 560px 560px;
+  background-position: center top;
+}
+
 /* Restrained Ambient Lighting */
 .ambient-hero-light {
   background:
-    radial-gradient(65% 55% at 78% 12%, rgba(37, 99, 235, 0.07) 0%, rgba(37, 99, 235, 0) 70%),
-    radial-gradient(45% 40% at 18% 85%, rgba(14, 116, 144, 0.04) 0%, rgba(14, 116, 144, 0) 70%);
+    radial-gradient(65% 55% at 78% 12%, rgba(180, 108, 42, 0.12) 0%, rgba(180, 108, 42, 0) 70%),
+    radial-gradient(45% 40% at 18% 85%, rgba(37, 99, 235, 0.05) 0%, rgba(37, 99, 235, 0) 70%);
 }
 
 .dark .ambient-hero-light {
@@ -161,7 +203,7 @@
 
 .ambient-section-light {
   background:
-    radial-gradient(50% 45% at 50% 0%, rgba(37, 99, 235, 0.04) 0%, rgba(37, 99, 235, 0) 75%);
+    radial-gradient(50% 45% at 50% 0%, rgba(168, 102, 42, 0.09) 0%, rgba(168, 102, 42, 0) 75%);
 }
 
 .dark .ambient-section-light {
@@ -808,6 +850,7 @@
   section,
   article {
     background: #ffffff !important;
+    background-image: none !important;
     color: #0f172a !important;
     box-shadow: none !important;
   }

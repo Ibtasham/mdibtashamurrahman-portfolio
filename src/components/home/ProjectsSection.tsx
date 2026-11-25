@@ -20,7 +20,6 @@ import {
   type ProjectCategoryFilter,
 } from '../../utils/portfolioFilters';
 import { FeaturedProjectVisual } from '../projects/FeaturedProjectVisual';
-import { ProjectPreviewImage } from '../projects/ProjectPreviewImage';
 import { ExternalLinkButton, LinkButton } from '../ui/Button';
 import { EmptyState } from '../ui/EmptyState';
 import { ScrollRevealItem } from '../ui/ScrollRevealItem';
@@ -48,7 +47,7 @@ function getStageStatusMeta(stage: ProjectEntry['developmentStage']) {
     default:
       return {
         glyph: '◌',
-        className: 'text-slate-600 dark:text-slate-400',
+        className: 'text-wood-muted dark:text-slate-400',
       };
   }
 }
@@ -94,7 +93,7 @@ export function ProjectsSection({ expanded = false }: ProjectsSectionProps) {
   return (
     <section
       id="projects"
-      className={`border-b border-slate-200 dark:border-slate-800/80 bg-slate-50 dark:bg-[#050914] ${
+      className={`border-b border-wood-subtle dark:border-slate-800/80 bg-wood-canvas dark:bg-[#050914] ${
         expanded ? 'py-10 sm:py-14' : DESIGN_TOKENS.spacing.sectionY
       }`}
     >
@@ -111,7 +110,7 @@ export function ProjectsSection({ expanded = false }: ProjectsSectionProps) {
         )}
 
         {/* Category Filter Controls + Project Search */}
-        <div className="space-y-3 border-b border-slate-200 dark:border-slate-800/80 pb-5">
+        <div className="space-y-3 border-b border-wood-subtle dark:border-slate-800/80 pb-5">
           <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
             <div
               role="group"
@@ -129,7 +128,7 @@ export function ProjectsSection({ expanded = false }: ProjectsSectionProps) {
                     className={`min-h-[38px] rounded-[10px] border px-3.5 py-2 text-xs font-medium transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600 dark:focus-visible:ring-cyan-400 whitespace-nowrap shrink-0 cursor-pointer ${
                       active
                         ? 'border-blue-600/80 dark:border-blue-500/80 bg-blue-50 dark:bg-blue-600/20 text-blue-900 dark:text-cyan-200'
-                        : 'border-slate-200 dark:border-slate-800 bg-white dark:bg-[#0b1222] text-slate-600 dark:text-slate-400 hover:border-slate-300 dark:hover:border-slate-700 hover:text-slate-900 dark:hover:text-slate-200'
+                        : 'border-wood-subtle dark:border-slate-800 bg-wood-surface dark:bg-[#0b1222] text-wood-muted dark:text-slate-400 hover:border-wood-default dark:hover:border-slate-700 hover:text-wood-ink dark:hover:text-slate-200'
                     }`}
                   >
                     {category} ({categoryCounts[category]})
@@ -141,7 +140,7 @@ export function ProjectsSection({ expanded = false }: ProjectsSectionProps) {
             <div className="flex flex-wrap items-center gap-3">
               <div className="relative w-full sm:w-64">
                 <Search
-                  className="pointer-events-none absolute top-1/2 left-3 h-3.5 w-3.5 -translate-y-1/2 text-slate-400 dark:text-slate-500"
+                  className="pointer-events-none absolute top-1/2 left-3 h-3.5 w-3.5 -translate-y-1/2 text-wood-muted dark:text-slate-500"
                   aria-hidden="true"
                 />
                 <label htmlFor="projects-search" className="sr-only">
@@ -153,7 +152,7 @@ export function ProjectsSection({ expanded = false }: ProjectsSectionProps) {
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   placeholder="Search projects or stack..."
-                  className="h-[38px] w-full rounded-[10px] border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#0b1222] pr-3 pl-9 text-xs text-slate-900 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500 transition-colors duration-150 focus:border-blue-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600 dark:focus-visible:ring-cyan-400"
+                  className="h-[38px] w-full rounded-[10px] border border-wood-default dark:border-slate-800 bg-wood-input dark:bg-[#0b1222] pr-3 pl-9 text-xs text-wood-ink dark:text-slate-100 placeholder:text-wood-muted/70 dark:placeholder:text-slate-500 transition-colors duration-150 focus:border-blue-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600 dark:focus-visible:ring-cyan-400"
                 />
               </div>
               <p className={`${DESIGN_TOKENS.typography.monoMicro} shrink-0`}>
@@ -179,24 +178,42 @@ export function ProjectsSection({ expanded = false }: ProjectsSectionProps) {
             {visibleProjects.map((project, idx) => {
               const stageMeta = getStageStatusMeta(project.developmentStage);
 
-              if (project.id === 'factorymind' || project.id === 'tikatrack') {
+              if (
+                project.id === 'factorymind' ||
+                project.id === 'forgemind-ai' ||
+                project.id === 'tikatrack'
+              ) {
                 const isFactoryMind = project.id === 'factorymind';
+                const isForgeMind = project.id === 'forgemind-ai';
+                const visualOnLeft = !isForgeMind;
 
                 const cardFrameClasses = isFactoryMind
-                  ? 'border border-emerald-600/25 dark:border-emerald-500/30 bg-white dark:bg-[#070f15] shadow-sm hover:border-emerald-600/45 dark:hover:border-emerald-400/45'
-                  : 'border border-teal-600/25 dark:border-emerald-400/25 bg-gradient-to-br from-emerald-50/45 via-white to-cyan-50/40 dark:from-[#051414] dark:via-[#071a19] dark:to-[#061118] shadow-sm hover:border-teal-600/45 dark:hover:border-emerald-400/45';
+                  ? 'border border-emerald-700/25 dark:border-emerald-500/30 bg-wood-surface dark:bg-[#070f15] shadow-sm hover:border-emerald-700/45 dark:hover:border-emerald-400/45'
+                  : isForgeMind
+                    ? 'border border-cyan-700/25 dark:border-cyan-400/30 bg-gradient-to-br from-[#e7eef3] via-[#f4ebe0] to-[#ece6da] dark:from-[#061020] dark:via-[#081529] dark:to-[#070d19] shadow-sm hover:border-cyan-700/45 dark:hover:border-cyan-400/50'
+                    : 'border border-teal-700/25 dark:border-emerald-400/25 bg-gradient-to-br from-[#e6ede0] via-[#f4ebe0] to-[#e1ece7] dark:from-[#051414] dark:via-[#071a19] dark:to-[#061118] shadow-sm hover:border-teal-700/45 dark:hover:border-emerald-400/45';
 
                 const taglineColor = isFactoryMind
                   ? 'text-emerald-700 dark:text-emerald-300'
-                  : 'text-teal-700 dark:text-emerald-300';
+                  : isForgeMind
+                    ? 'text-cyan-800 dark:text-cyan-300'
+                    : 'text-teal-700 dark:text-emerald-300';
 
                 const liveDemoBtnClass = isFactoryMind
                   ? '!bg-emerald-600 !border-emerald-600 hover:!bg-emerald-700 !text-white dark:!bg-emerald-500 dark:!border-emerald-500 dark:hover:!bg-emerald-400 dark:!text-slate-950'
-                  : '!bg-teal-700 !border-teal-700 hover:!bg-teal-800 !text-white dark:!bg-emerald-400 dark:!border-emerald-400 dark:hover:!bg-emerald-300 dark:!text-slate-950';
+                  : isForgeMind
+                    ? '!bg-cyan-700 !border-cyan-700 hover:!bg-cyan-800 !text-white dark:!bg-cyan-400 dark:!border-cyan-400 dark:hover:!bg-cyan-300 dark:!text-slate-950'
+                    : '!bg-teal-700 !border-teal-700 hover:!bg-teal-800 !text-white dark:!bg-emerald-400 dark:!border-emerald-400 dark:hover:!bg-emerald-300 dark:!text-slate-950';
 
                 const bulletIconColor = isFactoryMind
                   ? 'text-emerald-600 dark:text-emerald-400'
-                  : 'text-teal-700 dark:text-emerald-400';
+                  : isForgeMind
+                    ? 'text-cyan-700 dark:text-cyan-400'
+                    : 'text-teal-700 dark:text-emerald-400';
+
+                const scopeBannerLabel = isForgeMind
+                  ? 'Simulation Scope & Integrity:'
+                  : 'Demo vs. Optional Backend:';
 
                 return (
                   <ScrollRevealItem
@@ -208,10 +225,10 @@ export function ProjectsSection({ expanded = false }: ProjectsSectionProps) {
                       className={`group rounded-[16px] p-5 sm:p-6 transition-colors duration-200 ${cardFrameClasses}`}
                     >
                       <div className="grid items-start gap-6 lg:grid-cols-12 lg:gap-7">
-                        {/* Interactive Project-Themed Visual (Left on FactoryMind, Right on TikaTrack) */}
+                        {/* Interactive Project-Themed Visual */}
                         <div
                           className={`min-w-0 lg:col-span-6 ${
-                            isFactoryMind ? 'lg:order-1' : 'lg:order-2'
+                            visualOnLeft ? 'lg:order-1' : 'lg:order-2'
                           }`}
                         >
                           <FeaturedProjectVisual
@@ -224,13 +241,13 @@ export function ProjectsSection({ expanded = false }: ProjectsSectionProps) {
                         {/* Project Dossier & Verifiable Technical Copy */}
                         <div
                           className={`min-w-0 flex flex-col justify-between space-y-3.5 lg:col-span-6 ${
-                            isFactoryMind ? 'lg:order-2' : 'lg:order-1'
+                            visualOnLeft ? 'lg:order-2' : 'lg:order-1'
                           }`}
                         >
                           <div className="space-y-3">
-                            <div className="space-y-1 border-b border-slate-200 dark:border-slate-800/80 pb-2.5">
+                            <div className="space-y-1 border-b border-wood-subtle dark:border-slate-800/80 pb-2.5">
                               <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1 font-mono text-[11px]">
-                                <span className="text-slate-600 dark:text-slate-400">
+                                <span className="text-wood-muted dark:text-slate-400">
                                   {project.categoryLabel}
                                 </span>
                                 <span className={`font-medium ${stageMeta.className}`}>
@@ -238,7 +255,7 @@ export function ProjectsSection({ expanded = false }: ProjectsSectionProps) {
                                 </span>
                               </div>
 
-                              <h3 className="font-display text-2xl font-bold tracking-tight text-slate-950 dark:text-slate-50">
+                              <h3 className="font-display text-2xl font-bold tracking-tight text-wood-ink dark:text-slate-50">
                                 {project.title}
                               </h3>
                               <p className={`text-xs sm:text-sm font-medium ${taglineColor}`}>
@@ -246,15 +263,15 @@ export function ProjectsSection({ expanded = false }: ProjectsSectionProps) {
                               </p>
                             </div>
 
-                            <p className="text-xs sm:text-[13px] leading-relaxed text-slate-700 dark:text-slate-300">
+                            <p className="text-xs sm:text-[13px] leading-relaxed text-wood-walnut dark:text-slate-300">
                               {project.summary}
                             </p>
 
                             <div className="space-y-0.5">
-                              <p className="font-mono text-[10.5px] text-slate-500">
+                              <p className="font-mono text-[10.5px] text-wood-muted">
                                 Problem Addressed
                               </p>
-                              <p className="text-xs leading-relaxed text-slate-700 dark:text-slate-300">
+                              <p className="text-xs leading-relaxed text-wood-walnut dark:text-slate-300">
                                 {project.oneSentenceProblem}
                               </p>
                             </div>
@@ -262,10 +279,10 @@ export function ProjectsSection({ expanded = false }: ProjectsSectionProps) {
                             {project.implementedHighlights &&
                               project.implementedHighlights.length > 0 && (
                                 <div className="space-y-1.5">
-                                  <p className="font-mono text-[10.5px] text-slate-500">
+                                  <p className="font-mono text-[10.5px] text-wood-muted">
                                     Key Implemented Features
                                   </p>
-                                  <ul className="space-y-1 text-xs leading-relaxed text-slate-700 dark:text-slate-300">
+                                  <ul className="space-y-1 text-xs leading-relaxed text-wood-walnut dark:text-slate-300">
                                     {project.implementedHighlights.map((highlight) => (
                                       <li key={highlight} className="flex items-start gap-2">
                                         <Check
@@ -281,31 +298,31 @@ export function ProjectsSection({ expanded = false }: ProjectsSectionProps) {
 
                             {project.roleAndContribution && (
                               <div className="space-y-0.5">
-                                <p className="font-mono text-[10.5px] text-slate-500">
+                                <p className="font-mono text-[10.5px] text-wood-muted">
                                   Role &amp; Contribution
                                 </p>
-                                <p className="text-xs leading-relaxed text-slate-700 dark:text-slate-300">
+                                <p className="text-xs leading-relaxed text-wood-walnut dark:text-slate-300">
                                   {project.roleAndContribution}
                                 </p>
                               </div>
                             )}
 
                             {project.scopeDistinctionNote && (
-                              <p className="rounded-[10px] border border-slate-200 dark:border-slate-800/80 bg-slate-50/90 dark:bg-[#050b13]/80 px-3 py-2 text-[11px] leading-relaxed text-slate-600 dark:text-slate-400">
-                                <span className="font-mono font-semibold text-slate-700 dark:text-slate-300">
-                                  Demo vs. Optional Backend:{' '}
+                              <p className="rounded-[10px] border border-wood-subtle dark:border-slate-800/80 bg-wood-inset/80 dark:bg-[#050b13]/80 px-3 py-2 text-[11px] leading-relaxed text-wood-muted dark:text-slate-400">
+                                <span className="font-mono font-semibold text-wood-walnut dark:text-slate-300">
+                                  {scopeBannerLabel}{' '}
                                 </span>
                                 {project.scopeDistinctionNote}
                               </p>
                             )}
                           </div>
 
-                          <div className="space-y-3 border-t border-slate-200 dark:border-slate-800/80 pt-3">
+                          <div className="space-y-3 border-t border-wood-subtle dark:border-slate-800/80 pt-3">
                             <div>
-                              <p className="font-mono text-[10.5px] text-slate-500 mb-1">
+                              <p className="font-mono text-[10.5px] text-wood-muted mb-1">
                                 Technologies &amp; Architecture
                               </p>
-                              <p className="font-mono text-[11px] leading-relaxed text-slate-700 dark:text-slate-300">
+                              <p className="font-mono text-[11px] leading-relaxed text-wood-walnut dark:text-slate-300">
                                 {project.stack.join(' · ')}
                               </p>
                             </div>
@@ -343,13 +360,25 @@ export function ProjectsSection({ expanded = false }: ProjectsSectionProps) {
                                 <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
                               </LinkButton>
 
-                              {isFactoryMind && (
+                              {(isFactoryMind || isForgeMind) && (
                                 <LinkButton
-                                  to="/studio?model=factorymind-cell"
-                                  variant="ghost"
+                                  to={`/studio?model=${
+                                    isFactoryMind ? 'factorymind-cell' : 'forgemind-turbofan'
+                                  }`}
+                                  variant="secondary"
                                   size="sm"
                                 >
                                   <span>3D Rig</span>
+                                </LinkButton>
+                              )}
+
+                              {isForgeMind && (
+                                <LinkButton
+                                  to="/research/decision-aware-prognostics"
+                                  variant="secondary"
+                                  size="sm"
+                                >
+                                  <span>Linked Study</span>
                                 </LinkButton>
                               )}
                             </div>
@@ -361,116 +390,7 @@ export function ProjectsSection({ expanded = false }: ProjectsSectionProps) {
                 );
               }
 
-              // Research Prototype Card (ForgeMind AI)
-              return (
-                <ScrollRevealItem
-                  key={project.id}
-                  index={idx}
-                  className="min-w-0"
-                >
-                  <SurfaceCard
-                    as="article"
-                    variant="interactive"
-                    className="group w-full min-w-0 p-5 sm:p-7"
-                  >
-                    <div className="grid items-start gap-7 lg:grid-cols-12 lg:gap-8">
-                      <div className="min-w-0 lg:col-span-5">
-                        <ProjectPreviewImage
-                          projectId={project.id}
-                          title={project.title}
-                          alt={project.previewAlt}
-                          customUrl={project.previewImageUrl}
-                          kindLabel={project.previewKindLabel}
-                        />
-                      </div>
-
-                      <div className="min-w-0 flex flex-col justify-between space-y-4 lg:col-span-7">
-                        <div className="space-y-3">
-                          <div className="space-y-1.5 border-b border-slate-200 dark:border-slate-800/80 pb-3">
-                            <div className="flex flex-wrap items-center justify-between gap-x-2 gap-y-1 font-mono text-[11px]">
-                              <span className="text-cyan-700 dark:text-cyan-400">
-                                {project.categoryLabel}
-                              </span>
-                              <span className={`font-medium ${stageMeta.className}`}>
-                                {stageMeta.glyph} {project.status}
-                              </span>
-                            </div>
-
-                            <h3 className="font-display text-xl sm:text-2xl font-bold tracking-tight text-slate-950 dark:text-slate-50">
-                              {project.title}
-                            </h3>
-                            <p className="text-xs sm:text-sm font-medium text-blue-700 dark:text-blue-300">
-                              {project.tagline}
-                            </p>
-                          </div>
-
-                          <dl className="grid gap-3 text-xs leading-relaxed sm:grid-cols-2">
-                            <div>
-                              <dt className="font-mono text-[10.5px] text-slate-500">
-                                Problem Statement
-                              </dt>
-                              <dd className="mt-0.5 text-slate-700 dark:text-slate-300">
-                                {project.oneSentenceProblem}
-                              </dd>
-                            </div>
-
-                            <div>
-                              <dt className="font-mono text-[10.5px] text-slate-500">
-                                Main Technical Contribution
-                              </dt>
-                              <dd className="mt-0.5 text-slate-700 dark:text-slate-300">
-                                {project.mainContribution}
-                              </dd>
-                            </div>
-                          </dl>
-                        </div>
-
-                        <div className="space-y-3 border-t border-slate-200 dark:border-slate-800/80 pt-4">
-                          <div>
-                            <p className="font-mono text-[10.5px] text-slate-500 mb-1">
-                              Technology Stack
-                            </p>
-                            <p className="font-mono text-[11px] leading-relaxed text-slate-700 dark:text-slate-300">
-                              {project.stack.join(' · ')}
-                            </p>
-                          </div>
-
-                          <div className="flex flex-wrap items-center gap-2.5">
-                            <LinkButton
-                              to={`/projects/${project.id}`}
-                              variant="primary"
-                              size="sm"
-                            >
-                              <span>View Case Study</span>
-                              <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
-                            </LinkButton>
-
-                            <LinkButton
-                              to="/studio?model=forgemind-turbofan"
-                              variant="secondary"
-                              size="sm"
-                            >
-                              <span>3D Rig</span>
-                            </LinkButton>
-
-                            <LinkButton
-                              to="/research/decision-aware-prognostics"
-                              variant="ghost"
-                              size="sm"
-                            >
-                              <span>Linked Study</span>
-                            </LinkButton>
-                          </div>
-
-                          <p className="font-mono text-[11px] text-slate-500">
-                            {project.sourceNote}
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </SurfaceCard>
-                </ScrollRevealItem>
-              );
+              return null;
             })}
           </div>
         )}
@@ -479,8 +399,8 @@ export function ProjectsSection({ expanded = false }: ProjectsSectionProps) {
         {expanded && activeWorkbenchProject && activeModule && (
           <SurfaceCard className="p-6 sm:p-8">
             <div className="space-y-5">
-              <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-200 dark:border-slate-800/80 pb-4">
-                <div className="flex items-center gap-2 text-xs font-semibold text-slate-800 dark:text-slate-200">
+              <div className="flex flex-wrap items-center justify-between gap-3 border-b border-wood-subtle dark:border-slate-800/80 pb-4">
+                <div className="flex items-center gap-2 text-xs font-semibold text-wood-ink dark:text-slate-200">
                   <Layers className="h-4 w-4 text-cyan-700 dark:text-cyan-400" aria-hidden="true" />
                   <span>
                     Interactive Module Workbench · {activeWorkbenchProject.title} (
@@ -491,7 +411,7 @@ export function ProjectsSection({ expanded = false }: ProjectsSectionProps) {
                 <div
                   role="group"
                   aria-label="Switch active workbench project"
-                  className="inline-flex rounded-[8px] border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-[#060b16] p-0.5"
+                  className="inline-flex rounded-[8px] border border-wood-subtle dark:border-slate-800 bg-wood-inset dark:bg-[#060b16] p-0.5"
                 >
                   {workbenchProjects.map((wp) => {
                     const isCurrent = wp.id === activeWorkbenchProject.id;
@@ -504,7 +424,7 @@ export function ProjectsSection({ expanded = false }: ProjectsSectionProps) {
                         className={`rounded-[6px] px-3 py-1 font-mono text-[11px] transition-colors cursor-pointer whitespace-nowrap shrink-0 ${
                           isCurrent
                             ? 'bg-blue-600 text-white font-semibold'
-                            : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'
+                            : 'text-wood-muted dark:text-slate-400 hover:text-wood-ink dark:hover:text-slate-200'
                         }`}
                       >
                         {wp.title} ({wp.modules.length})
@@ -514,12 +434,14 @@ export function ProjectsSection({ expanded = false }: ProjectsSectionProps) {
                 </div>
               </div>
 
-              <div className="flex flex-wrap items-center justify-between gap-2 text-[11px] font-mono text-slate-600 dark:text-slate-400">
+              <div className="flex flex-wrap items-center justify-between gap-2 text-[11px] font-mono text-wood-muted dark:text-slate-400">
                 <span>
                   ●{' '}
                   {activeWorkbenchProject.id === 'factorymind'
                     ? 'Pure TypeScript & React 19 Workbench · 12 Test Suites'
-                    : 'Offline Bilingual Clinical PWA v12.0.0 · 46 Vitest Suites'}
+                    : activeWorkbenchProject.id === 'forgemind-ai'
+                      ? 'Conformal Prognostics & D3 3D Workbench · 32 Engine Tests'
+                      : 'Offline Bilingual Clinical PWA v12.0.0 · 46 Vitest Suites'}
                 </span>
                 {activeWorkbenchProject.liveDemoUrl && (
                   <a
@@ -576,7 +498,7 @@ export function ProjectsSection({ expanded = false }: ProjectsSectionProps) {
                       className={`min-h-[38px] rounded-[10px] border px-3 py-2 text-xs font-medium transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600 dark:focus-visible:ring-cyan-400 whitespace-nowrap shrink-0 cursor-pointer ${
                         active
                           ? 'border-blue-600/80 dark:border-blue-500/80 bg-blue-50 dark:bg-blue-600/20 text-blue-900 dark:text-cyan-200'
-                          : 'border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-[#060b16] text-slate-600 dark:text-slate-400 hover:border-slate-300 dark:hover:border-slate-700 hover:text-slate-900 dark:hover:text-slate-200'
+                          : 'border-wood-subtle dark:border-slate-800 bg-wood-surface dark:bg-[#060b16] text-wood-muted dark:text-slate-400 hover:border-wood-default dark:hover:border-slate-700 hover:text-wood-ink dark:hover:text-slate-200'
                       }`}
                     >
                       {mod.name}
@@ -610,22 +532,22 @@ export function ProjectsSection({ expanded = false }: ProjectsSectionProps) {
                   </div>
                 </div>
 
-                <div className="grid gap-4 border-t border-slate-200 dark:border-slate-800/80 pt-4 sm:grid-cols-2">
+                <div className="grid gap-4 border-t border-wood-subtle dark:border-slate-800/80 pt-4 sm:grid-cols-2">
                   <div>
-                    <p className="font-mono text-[11px] text-slate-500 mb-1">
+                    <p className="font-mono text-[11px] text-wood-muted mb-1">
                       Techniques Implemented
                     </p>
-                    <ul className="space-y-1 text-xs text-slate-700 dark:text-slate-300">
+                    <ul className="space-y-1 text-xs text-wood-walnut dark:text-slate-300">
                       {activeModule.methods.map((method) => (
                         <li key={method}>• {method}</li>
                       ))}
                     </ul>
                   </div>
                   <div>
-                    <p className="font-mono text-[11px] text-slate-500 mb-1">
+                    <p className="font-mono text-[11px] text-wood-muted mb-1">
                       Applied Domain Scope
                     </p>
-                    <p className="text-xs leading-relaxed text-slate-700 dark:text-slate-300">
+                    <p className="text-xs leading-relaxed text-wood-walnut dark:text-slate-300">
                       {activeModule.domainContext}
                     </p>
                   </div>

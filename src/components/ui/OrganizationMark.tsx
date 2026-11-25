@@ -24,8 +24,8 @@ export function OrganizationMark({
   if (logoUrl) {
     return (
       <div
-        className={`flex shrink-0 items-center justify-center overflow-hidden border bg-slate-100 dark:bg-[#060b16] p-1 ${dimensions} ${
-          active ? 'border-cyan-600/45 dark:border-cyan-500/45' : 'border-slate-200 dark:border-slate-800/90'
+        className={`flex shrink-0 items-center justify-center overflow-hidden border bg-wood-inset dark:bg-[#060b16] p-1 ${dimensions} ${
+          active ? 'border-cyan-600/45 dark:border-cyan-500/45' : 'border-wood-subtle dark:border-slate-800/90'
         }`}
         title={organization}
       >
@@ -46,10 +46,10 @@ export function OrganizationMark({
     <div
       aria-hidden="true"
       title={organization}
-      className={`flex shrink-0 select-none items-center justify-center border bg-slate-100 dark:bg-[#060b16] font-mono font-semibold uppercase ${dimensions} ${textScale} ${
+      className={`flex shrink-0 select-none items-center justify-center border bg-wood-inset dark:bg-[#060b16] font-mono font-semibold uppercase ${dimensions} ${textScale} ${
         active
           ? 'border-cyan-600/45 dark:border-cyan-500/45 text-cyan-800 dark:text-cyan-300 dark:shadow-[inset_0_1px_0_rgba(34,211,238,0.08)]'
-          : 'border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400'
+          : 'border-wood-subtle dark:border-slate-800 text-wood-muted dark:text-slate-400'
       }`}
     >
       {code}

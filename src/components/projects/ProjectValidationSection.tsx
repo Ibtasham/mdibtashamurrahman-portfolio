@@ -67,11 +67,11 @@ export function ProjectValidationSection({
 
       {/* Structured Validation Audit Table */}
       <SurfaceCard className="overflow-hidden p-0">
-        <div className="border-b border-slate-200 dark:border-slate-800/80 px-5 py-3.5 flex flex-wrap items-center justify-between gap-2">
+        <div className="border-b border-wood-subtle dark:border-slate-800/80 px-5 py-3.5 flex flex-wrap items-center justify-between gap-2">
           <h3 className={DESIGN_TOKENS.typography.cardTitle}>
             Verification &amp; Validation Ledger
           </h3>
-          <span className="font-mono text-[11px] text-slate-600 dark:text-slate-400">
+          <span className="font-mono text-[11px] text-wood-muted dark:text-slate-400">
             Evidence-Bounded Record ({project.caseStudy.validationRecords.length})
           </span>
         </div>
@@ -79,7 +79,7 @@ export function ProjectValidationSection({
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs">
             <thead>
-              <tr className="border-b border-slate-200 dark:border-slate-800/80 bg-slate-50 dark:bg-[#060b16] font-mono text-[11px] text-slate-600 dark:text-slate-400">
+              <tr className="border-b border-wood-subtle dark:border-slate-800/80 bg-wood-inset dark:bg-[#060b16] font-mono text-[11px] text-wood-muted dark:text-slate-400">
                 <th scope="col" className="px-5 py-3 font-medium">
                   Method / Protocol
                 </th>
@@ -94,7 +94,7 @@ export function ProjectValidationSection({
                 </th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-200 dark:divide-slate-800/80">
+            <tbody className="divide-y divide-wood-subtle dark:divide-slate-800/80">
               {project.caseStudy.validationRecords.map((rec) => {
                 const glyph =
                   rec.status === 'Verified'
@@ -109,17 +109,17 @@ export function ProjectValidationSection({
                     ? 'text-emerald-700 dark:text-emerald-300'
                     : rec.status === 'Active Experiment'
                       ? 'text-cyan-700 dark:text-cyan-300'
-                      : 'text-slate-600 dark:text-slate-400';
+                      : 'text-wood-muted dark:text-slate-400';
 
                 return (
                   <tr
                     key={rec.id}
-                    className="align-top text-slate-700 dark:text-slate-300"
+                    className="align-top text-wood-walnut dark:text-slate-300"
                   >
-                    <td className="px-5 py-3.5 font-medium text-slate-900 dark:text-slate-100">
+                    <td className="px-5 py-3.5 font-medium text-wood-ink dark:text-slate-100">
                       {rec.method}
                     </td>
-                    <td className="px-5 py-3.5 text-slate-600 dark:text-slate-400">
+                    <td className="px-5 py-3.5 text-wood-muted dark:text-slate-400">
                       {rec.scope}
                     </td>
                     <td className={`px-5 py-3.5 font-mono text-[11px] whitespace-nowrap ${statusColor}`}>
@@ -139,7 +139,7 @@ export function ProjectValidationSection({
       {/* Empirical Research Experiments & Public Benchmarks (e.g., ForgeMind AI C-MAPSS / FactoryMind Optimization) */}
       {linkedExperiments.length > 0 && (
         <SurfaceCard className="p-5 sm:p-6 space-y-5">
-          <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-200 dark:border-slate-800/80 pb-4">
+          <div className="flex flex-wrap items-center justify-between gap-3 border-b border-wood-subtle dark:border-slate-800/80 pb-4">
             <div className="space-y-1">
               <div className="flex items-center gap-2 font-mono text-xs text-cyan-700 dark:text-cyan-400">
                 <FlaskConical className="h-4 w-4" aria-hidden="true" />
@@ -149,7 +149,7 @@ export function ProjectValidationSection({
                     : 'Connected Research Benchmark Matrix'}
                 </span>
               </div>
-              <p className="text-xs text-slate-600 dark:text-slate-400">
+              <p className="text-xs text-wood-muted dark:text-slate-400">
                 Empirical tracks grounded strictly in verified project &amp; manuscript records. Quantitative RMSE and cost-sensitivity tables will publish once companion manuscripts complete review.
               </p>
             </div>
@@ -184,7 +184,7 @@ export function ProjectValidationSection({
                   className={`min-h-[32px] rounded-[8px] border px-2.5 py-1 font-mono text-[11px] transition-colors whitespace-nowrap shrink-0 cursor-pointer ${
                     stageFilter === item.id
                       ? 'border-blue-600/80 dark:border-cyan-400/70 bg-blue-50 dark:bg-blue-600/20 text-blue-900 dark:text-cyan-200'
-                      : 'border-slate-200 dark:border-slate-800 bg-white dark:bg-[#060b16] text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'
+                      : 'border-wood-subtle dark:border-slate-800 bg-wood-surface dark:bg-[#060b16] text-wood-muted dark:text-slate-400 hover:text-wood-ink dark:hover:text-slate-200'
                   }`}
                 >
                   {item.label}
@@ -204,18 +204,18 @@ export function ProjectValidationSection({
               return (
                 <div
                   key={exp.id}
-                  className="rounded-[10px] border border-slate-200 dark:border-slate-800/80 bg-slate-50/70 dark:bg-[#060b16] p-4 space-y-2"
+                  className="rounded-[10px] border border-wood-subtle dark:border-slate-800/80 bg-wood-inset/80 dark:bg-[#060b16] p-4 space-y-2"
                 >
                   <div className="flex flex-wrap items-center justify-between gap-2 font-mono text-[11px]">
                     <span className="text-cyan-700 dark:text-cyan-400">
                       {glyph} {exp.stageLabel}
                     </span>
-                    <span className="text-slate-500">{exp.dataset}</span>
+                    <span className="text-wood-muted dark:text-slate-400">{exp.dataset}</span>
                   </div>
-                  <h4 className="font-display text-sm font-semibold text-slate-950 dark:text-slate-50">
+                  <h4 className="font-display text-sm font-semibold text-wood-ink dark:text-slate-50">
                     {exp.title}
                   </h4>
-                  <p className="text-xs leading-relaxed text-slate-600 dark:text-slate-400">
+                  <p className="text-xs leading-relaxed text-wood-muted dark:text-slate-400">
                     {exp.summary}
                   </p>
                   {exp.relatedStudyId && (
@@ -233,20 +233,20 @@ export function ProjectValidationSection({
           </div>
 
           {relevantDatasets.length > 0 && (
-            <div className="border-t border-slate-200 dark:border-slate-800/80 pt-4 space-y-2.5">
-              <p className="font-mono text-[11px] text-slate-500">
+            <div className="border-t border-wood-subtle dark:border-slate-800/80 pt-4 space-y-2.5">
+              <p className="font-mono text-[11px] text-wood-muted dark:text-slate-400">
                 Public Benchmark Datasets Used
               </p>
               <div className="grid gap-3 md:grid-cols-2">
                 {relevantDatasets.map((ds) => (
                   <div
                     key={ds.id}
-                    className="rounded-[8px] border border-slate-200 dark:border-slate-800/80 bg-white dark:bg-[#0b1222] p-3 space-y-1"
+                    className="rounded-[8px] border border-wood-subtle dark:border-slate-800/80 bg-wood-surface dark:bg-[#0b1222] p-3 space-y-1"
                   >
-                    <p className="font-mono text-xs font-semibold text-slate-900 dark:text-slate-100">
+                    <p className="font-mono text-xs font-semibold text-wood-ink dark:text-slate-100">
                       {ds.name}
                     </p>
-                    <p className="text-xs text-slate-600 dark:text-slate-400">
+                    <p className="text-xs text-wood-muted dark:text-slate-400">
                       {ds.scope} — {ds.usage}
                     </p>
                   </div>
@@ -256,8 +256,8 @@ export function ProjectValidationSection({
           )}
 
           {linkedStudies.length > 0 && (
-            <div className="border-t border-slate-200 dark:border-slate-800/80 pt-3 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs">
-              <span className="font-mono text-[11px] text-slate-500">
+            <div className="border-t border-wood-subtle dark:border-slate-800/80 pt-3 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs">
+              <span className="font-mono text-[11px] text-wood-muted dark:text-slate-400">
                 Manuscripts in Preparation:
               </span>
               {linkedStudies.map((study) => (

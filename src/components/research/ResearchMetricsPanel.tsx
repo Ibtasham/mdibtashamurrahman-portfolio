@@ -42,7 +42,7 @@ export function ResearchMetricsPanel() {
     {
       label: 'Proposed Tracks',
       count: summary.totals.proposedExperiments,
-      colorClass: 'bg-slate-400 dark:bg-slate-600',
+      colorClass: 'bg-wood-default dark:bg-slate-600',
       note: 'Planned robustness & policy sweeps',
     },
   ];
@@ -52,7 +52,7 @@ export function ResearchMetricsPanel() {
       <div className="grid gap-6 lg:grid-cols-12">
         {/* Left: Verified Experimental Pipeline Distribution Chart */}
         <SurfaceCard className="p-5 sm:p-6 space-y-5 lg:col-span-5">
-          <div className="space-y-1 border-b border-slate-200 dark:border-slate-800/80 pb-3">
+          <div className="space-y-1 border-b border-wood-subtle dark:border-slate-800/80 pb-3">
             <p className="font-mono text-[11px] text-cyan-700 dark:text-cyan-400">
               Source-Verified Experimental Registry
             </p>
@@ -68,15 +68,15 @@ export function ResearchMetricsPanel() {
               return (
                 <div key={row.label} className="space-y-1.5">
                   <div className="flex items-baseline justify-between gap-2 text-xs">
-                    <span className="font-medium text-slate-900 dark:text-slate-100">
+                    <span className="font-medium text-wood-ink dark:text-slate-100">
                       {row.label}
                     </span>
-                    <span className="font-mono text-slate-700 dark:text-slate-300 tabular-nums">
+                    <span className="font-mono text-wood-walnut dark:text-slate-300 tabular-nums">
                       {row.count} / {totalExperiments} ({pct}%)
                     </span>
                   </div>
                   <div
-                    className="h-2.5 w-full overflow-hidden rounded-[4px] bg-slate-100 dark:bg-[#060b16]"
+                    className="h-2.5 w-full overflow-hidden rounded-[4px] bg-wood-inset dark:bg-[#060b16]"
                     role="progressbar"
                     aria-valuenow={pct}
                     aria-valuemin={0}
@@ -88,17 +88,17 @@ export function ResearchMetricsPanel() {
                       style={{ width: `${pct}%` }}
                     />
                   </div>
-                  <p className="font-mono text-[10px] text-slate-500">{row.note}</p>
+                  <p className="font-mono text-[10px] text-wood-muted dark:text-slate-400">{row.note}</p>
                 </div>
               );
             })}
           </div>
 
-          <div className="border-t border-slate-200 dark:border-slate-800/80 pt-3 flex items-center justify-between text-xs">
-            <span className="text-slate-600 dark:text-slate-400">
+          <div className="border-t border-wood-subtle dark:border-slate-800/80 pt-3 flex items-center justify-between text-xs">
+            <span className="text-wood-muted dark:text-slate-400">
               Manuscripts in Preparation: {summary.totals.manuscriptsInPrep}
             </span>
-            <span className="font-mono text-slate-700 dark:text-slate-300 tabular-nums">
+            <span className="font-mono text-wood-walnut dark:text-slate-300 tabular-nums">
               Published Papers: {summary.totals.publishedResearch}
             </span>
           </div>
@@ -106,7 +106,7 @@ export function ResearchMetricsPanel() {
 
         {/* Right: Per-Manuscript Experimental Stage Coverage */}
         <SurfaceCard className="p-5 sm:p-6 space-y-5 lg:col-span-7">
-          <div className="space-y-1 border-b border-slate-200 dark:border-slate-800/80 pb-3">
+          <div className="space-y-1 border-b border-wood-subtle dark:border-slate-800/80 pb-3">
             <p className="font-mono text-[11px] text-cyan-700 dark:text-cyan-400">
               Per-Manuscript Stage Tracking
             </p>
@@ -130,18 +130,18 @@ export function ResearchMetricsPanel() {
                   <div className="flex flex-wrap items-baseline justify-between gap-2 text-xs">
                     <Link
                       to={`/research/${row.id}`}
-                      className="inline-flex items-center gap-1 font-semibold text-slate-900 dark:text-slate-100 hover:text-cyan-700 dark:hover:text-cyan-300"
+                      className="inline-flex items-center gap-1 font-semibold text-wood-ink dark:text-slate-100 hover:text-cyan-700 dark:hover:text-cyan-300"
                     >
                       <span>{row.shortTitle}</span>
                       <ArrowRight className="h-3 w-3" aria-hidden="true" />
                     </Link>
-                    <span className="font-mono text-[11px] text-slate-600 dark:text-slate-400 tabular-nums">
+                    <span className="font-mono text-[11px] text-wood-muted dark:text-slate-400 tabular-nums">
                       {row.completedCount} Done · {row.ongoingCount} Ongoing ·{' '}
                       {row.proposedCount} Proposed
                     </span>
                   </div>
 
-                  <div className="flex h-2.5 w-full overflow-hidden rounded-[4px] bg-slate-100 dark:bg-[#060b16] gap-px">
+                  <div className="flex h-2.5 w-full overflow-hidden rounded-[4px] bg-wood-inset dark:bg-[#060b16] gap-px">
                     {row.completedCount > 0 && (
                       <div
                         className="h-full bg-cyan-600 dark:bg-cyan-400"
@@ -158,7 +158,7 @@ export function ResearchMetricsPanel() {
                     )}
                     {row.proposedCount > 0 && (
                       <div
-                        className="h-full bg-slate-400 dark:bg-slate-600"
+                        className="h-full bg-wood-default dark:bg-slate-600"
                         style={{ width: `${propPct}%` }}
                         title={`Proposed: ${row.proposedCount}`}
                       />
@@ -169,7 +169,7 @@ export function ResearchMetricsPanel() {
             })}
           </div>
 
-          <div className="flex items-start gap-2.5 rounded-[10px] border border-slate-200 dark:border-slate-800/80 bg-slate-50 dark:bg-[#060b16] p-3 text-xs text-slate-600 dark:text-slate-400">
+          <div className="flex items-start gap-2.5 rounded-[10px] border border-wood-subtle dark:border-slate-800/80 bg-wood-inset dark:bg-[#060b16] p-3 text-xs text-wood-muted dark:text-slate-400">
             <Info
               className="mt-0.5 h-4 w-4 shrink-0 text-cyan-700 dark:text-cyan-400"
               aria-hidden="true"

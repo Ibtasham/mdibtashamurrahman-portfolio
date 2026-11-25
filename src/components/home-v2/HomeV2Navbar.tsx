@@ -98,7 +98,7 @@ export function HomeV2Navbar() {
   };
 
   return (
-    <header className="sticky top-0 z-40 border-b border-slate-200/90 bg-white/90 backdrop-blur-md dark:border-blue-500/20 dark:bg-[#050914]/90">
+    <header className="sticky top-0 z-40 border-b border-wood-subtle/90 bg-wood-surface/90 backdrop-blur-md dark:border-blue-500/20 dark:bg-[#050914]/90">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-2 px-4 py-3.5 sm:px-6 lg:px-4 xl:gap-4 xl:px-8">
         {/* Left: Engineering emblem + Identity */}
         <Link
@@ -108,10 +108,10 @@ export function HomeV2Navbar() {
         >
           <EngineeringBrandLogo />
           <div className="min-w-0 leading-tight">
-            <span className="block truncate font-display text-[13px] font-semibold tracking-normal text-slate-950 transition-colors group-hover:text-blue-700 dark:text-white dark:group-hover:text-cyan-300 xl:text-[15px]">
+            <span className="block truncate font-display text-[13px] font-semibold tracking-normal text-wood-ink transition-colors group-hover:text-blue-700 dark:text-white dark:group-hover:text-cyan-300 xl:text-[15px]">
               {PROFILE.name}
             </span>
-            <span className="block font-mono text-[10px] font-medium tracking-[0.12em] text-slate-600 dark:text-slate-400 xl:text-[10.5px]">
+            <span className="block font-mono text-[10px] font-medium tracking-[0.12em] text-wood-muted dark:text-slate-400 xl:text-[10.5px]">
               SUST · IPE
             </span>
           </div>
@@ -133,7 +133,7 @@ export function HomeV2Navbar() {
                 className={`relative py-2 text-[11.5px] xl:text-[13.5px] font-medium whitespace-nowrap shrink-0 transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600 dark:focus-visible:ring-cyan-400 rounded-[4px] ${
                   isActiveItem
                     ? 'text-blue-700 dark:text-cyan-300 after:absolute after:inset-x-0 after:-bottom-[1px] after:h-[2.5px] after:rounded-full after:bg-blue-600 after:shadow-[0_0_12px_rgba(37,99,235,0.65)] dark:after:bg-cyan-400 dark:after:shadow-[0_0_14px_rgba(34,211,238,0.9)]'
-                    : 'text-slate-600 hover:text-slate-950 dark:text-slate-300 dark:hover:text-white'
+                    : 'text-wood-muted hover:text-wood-ink dark:text-slate-300 dark:hover:text-white'
                 }`}
               >
                 {item.label}
@@ -149,12 +149,12 @@ export function HomeV2Navbar() {
             onClick={toggleTheme}
             aria-label={theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'}
             title={theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'}
-            className="inline-flex h-10 items-center gap-1 rounded-full border border-slate-300 bg-slate-100/90 p-1 text-slate-600 transition-colors hover:border-blue-500/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600 dark:border-blue-500/30 dark:bg-[#0b152a] dark:text-slate-400 dark:focus-visible:ring-cyan-400 cursor-pointer"
+            className="inline-flex h-10 items-center gap-1 rounded-full border border-wood-default bg-wood-inset/90 p-1 text-wood-muted transition-colors hover:border-blue-500/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600 dark:border-blue-500/30 dark:bg-[#0b152a] dark:text-slate-400 dark:focus-visible:ring-cyan-400 cursor-pointer"
           >
             <span
               className={`flex h-7 w-7 items-center justify-center rounded-full transition-colors ${
                 theme === 'light'
-                  ? 'bg-white text-amber-500 shadow-sm'
+                  ? 'bg-wood-input text-amber-600 shadow-sm'
                   : 'text-amber-300/75'
               }`}
             >
@@ -164,7 +164,7 @@ export function HomeV2Navbar() {
               className={`flex h-7 w-7 items-center justify-center rounded-full transition-colors ${
                 theme === 'dark'
                   ? 'bg-[#17284b] text-cyan-300 shadow-[0_0_10px_rgba(34,211,238,0.28)]'
-                  : 'text-slate-500'
+                  : 'text-wood-muted'
               }`}
             >
               <Moon className="h-3.5 w-3.5" aria-hidden="true" />
@@ -187,7 +187,7 @@ export function HomeV2Navbar() {
             aria-expanded={mobileOpen}
             aria-controls="home-v2-mobile-navigation"
             aria-label={mobileOpen ? 'Close navigation menu' : 'Open navigation menu'}
-            className="inline-flex h-10 w-10 items-center justify-center rounded-[10px] border border-slate-300 bg-slate-100 text-slate-700 transition-colors hover:border-blue-500/60 hover:text-slate-950 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600 dark:border-blue-500/25 dark:bg-[#0b152a] dark:text-slate-200 dark:hover:border-cyan-400/50 dark:hover:text-white dark:focus-visible:ring-cyan-400 lg:hidden cursor-pointer"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-[10px] border border-wood-default bg-wood-inset text-wood-walnut transition-colors hover:border-blue-500/60 hover:text-wood-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600 dark:border-blue-500/25 dark:bg-[#0b152a] dark:text-slate-200 dark:hover:border-cyan-400/50 dark:hover:text-white dark:focus-visible:ring-cyan-400 lg:hidden cursor-pointer"
           >
             {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
@@ -199,7 +199,7 @@ export function HomeV2Navbar() {
         <nav
           id="home-v2-mobile-navigation"
           aria-label="Mobile navigation"
-          className="max-h-[calc(100dvh-4.5rem)] overflow-y-auto overscroll-contain border-t border-slate-200 bg-white/98 px-4 py-4 shadow-xl dark:border-blue-500/20 dark:bg-[#070f21]/98 lg:hidden"
+          className="max-h-[calc(100dvh-4.5rem)] overflow-y-auto overscroll-contain border-t border-wood-subtle bg-wood-surface/98 px-4 py-4 shadow-xl dark:border-blue-500/20 dark:bg-[#070f21]/98 lg:hidden"
         >
           <div className="mx-auto flex max-w-7xl flex-col gap-1">
             {HOME_V2_NAV_ITEMS.map((item) => {
@@ -219,7 +219,7 @@ export function HomeV2Navbar() {
                   className={`flex min-h-[44px] items-center rounded-[10px] px-3.5 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600 dark:focus-visible:ring-cyan-400 ${
                     isActiveItem
                       ? 'bg-blue-50 text-blue-700 dark:bg-cyan-500/15 dark:text-cyan-300'
-                      : 'text-slate-700 hover:bg-slate-100 hover:text-slate-950 dark:text-slate-300 dark:hover:bg-[#101e3b] dark:hover:text-white'
+                      : 'text-wood-walnut hover:bg-wood-hover hover:text-wood-ink dark:text-slate-300 dark:hover:bg-[#101e3b] dark:hover:text-white'
                   }`}
                 >
                   {item.label}
@@ -227,7 +227,7 @@ export function HomeV2Navbar() {
               );
             })}
 
-            <div className="mt-2 grid gap-2 border-t border-slate-200 pt-3 dark:border-slate-800/80 sm:hidden">
+            <div className="mt-2 grid gap-2 border-t border-wood-subtle pt-3 dark:border-slate-800/80 sm:hidden">
               <a
                 href={cvUrl}
                 download="MD_Ibtashamur_Rahman_CV.pdf"

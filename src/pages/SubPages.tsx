@@ -10,6 +10,7 @@ import { ResearchSection } from '../components/home/ResearchSection';
 import { InnovationSection } from '../components/home/InnovationSection';
 import { SkillsCertificatesSection } from '../components/home/SkillsCertificatesSection';
 import { VisualArchiveGallery } from '../components/home/VisualArchiveGallery';
+import { IndustrialMachinesOverlay } from '../components/ui/IndustrialMachinesOverlay';
 import { usePageMetadata } from '../hooks/usePageMetadata';
 import { DESIGN_TOKENS } from '../styles/designSystem';
 
@@ -23,15 +24,16 @@ function PageBanner({
   subtitle: string;
 }) {
   return (
-    <div className="relative overflow-hidden border-b border-slate-200 dark:border-slate-800/80 bg-slate-50 dark:bg-[#050914] bg-blueprint-grid py-12 sm:py-14">
+    <div className="relative overflow-hidden border-b border-wood-subtle dark:border-slate-800/80 bg-wood-canvas dark:bg-[#050914] bg-blueprint-grid py-12 sm:py-14">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 ambient-hero-light"
       />
+      <IndustrialMachinesOverlay variant="banner" />
       <div className={`relative ${DESIGN_TOKENS.spacing.container} space-y-4`}>
         <Link
           to="/"
-          className="inline-flex items-center gap-1.5 font-mono text-xs text-slate-600 dark:text-slate-400 transition-colors duration-150 hover:text-cyan-700 dark:hover:text-cyan-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600 dark:focus-visible:ring-cyan-400 rounded-[4px]"
+          className="inline-flex items-center gap-1.5 font-mono text-xs text-wood-muted dark:text-slate-400 transition-colors duration-150 hover:text-cyan-700 dark:hover:text-cyan-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600 dark:focus-visible:ring-cyan-400 rounded-[4px]"
         >
           <ArrowLeft className="h-3.5 w-3.5" aria-hidden="true" />
           <span>Back to Overview</span>
@@ -43,7 +45,7 @@ function PageBanner({
           <h1 className={DESIGN_TOKENS.typography.pageTitle}>
             {title}
           </h1>
-          <p className="text-sm leading-relaxed text-slate-600 dark:text-slate-400 sm:text-base">
+          <p className="text-sm leading-relaxed text-wood-muted dark:text-slate-400 sm:text-base">
             {subtitle}
           </p>
         </div>

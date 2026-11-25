@@ -41,7 +41,7 @@ function SectionBandFallback({ id }: { id: string }) {
     <div
       id={id}
       aria-hidden="true"
-      className="min-h-[320px] border-b border-slate-200 dark:border-slate-800/80 bg-slate-50 dark:bg-[#050914]"
+      className="min-h-[320px] border-b border-wood-subtle dark:border-slate-800/80 bg-wood-canvas dark:bg-[#050914]"
     />
   );
 }

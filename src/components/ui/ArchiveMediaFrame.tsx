@@ -128,7 +128,7 @@ export function ArchiveMediaFrame({
   if (isRotatedQuarter) {
     return (
       <div
-        className={`relative flex aspect-[4/3] w-full items-center justify-center overflow-hidden bg-slate-100 dark:bg-[#060b16] ${docPaddingClass} ${className}`}
+        className={`relative flex aspect-[4/3] w-full items-center justify-center overflow-hidden bg-wood-inset dark:bg-[#060b16] ${docPaddingClass} ${className}`}
       >
         <img
           src={resolvedSrc}
@@ -146,7 +146,7 @@ export function ArchiveMediaFrame({
 
   return (
     <div
-      className={`relative flex aspect-[4/3] w-full items-center justify-center overflow-hidden bg-slate-100 dark:bg-[#060b16] ${docPaddingClass} ${className}`}
+      className={`relative flex aspect-[4/3] w-full items-center justify-center overflow-hidden bg-wood-inset dark:bg-[#060b16] ${docPaddingClass} ${className}`}
     >
       <img
         src={resolvedSrc}

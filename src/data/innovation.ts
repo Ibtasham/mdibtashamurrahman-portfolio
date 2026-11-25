@@ -44,26 +44,26 @@ export const INNOVATION_ENTRIES: InnovationEntry[] = [
   },
   {
     id: 'inn-forgemind',
-    title: 'ForgeMind AI — Decision-Aware Predictive Maintenance Platform',
+    title: 'ForgeMind AI — Uncertainty-Aware Predictive Maintenance Workbench',
     category: 'Research Prototype',
     stage: 'prototype',
     stageLabel: 'Working Prototype',
-    period: 'Research Prototype · Experiments Active',
-    teamContext: 'Undergraduate Research Prototype · Private Codebase',
+    period: 'Live Open-Source Prototype',
+    teamContext: 'Independent IPE Workbench · Live Vercel Deployment + MIT GitHub Repo',
     problemIdentified:
-      'Predictive maintenance models are routinely judged on point prediction error (RMSE) or statistical calibration alone without testing whether predicted uncertainty actually reduces maintenance policy cost under operating-condition shift.',
+      'Point Remaining Useful Life (RUL) predictions ignore multi-regime sensor variance and asymmetric unplanned failure penalties (Cf >> Cp), leading to late or poorly calibrated replacement schedules.',
     targetUsers:
-      'Reliability engineers, asset maintenance planners, and industrial analytics researchers evaluating condition-based replacement thresholds.',
+      'Reliability engineers, maintenance planners, and prognostics researchers exploring split conformal calibration and maintenance cost sensitivity.',
     proposedSolution:
-      'A two-stage prognostics platform separating implemented NASA C-MAPSS RUL modeling (Random Forest, XGBoost, LSTM + SHAP sensor reduction) from a proposed uncertainty-to-cost maintenance policy simulator.',
+      'An open-source React 19 + TypeScript + D3.js v7 interactive workbench spanning 10 modules: deterministic synthetic C-MAPSS fleets (48 units/subset, OS1–OS3), 4 TypeScript RUL surrogates, RUL-binned split conformal bounds, 5 episode-replay maintenance policies, and rotatable 3D D3 cost surfaces.',
     innovationApproach:
-      'Coupling explainable sensor-footprint reduction with decision-aware policy evaluation so maintenance schedules optimize total replacement and failure risk rather than isolated prediction scores.',
+      'Enforcing strict 45/20/15/20% engine-disjoint splits inside the browser so users can inspect conformal interval calibration, failure penalties, and 350-resample bootstrap CIs interactively while explicitly disclosing synthetic vs. raw NASA benchmark boundaries.',
     currentDevelopmentStage:
-      'Working research prototype for C-MAPSS FD001 baselines and SHAP explainability; policy-cost simulation and domain-shift stress evaluation remain experimental.',
+      'Live MIT-licensed research simulation workbench deployed on Vercel (forge-mind-ai-wheat.vercel.app) and published at github.com/ibta10/ForgeMind-Ai with 32 engine/conformal unit tests.',
     validationStatus:
-      'Baseline pipelines active on public NASA C-MAPSS datasets; zero industrial plant trials, commercial revenue, or business validation claimed.',
+      'Browser numerical simulation, leakage guards, and conformal bounds verified by 32 automated TypeScript unit tests (`src/engine/engine.test.ts`); explicitly discloses synthetic fleets & non-operational status with zero aviation or commercial deployment claims.',
     futureRoadmap:
-      'Complete asymmetric maintenance cost ratio experiments across multi-regime C-MAPSS and FEMTO/PRONOSTIA bearings and package reproducible open-source evaluation scripts.',
+      'Connect validated offline Python/PyTorch C-MAPSS & FEMTO/PRONOSTIA benchmark artifact imports via the schema-validated JSON ledger once ongoing companion studies complete review.',
     relatedProjectId: 'forgemind-ai',
   },
   {
@@ -194,14 +194,14 @@ export const INNOVATION_TIMELINE: InnovationTimelineItem[] = [
   },
   {
     id: 'tl-forgemind',
-    period: '2026 · Active',
-    title: 'ForgeMind AI — Uncertainty-Aware Prognostics Research Prototype',
+    period: '2026 · Live Prototype',
+    title: 'ForgeMind AI — Uncertainty-Aware Prognostics Workbench Deployed',
     stage: 'prototype',
     kind: 'Prototype Build',
-    organizationOrContext: 'NASA C-MAPSS Benchmarks · Reliability Track',
+    organizationOrContext: 'Independent Research Tooling · Vercel + MIT GitHub',
     summary:
-      'Developed comparative C-MAPSS FD001 Remaining Useful Life baselines and SHAP sensor reduction pipelines, while scoping proposed maintenance-cost policy simulation experiments.',
-    statusNote: 'Research Prototype · Experiments Active',
+      'Built and deployed the 10-module ForgeMind AI workbench in React 19, TypeScript, and D3.js v7 with deterministic synthetic C-MAPSS fleets, split conformal prediction intervals, 5-policy episode replay, rotatable 3D cost surfaces, jsPDF audit reports, and 32 engine tests.',
+    statusNote: 'Live Research Workbench · Non-Operational Simulation Prototype',
     linkedInnovationId: 'inn-forgemind',
   },
   {

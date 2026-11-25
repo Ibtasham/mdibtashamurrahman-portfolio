@@ -67,7 +67,7 @@ export function ExperienceDetailPage() {
 
   if (!entry) {
     return (
-      <section className={`bg-slate-50 dark:bg-[#050914] ${DESIGN_TOKENS.spacing.sectionY}`}>
+      <section className={`bg-wood-canvas dark:bg-[#050914] ${DESIGN_TOKENS.spacing.sectionY}`}>
         <div className={DESIGN_TOKENS.spacing.container}>
           <SurfaceCard className="mx-auto max-w-xl p-8 text-center space-y-4">
             <p className="font-mono text-xs text-cyan-700 dark:text-cyan-400">
@@ -93,7 +93,7 @@ export function ExperienceDetailPage() {
 
   return (
     <>
-      <div className="relative overflow-hidden border-b border-slate-200 dark:border-slate-800/80 bg-slate-50 dark:bg-[#050914] bg-blueprint-grid py-12 sm:py-16">
+      <div className="relative overflow-hidden border-b border-wood-subtle dark:border-slate-800/80 bg-wood-canvas dark:bg-[#050914] bg-blueprint-grid py-12 sm:py-16">
         <div
           aria-hidden="true"
           className="pointer-events-none absolute inset-0 ambient-hero-light"
@@ -101,7 +101,7 @@ export function ExperienceDetailPage() {
         <div className={`relative ${DESIGN_TOKENS.spacing.container} space-y-6`}>
           <Link
             to="/experience"
-            className="inline-flex items-center gap-1.5 font-mono text-xs text-slate-600 dark:text-slate-400 transition-colors duration-150 hover:text-cyan-700 dark:hover:text-cyan-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600 dark:focus-visible:ring-cyan-400 rounded-[4px]"
+            className="inline-flex items-center gap-1.5 font-mono text-xs text-wood-muted dark:text-slate-400 transition-colors duration-150 hover:text-cyan-700 dark:hover:text-cyan-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600 dark:focus-visible:ring-cyan-400 rounded-[4px]"
           >
             <ArrowLeft className="h-3.5 w-3.5" aria-hidden="true" />
             <span>Back to Experience &amp; Leadership</span>
@@ -129,7 +129,7 @@ export function ExperienceDetailPage() {
                 {entry.organization}
               </p>
 
-              <div className="flex flex-wrap items-center gap-x-5 gap-y-2 font-mono text-xs text-slate-600 dark:text-slate-400">
+              <div className="flex flex-wrap items-center gap-x-5 gap-y-2 font-mono text-xs text-wood-muted dark:text-slate-400">
                 <span className="inline-flex items-center gap-1.5 tabular-nums">
                   <Calendar
                     className="h-3.5 w-3.5 text-cyan-700 dark:text-cyan-400"
@@ -151,7 +151,7 @@ export function ExperienceDetailPage() {
       </div>
 
       <section
-        className={`border-b border-slate-200 dark:border-slate-800/80 bg-slate-100/70 dark:bg-[#080e1c] ${DESIGN_TOKENS.spacing.sectionY}`}
+        className={`border-b border-wood-subtle dark:border-slate-800/80 bg-wood-alt dark:bg-[#080e1c] ${DESIGN_TOKENS.spacing.sectionY}`}
       >
         <div className={`${DESIGN_TOKENS.spacing.container} space-y-10`}>
           <div className="grid gap-8 lg:grid-cols-12 lg:items-start">
@@ -161,16 +161,16 @@ export function ExperienceDetailPage() {
                 <h2 className="font-mono text-xs text-cyan-700 dark:text-cyan-400">
                   Role Overview, Responsibility &amp; Contribution
                 </h2>
-                <p className="text-sm leading-relaxed text-slate-800 dark:text-slate-200 sm:text-base">
+                <p className="text-sm leading-relaxed text-wood-ink dark:text-slate-200 sm:text-base">
                   {entry.summary}
                 </p>
 
-                <dl className="grid gap-4 border-t border-slate-200 dark:border-slate-800/80 pt-4 sm:grid-cols-2 text-xs">
+                <dl className="grid gap-4 border-t border-wood-subtle dark:border-slate-800/80 pt-4 sm:grid-cols-2 text-xs">
                   <div className="space-y-1">
-                    <dt className="font-mono text-[11px] text-slate-600 dark:text-slate-400">
+                    <dt className="font-mono text-[11px] text-wood-muted dark:text-slate-400">
                       Primary Responsibility
                     </dt>
-                    <dd className="leading-relaxed text-slate-700 dark:text-slate-300">
+                    <dd className="leading-relaxed text-wood-walnut dark:text-slate-300">
                       {entry.responsibility}
                     </dd>
                   </div>
@@ -178,7 +178,7 @@ export function ExperienceDetailPage() {
                     <dt className="font-mono text-[11px] text-cyan-700 dark:text-cyan-400">
                       Actual Documented Contribution
                     </dt>
-                    <dd className="leading-relaxed text-slate-800 dark:text-slate-200">
+                    <dd className="leading-relaxed text-wood-ink dark:text-slate-200">
                       {entry.actualContribution}
                     </dd>
                   </div>
@@ -186,7 +186,7 @@ export function ExperienceDetailPage() {
               </SurfaceCard>
 
               <SurfaceCard className="p-6 space-y-4">
-                <div className="flex items-center justify-between border-b border-slate-200 dark:border-slate-800/80 pb-3">
+                <div className="flex items-center justify-between border-b border-wood-subtle dark:border-slate-800/80 pb-3">
                   <h2 className="font-mono text-xs text-blue-700 dark:text-blue-400">
                     Verified Responsibilities &amp; Scope
                   </h2>
@@ -198,7 +198,7 @@ export function ExperienceDetailPage() {
                   {entry.highlights.map((item) => (
                     <li
                       key={item}
-                      className="flex items-start gap-2.5 text-sm leading-relaxed text-slate-700 dark:text-slate-300"
+                      className="flex items-start gap-2.5 text-sm leading-relaxed text-wood-walnut dark:text-slate-300"
                     >
                       <CheckCircle2
                         className="mt-1 h-4 w-4 shrink-0 text-cyan-700 dark:text-cyan-400"
@@ -212,7 +212,7 @@ export function ExperienceDetailPage() {
 
               {/* Certificate Attachment Support Card */}
               <SurfaceCard variant="accent" className="p-6 space-y-4">
-                <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200 dark:border-slate-800/80 pb-3">
+                <div className="flex flex-wrap items-center justify-between gap-2 border-b border-wood-subtle dark:border-slate-800/80 pb-3">
                   <h2 className="font-mono text-xs text-cyan-700 dark:text-cyan-400">
                     Certificate &amp; Evidence Support
                   </h2>
@@ -231,10 +231,10 @@ export function ExperienceDetailPage() {
 
                 {linkedCertificate ? (
                   <div className="space-y-3">
-                    <p className="text-sm font-medium text-slate-900 dark:text-slate-100">
+                    <p className="text-sm font-medium text-wood-ink dark:text-slate-100">
                       {linkedCertificate.title}
                     </p>
-                    <p className="text-xs leading-relaxed text-slate-700 dark:text-slate-300">
+                    <p className="text-xs leading-relaxed text-wood-walnut dark:text-slate-300">
                       {linkedCertificate.notes}
                     </p>
                     <div className="flex flex-wrap items-center gap-3 pt-1">
@@ -251,7 +251,7 @@ export function ExperienceDetailPage() {
                           />
                         ) : (
                           <FileClock
-                            className="h-3.5 w-3.5 text-slate-600 dark:text-slate-400"
+                            className="h-3.5 w-3.5 text-wood-muted dark:text-slate-400"
                             aria-hidden="true"
                           />
                         )}
@@ -286,7 +286,7 @@ export function ExperienceDetailPage() {
                     <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
                   </a>
                 ) : (
-                  <p className="text-xs leading-relaxed text-slate-600 dark:text-slate-400">
+                  <p className="text-xs leading-relaxed text-wood-muted dark:text-slate-400">
                     No certificate or appointment scan has been published for this tenure yet. Verification details can be provided upon direct inquiry.
                   </p>
                 )}
@@ -295,7 +295,7 @@ export function ExperienceDetailPage() {
               {/* Visual Evidence, Posters & Event Photographs */}
               {roleMedia.length > 0 && (
                 <SurfaceCard className="p-6 space-y-4">
-                  <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200 dark:border-slate-800/80 pb-3">
+                  <div className="flex flex-wrap items-center justify-between gap-2 border-b border-wood-subtle dark:border-slate-800/80 pb-3">
                     <h2 className="flex items-center gap-2 font-mono text-xs text-cyan-700 dark:text-cyan-400">
                       <Images className="h-3.5 w-3.5" aria-hidden="true" />
                       <span>Visual Evidence, Posters &amp; Letters ({roleMedia.length})</span>
@@ -314,9 +314,9 @@ export function ExperienceDetailPage() {
                         key={media.id}
                         type="button"
                         onClick={() => setActiveMedia(media)}
-                        className="group flex flex-col overflow-hidden rounded-[12px] border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-[#060b16] text-left transition-colors hover:border-blue-500/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600 dark:focus-visible:ring-cyan-400 cursor-pointer"
+                        className="group flex flex-col overflow-hidden rounded-[12px] border border-wood-subtle dark:border-slate-800 bg-wood-inset dark:bg-[#060b16] text-left transition-colors hover:border-blue-500/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600 dark:focus-visible:ring-cyan-400 cursor-pointer"
                       >
-                        <div className="relative w-full border-b border-slate-200 dark:border-slate-800">
+                        <div className="relative w-full border-b border-wood-subtle dark:border-slate-800">
                           <ArchiveMediaFrame
                             src={media.src}
                             alt={media.alt}
@@ -328,7 +328,7 @@ export function ExperienceDetailPage() {
                           />
                           <span
                             aria-hidden="true"
-                            className="absolute right-2 bottom-2 inline-flex h-7 w-7 items-center justify-center rounded-[7px] border border-slate-300/80 dark:border-slate-700/80 bg-white/90 dark:bg-[#050914]/90 text-slate-700 dark:text-slate-200 opacity-0 transition-opacity duration-150 group-hover:opacity-100"
+                            className="absolute right-2 bottom-2 inline-flex h-7 w-7 items-center justify-center rounded-[7px] border border-wood-default/80 dark:border-slate-700/80 bg-wood-surface/90 dark:bg-[#050914]/90 text-wood-walnut dark:text-slate-200 opacity-0 transition-opacity duration-150 group-hover:opacity-100"
                           >
                             <Expand className="h-3.5 w-3.5" />
                           </span>
@@ -337,7 +337,7 @@ export function ExperienceDetailPage() {
                           <p className="font-mono text-[10px] text-cyan-700 dark:text-cyan-400">
                             {media.kind} · {media.date}
                           </p>
-                          <p className="text-xs leading-relaxed text-slate-700 dark:text-slate-300">
+                          <p className="text-xs leading-relaxed text-wood-walnut dark:text-slate-300">
                             {media.caption}
                           </p>
                         </div>
@@ -350,7 +350,7 @@ export function ExperienceDetailPage() {
               {/* Manual Completion Flag Card */}
               {entry.missingInfo && entry.missingInfo.length > 0 && (
                 <SurfaceCard className="p-6 space-y-3">
-                  <div className="flex items-center gap-2 border-b border-slate-200 dark:border-slate-800/80 pb-3">
+                  <div className="flex items-center gap-2 border-b border-wood-subtle dark:border-slate-800/80 pb-3">
                     <AlertCircle
                       className="h-4 w-4 text-blue-700 dark:text-blue-400"
                       aria-hidden="true"
@@ -359,10 +359,10 @@ export function ExperienceDetailPage() {
                       Items Marked for Manual Completion
                     </h2>
                   </div>
-                  <p className="text-xs text-slate-600 dark:text-slate-400">
+                  <p className="text-xs text-wood-muted dark:text-slate-400">
                     To keep all records strictly factual without invented dates or metrics, the following items await manual entry when available:
                   </p>
-                  <ul className="space-y-1.5 text-xs leading-relaxed text-slate-700 dark:text-slate-300">
+                  <ul className="space-y-1.5 text-xs leading-relaxed text-wood-walnut dark:text-slate-300">
                     {entry.missingInfo.map((note) => (
                       <li key={note}>– {note}</li>
                     ))}
@@ -374,14 +374,14 @@ export function ExperienceDetailPage() {
             {/* Metadata Sidebar */}
             <aside className="min-w-0 space-y-5 lg:col-span-4">
               <SurfaceCard className="p-5 space-y-4">
-                <h2 className="border-b border-slate-200 dark:border-slate-800/80 pb-2.5 font-mono text-xs text-slate-600 dark:text-slate-400">
+                <h2 className="border-b border-wood-subtle dark:border-slate-800/80 pb-2.5 font-mono text-xs text-wood-muted dark:text-slate-400">
                   Structured Record Metadata
                 </h2>
 
                 <div className="space-y-3 text-xs">
                   <div>
-                    <p className="font-mono text-[11px] text-slate-600 dark:text-slate-400">Tenure Status</p>
-                    <p className="mt-0.5 font-medium text-slate-900 dark:text-slate-100">
+                    <p className="font-mono text-[11px] text-wood-muted dark:text-slate-400">Tenure Status</p>
+                    <p className="mt-0.5 font-medium text-wood-ink dark:text-slate-100">
                       {entry.isCurrent
                         ? 'Current Active Position'
                         : 'Former / Completed Position'}
@@ -389,30 +389,30 @@ export function ExperienceDetailPage() {
                   </div>
 
                   <div>
-                    <p className="font-mono text-[11px] text-slate-600 dark:text-slate-400">Timeframe</p>
-                    <p className="mt-0.5 font-mono text-slate-800 dark:text-slate-200 tabular-nums">
+                    <p className="font-mono text-[11px] text-wood-muted dark:text-slate-400">Timeframe</p>
+                    <p className="mt-0.5 font-mono text-wood-ink dark:text-slate-200 tabular-nums">
                       {entry.period}
                     </p>
                   </div>
 
                   <div>
-                    <p className="font-mono text-[11px] text-slate-600 dark:text-slate-400">Track</p>
-                    <p className="mt-0.5 text-slate-800 dark:text-slate-200">
+                    <p className="font-mono text-[11px] text-wood-muted dark:text-slate-400">Track</p>
+                    <p className="mt-0.5 text-wood-ink dark:text-slate-200">
                       {CATEGORY_LABELS[entry.category] ?? entry.category}
                     </p>
                   </div>
 
                   <div>
-                    <p className="font-mono text-[11px] text-slate-600 dark:text-slate-400">
+                    <p className="font-mono text-[11px] text-wood-muted dark:text-slate-400">
                       Location &amp; Mode
                     </p>
-                    <p className="mt-0.5 text-slate-800 dark:text-slate-200">
+                    <p className="mt-0.5 text-wood-ink dark:text-slate-200">
                       {entry.location}
                     </p>
                   </div>
 
                   <div>
-                    <p className="font-mono text-[11px] text-slate-600 dark:text-slate-400">
+                    <p className="font-mono text-[11px] text-wood-muted dark:text-slate-400">
                       Organization Emblem Code
                     </p>
                     <p className="mt-0.5 font-mono text-cyan-700 dark:text-cyan-300">
@@ -443,7 +443,7 @@ export function ExperienceDetailPage() {
                     to="/experience"
                     variant="ghost"
                     size="sm"
-                    className="justify-between text-slate-700 dark:text-slate-300"
+                    className="justify-between text-wood-walnut dark:text-slate-300"
                   >
                     <span>All {EXPERIENCES.length} Roles</span>
                     <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
@@ -454,21 +454,21 @@ export function ExperienceDetailPage() {
           </div>
 
           {/* Previous / Next Entry Navigation */}
-          <div className="grid grid-cols-1 gap-4 border-t border-slate-200 dark:border-slate-800/80 pt-8 sm:grid-cols-2">
+          <div className="grid grid-cols-1 gap-4 border-t border-wood-subtle dark:border-slate-800/80 pt-8 sm:grid-cols-2">
             {previous ? (
               <Link
                 to={`/experience/${previous.id}`}
                 className="group block min-w-0 rounded-[14px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600 dark:focus-visible:ring-cyan-400"
               >
                 <SurfaceCard variant="interactive" className="p-4 space-y-1">
-                  <span className="inline-flex items-center gap-1 font-mono text-[11px] text-slate-600 dark:text-slate-400 group-hover:text-cyan-700 dark:group-hover:text-cyan-400">
+                  <span className="inline-flex items-center gap-1 font-mono text-[11px] text-wood-muted dark:text-slate-400 group-hover:text-cyan-700 dark:group-hover:text-cyan-400">
                     <ArrowLeft className="h-3 w-3" aria-hidden="true" />
                     <span>Previous Role</span>
                   </span>
-                  <p className="font-display text-sm font-semibold text-slate-900 dark:text-slate-100">
+                  <p className="font-display text-sm font-semibold text-wood-ink dark:text-slate-100">
                     {previous.role}
                   </p>
-                  <p className="truncate text-xs text-slate-600 dark:text-slate-400">
+                  <p className="truncate text-xs text-wood-muted dark:text-slate-400">
                     {previous.organization}
                   </p>
                 </SurfaceCard>
@@ -483,14 +483,14 @@ export function ExperienceDetailPage() {
                 className="group block min-w-0 rounded-[14px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600 dark:focus-visible:ring-cyan-400 sm:text-right"
               >
                 <SurfaceCard variant="interactive" className="p-4 space-y-1">
-                  <span className="inline-flex items-center gap-1 font-mono text-[11px] text-slate-600 dark:text-slate-400 group-hover:text-cyan-700 dark:group-hover:text-cyan-400 sm:justify-end">
+                  <span className="inline-flex items-center gap-1 font-mono text-[11px] text-wood-muted dark:text-slate-400 group-hover:text-cyan-700 dark:group-hover:text-cyan-400 sm:justify-end">
                     <span>Next Role</span>
                     <ArrowRight className="h-3 w-3" aria-hidden="true" />
                   </span>
-                  <p className="font-display text-sm font-semibold text-slate-900 dark:text-slate-100">
+                  <p className="font-display text-sm font-semibold text-wood-ink dark:text-slate-100">
                     {next.role}
                   </p>
-                  <p className="truncate text-xs text-slate-600 dark:text-slate-400">
+                  <p className="truncate text-xs text-wood-muted dark:text-slate-400">
                     {next.organization}
                   </p>
                 </SurfaceCard>

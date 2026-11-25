@@ -118,22 +118,22 @@ export function HeroPortrait25D({ portraitUrl, ownerName }: HeroPortrait25DProps
             }}
           />
           <div
-            className={`absolute h-[290px] w-[290px] rounded-full blur-3xl sm:h-[340px] sm:w-[340px] ${
+            className={`absolute h-[330px] w-[330px] rounded-full sm:h-[380px] sm:w-[380px] ${
               prefersReducedMotion ? '' : 'animate-hero-ambient-breathe'
             }`}
             style={{
               background:
-                'radial-gradient(circle, rgba(37, 99, 235, 0.48) 0%, rgba(34, 211, 238, 0.22) 48%, transparent 76%)',
+                'radial-gradient(circle, rgba(37, 99, 235, 0.34) 0%, rgba(34, 211, 238, 0.14) 38%, rgba(34, 211, 238, 0) 70%)',
             }}
           />
           {/* Soft moving electric-blue orbital spotlight around silhouette */}
           <div
-            className={`absolute h-[230px] w-[230px] rounded-full blur-2xl sm:h-[268px] sm:w-[268px] ${
+            className={`absolute h-[260px] w-[260px] rounded-full sm:h-[300px] sm:w-[300px] ${
               prefersReducedMotion ? 'opacity-45' : 'animate-hero-orbit-light'
             }`}
             style={{
               background:
-                'radial-gradient(circle, rgba(56, 189, 248, 0.42) 0%, rgba(37, 99, 235, 0.18) 52%, transparent 76%)',
+                'radial-gradient(circle, rgba(56, 189, 248, 0.28) 0%, rgba(37, 99, 235, 0.12) 42%, rgba(37, 99, 235, 0) 70%)',
             }}
           />
         </div>
@@ -243,7 +243,11 @@ export function HeroPortrait25D({ portraitUrl, ownerName }: HeroPortrait25DProps
           {/* Projected depth shadow behind floating figure */}
           <div
             aria-hidden="true"
-            className="hero-25d-cast-shadow pointer-events-none absolute inset-x-10 top-6 bottom-12 rounded-full bg-blue-950/75 blur-2xl"
+            className="hero-25d-cast-shadow pointer-events-none absolute inset-x-4 top-2 bottom-8 rounded-full"
+            style={{
+              background:
+                'radial-gradient(ellipse at center, rgba(23, 37, 84, 0.72) 0%, rgba(23, 37, 84, 0.32) 48%, transparent 74%)',
+            }}
           />
 
           {/* Borderless Floating Holographic Silhouette Wrapper */}
@@ -327,10 +331,10 @@ export function HeroPortrait25D({ portraitUrl, ownerName }: HeroPortrait25DProps
           >
             {/* Glowing upward holographic beam cone */}
             <div
-              className="pointer-events-none -mb-6 h-12 w-[78%] blur-md opacity-80"
+              className="pointer-events-none -mb-6 h-12 w-[84%] opacity-85"
               style={{
                 background:
-                  'radial-gradient(ellipse 65% 90% at 50% 95%, rgba(56, 189, 248, 0.52) 0%, rgba(37, 99, 235, 0.18) 55%, transparent 82%)',
+                  'radial-gradient(ellipse 65% 90% at 50% 95%, rgba(56, 189, 248, 0.48) 0%, rgba(37, 99, 235, 0.16) 52%, transparent 78%)',
               }}
             />
 

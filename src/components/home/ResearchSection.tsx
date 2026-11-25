@@ -79,7 +79,7 @@ function StageIcon({ stage }: { stage: ExperimentStage }) {
   }
   return (
     <FlaskConical
-      className="h-3.5 w-3.5 text-slate-600 dark:text-slate-400"
+      className="h-3.5 w-3.5 text-wood-muted dark:text-slate-400"
       aria-hidden="true"
     />
   );
@@ -136,7 +136,7 @@ export function ResearchSection({ expanded = false }: ResearchSectionProps) {
   return (
     <section
       id="research"
-      className={`relative border-b border-slate-200 dark:border-slate-800/80 bg-slate-100/70 dark:bg-[#080e1c] ${
+      className={`relative border-b border-wood-subtle dark:border-slate-800/80 bg-wood-alt dark:bg-[#080e1c] ${
         expanded ? 'py-10 sm:py-14' : DESIGN_TOKENS.spacing.sectionY
       }`}
     >
@@ -158,13 +158,13 @@ export function ResearchSection({ expanded = false }: ResearchSectionProps) {
         )}
 
         {/* Academic Integrity & Unpublished Scope Notice */}
-        <div className="flex items-start gap-3 rounded-[12px] border border-slate-200 dark:border-slate-800/80 bg-white dark:bg-[#0b1222] px-4 py-3.5 text-xs text-slate-600 dark:text-slate-400">
+        <div className="flex items-start gap-3 rounded-[12px] border border-wood-subtle dark:border-slate-800/80 bg-wood-surface dark:bg-[#0b1222] px-4 py-3.5 text-xs text-wood-muted dark:text-slate-400">
           <ShieldCheck
             className="mt-0.5 h-4 w-4 shrink-0 text-cyan-700 dark:text-cyan-400"
             aria-hidden="true"
           />
           <p className="leading-relaxed">
-            <strong className="font-semibold text-slate-900 dark:text-slate-100">
+            <strong className="font-semibold text-wood-ink dark:text-slate-100">
               Unpublished Benchmark &amp; Simulation Scope:
             </strong>{' '}
             {RESEARCH_PROFILE_META.integrityNotice}
@@ -173,15 +173,15 @@ export function ResearchSection({ expanded = false }: ResearchSectionProps) {
 
         {/* Research Profile at a Glance (3 Connected Threads) */}
         <SurfaceCard className="overflow-hidden p-0">
-          <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200 dark:border-slate-800/80 bg-slate-50 dark:bg-[#060b16] px-5 py-3">
-            <span className="font-mono text-xs font-semibold text-slate-900 dark:text-slate-100">
+          <div className="flex flex-wrap items-center justify-between gap-2 border-b border-wood-subtle dark:border-slate-800/80 bg-wood-inset dark:bg-[#060b16] px-5 py-3">
+            <span className="font-mono text-xs font-semibold text-wood-ink dark:text-slate-100">
               Research Profile at a Glance · Three Connected Threads
             </span>
             <span className="font-mono text-[11px] text-cyan-700 dark:text-cyan-400">
               {RESEARCH_MANUSCRIPTS.length} Unpublished Studies · {RESEARCH_PUBLISHED_RECORDS.length} Published Papers
             </span>
           </div>
-          <div className="divide-y divide-slate-200 dark:divide-slate-800/70">
+          <div className="divide-y divide-wood-subtle dark:divide-slate-800/70">
             {RESEARCH_MANUSCRIPTS.map((study, idx) => (
               <div
                 key={study.id}
@@ -191,15 +191,15 @@ export function ResearchSection({ expanded = false }: ResearchSectionProps) {
                   <p className="font-mono text-[10px] text-cyan-700 dark:text-cyan-400">
                     THREAD 0{idx + 1} · {study.status.toUpperCase()}
                   </p>
-                  <p className="text-xs font-semibold text-slate-900 dark:text-slate-100">
+                  <p className="text-xs font-semibold text-wood-ink dark:text-slate-100">
                     {study.domain}
                   </p>
                 </div>
-                <p className="text-xs text-slate-700 dark:text-slate-300 md:col-span-5">
+                <p className="text-xs text-wood-walnut dark:text-slate-300 md:col-span-5">
                   {study.centralQuestion ?? study.researchQuestions?.[0]}
                 </p>
                 <div className="flex flex-wrap items-center justify-between gap-2 md:col-span-4 md:justify-end">
-                  <span className="font-mono text-[11px] text-slate-600 dark:text-slate-400">
+                  <span className="font-mono text-[11px] text-wood-muted dark:text-slate-400">
                     {study.methods.slice(0, 4).join(' · ')}
                   </span>
                   <button
@@ -225,7 +225,7 @@ export function ResearchSection({ expanded = false }: ResearchSectionProps) {
               <h3 className={DESIGN_TOKENS.typography.sectionTitle}>
                 Research Studies &amp; Detailed Overview Panels ({RESEARCH_MANUSCRIPTS.length})
               </h3>
-              <p className="font-mono text-xs text-slate-600 dark:text-slate-400">
+              <p className="font-mono text-xs text-wood-muted dark:text-slate-400">
                 Each study preserves its distinct methods, benchmark scope, contribution areas, limitations, and next research steps.
               </p>
             </div>
@@ -247,7 +247,7 @@ export function ResearchSection({ expanded = false }: ResearchSectionProps) {
                       className={`min-h-[38px] rounded-[10px] border px-3.5 py-2 text-xs font-medium transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600 dark:focus-visible:ring-cyan-400 whitespace-nowrap shrink-0 cursor-pointer ${
                         active
                           ? 'border-blue-600 bg-blue-50 text-blue-700 dark:border-blue-500/80 dark:bg-blue-600/20 dark:text-cyan-200'
-                          : 'border-slate-200 bg-white text-slate-600 hover:border-slate-300 hover:text-slate-900 dark:border-slate-800 dark:bg-[#0b1222] dark:text-slate-400 dark:hover:border-slate-700 dark:hover:text-slate-200'
+                          : 'border-wood-subtle bg-wood-surface text-wood-muted hover:border-wood-default hover:text-wood-ink dark:border-slate-800 dark:bg-[#0b1222] dark:text-slate-400 dark:hover:border-slate-700 dark:hover:text-slate-200'
                       }`}
                     >
                       {domain}
@@ -288,7 +288,7 @@ export function ResearchSection({ expanded = false }: ResearchSectionProps) {
                           <span className="text-cyan-700 dark:text-cyan-400 font-semibold">
                             STUDY 0{idx + 1} · {paper.domain}
                           </span>
-                          <span className="rounded-[6px] border border-slate-300 dark:border-slate-700/80 bg-slate-100 dark:bg-[#060b16] px-2 py-0.5 text-[10px] font-semibold text-slate-700 dark:text-slate-300">
+                          <span className="rounded-[6px] border border-wood-default dark:border-slate-700/80 bg-wood-inset dark:bg-[#060b16] px-2 py-0.5 text-[10px] font-semibold text-wood-walnut dark:text-slate-300">
                             {paper.status}
                           </span>
                         </div>
@@ -303,20 +303,20 @@ export function ResearchSection({ expanded = false }: ResearchSectionProps) {
                       </div>
 
                       {/* Public-Facing Summary */}
-                      <p className="text-xs leading-relaxed text-slate-700 dark:text-slate-300">
+                      <p className="text-xs leading-relaxed text-wood-walnut dark:text-slate-300">
                         {paper.abstract}
                       </p>
 
                       {/* Technical Approach Tags */}
                       <div className="space-y-1.5">
-                        <p className="font-mono text-[10px] text-slate-500">
+                        <p className="font-mono text-[10px] text-wood-muted dark:text-slate-500">
                           TECHNICAL APPROACH &amp; BENCHMARKS
                         </p>
                         <div className="flex flex-wrap gap-1.5">
                           {paper.methods.map((tag) => (
                             <span
                               key={tag}
-                              className="rounded-[6px] border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-[#060b16] px-2 py-0.5 font-mono text-[10px] text-slate-700 dark:text-slate-300"
+                              className="rounded-[6px] border border-wood-subtle dark:border-slate-800 bg-wood-inset dark:bg-[#060b16] px-2 py-0.5 font-mono text-[10px] text-wood-walnut dark:text-slate-300"
                             >
                               {tag}
                             </span>
@@ -325,21 +325,21 @@ export function ResearchSection({ expanded = false }: ResearchSectionProps) {
                       </div>
 
                       {/* Structured Quick-View Details + Expandable Limitations/Directions */}
-                      <dl className="divide-y divide-slate-200 dark:divide-slate-800/70 border-y border-slate-200 dark:border-slate-800/70 text-xs">
+                      <dl className="divide-y divide-wood-subtle dark:divide-slate-800/70 border-y border-wood-subtle dark:border-slate-800/70 text-xs">
                         <div className="py-2.5 space-y-1">
-                          <dt className="font-mono text-[10px] text-slate-500">
+                          <dt className="font-mono text-[10px] text-wood-muted dark:text-slate-500">
                             RESEARCH PROBLEM
                           </dt>
-                          <dd className="leading-relaxed text-slate-700 dark:text-slate-300">
+                          <dd className="leading-relaxed text-wood-walnut dark:text-slate-300">
                             {paper.motivation}
                           </dd>
                         </div>
 
                         <div className="py-2.5 space-y-1">
-                          <dt className="font-mono text-[10px] text-slate-500">
+                          <dt className="font-mono text-[10px] text-wood-muted dark:text-slate-500">
                             BENCHMARK SCOPE
                           </dt>
-                          <dd className="font-mono text-[11px] text-slate-800 dark:text-slate-200">
+                          <dd className="font-mono text-[11px] text-wood-ink dark:text-slate-200">
                             {paper.datasetsOrBenchmarks}
                           </dd>
                         </div>
@@ -350,7 +350,7 @@ export function ResearchSection({ expanded = false }: ResearchSectionProps) {
                               <dt className="font-mono text-[10px] text-cyan-700 dark:text-cyan-400">
                                 CONTRIBUTION AREAS
                               </dt>
-                              <dd className="text-slate-700 dark:text-slate-300 leading-relaxed">
+                              <dd className="text-wood-walnut dark:text-slate-300 leading-relaxed">
                                 <ul className="space-y-1">
                                   {(paper.contributionAreas ?? [paper.expectedContribution]).map((item) => (
                                     <li key={item}>• {item}</li>
@@ -363,7 +363,7 @@ export function ResearchSection({ expanded = false }: ResearchSectionProps) {
                               <dt className="font-mono text-[10px] text-amber-700 dark:text-amber-400">
                                 LIMITATIONS
                               </dt>
-                              <dd className="text-slate-700 dark:text-slate-300 leading-relaxed">
+                              <dd className="text-wood-walnut dark:text-slate-300 leading-relaxed">
                                 <ul className="space-y-1">
                                   {(paper.limitations ?? []).map((item) => (
                                     <li key={item}>• {item}</li>
@@ -376,7 +376,7 @@ export function ResearchSection({ expanded = false }: ResearchSectionProps) {
                               <dt className="font-mono text-[10px] text-blue-700 dark:text-blue-400">
                                 FUTURE RESEARCH DIRECTIONS
                               </dt>
-                              <dd className="text-slate-700 dark:text-slate-300 leading-relaxed">
+                              <dd className="text-wood-walnut dark:text-slate-300 leading-relaxed">
                                 <ul className="space-y-1">
                                   {(paper.futureDirections ?? []).map((item) => (
                                     <li key={item}>• {item}</li>
@@ -421,7 +421,7 @@ export function ResearchSection({ expanded = false }: ResearchSectionProps) {
                             size="sm"
                             aria-expanded={isExpanded}
                             onClick={() => toggleStudySpecs(paper.id)}
-                            className="!px-2 !min-h-[38px] sm:!min-h-[34px] text-slate-700 dark:text-slate-300"
+                            className="!px-2 !min-h-[38px] sm:!min-h-[34px] text-wood-walnut dark:text-slate-300"
                           >
                             <span>{isExpanded ? 'Compact' : 'Limits & Next'}</span>
                           </Button>
@@ -446,14 +446,14 @@ export function ResearchSection({ expanded = false }: ResearchSectionProps) {
           {/* Published Research Disclosure (Zero Fabricated Claims) */}
           <SurfaceCard className="p-5 flex flex-wrap items-center justify-between gap-3">
             <div className="space-y-1">
-              <p className="font-mono text-xs text-slate-800 dark:text-slate-200">
+              <p className="font-mono text-xs text-wood-ink dark:text-slate-200">
                 Published Research ({RESEARCH_PUBLISHED_RECORDS.length} · Peer-Reviewed / Preprints)
               </p>
-              <p className="text-xs text-slate-600 dark:text-slate-400">
+              <p className="text-xs text-wood-muted dark:text-slate-400">
                 No peer-reviewed journal articles, conference proceedings, DOIs, or acceptance claims are published. All three studies above remain Unpublished Research based on benchmark and simulation experiments.
               </p>
             </div>
-            <span className="font-mono text-xs text-slate-600 dark:text-slate-400 tabular-nums shrink-0">
+            <span className="font-mono text-xs text-wood-muted dark:text-slate-400 tabular-nums shrink-0">
               {RESEARCH_PUBLISHED_RECORDS.length} Published Records
             </span>
           </SurfaceCard>
@@ -464,7 +464,7 @@ export function ResearchSection({ expanded = false }: ResearchSectionProps) {
 
         {/* Expanded Research Profile Sections (/research route) */}
         {expanded && (
-          <div className="space-y-5 border-t border-slate-200 dark:border-slate-800/80 pt-10">
+          <div className="space-y-5 border-t border-wood-subtle dark:border-slate-800/80 pt-10">
             <div className="space-y-1">
               <p className="font-mono text-xs text-cyan-700 dark:text-cyan-400">
                 02 · Research Positioning &amp; Core Inquiry Tracks
@@ -472,7 +472,7 @@ export function ResearchSection({ expanded = false }: ResearchSectionProps) {
               <h3 className={DESIGN_TOKENS.typography.sectionTitle}>
                 Research Focus Areas
               </h3>
-              <p className="text-sm text-slate-600 dark:text-slate-400 max-w-3xl">
+              <p className="text-sm text-wood-muted dark:text-slate-400 max-w-3xl">
                 {RESEARCH_PROFILE_META.positioningTitle} — {RESEARCH_PROFILE_META.positioningSummary}
               </p>
             </div>
@@ -480,7 +480,7 @@ export function ResearchSection({ expanded = false }: ResearchSectionProps) {
             <div className={`grid ${DESIGN_TOKENS.spacing.gridGap} md:grid-cols-3`}>
               {ACADEMIC_INTERESTS.map((interest) => (
                 <SurfaceCard key={interest.id} className="min-w-0 p-6 space-y-3">
-                  <div className="flex flex-wrap items-baseline justify-between gap-2 border-b border-slate-200 dark:border-slate-800/80 pb-2.5">
+                  <div className="flex flex-wrap items-baseline justify-between gap-2 border-b border-wood-subtle dark:border-slate-800/80 pb-2.5">
                     <h4 className={DESIGN_TOKENS.typography.cardTitleLg}>
                       {interest.title}
                     </h4>
@@ -491,7 +491,7 @@ export function ResearchSection({ expanded = false }: ResearchSectionProps) {
                   <p className={DESIGN_TOKENS.typography.bodyMuted}>
                     {interest.summary}
                   </p>
-                  <p className="font-mono text-[11px] text-slate-700 dark:text-slate-300">
+                  <p className="font-mono text-[11px] text-wood-walnut dark:text-slate-300">
                     {interest.topics.join(' · ')}
                   </p>
                 </SurfaceCard>
@@ -502,7 +502,7 @@ export function ResearchSection({ expanded = false }: ResearchSectionProps) {
 
         {/* Experimental Pipeline Tracker + Stage Counts */}
         {expanded && (
-          <div className="space-y-6 border-t border-slate-200 dark:border-slate-800/80 pt-10">
+          <div className="space-y-6 border-t border-wood-subtle dark:border-slate-800/80 pt-10">
             <div className="flex flex-col gap-4 xl:flex-row xl:items-end xl:justify-between">
               <div className="space-y-1">
                 <p className="font-mono text-xs text-cyan-700 dark:text-cyan-400">
@@ -511,7 +511,7 @@ export function ResearchSection({ expanded = false }: ResearchSectionProps) {
                 <h3 className={DESIGN_TOKENS.typography.sectionTitle}>
                   Completed Setups, Ongoing Evaluations &amp; Future Extensions
                 </h3>
-                <p className="text-xs text-slate-600 dark:text-slate-400 sm:text-sm">
+                <p className="text-xs text-wood-muted dark:text-slate-400 sm:text-sm">
                   Separating benchmark setups from ongoing analysis and proposed future extensions—keeping confidential numerical findings unpublished.
                 </p>
               </div>
@@ -532,7 +532,7 @@ export function ResearchSection({ expanded = false }: ResearchSectionProps) {
                       className={`min-h-[40px] sm:min-h-[38px] rounded-[10px] border px-3.5 py-2 text-xs font-medium transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600 dark:focus-visible:ring-cyan-400 whitespace-nowrap shrink-0 cursor-pointer ${
                         active
                           ? 'border-blue-600 bg-blue-50 text-blue-700 dark:border-blue-500/80 dark:bg-blue-600/20 dark:text-cyan-200'
-                          : 'border-slate-200 bg-white text-slate-600 hover:border-slate-300 hover:text-slate-900 dark:border-slate-800 dark:bg-[#0b1222] dark:text-slate-400 dark:hover:border-slate-700 dark:hover:text-slate-200'
+                          : 'border-wood-subtle bg-wood-surface text-wood-muted hover:border-wood-default hover:text-wood-ink dark:border-slate-800 dark:bg-[#0b1222] dark:text-slate-400 dark:hover:border-slate-700 dark:hover:text-slate-200'
                       }`}
                     >
                       {tab.label} ({experimentCounts[tab.id]})
@@ -565,7 +565,7 @@ export function ResearchSection({ expanded = false }: ResearchSectionProps) {
                   >
                     <div className="space-y-2.5">
                       <div className="flex flex-wrap items-center justify-between gap-2 font-mono text-[11px]">
-                        <span className="inline-flex items-center gap-1.5 text-slate-800 dark:text-slate-200">
+                        <span className="inline-flex items-center gap-1.5 text-wood-ink dark:text-slate-200">
                           <StageIcon stage={exp.stage} />
                           <span>{exp.stageLabel}</span>
                         </span>
@@ -583,8 +583,8 @@ export function ResearchSection({ expanded = false }: ResearchSectionProps) {
                       </p>
                     </div>
 
-                    <div className="flex flex-wrap items-center justify-between gap-2 border-t border-slate-200 dark:border-slate-800/80 pt-3 font-mono text-[11px]">
-                      <span className="text-slate-600 dark:text-slate-400">
+                    <div className="flex flex-wrap items-center justify-between gap-2 border-t border-wood-subtle dark:border-slate-800/80 pt-3 font-mono text-[11px]">
+                      <span className="text-wood-muted dark:text-slate-400">
                         {exp.dataset}
                       </span>
                       {exp.relatedStudyId && (
@@ -606,7 +606,7 @@ export function ResearchSection({ expanded = false }: ResearchSectionProps) {
 
         {/* Datasets + Methodology Protocol */}
         {expanded && (
-          <div className="grid gap-10 border-t border-slate-200 dark:border-slate-800/80 pt-10 lg:grid-cols-12">
+          <div className="grid gap-10 border-t border-wood-subtle dark:border-slate-800/80 pt-10 lg:grid-cols-12">
             <div className="min-w-0 space-y-5 lg:col-span-6">
               <div className="space-y-1">
                 <div className="flex items-center gap-2 font-mono text-xs text-cyan-700 dark:text-cyan-400">
@@ -626,17 +626,17 @@ export function ResearchSection({ expanded = false }: ResearchSectionProps) {
                     className="p-4 space-y-1.5"
                   >
                     <div className="flex flex-wrap items-baseline justify-between gap-2">
-                      <h4 className="text-sm font-semibold text-slate-900 dark:text-slate-100">
+                      <h4 className="text-sm font-semibold text-wood-ink dark:text-slate-100">
                         {ds.name}
                       </h4>
                       <span className="font-mono text-[11px] text-cyan-700 dark:text-cyan-400">
                         {ds.featured ? 'Primary Prognostics Benchmark' : ds.domain}
                       </span>
                     </div>
-                    <p className="font-mono text-[11px] text-slate-600 dark:text-slate-400">
+                    <p className="font-mono text-[11px] text-wood-muted dark:text-slate-400">
                       {ds.scope}
                     </p>
-                    <p className="text-xs text-slate-700 dark:text-slate-300">
+                    <p className="text-xs text-wood-walnut dark:text-slate-300">
                       {ds.usage}
                     </p>
                   </SurfaceCard>
@@ -662,7 +662,7 @@ export function ResearchSection({ expanded = false }: ResearchSectionProps) {
                       <span className="font-mono text-xs text-cyan-700 dark:text-cyan-400">
                         {step.step}
                       </span>
-                      <h4 className="text-sm font-semibold text-slate-900 dark:text-slate-100">
+                      <h4 className="text-sm font-semibold text-wood-ink dark:text-slate-100">
                         {step.title}
                       </h4>
                     </div>
@@ -678,7 +678,7 @@ export function ResearchSection({ expanded = false }: ResearchSectionProps) {
 
         {/* Research Tools + Research Thread Notes */}
         {expanded && (
-          <div className="space-y-10 border-t border-slate-200 dark:border-slate-800/80 pt-10">
+          <div className="space-y-10 border-t border-wood-subtle dark:border-slate-800/80 pt-10">
             <div className="space-y-5">
               <div className="space-y-1">
                 <div className="flex items-center gap-2 font-mono text-xs text-cyan-700 dark:text-cyan-400">
@@ -693,10 +693,10 @@ export function ResearchSection({ expanded = false }: ResearchSectionProps) {
               <div className="grid gap-4 md:grid-cols-3">
                 {RESEARCH_TOOL_GROUPS.map((group) => (
                   <SurfaceCard key={group.category} className="p-5 space-y-2.5">
-                    <h4 className="font-mono text-xs font-semibold text-slate-800 dark:text-slate-200">
+                    <h4 className="font-mono text-xs font-semibold text-wood-ink dark:text-slate-200">
                       {group.category}
                     </h4>
-                    <p className="font-mono text-xs leading-relaxed text-slate-600 dark:text-slate-400">
+                    <p className="font-mono text-xs leading-relaxed text-wood-muted dark:text-slate-400">
                       {group.tools.join(' · ')}
                     </p>
                   </SurfaceCard>
@@ -751,7 +751,7 @@ export function ResearchSection({ expanded = false }: ResearchSectionProps) {
 
         {/* Collaboration Interests + Future Directions */}
         {expanded && (
-          <div className="grid gap-6 border-t border-slate-200 dark:border-slate-800/80 pt-10 lg:grid-cols-2">
+          <div className="grid gap-6 border-t border-wood-subtle dark:border-slate-800/80 pt-10 lg:grid-cols-2">
             <SurfaceCard className="p-6 space-y-5">
               <div className="space-y-1.5">
                 <p className="font-mono text-xs text-cyan-700 dark:text-cyan-400">
@@ -765,13 +765,13 @@ export function ResearchSection({ expanded = false }: ResearchSectionProps) {
                 </p>
               </div>
 
-              <ul className="divide-y divide-slate-200 dark:divide-slate-800/70 border-t border-slate-200 dark:border-slate-800/70">
+              <ul className="divide-y divide-wood-subtle dark:divide-slate-800/70 border-t border-wood-subtle dark:border-slate-800/70">
                 {RESEARCH_PROFILE_META.collaborationTracks.map((track) => (
                   <li key={track.title} className="py-3 space-y-1">
-                    <p className="text-xs font-semibold text-slate-900 dark:text-slate-100 sm:text-sm">
+                    <p className="text-xs font-semibold text-wood-ink dark:text-slate-100 sm:text-sm">
                       {track.title}
                     </p>
-                    <p className="text-xs text-slate-600 dark:text-slate-400">
+                    <p className="text-xs text-wood-muted dark:text-slate-400">
                       {track.detail}
                     </p>
                   </li>
@@ -802,13 +802,13 @@ export function ResearchSection({ expanded = false }: ResearchSectionProps) {
                 </p>
               </div>
 
-              <ul className="divide-y divide-slate-200 dark:divide-slate-800/70 border-t border-slate-200 dark:border-slate-800/70">
+              <ul className="divide-y divide-wood-subtle dark:divide-slate-800/70 border-t border-wood-subtle dark:border-slate-800/70">
                 {RESEARCH_PROFILE_META.futureDirections.map((dir) => (
                   <li key={dir.title} className="py-3 space-y-1">
-                    <p className="text-xs font-semibold text-slate-900 dark:text-slate-100 sm:text-sm">
+                    <p className="text-xs font-semibold text-wood-ink dark:text-slate-100 sm:text-sm">
                       {dir.title}
                     </p>
-                    <p className="text-xs text-slate-600 dark:text-slate-400">
+                    <p className="text-xs text-wood-muted dark:text-slate-400">
                       {dir.detail}
                     </p>
                   </li>
@@ -831,12 +831,12 @@ export function ResearchSection({ expanded = false }: ResearchSectionProps) {
         }
       >
         {activePaper && (
-          <div className="space-y-5 text-sm text-slate-700 dark:text-slate-300">
+          <div className="space-y-5 text-sm text-wood-walnut dark:text-slate-300">
             {/* Overview Panel Navigation Tabs */}
             <div
               role="tablist"
               aria-label="Detailed research overview sections"
-              className="flex flex-wrap gap-2 border-b border-slate-200 dark:border-slate-800/80 pb-3"
+              className="flex flex-wrap gap-2 border-b border-wood-subtle dark:border-slate-800/80 pb-3"
             >
               {(
                 [
@@ -856,7 +856,7 @@ export function ResearchSection({ expanded = false }: ResearchSectionProps) {
                     className={`min-h-[36px] rounded-[8px] border px-3 py-1.5 text-xs font-medium transition-colors cursor-pointer ${
                       active
                         ? 'border-blue-600 bg-blue-50 text-blue-700 dark:border-cyan-400/70 dark:bg-blue-600/20 dark:text-cyan-200'
-                        : 'border-slate-200 bg-slate-50 text-slate-600 hover:text-slate-900 dark:border-slate-800 dark:bg-[#060b16] dark:text-slate-400 dark:hover:text-slate-200'
+                        : 'border-wood-subtle bg-wood-inset text-wood-muted hover:text-wood-ink dark:border-slate-800 dark:bg-[#060b16] dark:text-slate-400 dark:hover:text-slate-200'
                     }`}
                   >
                     {tab.label}
@@ -868,11 +868,11 @@ export function ResearchSection({ expanded = false }: ResearchSectionProps) {
             {overviewTab === 'summary' && (
               <div className="space-y-4">
                 {activePaper.workingTitle && (
-                  <div className="rounded-[10px] border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-[#060b16] p-3.5 space-y-1">
-                    <p className="font-mono text-[10px] text-slate-500">
+                  <div className="rounded-[10px] border border-wood-subtle dark:border-slate-800 bg-wood-inset dark:bg-[#060b16] p-3.5 space-y-1">
+                    <p className="font-mono text-[10px] text-wood-muted dark:text-slate-500">
                       WORKING MANUSCRIPT TITLE · {activePaper.status.toUpperCase()}
                     </p>
-                    <p className="text-xs font-semibold leading-relaxed text-slate-900 dark:text-slate-100">
+                    <p className="text-xs font-semibold leading-relaxed text-wood-ink dark:text-slate-100">
                       {activePaper.workingTitle}
                     </p>
                   </div>
@@ -891,25 +891,25 @@ export function ResearchSection({ expanded = false }: ResearchSectionProps) {
                   <h4 className="font-mono text-xs text-blue-700 dark:text-blue-400">
                     Research Problem &amp; Motivation
                   </h4>
-                  <p className="text-xs leading-relaxed text-slate-700 dark:text-slate-300">
+                  <p className="text-xs leading-relaxed text-wood-walnut dark:text-slate-300">
                     {activePaper.motivation}
                   </p>
                 </div>
 
-                <div className="grid gap-4 border-y border-slate-200 dark:border-slate-800/80 py-3.5 sm:grid-cols-2">
+                <div className="grid gap-4 border-y border-wood-subtle dark:border-slate-800/80 py-3.5 sm:grid-cols-2">
                   <div>
-                    <p className="font-mono text-[10px] text-slate-500">
+                    <p className="font-mono text-[10px] text-wood-muted dark:text-slate-500">
                       CENTRAL RESEARCH QUESTION
                     </p>
-                    <p className="mt-1 text-xs font-medium text-slate-800 dark:text-slate-200">
+                    <p className="mt-1 text-xs font-medium text-wood-ink dark:text-slate-200">
                       {activePaper.centralQuestion ?? activePaper.researchQuestions?.[0]}
                     </p>
                   </div>
                   <div>
-                    <p className="font-mono text-[10px] text-slate-500">
+                    <p className="font-mono text-[10px] text-wood-muted dark:text-slate-500">
                       DATASETS &amp; BENCHMARKS
                     </p>
-                    <p className="mt-1 font-mono text-xs text-slate-800 dark:text-slate-200">
+                    <p className="mt-1 font-mono text-xs text-wood-ink dark:text-slate-200">
                       {activePaper.datasetsOrBenchmarks}
                     </p>
                   </div>
@@ -927,7 +927,7 @@ export function ResearchSection({ expanded = false }: ResearchSectionProps) {
                     {activePaper.methods.map((tag) => (
                       <span
                         key={tag}
-                        className="rounded-[6px] border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-[#060b16] px-2.5 py-1 font-mono text-[11px] text-slate-700 dark:text-slate-300"
+                        className="rounded-[6px] border border-wood-subtle dark:border-slate-800 bg-wood-inset dark:bg-[#060b16] px-2.5 py-1 font-mono text-[11px] text-wood-walnut dark:text-slate-300"
                       >
                         {tag}
                       </span>
@@ -939,11 +939,11 @@ export function ResearchSection({ expanded = false }: ResearchSectionProps) {
                   <p className="font-mono text-xs text-blue-700 dark:text-blue-400">
                     Study Scope &amp; Methodology Steps
                   </p>
-                  <ol className="space-y-2 text-xs leading-relaxed text-slate-700 dark:text-slate-300">
+                  <ol className="space-y-2 text-xs leading-relaxed text-wood-walnut dark:text-slate-300">
                     {(activePaper.methodologySteps ?? []).map((step, i) => (
                       <li
                         key={step}
-                        className="rounded-[8px] border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-[#060b16] p-3"
+                        className="rounded-[8px] border border-wood-subtle dark:border-slate-800 bg-wood-inset dark:bg-[#060b16] p-3"
                       >
                         <span className="font-mono text-[11px] font-semibold text-cyan-700 dark:text-cyan-400 mr-2">
                           0{i + 1}.
@@ -964,31 +964,31 @@ export function ResearchSection({ expanded = false }: ResearchSectionProps) {
                   <p className="font-mono text-xs text-cyan-700 dark:text-cyan-400">
                     Contribution Areas to Communicate
                   </p>
-                  <ul className="space-y-1.5 text-xs leading-relaxed text-slate-700 dark:text-slate-300">
+                  <ul className="space-y-1.5 text-xs leading-relaxed text-wood-walnut dark:text-slate-300">
                     {(activePaper.contributionAreas ?? [activePaper.expectedContribution]).map((item) => (
                       <li key={item}>• {item}</li>
                     ))}
                   </ul>
                 </div>
 
-                <div className="rounded-[10px] border border-amber-500/30 bg-amber-50/50 dark:bg-amber-950/15 p-4 space-y-2">
+                <div className="rounded-[10px] border border-amber-500/35 bg-amber-100/55 dark:bg-amber-950/15 p-4 space-y-2">
                   <div className="flex items-center gap-2 font-mono text-xs text-amber-800 dark:text-amber-300">
                     <AlertTriangle className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
                     <span>Declared Limitations &amp; Scope Boundaries</span>
                   </div>
-                  <ul className="space-y-1.5 text-xs leading-relaxed text-slate-700 dark:text-slate-300">
+                  <ul className="space-y-1.5 text-xs leading-relaxed text-wood-walnut dark:text-slate-300">
                     {(activePaper.limitations ?? []).map((item) => (
                       <li key={item}>• {item}</li>
                     ))}
                   </ul>
                 </div>
 
-                <div className="rounded-[10px] border border-blue-500/30 bg-blue-50/50 dark:bg-blue-950/15 p-4 space-y-2">
+                <div className="rounded-[10px] border border-blue-500/35 bg-blue-100/45 dark:bg-blue-950/15 p-4 space-y-2">
                   <div className="flex items-center gap-2 font-mono text-xs text-blue-800 dark:text-blue-300">
                     <Compass className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
                     <span>Future Research Directions</span>
                   </div>
-                  <ul className="space-y-1.5 text-xs leading-relaxed text-slate-700 dark:text-slate-300">
+                  <ul className="space-y-1.5 text-xs leading-relaxed text-wood-walnut dark:text-slate-300">
                     {(activePaper.futureDirections ?? []).map((item) => (
                       <li key={item}>• {item}</li>
                     ))}
@@ -997,7 +997,7 @@ export function ResearchSection({ expanded = false }: ResearchSectionProps) {
               </div>
             )}
 
-            <div className="border-t border-slate-200 dark:border-slate-800 pt-4 flex flex-wrap items-center justify-between gap-3 text-xs text-slate-600 dark:text-slate-400">
+            <div className="border-t border-wood-subtle dark:border-slate-800 pt-4 flex flex-wrap items-center justify-between gap-3 text-xs text-wood-muted dark:text-slate-400">
               <div className="flex flex-wrap items-center gap-3">
                 <span>Status: {activePaper.status} (Benchmark / Simulation Study)</span>
                 <Button

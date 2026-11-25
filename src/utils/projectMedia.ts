@@ -2,17 +2,19 @@ import factorymindPreview from '../assets/images/project_factorymind_preview_179
 import forgemindPreview from '../assets/images/project_forgemind_preview_1794746194669.jpg';
 import tikatrackPreview from '../assets/images/project_tikatrack_preview_1794746194291.jpg';
 import liveFactoryMindShot from '../assets/images/live_factorymind_ui.png';
+import liveForgeMindShot from '../assets/images/live_forgemind_ui.png';
 import liveTikaTrackShot from '../assets/images/live_tikatrack_ui.png';
 
 const PROJECT_PREVIEW_MAP: Record<string, string> = {
   tikatrack: liveTikaTrackShot,
   factorymind: liveFactoryMindShot,
-  'forgemind-ai': forgemindPreview,
+  'forgemind-ai': liveForgeMindShot,
 };
 
 const LIVE_DEMO_SCREENSHOT_MAP: Record<string, string> = {
   tikatrack: liveTikaTrackShot,
   factorymind: liveFactoryMindShot,
+  'forgemind-ai': liveForgeMindShot,
 };
 
 const CONCEPTUAL_PREVIEW_MAP: Record<string, string> = {

@@ -38,6 +38,8 @@ export const PROFILE = {
     github: 'https://github.com/Ibtasham',
     factoryMind: 'https://github.com/Ibtasham/FactoryMind',
     factoryMindDemo: 'https://ibtasham.github.io/FactoryMind/',
+    forgeMind: 'https://github.com/ibta10/ForgeMind-Ai',
+    forgeMindDemo: 'https://forge-mind-ai-wheat.vercel.app/?subset=FD002&model=gradient_boosting',
     tikaTrack: 'https://github.com/Ibtasham/TikaTrack',
     tikaTrackDemo: 'https://ibtasham.github.io/TikaTrack/',
     researchOdysseyCertificate: '/assets/aistudio/Ibtashamur_Rahman_31aca808.pdf',

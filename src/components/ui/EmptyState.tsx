@@ -20,7 +20,7 @@ export function EmptyState({
 }: EmptyStateProps) {
   return (
     <SurfaceCard className={`p-8 text-center space-y-3 ${className}`}>
-      <div className="mx-auto inline-flex h-10 w-10 items-center justify-center rounded-[10px] border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-[#060b16] text-cyan-700 dark:text-cyan-400">
+      <div className="mx-auto inline-flex h-10 w-10 items-center justify-center rounded-[10px] border border-wood-subtle dark:border-slate-800 bg-wood-inset dark:bg-[#060b16] text-cyan-700 dark:text-cyan-400">
         <SearchX className="h-4 w-4" aria-hidden="true" />
       </div>
       <div className="space-y-1">

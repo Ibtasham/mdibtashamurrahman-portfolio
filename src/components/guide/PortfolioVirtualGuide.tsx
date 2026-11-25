@@ -920,9 +920,9 @@ export function PortfolioVirtualGuide() {
                       ? `Open interactive virtual guide, resume section ${currentStep.indexLabel} of ${VIRTUAL_GUIDE_TOUR_STEPS.length}`
                       : 'Open interactive virtual guide'
                   }
-                  className="group relative flex h-[50px] w-[50px] sm:h-[58px] sm:w-[58px] items-center justify-center rounded-[15px] border border-slate-300/95 bg-white/95 p-1 shadow-[0_14px_30px_-8px_rgba(15,23,42,0.28)] backdrop-blur-md transition-colors duration-200 hover:border-blue-500/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600 dark:border-cyan-400/45 dark:bg-[#0b1222]/95 dark:shadow-[0_18px_36px_-8px_rgba(2,6,23,0.92)] dark:hover:border-cyan-300 dark:focus-visible:ring-cyan-400 cursor-pointer"
+                  className="group relative flex h-[50px] w-[50px] sm:h-[58px] sm:w-[58px] items-center justify-center rounded-[15px] border border-wood-default/95 bg-wood-surface/95 p-1 shadow-[0_14px_30px_-8px_rgba(44,30,15,0.28)] backdrop-blur-md transition-colors duration-200 hover:border-blue-500/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600 dark:border-cyan-400/45 dark:bg-[#0b1222]/95 dark:shadow-[0_18px_36px_-8px_rgba(2,6,23,0.92)] dark:hover:border-cyan-300 dark:focus-visible:ring-cyan-400 cursor-pointer"
                 >
-                  <span className="relative h-full w-full overflow-hidden rounded-[11px] border border-slate-300/75 bg-slate-200 dark:border-slate-600/80 dark:bg-[#0b1222]">
+                  <span className="relative h-full w-full overflow-hidden rounded-[11px] border border-wood-default/75 bg-wood-inset dark:border-slate-600/80 dark:bg-[#0b1222]">
                     <img
                       src={portraitAssetSrc}
                       alt="Ibtashamur Rahman"
@@ -938,7 +938,7 @@ export function PortfolioVirtualGuide() {
 
                   <span
                     aria-hidden="true"
-                    className="pointer-events-none absolute -right-1.5 -top-1.5 inline-flex h-5 items-center justify-center rounded-full border border-white bg-[#2563eb] px-1.5 font-mono text-[9.5px] font-bold tracking-tight text-white shadow-sm dark:border-[#050914] dark:bg-cyan-500 dark:text-slate-950"
+                    className="pointer-events-none absolute -right-1.5 -top-1.5 inline-flex h-5 items-center justify-center rounded-full border border-wood-surface bg-[#2563eb] px-1.5 font-mono text-[9.5px] font-bold tracking-tight text-white shadow-sm dark:border-[#050914] dark:bg-cyan-500 dark:text-slate-950"
                   >
                     {resumeTarget === 'tour'
                       ? `${safeStepIndex + 1}/${VIRTUAL_GUIDE_TOUR_STEPS.length}`
@@ -960,16 +960,16 @@ export function PortfolioVirtualGuide() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={prefersReducedMotion ? { opacity: 0 } : { opacity: 0, y: 12, scale: 0.98 }}
             transition={{ duration: prefersReducedMotion ? 0 : 0.22 }}
-            className="fixed left-3 right-3 bottom-3 sm:right-auto sm:left-6 sm:bottom-5 z-[45] sm:w-[492px] max-h-[min(66dvh,480px)] sm:max-h-[calc(100dvh-4.5rem)] overflow-y-auto rounded-[16px] border border-slate-300/95 bg-white/95 p-2.5 sm:p-4 text-slate-900 shadow-[0_24px_56px_-16px_rgba(15,23,42,0.28)] backdrop-blur-xl focus:outline-none dark:border-slate-700/90 dark:bg-[#0b1222]/95 dark:text-slate-100 dark:shadow-[0_28px_64px_-16px_rgba(2,6,23,0.92)]"
+            className="fixed left-3 right-3 bottom-3 sm:right-auto sm:left-6 sm:bottom-5 z-[45] sm:w-[492px] max-h-[min(66dvh,480px)] sm:max-h-[calc(100dvh-4.5rem)] overflow-y-auto rounded-[16px] border border-wood-default/95 bg-wood-surface/95 p-2.5 sm:p-4 text-wood-ink shadow-[0_24px_56px_-16px_rgba(44,30,15,0.28)] backdrop-blur-xl focus:outline-none dark:border-slate-700/90 dark:bg-[#0b1222]/95 dark:text-slate-100 dark:shadow-[0_28px_64px_-16px_rgba(2,6,23,0.92)]"
           >
             {/* Top utility header */}
-            <div className="mb-2 sm:mb-2.5 flex items-center justify-between gap-2 border-b border-slate-200/90 pb-2 dark:border-slate-800/90">
+            <div className="mb-2 sm:mb-2.5 flex items-center justify-between gap-2 border-b border-wood-subtle/90 pb-2 dark:border-slate-800/90">
               <div className="flex items-center gap-1.5 sm:gap-2 min-w-0">
                 <Compass
                   className="h-4 w-4 shrink-0 text-blue-700 dark:text-cyan-300"
                   aria-hidden="true"
                 />
-                <span className="font-mono text-[10.5px] sm:text-[11px] font-semibold uppercase tracking-[0.08em] text-slate-700 dark:text-slate-200 whitespace-nowrap">
+                <span className="font-mono text-[10.5px] sm:text-[11px] font-semibold uppercase tracking-[0.08em] text-wood-walnut dark:text-slate-200 whitespace-nowrap">
                   {mode === 'intro'
                     ? 'Virtual Guide'
                     : `Tour · ${currentStep.indexLabel} / 0${VIRTUAL_GUIDE_TOUR_STEPS.length}`}
@@ -988,7 +988,7 @@ export function PortfolioVirtualGuide() {
                       className={`inline-flex min-h-[38px] sm:min-h-[34px] items-center gap-1 rounded-[8px] border px-2 text-[11px] font-medium transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600 dark:focus-visible:ring-cyan-400 ${
                         voiceEnabled
                           ? 'border-blue-600/40 bg-blue-50 text-blue-800 dark:border-cyan-400/40 dark:bg-cyan-950/50 dark:text-cyan-200'
-                          : 'border-slate-300 bg-slate-50 text-slate-700 hover:border-slate-400 dark:border-slate-700 dark:bg-[#101a30] dark:text-slate-300 dark:hover:border-slate-500'
+                          : 'border-wood-default bg-wood-inset text-wood-walnut hover:border-wood-ink/40 dark:border-slate-700 dark:bg-[#101a30] dark:text-slate-300 dark:hover:border-slate-500'
                       }`}
                     >
                       {voiceEnabled ? (
@@ -1004,7 +1004,7 @@ export function PortfolioVirtualGuide() {
                       onClick={handleReplaySpeech}
                       aria-label="Replay narration"
                       title="Replay narration"
-                      className="inline-flex min-h-[38px] sm:min-h-[34px] items-center justify-center gap-1 rounded-[8px] border border-slate-300 bg-slate-50 px-2.5 sm:px-2 text-[11px] font-medium text-slate-700 transition-colors hover:border-blue-500/60 hover:text-blue-700 dark:border-slate-700 dark:bg-[#101a30] dark:text-slate-300 dark:hover:border-cyan-400/60 dark:hover:text-cyan-300 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600 dark:focus-visible:ring-cyan-400"
+                      className="inline-flex min-h-[38px] sm:min-h-[34px] items-center justify-center gap-1 rounded-[8px] border border-wood-default bg-wood-inset px-2.5 sm:px-2 text-[11px] font-medium text-wood-walnut transition-colors hover:border-blue-500/60 hover:text-blue-700 dark:border-slate-700 dark:bg-[#101a30] dark:text-slate-300 dark:hover:border-cyan-400/60 dark:hover:text-cyan-300 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600 dark:focus-visible:ring-cyan-400"
                     >
                       <RotateCcw className="h-3.5 w-3.5" aria-hidden="true" />
                       <span className="hidden sm:inline">Replay</span>
@@ -1017,7 +1017,7 @@ export function PortfolioVirtualGuide() {
                   onClick={handleMinimize}
                   aria-label="Collapse virtual guide to floating portrait button"
                   title="Collapse"
-                  className="inline-flex min-h-[38px] min-w-[38px] sm:min-h-[34px] sm:min-w-[34px] items-center justify-center rounded-[8px] border border-transparent text-slate-500 hover:border-slate-300 hover:bg-slate-100 hover:text-slate-900 dark:text-slate-400 dark:hover:border-slate-700 dark:hover:bg-[#101a30] dark:hover:text-white cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600 dark:focus-visible:ring-cyan-400"
+                  className="inline-flex min-h-[38px] min-w-[38px] sm:min-h-[34px] sm:min-w-[34px] items-center justify-center rounded-[8px] border border-transparent text-wood-muted hover:border-wood-default hover:bg-wood-hover hover:text-wood-ink dark:text-slate-400 dark:hover:border-slate-700 dark:hover:bg-[#101a30] dark:hover:text-white cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600 dark:focus-visible:ring-cyan-400"
                 >
                   <X className="h-4 w-4" aria-hidden="true" />
                 </button>
@@ -1028,7 +1028,7 @@ export function PortfolioVirtualGuide() {
             {mode === 'tour' && (
               <div
                 aria-hidden="true"
-                className="mb-2.5 h-1 w-full overflow-hidden rounded-full bg-slate-200/80 dark:bg-slate-800/80"
+                className="mb-2.5 h-1 w-full overflow-hidden rounded-full bg-wood-inset dark:bg-slate-800/80"
               >
                 <div
                   style={{ width: `${progressPercent}%` }}
@@ -1065,14 +1065,14 @@ export function PortfolioVirtualGuide() {
                         <p className="font-mono text-[10px] sm:text-[10.5px] uppercase tracking-[0.08em] text-blue-700 dark:text-cyan-300">
                           B.Sc. IPE · SUST
                         </p>
-                        <h2 className="mt-0.5 text-sm sm:text-base font-bold leading-snug text-slate-900 dark:text-white">
+                        <h2 className="mt-0.5 text-sm sm:text-base font-bold leading-snug text-wood-ink dark:text-white">
                           Welcome to my Interactive Portfolio
                         </h2>
                       </div>
 
                       <div
                         aria-live="polite"
-                        className="max-h-[96px] sm:max-h-none overflow-y-auto rounded-[12px] border border-slate-200/90 bg-slate-50/90 p-2 sm:p-3 text-xs sm:text-[13px] leading-relaxed text-slate-700 dark:border-slate-800 dark:bg-[#070d1b] dark:text-slate-200"
+                        className="max-h-[96px] sm:max-h-none overflow-y-auto rounded-[12px] border border-wood-subtle/90 bg-wood-inset/80 p-2 sm:p-3 text-xs sm:text-[13px] leading-relaxed text-wood-walnut dark:border-slate-800 dark:bg-[#070d1b] dark:text-slate-200"
                       >
                         “{activeNarrationText}”
                       </div>
@@ -1089,7 +1089,7 @@ export function PortfolioVirtualGuide() {
                         <button
                           type="button"
                           onClick={handleExploreYourself}
-                          className="inline-flex min-h-[38px] sm:min-h-[40px] flex-1 items-center justify-center whitespace-nowrap rounded-[10px] border border-slate-300 bg-white px-3 sm:px-3.5 py-2 text-xs font-semibold text-slate-800 transition-colors hover:border-slate-400 hover:bg-slate-50 dark:border-slate-700 dark:bg-[#101a30] dark:text-slate-100 dark:hover:border-slate-500 dark:hover:bg-[#16233d] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600 dark:focus-visible:ring-cyan-400 cursor-pointer"
+                          className="inline-flex min-h-[38px] sm:min-h-[40px] flex-1 items-center justify-center whitespace-nowrap rounded-[10px] border border-wood-default bg-wood-surface px-3 sm:px-3.5 py-2 text-xs font-semibold text-wood-ink transition-colors hover:border-wood-ink/40 hover:bg-wood-hover dark:border-slate-700 dark:bg-[#101a30] dark:text-slate-100 dark:hover:border-slate-500 dark:hover:bg-[#16233d] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600 dark:focus-visible:ring-cyan-400 cursor-pointer"
                         >
                           Explore Yourself
                         </button>
@@ -1108,14 +1108,14 @@ export function PortfolioVirtualGuide() {
                         <p className="font-mono text-[10px] sm:text-[10.5px] uppercase tracking-[0.08em] text-blue-700 dark:text-cyan-300">
                           Section {currentStep.indexLabel} · {currentStep.label}
                         </p>
-                        <h2 className="mt-0.5 text-[13.5px] sm:text-[15px] font-bold leading-snug text-slate-900 dark:text-white">
+                        <h2 className="mt-0.5 text-[13.5px] sm:text-[15px] font-bold leading-snug text-wood-ink dark:text-white">
                           {currentStep.title}
                         </h2>
                       </div>
 
                       <div
                         aria-live="polite"
-                        className="max-h-[92px] sm:max-h-none overflow-y-auto rounded-[12px] border border-slate-200/90 bg-slate-50/90 p-2 sm:p-3 text-[11.5px] sm:text-xs leading-relaxed text-slate-700 dark:border-slate-800 dark:bg-[#070d1b] dark:text-slate-200"
+                        className="max-h-[92px] sm:max-h-none overflow-y-auto rounded-[12px] border border-wood-subtle/90 bg-wood-inset/80 p-2 sm:p-3 text-[11.5px] sm:text-xs leading-relaxed text-wood-walnut dark:border-slate-800 dark:bg-[#070d1b] dark:text-slate-200"
                       >
                         {activeNarrationText}
                       </div>
@@ -1139,10 +1139,10 @@ export function PortfolioVirtualGuide() {
             {/* Session-persisted Voice selector & mobile audio status */}
             {voiceEnabled && speechSupported && (
               <div className="mt-2.5 space-y-1.5">
-                <div className="flex items-center justify-between gap-2 rounded-[10px] border border-slate-200 bg-slate-50 px-2.5 py-1.5 dark:border-slate-800 dark:bg-[#070d1b]">
+                <div className="flex items-center justify-between gap-2 rounded-[10px] border border-wood-subtle bg-wood-inset px-2.5 py-1.5 dark:border-slate-800 dark:bg-[#070d1b]">
                   <label
                     htmlFor="virtual-guide-voice-select"
-                    className="font-mono text-[10px] uppercase tracking-[0.06em] text-slate-600 dark:text-slate-400 shrink-0"
+                    className="font-mono text-[10px] uppercase tracking-[0.06em] text-wood-muted dark:text-slate-400 shrink-0"
                   >
                     Voice
                   </label>
@@ -1150,7 +1150,7 @@ export function PortfolioVirtualGuide() {
                     id="virtual-guide-voice-select"
                     value={selectedVoiceUri || SYSTEM_DEFAULT_VOICE_URI}
                     onChange={(e) => handleVoiceChange(e.target.value)}
-                    className="min-h-[38px] sm:min-h-0 min-w-0 flex-1 truncate rounded-[6px] border border-slate-300 bg-white px-2 py-1 text-base sm:text-[11px] text-slate-800 dark:border-slate-700 dark:bg-[#101a30] dark:text-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600 dark:focus-visible:ring-cyan-400"
+                    className="min-h-[38px] sm:min-h-0 min-w-0 flex-1 truncate rounded-[6px] border border-wood-default bg-wood-input px-2 py-1 text-base sm:text-[11px] text-wood-ink dark:border-slate-700 dark:bg-[#101a30] dark:text-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600 dark:focus-visible:ring-cyan-400"
                   >
                     <option value={SYSTEM_DEFAULT_VOICE_URI}>
                       System Default (Recommended for Mobile)
@@ -1166,7 +1166,7 @@ export function PortfolioVirtualGuide() {
                 {voiceNotice && (
                   <p
                     role="status"
-                    className="rounded-[8px] border border-amber-300/70 bg-amber-50/90 px-2.5 py-1 text-[11px] leading-snug text-amber-900 dark:border-amber-500/35 dark:bg-amber-950/40 dark:text-amber-200"
+                    className="rounded-[8px] border border-amber-400/70 bg-amber-100/80 px-2.5 py-1 text-[11px] leading-snug text-amber-950 dark:border-amber-500/35 dark:bg-amber-950/40 dark:text-amber-200"
                   >
                     {voiceNotice}
                   </p>
@@ -1175,14 +1175,14 @@ export function PortfolioVirtualGuide() {
             )}
 
             {!speechSupported && (
-              <p className="mt-2 text-[11px] text-slate-500 dark:text-slate-400">
+              <p className="mt-2 text-[11px] text-wood-muted dark:text-slate-400">
                 Browser speech synthesis is unavailable here — visual captions are active.
               </p>
             )}
 
             {/* Guided tour step selector and navigation bar */}
             {mode === 'tour' && (
-              <div className="mt-2.5 sm:mt-3 border-t border-slate-200/90 pt-2.5 sm:pt-3 dark:border-slate-800/90 space-y-2 sm:space-y-2.5">
+              <div className="mt-2.5 sm:mt-3 border-t border-wood-subtle/90 pt-2.5 sm:pt-3 dark:border-slate-800/90 space-y-2 sm:space-y-2.5">
                 <div
                   role="tablist"
                   aria-label="Guided tour sections"
@@ -1200,7 +1200,7 @@ export function PortfolioVirtualGuide() {
                         className={`min-h-[36px] sm:min-h-[32px] shrink-0 whitespace-nowrap sm:truncate rounded-[7px] border px-2.5 sm:px-2 py-1 text-[10.5px] font-medium transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600 dark:focus-visible:ring-cyan-400 ${
                           active
                             ? 'border-blue-600 bg-blue-600 text-white dark:border-cyan-400 dark:bg-cyan-500/20 dark:text-cyan-200'
-                            : 'border-slate-200 bg-slate-50 text-slate-700 hover:border-slate-300 hover:bg-slate-100 dark:border-slate-800 dark:bg-[#080f1f] dark:text-slate-300 dark:hover:border-slate-600 dark:hover:bg-[#101a30] dark:hover:text-white'
+                            : 'border-wood-subtle bg-wood-inset text-wood-walnut hover:border-wood-default hover:bg-wood-hover dark:border-slate-800 dark:bg-[#080f1f] dark:text-slate-300 dark:hover:border-slate-600 dark:hover:bg-[#101a30] dark:hover:text-white'
                         }`}
                       >
                         {step.indexLabel} · {step.label}
@@ -1215,7 +1215,7 @@ export function PortfolioVirtualGuide() {
                       type="button"
                       onClick={handlePrevStep}
                       disabled={safeStepIndex === 0}
-                      className="inline-flex min-h-[40px] sm:min-h-[38px] items-center gap-1 rounded-[9px] border border-slate-300 bg-white px-2.5 sm:px-3 py-1.5 text-xs font-semibold text-slate-800 transition-colors hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-45 dark:border-slate-700 dark:bg-[#101a30] dark:text-slate-100 dark:hover:bg-[#16233d] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600 dark:focus-visible:ring-cyan-400 cursor-pointer"
+                      className="inline-flex min-h-[40px] sm:min-h-[38px] items-center gap-1 rounded-[9px] border border-wood-default bg-wood-surface px-2.5 sm:px-3 py-1.5 text-xs font-semibold text-wood-ink transition-colors hover:bg-wood-hover disabled:cursor-not-allowed disabled:opacity-45 dark:border-slate-700 dark:bg-[#101a30] dark:text-slate-100 dark:hover:bg-[#16233d] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600 dark:focus-visible:ring-cyan-400 cursor-pointer"
                     >
                       <ArrowLeft className="h-3.5 w-3.5" aria-hidden="true" />
                       <span>Previous</span>
@@ -1237,7 +1237,7 @@ export function PortfolioVirtualGuide() {
                       onClick={handleRestartTour}
                       aria-label="Restart guided tour"
                       title="Restart Tour"
-                      className="inline-flex min-h-[40px] sm:min-h-[38px] items-center gap-1 rounded-[9px] border border-slate-300/80 bg-slate-50 px-2.5 py-1.5 text-xs font-medium text-slate-700 transition-colors hover:border-blue-500/60 hover:text-blue-700 dark:border-slate-700/80 dark:bg-[#101a30] dark:text-slate-300 dark:hover:border-cyan-400/60 dark:hover:text-cyan-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600 dark:focus-visible:ring-cyan-400 cursor-pointer"
+                      className="inline-flex min-h-[40px] sm:min-h-[38px] items-center gap-1 rounded-[9px] border border-wood-default/80 bg-wood-inset px-2.5 py-1.5 text-xs font-medium text-wood-walnut transition-colors hover:border-blue-500/60 hover:text-blue-700 dark:border-slate-700/80 dark:bg-[#101a30] dark:text-slate-300 dark:hover:border-cyan-400/60 dark:hover:text-cyan-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600 dark:focus-visible:ring-cyan-400 cursor-pointer"
                     >
                       <RefreshCw className="h-3.5 w-3.5" aria-hidden="true" />
                       <span>Restart</span>
@@ -1247,7 +1247,7 @@ export function PortfolioVirtualGuide() {
                       type="button"
                       onClick={handleSkipTour}
                       aria-label="Skip guided tour"
-                      className="inline-flex min-h-[40px] sm:min-h-[38px] items-center gap-1 rounded-[9px] border border-transparent px-2 py-1.5 text-xs font-medium text-slate-600 hover:border-slate-300 hover:text-slate-900 dark:text-slate-400 dark:hover:border-slate-700 dark:hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600 dark:focus-visible:ring-cyan-400 cursor-pointer"
+                      className="inline-flex min-h-[40px] sm:min-h-[38px] items-center gap-1 rounded-[9px] border border-transparent px-2 py-1.5 text-xs font-medium text-wood-muted hover:border-wood-default hover:text-wood-ink dark:text-slate-400 dark:hover:border-slate-700 dark:hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600 dark:focus-visible:ring-cyan-400 cursor-pointer"
                     >
                       <SkipForward className="h-3.5 w-3.5" aria-hidden="true" />
                       <span>Skip</span>

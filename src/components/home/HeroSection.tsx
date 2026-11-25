@@ -71,7 +71,7 @@ export function HeroSection() {
   return (
     <section
       id="hero"
-      className="relative overflow-hidden border-b border-slate-200 dark:border-slate-800/80 bg-slate-50 dark:bg-[#050914] bg-blueprint-grid"
+      className="relative overflow-hidden border-b border-wood-subtle dark:border-slate-800/80 bg-wood-canvas dark:bg-[#050914] bg-blueprint-grid"
     >
       <div
         aria-hidden="true"
@@ -100,7 +100,7 @@ export function HeroSection() {
                 <p className="font-mono text-xs font-medium text-cyan-700 dark:text-cyan-400">
                   {PROFILE.university}
                 </p>
-                <p className="font-mono text-xs text-slate-700 dark:text-slate-300">
+                <p className="font-mono text-xs text-wood-walnut dark:text-slate-300">
                   B.Sc. in Industrial &amp; Production Engineering · Session{' '}
                   {PROFILE.session} ({PROFILE.academicStanding})
                 </p>
@@ -111,14 +111,14 @@ export function HeroSection() {
                 <h1 className={DESIGN_TOKENS.typography.heroDisplay}>
                   {PROFILE.name}
                 </h1>
-                <p className="font-editorial text-xl font-medium leading-snug text-slate-800 dark:text-slate-100 sm:text-2xl text-balance">
+                <p className="font-editorial text-xl font-medium leading-snug text-wood-walnut dark:text-slate-100 sm:text-2xl text-balance">
                   Engineering Optimization Systems, Predictive Maintenance &amp;
                   Research-Driven Software.
                 </p>
               </div>
 
               {/* Short Personal Introduction */}
-              <p className="max-w-2xl text-sm leading-relaxed text-slate-600 dark:text-slate-300 sm:text-[15px]">
+              <p className="max-w-2xl text-sm leading-relaxed text-wood-muted dark:text-slate-300 sm:text-[15px]">
                 I am an Industrial &amp; Production Engineering undergraduate at
                 SUST building quantitative decision-support tools that turn
                 operations research and applied machine learning into reliable
@@ -127,7 +127,7 @@ export function HeroSection() {
               </p>
 
               {/* Clean Typographic Pillars (What I Build / Interests / Other Dimension) */}
-              <dl className="divide-y divide-slate-200 dark:divide-slate-800/80 border-y border-slate-200 dark:border-slate-800/80">
+              <dl className="divide-y divide-wood-subtle dark:divide-slate-800/80 border-y border-wood-subtle dark:border-slate-800/80">
                 {HERO_PILLARS.map((item) => (
                   <div
                     key={item.label}
@@ -136,7 +136,7 @@ export function HeroSection() {
                     <dt className="font-mono text-[11px] font-medium text-cyan-700 dark:text-cyan-400">
                       {item.label}
                     </dt>
-                    <dd className="text-xs leading-relaxed text-slate-700 dark:text-slate-300 sm:text-[13px]">
+                    <dd className="text-xs leading-relaxed text-wood-walnut dark:text-slate-300 sm:text-[13px]">
                       {item.detail}
                     </dd>
                   </div>
@@ -157,7 +157,7 @@ export function HeroSection() {
                 </LinkButton>
               </div>
 
-              <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-slate-600 dark:text-slate-400 sm:text-sm">
+              <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-wood-muted dark:text-slate-400 sm:text-sm">
                 <a
                   href={PROFILE.links.cvPdf}
                   download="MD_Ibtashamur_Rahman_CV.pdf"
@@ -166,7 +166,7 @@ export function HeroSection() {
                   <Download className="h-3.5 w-3.5" aria-hidden="true" />
                   <span>Download CV (PDF)</span>
                 </a>
-                <span aria-hidden="true" className="text-slate-300 dark:text-slate-700">
+                <span aria-hidden="true" className="text-wood-default dark:text-slate-700">
                   ·
                 </span>
                 <a
@@ -178,7 +178,7 @@ export function HeroSection() {
                   <span>LinkedIn</span>
                   <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
                 </a>
-                <span aria-hidden="true" className="text-slate-300 dark:text-slate-700">
+                <span aria-hidden="true" className="text-wood-default dark:text-slate-700">
                   ·
                 </span>
                 <a
@@ -210,7 +210,7 @@ export function HeroSection() {
             <SurfaceCard className="flex h-full flex-col justify-between gap-3.5 p-4">
               {/* Professional Individual Portrait */}
               <figure className="space-y-2">
-                <div className="relative aspect-[3/2] w-full overflow-hidden rounded-[10px] border border-slate-200 dark:border-slate-800/80 bg-slate-100 dark:bg-[#060b16]">
+                <div className="relative aspect-[3/2] w-full overflow-hidden rounded-[10px] border border-wood-subtle dark:border-slate-800/80 bg-wood-inset dark:bg-[#060b16]">
                   <img
                     src={PROFILE.profilePhoto}
                     alt={`Formal portrait of ${PROFILE.name}`}
@@ -222,10 +222,10 @@ export function HeroSection() {
                   />
                 </div>
                 <figcaption className="flex flex-wrap items-baseline justify-between gap-2 px-0.5 font-mono text-[11px]">
-                  <span className="font-medium text-slate-800 dark:text-slate-200">
+                  <span className="font-medium text-wood-ink dark:text-slate-200">
                     {PROFILE.shortName}
                   </span>
-                  <span className="text-slate-600 dark:text-slate-400">
+                  <span className="text-wood-muted dark:text-slate-400">
                     SUST IPE · {PROFILE.publicLocation}
                   </span>
                 </figcaption>
@@ -240,29 +240,29 @@ export function HeroSection() {
         {/* Verified Proof Strip */}
         <div
           aria-label="Verified academic, research, competition, and leadership credentials"
-          className="mt-7 overflow-hidden rounded-[14px] border border-slate-200 dark:border-slate-800/80 bg-white dark:bg-[#0b1222]"
+          className="mt-7 overflow-hidden rounded-[14px] border border-wood-subtle dark:border-slate-800/80 bg-wood-surface dark:bg-[#0b1222]"
         >
-          <div className="grid grid-cols-1 divide-y divide-slate-200 dark:divide-slate-800/80 sm:grid-cols-2 sm:divide-y-0 lg:grid-cols-4 lg:divide-x">
+          <div className="grid grid-cols-1 divide-y divide-wood-subtle dark:divide-slate-800/80 sm:grid-cols-2 sm:divide-y-0 lg:grid-cols-4 lg:divide-x">
             {PROOF_ITEMS.map((item, idx) => (
               <div
                 key={item.eyebrow}
                 className={`px-4 py-3.5 ${
                   idx === 1 || idx === 3
-                    ? 'sm:border-l sm:border-slate-200 dark:sm:border-slate-800/80 lg:border-l-0'
+                    ? 'sm:border-l sm:border-wood-subtle dark:sm:border-slate-800/80 lg:border-l-0'
                     : ''
                 } ${
                   idx >= 2
-                    ? 'sm:border-t sm:border-slate-200 dark:sm:border-slate-800/80 lg:border-t-0'
+                    ? 'sm:border-t sm:border-wood-subtle dark:sm:border-slate-800/80 lg:border-t-0'
                     : ''
                 }`}
               >
                 <p className="font-mono text-[11px] text-cyan-700 dark:text-cyan-400">
                   {item.eyebrow}
                 </p>
-                <p className="mt-1 font-mono text-lg font-semibold text-slate-950 dark:text-slate-50 tabular-nums sm:text-xl">
+                <p className="mt-1 font-mono text-lg font-semibold text-wood-ink dark:text-slate-50 tabular-nums sm:text-xl">
                   {item.value}
                 </p>
-                <p className="mt-1 text-xs leading-relaxed text-slate-600 dark:text-slate-400">
+                <p className="mt-1 text-xs leading-relaxed text-wood-muted dark:text-slate-400">
                   {item.label}
                 </p>
               </div>

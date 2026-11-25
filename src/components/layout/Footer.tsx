@@ -5,13 +5,13 @@ import { DESIGN_TOKENS } from '../../styles/designSystem';
 
 export function Footer() {
   return (
-    <footer className="border-t border-slate-200 dark:border-slate-800/80 bg-slate-50 dark:bg-[#050914] pt-12 pb-20 md:pb-16">
+    <footer className="border-t border-wood-subtle dark:border-slate-800/80 bg-wood-canvas dark:bg-[#050914] bg-ipe-machinery pt-12 pb-20 md:pb-16">
       <div className={DESIGN_TOKENS.spacing.container}>
         <div className="grid gap-10 md:grid-cols-12">
           <div className="md:col-span-5 space-y-3">
             <Link
               to="/"
-              className="font-display text-lg font-semibold tracking-tight text-slate-950 dark:text-slate-50 transition-colors duration-150 hover:text-cyan-700 dark:hover:text-cyan-300"
+              className="font-display text-lg font-semibold tracking-tight text-wood-ink dark:text-slate-50 transition-colors duration-150 hover:text-cyan-700 dark:hover:text-cyan-300"
             >
               {PROFILE.name}
             </Link>
@@ -24,10 +24,10 @@ export function Footer() {
           </div>
 
           <div className="md:col-span-3 space-y-3">
-            <h2 className="text-xs font-semibold tracking-wide text-slate-700 dark:text-slate-300">
+            <h2 className="text-xs font-semibold tracking-wide text-wood-walnut dark:text-slate-300">
               Portfolio Sections
             </h2>
-            <ul className="space-y-0.5 md:space-y-2 text-sm text-slate-600 dark:text-slate-400">
+            <ul className="space-y-0.5 md:space-y-2 text-sm text-wood-muted dark:text-slate-400">
               <li>
                 <Link to="/about" className="inline-flex min-h-[36px] md:min-h-0 items-center py-1 md:py-0 transition-colors duration-150 hover:text-cyan-700 dark:hover:text-cyan-300">
                   About &amp; Academics
@@ -82,10 +82,10 @@ export function Footer() {
           </div>
 
           <div className="md:col-span-4 space-y-3">
-            <h2 className="text-xs font-semibold tracking-wide text-slate-700 dark:text-slate-300">
+            <h2 className="text-xs font-semibold tracking-wide text-wood-walnut dark:text-slate-300">
               Connect &amp; Verification
             </h2>
-            <ul className="space-y-0.5 md:space-y-2 text-sm text-slate-600 dark:text-slate-400">
+            <ul className="space-y-0.5 md:space-y-2 text-sm text-wood-muted dark:text-slate-400">
               <li>
                 <a
                   href={`mailto:${PROFILE.email}`}
@@ -152,9 +152,9 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-10 flex flex-col gap-3 border-t border-slate-200 dark:border-slate-800/70 pt-6 text-xs text-slate-600 dark:text-slate-400 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-10 flex flex-col gap-3 border-t border-wood-subtle dark:border-slate-800/70 pt-6 text-xs text-wood-muted dark:text-slate-400 sm:flex-row sm:items-center sm:justify-between">
           <p>© {new Date().getFullYear()} {PROFILE.name}. All rights reserved.</p>
-          <p className="font-mono text-slate-600 dark:text-slate-400">
+          <p className="font-mono text-wood-muted dark:text-slate-400">
             B.Sc. IPE (2024–25) · Sylhet, Bangladesh
           </p>
         </div>

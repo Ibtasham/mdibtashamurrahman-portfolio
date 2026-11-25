@@ -164,12 +164,12 @@ export function ExperienceSection({ expanded = false }: ExperienceSectionProps) 
                 active={item.isCurrent}
               />
               <div className="min-w-0 space-y-1">
-                <p className="font-mono text-[11px] text-slate-600 dark:text-slate-400">
+                <p className="font-mono text-[11px] text-wood-muted dark:text-slate-400">
                   <span
                     className={
                       item.isCurrent
                         ? 'font-semibold text-cyan-700 dark:text-cyan-400'
-                        : 'text-slate-600 dark:text-slate-400'
+                        : 'text-wood-muted dark:text-slate-400'
                     }
                   >
                     {item.isCurrent ? 'Current Position' : 'Former Position'}
@@ -181,7 +181,7 @@ export function ExperienceSection({ expanded = false }: ExperienceSectionProps) 
                     </>
                   )}
                 </p>
-                <p className="font-mono text-[11px] text-slate-500 tabular-nums">
+                <p className="font-mono text-[11px] text-wood-muted dark:text-slate-500 tabular-nums">
                   {item.period} · {item.location}
                 </p>
               </div>
@@ -195,10 +195,10 @@ export function ExperienceSection({ expanded = false }: ExperienceSectionProps) 
             </p>
           </div>
 
-          <dl className="divide-y divide-slate-200 dark:divide-slate-800/70 border-y border-slate-200 dark:border-slate-800/70 text-xs">
+          <dl className="divide-y divide-wood-subtle dark:divide-slate-800/70 border-y border-wood-subtle dark:border-slate-800/70 text-xs">
             <div className="py-2.5 space-y-1">
-              <dt className="font-mono text-[10px] text-slate-500">Responsibility</dt>
-              <dd className="leading-relaxed text-slate-700 dark:text-slate-300">
+              <dt className="font-mono text-[10px] text-wood-muted dark:text-slate-500">Responsibility</dt>
+              <dd className="leading-relaxed text-wood-walnut dark:text-slate-300">
                 {item.responsibility}
               </dd>
             </div>
@@ -206,7 +206,7 @@ export function ExperienceSection({ expanded = false }: ExperienceSectionProps) 
               <dt className="font-mono text-[10px] text-cyan-700 dark:text-cyan-400">
                 Actual Contribution
               </dt>
-              <dd className="leading-relaxed text-slate-800 dark:text-slate-200">
+              <dd className="leading-relaxed text-wood-ink dark:text-slate-200">
                 {item.actualContribution}
               </dd>
             </div>
@@ -222,9 +222,9 @@ export function ExperienceSection({ expanded = false }: ExperienceSectionProps) 
                 })
               }
               aria-label={`Inspect photographic evidence for ${item.organization}`}
-              className="group flex w-full items-center gap-3 overflow-hidden rounded-[10px] border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-[#060b16] p-2 text-left transition-colors hover:border-blue-500/60 cursor-pointer"
+              className="group flex w-full items-center gap-3 overflow-hidden rounded-[10px] border border-wood-subtle dark:border-slate-800 bg-wood-inset dark:bg-[#060b16] p-2 text-left transition-colors hover:border-blue-500/60 cursor-pointer"
             >
-              <div className="h-14 w-20 shrink-0 overflow-hidden rounded-[6px] border border-slate-200 dark:border-slate-800">
+              <div className="h-14 w-20 shrink-0 overflow-hidden rounded-[6px] border border-wood-subtle dark:border-slate-800">
                 <ArchiveMediaFrame
                   src={primaryPhoto.src}
                   alt={primaryPhoto.alt}
@@ -239,7 +239,7 @@ export function ExperienceSection({ expanded = false }: ExperienceSectionProps) 
                 <p className="font-mono text-[10px] text-cyan-700 dark:text-cyan-400">
                   Evidence · {primaryPhoto.kind} ({roleMedia.length})
                 </p>
-                <p className="line-clamp-2 text-[11px] leading-snug text-slate-700 dark:text-slate-300">
+                <p className="line-clamp-2 text-[11px] leading-snug text-wood-walnut dark:text-slate-300">
                   {primaryPhoto.caption}
                 </p>
               </div>
@@ -248,21 +248,21 @@ export function ExperienceSection({ expanded = false }: ExperienceSectionProps) 
 
           {isOpen && (
             <div className="space-y-2.5 pt-1">
-              <p className="font-mono text-[11px] text-slate-500">
+              <p className="font-mono text-[11px] text-wood-muted dark:text-slate-500">
                 Additional Scope &amp; Record Details
               </p>
-              <ul className="space-y-1 text-xs leading-relaxed text-slate-700 dark:text-slate-300">
+              <ul className="space-y-1 text-xs leading-relaxed text-wood-walnut dark:text-slate-300">
                 {item.highlights.map((h) => (
                   <li key={h}>• {h}</li>
                 ))}
               </ul>
               {item.missingInfo && item.missingInfo.length > 0 && (
-                <div className="rounded-[8px] border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-[#060b16] p-2.5 space-y-1">
+                <div className="rounded-[8px] border border-wood-subtle dark:border-slate-800 bg-wood-inset dark:bg-[#060b16] p-2.5 space-y-1">
                   <p className="flex items-center gap-1.5 font-mono text-[10px] text-blue-700 dark:text-blue-400">
                     <AlertCircle className="h-3 w-3 shrink-0" aria-hidden="true" />
                     <span>Pending Manual Completion</span>
                   </p>
-                  <ul className="space-y-0.5 text-[11px] text-slate-600 dark:text-slate-400">
+                  <ul className="space-y-0.5 text-[11px] text-wood-muted dark:text-slate-400">
                     {item.missingInfo.map((note) => (
                       <li key={note}>– {note}</li>
                     ))}
@@ -273,13 +273,13 @@ export function ExperienceSection({ expanded = false }: ExperienceSectionProps) 
           )}
         </div>
 
-        <div className="mt-4 flex flex-wrap items-center justify-between gap-2 border-t border-slate-200 dark:border-slate-800/70 pt-3">
+        <div className="mt-4 flex flex-wrap items-center justify-between gap-2 border-t border-wood-subtle dark:border-slate-800/70 pt-3">
           <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
             <button
               type="button"
               aria-expanded={isOpen}
               onClick={() => toggleExpand(expandKey)}
-              className="inline-flex min-h-[38px] sm:min-h-0 items-center gap-1 py-1.5 sm:py-0 text-xs font-medium text-slate-700 dark:text-slate-300 transition-colors hover:text-cyan-700 dark:hover:text-cyan-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600 dark:focus-visible:ring-cyan-400 rounded-[4px] cursor-pointer"
+              className="inline-flex min-h-[38px] sm:min-h-0 items-center gap-1 py-1.5 sm:py-0 text-xs font-medium text-wood-walnut dark:text-slate-300 transition-colors hover:text-cyan-700 dark:hover:text-cyan-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600 dark:focus-visible:ring-cyan-400 rounded-[4px] cursor-pointer"
             >
               <span>{isOpen ? 'Less' : 'Highlights'}</span>
               {isOpen ? (
@@ -296,7 +296,7 @@ export function ExperienceSection({ expanded = false }: ExperienceSectionProps) 
                 className={`inline-flex min-h-[38px] sm:min-h-0 items-center gap-1 py-1.5 sm:py-0 text-xs font-medium transition-colors rounded-[4px] cursor-pointer ${
                   hasVerifiedCert
                     ? 'text-cyan-700 hover:text-cyan-800 dark:text-cyan-300 dark:hover:text-cyan-200'
-                    : 'text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-200'
+                    : 'text-wood-muted hover:text-wood-ink dark:text-slate-400 dark:hover:text-slate-200'
                 }`}
               >
                 {hasVerifiedCert ? (
@@ -352,10 +352,10 @@ export function ExperienceSection({ expanded = false }: ExperienceSectionProps) 
   return (
     <section
       id="experience"
-      className={`border-b border-slate-200 dark:border-slate-800/80 ${
+      className={`border-b border-wood-subtle dark:border-slate-800/80 ${
         expanded
-          ? 'bg-slate-50 dark:bg-[#050914] py-10 sm:py-14'
-          : `bg-slate-100/70 dark:bg-[#080e1c] ${DESIGN_TOKENS.spacing.sectionY}`
+          ? 'bg-wood-canvas dark:bg-[#050914] py-10 sm:py-14'
+          : `bg-wood-alt dark:bg-[#080e1c] ${DESIGN_TOKENS.spacing.sectionY}`
       }`}
     >
       <div className={`${DESIGN_TOKENS.spacing.container} space-y-12`}>
@@ -435,14 +435,14 @@ export function ExperienceSection({ expanded = false }: ExperienceSectionProps) 
               aria-pressed={bucket.active}
               className={`rounded-[12px] border p-3.5 text-left transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600 dark:focus-visible:ring-cyan-400 ${
                 bucket.active
-                  ? 'border-blue-600 bg-blue-50/70 dark:border-cyan-400/70 dark:bg-blue-600/15'
-                  : 'border-slate-200 dark:border-slate-800/80 bg-white dark:bg-[#0b1222] hover:border-blue-400/60'
+                  ? 'border-blue-600 bg-blue-50/80 dark:border-cyan-400/70 dark:bg-blue-600/15'
+                  : 'border-wood-subtle dark:border-slate-800/80 bg-wood-surface dark:bg-[#0b1222] hover:border-blue-500/60'
               }`}
             >
-              <p className="font-mono text-[11px] text-slate-600 dark:text-slate-400 truncate">
+              <p className="font-mono text-[11px] text-wood-muted dark:text-slate-400 truncate">
                 {bucket.label}
               </p>
-              <p className="mt-1 font-mono text-xl font-bold text-slate-900 dark:text-slate-50 tabular-nums">
+              <p className="mt-1 font-mono text-xl font-bold text-wood-ink dark:text-slate-50 tabular-nums">
                 {bucket.value}
               </p>
             </button>
@@ -453,8 +453,8 @@ export function ExperienceSection({ expanded = false }: ExperienceSectionProps) 
         {!expanded && (
           <SectionReveal>
             <div className="space-y-5">
-              <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-200 dark:border-slate-800/80 pb-3">
-                <div className="flex items-center gap-2 text-sm font-semibold text-slate-900 dark:text-slate-100">
+              <div className="flex flex-wrap items-center justify-between gap-3 border-b border-wood-subtle dark:border-slate-800/80 pb-3">
+                <div className="flex items-center gap-2 text-sm font-semibold text-wood-ink dark:text-slate-100">
                   <ShieldCheck
                     className="h-4 w-4 text-cyan-700 dark:text-cyan-400"
                     aria-hidden="true"
@@ -475,14 +475,14 @@ export function ExperienceSection({ expanded = false }: ExperienceSectionProps) 
 
         {/* Filterable Directory & Timeline */}
         <div className="space-y-6">
-          <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-200 dark:border-slate-800/80 pb-3">
+          <div className="flex flex-wrap items-center justify-between gap-3 border-b border-wood-subtle dark:border-slate-800/80 pb-3">
             <div className="space-y-0.5">
-              <h3 className="text-sm font-semibold text-slate-900 dark:text-slate-100">
+              <h3 className="text-sm font-semibold text-wood-ink dark:text-slate-100">
                 {expanded
                   ? 'Full Role Registry by Dimension & Timeline'
                   : 'Experience Explorer · Filter by Track or Tenure'}
               </h3>
-              <p className="font-mono text-[11px] text-slate-600 dark:text-slate-400">
+              <p className="font-mono text-[11px] text-wood-muted dark:text-slate-400">
                 Showing {visibleItems.length} of {filtered.length} matching entries ({EXPERIENCES.length} total documented roles)
               </p>
             </div>
@@ -491,7 +491,7 @@ export function ExperienceSection({ expanded = false }: ExperienceSectionProps) 
               <div
                 role="group"
                 aria-label="Experience layout switcher"
-                className="flex items-center rounded-[10px] border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#0b1222] p-1"
+                className="flex items-center rounded-[10px] border border-wood-subtle dark:border-slate-800 bg-wood-surface dark:bg-[#0b1222] p-1"
               >
                 <button
                   type="button"
@@ -500,7 +500,7 @@ export function ExperienceSection({ expanded = false }: ExperienceSectionProps) 
                   className={`inline-flex min-h-[38px] sm:min-h-0 items-center gap-1.5 rounded-[7px] px-3 py-2 sm:py-1.5 text-xs font-medium transition-colors whitespace-nowrap shrink-0 cursor-pointer ${
                     viewMode === 'grouped'
                       ? 'bg-[#2563eb] text-white'
-                      : 'text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-200'
+                      : 'text-wood-muted hover:text-wood-ink dark:text-slate-400 dark:hover:text-slate-200'
                   }`}
                 >
                   <Layers className="h-3.5 w-3.5" aria-hidden="true" />
@@ -513,7 +513,7 @@ export function ExperienceSection({ expanded = false }: ExperienceSectionProps) 
                   className={`inline-flex min-h-[38px] sm:min-h-0 items-center gap-1.5 rounded-[7px] px-3 py-2 sm:py-1.5 text-xs font-medium transition-colors whitespace-nowrap shrink-0 cursor-pointer ${
                     viewMode === 'timeline'
                       ? 'bg-[#2563eb] text-white'
-                      : 'text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-200'
+                      : 'text-wood-muted hover:text-wood-ink dark:text-slate-400 dark:hover:text-slate-200'
                   }`}
                 >
                   <ListTree className="h-3.5 w-3.5" aria-hidden="true" />
@@ -526,7 +526,7 @@ export function ExperienceSection({ expanded = false }: ExperienceSectionProps) 
                   className={`inline-flex min-h-[38px] sm:min-h-0 items-center gap-1.5 rounded-[7px] px-3 py-2 sm:py-1.5 text-xs font-medium transition-colors whitespace-nowrap shrink-0 cursor-pointer ${
                     viewMode === 'grid'
                       ? 'bg-[#2563eb] text-white'
-                      : 'text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-200'
+                      : 'text-wood-muted hover:text-wood-ink dark:text-slate-400 dark:hover:text-slate-200'
                   }`}
                 >
                   <LayoutGrid className="h-3.5 w-3.5" aria-hidden="true" />
@@ -554,7 +554,7 @@ export function ExperienceSection({ expanded = false }: ExperienceSectionProps) 
                       className={`min-h-[40px] sm:min-h-[38px] rounded-[10px] border px-3 py-2 text-xs font-medium transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600 dark:focus-visible:ring-cyan-400 whitespace-nowrap shrink-0 cursor-pointer ${
                         active
                           ? 'border-blue-600 bg-blue-50 text-blue-700 dark:border-blue-500/80 dark:bg-blue-600/20 dark:text-cyan-200'
-                          : 'border-slate-200 bg-white text-slate-600 hover:border-slate-300 hover:text-slate-900 dark:border-slate-800 dark:bg-[#0b1222] dark:text-slate-400 dark:hover:border-slate-700 dark:hover:text-slate-200'
+                          : 'border-wood-subtle bg-wood-surface text-wood-muted hover:border-wood-default hover:text-wood-ink dark:border-slate-800 dark:bg-[#0b1222] dark:text-slate-400 dark:hover:border-slate-700 dark:hover:text-slate-200'
                       }`}
                     >
                       {tab.label} ({counts[tab.id]})
@@ -566,7 +566,7 @@ export function ExperienceSection({ expanded = false }: ExperienceSectionProps) 
               <div
                 role="group"
                 aria-label="Filter experience by current or former status"
-                className="flex items-center rounded-[10px] border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#0b1222] p-1"
+                className="flex items-center rounded-[10px] border border-wood-subtle dark:border-slate-800 bg-wood-surface dark:bg-[#0b1222] p-1"
               >
                 {(
                   [
@@ -583,7 +583,7 @@ export function ExperienceSection({ expanded = false }: ExperienceSectionProps) 
                     className={`min-h-[38px] sm:min-h-0 rounded-[7px] px-3 py-2 sm:py-1.5 text-xs font-medium transition-colors duration-150 whitespace-nowrap shrink-0 cursor-pointer ${
                       status === item.id
                         ? 'bg-[#2563eb] text-white'
-                        : 'text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-200'
+                        : 'text-wood-muted hover:text-wood-ink dark:text-slate-400 dark:hover:text-slate-200'
                     }`}
                   >
                     {item.label}
@@ -595,7 +595,7 @@ export function ExperienceSection({ expanded = false }: ExperienceSectionProps) 
             {expanded && (
               <div className="relative w-full sm:max-w-sm">
                 <Search
-                  className="pointer-events-none absolute top-1/2 left-3 h-3.5 w-3.5 -translate-y-1/2 text-slate-500"
+                  className="pointer-events-none absolute top-1/2 left-3 h-3.5 w-3.5 -translate-y-1/2 text-wood-muted dark:text-slate-500"
                   aria-hidden="true"
                 />
                 <label htmlFor="experience-search" className="sr-only">
@@ -607,7 +607,7 @@ export function ExperienceSection({ expanded = false }: ExperienceSectionProps) 
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
                   placeholder="Search roles, organizations, or contributions..."
-                  className="h-9 w-full rounded-[10px] border border-slate-300 dark:border-slate-800 bg-white dark:bg-[#060b16] pr-3 pl-9 text-xs text-slate-900 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500 transition-colors duration-150 focus:border-blue-600 dark:focus:border-blue-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600 dark:focus-visible:ring-cyan-400"
+                  className="h-9 w-full rounded-[10px] border border-wood-default dark:border-slate-800 bg-wood-input dark:bg-[#060b16] pr-3 pl-9 text-xs text-wood-ink dark:text-slate-100 placeholder:text-wood-muted/70 dark:placeholder:text-slate-500 transition-colors duration-150 focus:border-blue-600 dark:focus:border-blue-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600 dark:focus-visible:ring-cyan-400"
                 />
               </div>
             )}
@@ -628,12 +628,12 @@ export function ExperienceSection({ expanded = false }: ExperienceSectionProps) 
               <div className="space-y-12">
                 {filteredGroupedSections.map((group) => (
                   <div key={group.id} className="space-y-5">
-                    <div className="flex flex-wrap items-baseline justify-between gap-2 border-b border-slate-200 dark:border-slate-800/80 pb-2.5">
+                    <div className="flex flex-wrap items-baseline justify-between gap-2 border-b border-wood-subtle dark:border-slate-800/80 pb-2.5">
                       <div>
                         <h4 className={DESIGN_TOKENS.typography.cardTitleLg}>
                           {group.title} ({group.items.length})
                         </h4>
-                        <p className="text-xs text-slate-600 dark:text-slate-400">
+                        <p className="text-xs text-wood-muted dark:text-slate-400">
                           {group.subtitle}
                         </p>
                       </div>
@@ -650,7 +650,7 @@ export function ExperienceSection({ expanded = false }: ExperienceSectionProps) 
                 ))}
               </div>
             ) : viewMode === 'timeline' ? (
-              <div className="relative pl-6 space-y-5 before:absolute before:top-2 before:bottom-2 before:left-[7px] before:w-px before:bg-gradient-to-b before:from-cyan-600/45 dark:before:from-cyan-400/55 before:via-blue-500/35 before:to-slate-200 dark:before:to-slate-800 md:pl-0 md:before:left-[186px]">
+              <div className="relative pl-6 space-y-5 before:absolute before:top-2 before:bottom-2 before:left-[7px] before:w-px before:bg-gradient-to-b before:from-cyan-600/45 dark:before:from-cyan-400/55 before:via-blue-500/35 before:to-wood-subtle dark:before:to-slate-800 md:pl-0 md:before:left-[186px]">
                 {visibleItems.map((item) => (
                   <div
                     key={item.id}
@@ -660,8 +660,8 @@ export function ExperienceSection({ expanded = false }: ExperienceSectionProps) 
                       aria-hidden="true"
                       className={`absolute top-2 -left-6 h-3.5 w-3.5 rounded-[3px] border md:top-5 md:left-[179.5px] ${
                         item.isCurrent
-                          ? 'border-cyan-600 dark:border-cyan-300 bg-slate-50 dark:bg-[#050914] shadow-[0_0_0_3px_rgba(14,116,144,0.16)] dark:shadow-[0_0_0_3px_rgba(34,211,238,0.16)]'
-                          : 'border-slate-300 dark:border-slate-600 bg-white dark:bg-[#0b1222]'
+                          ? 'border-cyan-600 dark:border-cyan-300 bg-wood-canvas dark:bg-[#050914] shadow-[0_0_0_3px_rgba(14,116,144,0.16)] dark:shadow-[0_0_0_3px_rgba(34,211,238,0.16)]'
+                          : 'border-wood-default dark:border-slate-600 bg-wood-surface dark:bg-[#0b1222]'
                       }`}
                     />
 
@@ -670,16 +670,16 @@ export function ExperienceSection({ expanded = false }: ExperienceSectionProps) 
                         className={`font-mono text-xs font-medium ${
                           item.isCurrent
                             ? 'text-cyan-700 dark:text-cyan-400'
-                            : 'text-slate-600 dark:text-slate-400'
+                            : 'text-wood-muted dark:text-slate-400'
                         }`}
                       >
                         {item.isCurrent ? 'Current' : 'Former'}
                       </p>
-                      <p className="font-mono text-xs text-slate-800 dark:text-slate-200 tabular-nums">
+                      <p className="font-mono text-xs text-wood-ink dark:text-slate-200 tabular-nums">
                         {item.period}
                       </p>
                       {item.subCategory && (
-                        <p className="font-mono text-[11px] text-slate-500">
+                        <p className="font-mono text-[11px] text-wood-muted dark:text-slate-500">
                           {item.subCategory}
                         </p>
                       )}

@@ -20,18 +20,18 @@ export function SectionHeading({
   actionTo,
 }: SectionHeadingProps) {
   return (
-    <div className="flex flex-col gap-4 border-b border-slate-200 dark:border-slate-800/80 pb-6 md:flex-row md:items-end md:justify-between">
+    <div className="flex flex-col gap-4 border-b border-wood-subtle dark:border-slate-800/80 pb-6 md:flex-row md:items-end md:justify-between">
       <div className="space-y-2.5 max-w-2xl">
         <div className="flex items-center gap-2 font-mono text-xs text-cyan-700 dark:text-cyan-400">
           <span>{index}.</span>
-          <span aria-hidden="true" className="text-slate-400 dark:text-slate-600">/</span>
-          <span className="text-slate-600 dark:text-slate-400">{eyebrow}</span>
+          <span aria-hidden="true" className="text-wood-default dark:text-slate-600">/</span>
+          <span className="text-wood-muted dark:text-slate-400">{eyebrow}</span>
         </div>
         <h2 className={DESIGN_TOKENS.typography.sectionTitle}>
           {title}
         </h2>
         {description && (
-          <p className="text-sm leading-relaxed text-slate-600 dark:text-slate-400 sm:text-base">
+          <p className="text-sm leading-relaxed text-wood-muted dark:text-slate-400 sm:text-base">
             {description}
           </p>
         )}

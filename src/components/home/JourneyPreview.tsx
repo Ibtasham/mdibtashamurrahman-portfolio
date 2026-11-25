@@ -47,7 +47,7 @@ export function JourneyPreview() {
   return (
     <section
       id="journey"
-      className={`relative border-b border-slate-200 dark:border-slate-800/80 bg-slate-100 dark:bg-[#080e1c] ${DESIGN_TOKENS.spacing.sectionY}`}
+      className={`relative border-b border-wood-subtle dark:border-slate-800/80 bg-wood-alt dark:bg-[#080e1c] ${DESIGN_TOKENS.spacing.sectionY}`}
     >
       <div
         aria-hidden="true"
@@ -67,14 +67,14 @@ export function JourneyPreview() {
         <SectionReveal>
           <SurfaceCard variant="accent" className="p-5 sm:p-6">
             <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:gap-4">
-              <div className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-[10px] border border-blue-500/35 dark:border-blue-500/40 bg-slate-50 dark:bg-[#060b16] text-cyan-700 dark:text-cyan-400">
+              <div className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-[10px] border border-blue-500/35 dark:border-blue-500/40 bg-wood-inset dark:bg-[#060b16] text-cyan-700 dark:text-cyan-400">
                 <Compass className="h-4 w-4" aria-hidden="true" />
               </div>
               <div className="space-y-1.5">
                 <p className="font-mono text-xs text-cyan-700 dark:text-cyan-400">
                   Personal Development Journey
                 </p>
-                <p className="text-sm leading-relaxed text-slate-800 dark:text-slate-200">
+                <p className="text-sm leading-relaxed text-wood-ink dark:text-slate-200">
                   {ABOUT_STORY.personalDevelopmentNarrative}
                 </p>
               </div>
@@ -99,7 +99,7 @@ export function JourneyPreview() {
                 className={`min-h-[38px] rounded-[10px] border px-3.5 py-2 text-xs font-medium transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600 dark:focus-visible:ring-cyan-400 whitespace-nowrap cursor-pointer ${
                   active
                     ? 'border-blue-600/80 dark:border-blue-500/80 bg-blue-50 dark:bg-blue-600/20 text-blue-900 dark:text-cyan-200'
-                    : 'border-slate-200 dark:border-slate-800 bg-white dark:bg-[#0b1222] text-slate-600 dark:text-slate-400 hover:border-slate-300 dark:hover:border-slate-700 hover:text-slate-900 dark:hover:text-slate-200'
+                    : 'border-wood-subtle dark:border-slate-800 bg-wood-surface dark:bg-[#0b1222] text-wood-muted dark:text-slate-400 hover:border-wood-default dark:hover:border-slate-700 hover:text-wood-ink dark:hover:text-slate-200'
                 }`}
               >
                 {tab.label} ({counts[tab.id]})
@@ -118,7 +118,7 @@ export function JourneyPreview() {
               duration: shouldReduceMotion ? 0 : DESIGN_TOKENS.motion.durationBase,
               ease: DESIGN_TOKENS.motion.ease,
             }}
-            className="relative pl-6 space-y-6 before:absolute before:top-2 before:bottom-2 before:left-[7px] before:w-px before:bg-gradient-to-b before:from-cyan-600/60 dark:before:from-cyan-400/60 before:via-blue-500/40 before:to-slate-300 dark:before:to-slate-800 md:pl-0 md:before:left-[186px]"
+            className="relative pl-6 space-y-6 before:absolute before:top-2 before:bottom-2 before:left-[7px] before:w-px before:bg-gradient-to-b before:from-cyan-600/60 dark:before:from-cyan-400/60 before:via-blue-500/40 before:to-wood-default dark:before:to-slate-800 md:pl-0 md:before:left-[186px]"
           >
             {visibleMilestones.map((milestone, idx) => {
               const milestonePhotos = getVisualArchiveForJourney(
@@ -136,8 +136,8 @@ export function JourneyPreview() {
                     className={`absolute top-2 -left-6 h-3.5 w-3.5 rounded-[3px] border md:top-5 md:left-[179.5px] ${
                       idx === visibleMilestones.length - 1 ||
                       milestone.year.includes('Present')
-                        ? 'border-cyan-600 dark:border-cyan-300 bg-white dark:bg-[#080e1c] shadow-[0_0_0_3px_rgba(14,116,144,0.16)] dark:shadow-[0_0_0_3px_rgba(34,211,238,0.16)]'
-                        : 'border-blue-600/75 dark:border-blue-500/75 bg-white dark:bg-[#0b1222]'
+                        ? 'border-cyan-600 dark:border-cyan-300 bg-wood-surface dark:bg-[#080e1c] shadow-[0_0_0_3px_rgba(14,116,144,0.16)] dark:shadow-[0_0_0_3px_rgba(34,211,238,0.16)]'
+                        : 'border-blue-600/75 dark:border-blue-500/75 bg-wood-surface dark:bg-[#0b1222]'
                     }`}
                   />
 
@@ -149,7 +149,7 @@ export function JourneyPreview() {
                     <p className="font-mono text-[11px] text-blue-700 dark:text-blue-300">
                       {milestone.category}
                     </p>
-                    <p className="text-xs leading-snug text-slate-600 dark:text-slate-400">
+                    <p className="text-xs leading-snug text-wood-muted dark:text-slate-400">
                       {milestone.institution}
                     </p>
                   </div>
@@ -168,14 +168,14 @@ export function JourneyPreview() {
                       {milestone.detail}
                     </p>
 
-                    <ul className="space-y-1.5 border-t border-slate-200 dark:border-slate-800/70 pt-3 text-xs leading-relaxed text-slate-700 dark:text-slate-300">
+                    <ul className="space-y-1.5 border-t border-wood-subtle dark:border-slate-800/70 pt-3 text-xs leading-relaxed text-wood-walnut dark:text-slate-300">
                       {milestone.highlights.map((item) => (
                         <li key={item}>• {item}</li>
                       ))}
                     </ul>
 
                     {milestonePhotos.length > 0 && (
-                      <div className="space-y-2 border-t border-slate-200/80 dark:border-slate-800/60 pt-3">
+                      <div className="space-y-2 border-t border-wood-subtle/80 dark:border-slate-800/60 pt-3">
                         <p className="inline-flex items-center gap-1.5 font-mono text-[11px] text-cyan-700 dark:text-cyan-400">
                           <Images className="h-3.5 w-3.5" aria-hidden="true" />
                           <span>Milestone Visual Evidence ({milestonePhotos.length})</span>
@@ -192,7 +192,7 @@ export function JourneyPreview() {
                                 })
                               }
                               aria-label={`Inspect milestone photograph: ${photo.associatedRecord}`}
-                              className="group overflow-hidden rounded-[8px] border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-[#060b16] text-left transition-colors hover:border-blue-500/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600 dark:focus-visible:ring-cyan-400 cursor-pointer"
+                              className="group overflow-hidden rounded-[8px] border border-wood-subtle dark:border-slate-800 bg-wood-inset dark:bg-[#060b16] text-left transition-colors hover:border-blue-500/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600 dark:focus-visible:ring-cyan-400 cursor-pointer"
                             >
                               <ArchiveMediaFrame
                                 src={photo.src}
@@ -208,7 +208,7 @@ export function JourneyPreview() {
                       </div>
                     )}
 
-                    <p className="border-t border-slate-200 dark:border-slate-800/60 pt-2.5 font-mono text-[11px] text-cyan-800 dark:text-cyan-300/90">
+                    <p className="border-t border-wood-subtle dark:border-slate-800/60 pt-2.5 font-mono text-[11px] text-cyan-800 dark:text-cyan-300/90">
                       Takeaway: {milestone.takeaway}
                     </p>
                   </SurfaceCard>

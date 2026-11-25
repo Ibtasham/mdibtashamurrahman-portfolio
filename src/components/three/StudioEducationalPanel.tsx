@@ -63,15 +63,15 @@ export function StudioEducationalPanel({
     modelSpec.subsystems[0];
 
   const shellSurface = isLightSurface
-    ? 'bg-white text-slate-900 border-slate-200'
+    ? 'bg-wood-surface text-wood-ink border-wood-subtle'
     : 'bg-[#080f1f] text-slate-100 border-slate-800';
   const cardSurface = isLightSurface
-    ? 'bg-slate-50 border-slate-200 text-slate-800'
+    ? 'bg-wood-inset/75 border-wood-subtle text-wood-walnut'
     : 'bg-[#0d172c] border-slate-800/90 text-slate-200';
-  const mutedText = isLightSurface ? 'text-slate-600' : 'text-slate-400';
+  const mutedText = isLightSurface ? 'text-wood-muted' : 'text-slate-400';
   const accentText = isLightSurface ? 'text-blue-700' : 'text-cyan-300';
   const btnSubtle = isLightSurface
-    ? 'border-slate-300 bg-white text-slate-700 hover:border-blue-500 hover:text-slate-950'
+    ? 'border-wood-default bg-wood-surface text-wood-walnut hover:border-blue-500 hover:text-wood-ink'
     : 'border-slate-700/90 bg-[#0d172c] text-slate-200 hover:border-cyan-400/70 hover:text-white';
   const btnActive = isLightSurface
     ? 'border-blue-600 bg-blue-600 text-white'
@@ -95,7 +95,7 @@ export function StudioEducationalPanel({
       {/* Model Navigation & Close Header */}
       <div
         className={`flex items-center justify-between gap-2 border-b px-4 py-3 ${
-          isLightSurface ? 'border-slate-200' : 'border-slate-800'
+          isLightSurface ? 'border-wood-subtle' : 'border-slate-800'
         }`}
       >
         <div className="flex items-center gap-1.5">
@@ -141,7 +141,7 @@ export function StudioEducationalPanel({
           role="tablist"
           aria-label="Educational studio modes"
           className={`grid grid-cols-3 gap-1.5 border-b px-4 py-2.5 ${
-            isLightSurface ? 'border-slate-200 bg-slate-50/70' : 'border-slate-800 bg-[#060c1a]'
+            isLightSurface ? 'border-wood-subtle bg-wood-inset/60' : 'border-slate-800 bg-[#060c1a]'
           }`}
         >
           {tabs.map((tab, idx) => {
@@ -322,7 +322,7 @@ export function StudioEducationalPanel({
                           key={concept}
                           className={`rounded-[6px] border px-2 py-0.5 font-mono text-[10px] ${
                             isLightSurface
-                              ? 'border-slate-300 bg-white text-slate-700'
+                              ? 'border-wood-default bg-wood-surface text-wood-walnut'
                               : 'border-slate-700 bg-[#080f1f] text-slate-200'
                           }`}
                         >
@@ -491,7 +491,7 @@ export function StudioEducationalPanel({
                       key={domain}
                       className={`rounded-[6px] border px-2 py-0.5 font-mono text-[10px] ${
                         isLightSurface
-                          ? 'border-slate-300 bg-white text-slate-700'
+                          ? 'border-wood-default bg-wood-surface text-wood-walnut'
                           : 'border-slate-700 bg-[#080f1f] text-slate-200'
                       }`}
                     >
@@ -527,7 +527,7 @@ export function StudioEducationalPanel({
         <div
           className={`rounded-[10px] border p-3 text-[11px] leading-relaxed ${
             isLightSurface
-              ? 'border-amber-300/80 bg-amber-50/70 text-amber-950'
+              ? 'border-amber-400/70 bg-amber-100/75 text-amber-950'
               : 'border-amber-500/30 bg-amber-500/10 text-amber-200/90'
           }`}
         >

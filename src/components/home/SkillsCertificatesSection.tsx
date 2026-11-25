@@ -103,10 +103,10 @@ export function SkillsCertificatesSection({
   return (
     <section
       id="skills"
-      className={`border-b border-slate-200 dark:border-slate-800/80 ${
+      className={`border-b border-wood-subtle dark:border-slate-800/80 ${
         expanded
-          ? 'bg-slate-50 dark:bg-[#050914] py-10 sm:py-14'
-          : `bg-slate-100/70 dark:bg-[#080e1c] ${DESIGN_TOKENS.spacing.sectionY}`
+          ? 'bg-wood-canvas dark:bg-[#050914] py-10 sm:py-14'
+          : `bg-wood-alt dark:bg-[#080e1c] ${DESIGN_TOKENS.spacing.sectionY}`
       }`}
     >
       <div className={`${DESIGN_TOKENS.spacing.container} space-y-12`}>
@@ -123,12 +123,12 @@ export function SkillsCertificatesSection({
 
         {/* Part A: Evidence-Linked Skill Categories */}
         <div className="space-y-6">
-          <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-200 dark:border-slate-800/80 pb-3">
+          <div className="flex flex-wrap items-center justify-between gap-3 border-b border-wood-subtle dark:border-slate-800/80 pb-3">
             <div className="space-y-0.5">
-              <h3 className="text-sm font-semibold text-slate-900 dark:text-slate-100">
+              <h3 className="text-sm font-semibold text-wood-ink dark:text-slate-100">
                 Core Technical &amp; Professional Capabilities
               </h3>
-              <p className="font-mono text-[11px] text-slate-600 dark:text-slate-500">
+              <p className="font-mono text-[11px] text-wood-muted dark:text-slate-500">
                 Zero arbitrary numeric percentages — every skill traces directly to projects, manuscripts, coursework, or verified roles
               </p>
             </div>
@@ -155,7 +155,7 @@ export function SkillsCertificatesSection({
                       className={`min-h-[40px] sm:min-h-[36px] rounded-[10px] border px-2.5 py-1.5 text-xs font-medium transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600 dark:focus-visible:ring-cyan-400 whitespace-nowrap shrink-0 cursor-pointer ${
                         active
                           ? 'border-blue-600 bg-blue-50 text-blue-700 dark:border-blue-500/80 dark:bg-blue-600/20 dark:text-cyan-200'
-                          : 'border-slate-200 bg-white text-slate-600 hover:border-slate-300 hover:text-slate-900 dark:border-slate-800 dark:bg-[#0b1222] dark:text-slate-400 dark:hover:border-slate-700 dark:hover:text-slate-200'
+                          : 'border-wood-subtle bg-wood-surface text-wood-muted hover:border-wood-default hover:text-wood-ink dark:border-slate-800 dark:bg-[#0b1222] dark:text-slate-400 dark:hover:border-slate-700 dark:hover:text-slate-200'
                       }`}
                     >
                       {tab.label}
@@ -166,7 +166,7 @@ export function SkillsCertificatesSection({
 
               <div className="relative w-full sm:w-64 shrink-0">
                 <Search
-                  className="pointer-events-none absolute top-1/2 left-3 h-3.5 w-3.5 -translate-y-1/2 text-slate-500"
+                  className="pointer-events-none absolute top-1/2 left-3 h-3.5 w-3.5 -translate-y-1/2 text-wood-muted dark:text-slate-500"
                   aria-hidden="true"
                 />
                 <label htmlFor="skills-search" className="sr-only">
@@ -178,7 +178,7 @@ export function SkillsCertificatesSection({
                   value={skillQuery}
                   onChange={(e) => setSkillQuery(e.target.value)}
                   placeholder="Search (e.g., OR-Tools, SPC)..."
-                  className="h-9 w-full rounded-[10px] border border-slate-300 dark:border-slate-800 bg-white dark:bg-[#060b16] pr-3 pl-9 text-xs text-slate-900 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500 transition-colors duration-150 focus:border-blue-600 dark:focus:border-blue-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600 dark:focus-visible:ring-cyan-400"
+                  className="h-9 w-full rounded-[10px] border border-wood-default dark:border-slate-800 bg-wood-input dark:bg-[#060b16] pr-3 pl-9 text-xs text-wood-ink dark:text-slate-100 placeholder:text-wood-muted/70 dark:placeholder:text-slate-500 transition-colors duration-150 focus:border-blue-600 dark:focus:border-blue-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600 dark:focus-visible:ring-cyan-400"
                 />
               </div>
             </div>
@@ -207,7 +207,7 @@ export function SkillsCertificatesSection({
                     className="flex min-w-0 flex-col justify-between p-6 space-y-5"
                   >
                     <div className="space-y-3">
-                      <div className="flex items-start justify-between gap-3 border-b border-slate-200 dark:border-slate-800/80 pb-3.5">
+                      <div className="flex items-start justify-between gap-3 border-b border-wood-subtle dark:border-slate-800/80 pb-3.5">
                         <div className="flex items-start gap-3 min-w-0">
                           <div className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-[10px] border border-blue-500/40 bg-blue-50 dark:bg-[#060b16] text-cyan-700 dark:text-cyan-400">
                             <Icon className="h-4 w-4" aria-hidden="true" />
@@ -221,7 +221,7 @@ export function SkillsCertificatesSection({
                             </h4>
                           </div>
                         </div>
-                        <span className="shrink-0 font-mono text-[11px] text-slate-500 tabular-nums">
+                        <span className="shrink-0 font-mono text-[11px] text-wood-muted dark:text-slate-500 tabular-nums">
                           {group.items.length} items
                         </span>
                       </div>
@@ -230,11 +230,11 @@ export function SkillsCertificatesSection({
                         {group.summary}
                       </p>
 
-                      <ul className="divide-y divide-slate-200 dark:divide-slate-800/60 border-t border-slate-200 dark:border-slate-800/70">
+                      <ul className="divide-y divide-wood-subtle dark:divide-slate-800/60 border-t border-wood-subtle dark:border-slate-800/70">
                         {group.items.map((skill) => (
                           <li key={skill.name} className="py-3 space-y-1.5">
                             <div className="flex flex-wrap items-baseline justify-between gap-2">
-                              <span className="text-xs font-semibold text-slate-900 dark:text-slate-100 sm:text-sm">
+                              <span className="text-xs font-semibold text-wood-ink dark:text-slate-100 sm:text-sm">
                                 {skill.name}
                               </span>
                               {skill.proficiency && (
@@ -244,7 +244,7 @@ export function SkillsCertificatesSection({
                               )}
                             </div>
                             {skill.detail && (
-                              <p className="text-xs leading-relaxed text-slate-600 dark:text-slate-400">
+                              <p className="text-xs leading-relaxed text-wood-muted dark:text-slate-400">
                                 {skill.detail}
                               </p>
                             )}
@@ -256,7 +256,7 @@ export function SkillsCertificatesSection({
                                     to={ev.to}
                                     className="inline-flex items-center gap-1 font-mono text-[11px] text-blue-700 dark:text-cyan-300 transition-colors hover:text-cyan-700 dark:hover:text-cyan-200 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 rounded-[4px]"
                                   >
-                                    <span className="text-slate-500 dark:text-slate-400">
+                                    <span className="text-wood-muted dark:text-slate-400">
                                       {ev.kind}:
                                     </span>
                                     <span>{ev.label}</span>
@@ -280,15 +280,15 @@ export function SkillsCertificatesSection({
         {expanded ? (
           <div
             id="certificates-gallery"
-            className="space-y-6 border-t border-slate-200 dark:border-slate-800/80 pt-10"
+            className="space-y-6 border-t border-wood-subtle dark:border-slate-800/80 pt-10"
           >
-            <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-200 dark:border-slate-800/80 pb-3">
+            <div className="flex flex-wrap items-center justify-between gap-3 border-b border-wood-subtle dark:border-slate-800/80 pb-3">
               <div className="flex items-center gap-2">
                 <Award
                   className="h-4 w-4 text-cyan-700 dark:text-cyan-400"
                   aria-hidden="true"
                 />
-                <h3 className="text-sm font-semibold text-slate-900 dark:text-slate-100">
+                <h3 className="text-sm font-semibold text-wood-ink dark:text-slate-100">
                   Certificate Gallery &amp; Credential Records
                 </h3>
               </div>
@@ -314,7 +314,7 @@ export function SkillsCertificatesSection({
                       className={`min-h-[40px] sm:min-h-[38px] rounded-[10px] border px-3.5 py-2 text-xs font-medium transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600 dark:focus-visible:ring-cyan-400 whitespace-nowrap cursor-pointer ${
                         active
                           ? 'border-blue-600 bg-blue-50 text-blue-700 dark:border-blue-500/80 dark:bg-blue-600/20 dark:text-cyan-200'
-                          : 'border-slate-200 bg-white text-slate-600 hover:border-slate-300 hover:text-slate-900 dark:border-slate-800 dark:bg-[#0b1222] dark:text-slate-400 dark:hover:border-slate-700 dark:hover:text-slate-200'
+                          : 'border-wood-subtle bg-wood-surface text-wood-muted hover:border-wood-default hover:text-wood-ink dark:border-slate-800 dark:bg-[#0b1222] dark:text-slate-400 dark:hover:border-slate-700 dark:hover:text-slate-200'
                       }`}
                     >
                       {cat} ({certCounts[cat]})
@@ -327,7 +327,7 @@ export function SkillsCertificatesSection({
                 <div
                   role="group"
                   aria-label="Filter certificates by verification status"
-                  className="flex items-center rounded-[10px] border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#0b1222] p-1"
+                  className="flex items-center rounded-[10px] border border-wood-subtle dark:border-slate-800 bg-wood-surface dark:bg-[#0b1222] p-1"
                 >
                   {(
                     [
@@ -344,7 +344,7 @@ export function SkillsCertificatesSection({
                       className={`min-h-[38px] sm:min-h-0 rounded-[7px] px-3 py-2 sm:py-1.5 text-xs font-medium transition-colors duration-150 whitespace-nowrap cursor-pointer ${
                         certStatus === item.id
                           ? 'bg-[#2563eb] text-white'
-                          : 'text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-200'
+                          : 'text-wood-muted hover:text-wood-ink dark:text-slate-400 dark:hover:text-slate-200'
                       }`}
                     >
                       {item.label}
@@ -354,7 +354,7 @@ export function SkillsCertificatesSection({
 
                 <div className="relative w-full sm:w-64">
                   <Search
-                    className="pointer-events-none absolute top-1/2 left-3 h-3.5 w-3.5 -translate-y-1/2 text-slate-500"
+                    className="pointer-events-none absolute top-1/2 left-3 h-3.5 w-3.5 -translate-y-1/2 text-wood-muted dark:text-slate-500"
                     aria-hidden="true"
                   />
                   <label htmlFor="certificates-search" className="sr-only">
@@ -366,7 +366,7 @@ export function SkillsCertificatesSection({
                     value={certQuery}
                     onChange={(e) => setCertQuery(e.target.value)}
                     placeholder="Search certificates or issuers..."
-                    className="h-9 w-full rounded-[10px] border border-slate-300 dark:border-slate-800 bg-white dark:bg-[#060b16] pr-3 pl-9 text-xs text-slate-900 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500 transition-colors duration-150 focus:border-blue-600 dark:focus:border-blue-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600 dark:focus-visible:ring-cyan-400"
+                    className="h-9 w-full rounded-[10px] border border-wood-default dark:border-slate-800 bg-wood-input dark:bg-[#060b16] pr-3 pl-9 text-xs text-wood-ink dark:text-slate-100 placeholder:text-wood-muted/70 dark:placeholder:text-slate-500 transition-colors duration-150 focus:border-blue-600 dark:focus:border-blue-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600 dark:focus-visible:ring-cyan-400"
                   />
                 </div>
               </div>
@@ -400,7 +400,7 @@ export function SkillsCertificatesSection({
                             type="button"
                             onClick={() => setActiveCertificate(cert)}
                             aria-label={`Preview certificate scan: ${cert.title}`}
-                            className="block w-full overflow-hidden rounded-[10px] border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-[#060b16] cursor-pointer"
+                            className="block w-full overflow-hidden rounded-[10px] border border-wood-subtle dark:border-slate-800 bg-wood-inset dark:bg-[#060b16] cursor-pointer"
                           >
                             <ArchiveMediaFrame
                               src={cert.fileUrl}
@@ -438,9 +438,9 @@ export function SkillsCertificatesSection({
                           {cert.title}
                         </h4>
 
-                        <div className="space-y-1.5 rounded-[10px] border border-slate-200 dark:border-slate-800/70 bg-slate-100 dark:bg-[#060b16] p-3 text-xs">
+                        <div className="space-y-1.5 rounded-[10px] border border-wood-subtle dark:border-slate-800/70 bg-wood-inset dark:bg-[#060b16] p-3 text-xs">
                           <div className="flex items-baseline justify-between gap-2">
-                            <span className="font-mono text-[10px] text-slate-500">
+                            <span className="font-mono text-[10px] text-wood-muted dark:text-slate-500">
                               Issuer
                             </span>
                             <span className="text-right font-medium text-blue-700 dark:text-blue-300">
@@ -448,15 +448,15 @@ export function SkillsCertificatesSection({
                             </span>
                           </div>
                           <div className="flex items-baseline justify-between gap-2">
-                            <span className="font-mono text-[10px] text-slate-500">
+                            <span className="font-mono text-[10px] text-wood-muted dark:text-slate-500">
                               Issue Date
                             </span>
-                            <span className="font-mono text-slate-800 dark:text-slate-200 tabular-nums">
+                            <span className="font-mono text-wood-ink dark:text-slate-200 tabular-nums">
                               {cert.date}
                             </span>
                           </div>
                           <div className="flex items-baseline justify-between gap-2">
-                            <span className="font-mono text-[10px] text-slate-500">
+                            <span className="font-mono text-[10px] text-wood-muted dark:text-slate-500">
                               Verify URL
                             </span>
                             {cert.verificationUrl ? (
@@ -470,17 +470,17 @@ export function SkillsCertificatesSection({
                                 <ExternalLink className="h-3 w-3" aria-hidden="true" />
                               </a>
                             ) : (
-                              <span className="font-mono text-[11px] text-slate-500">
+                              <span className="font-mono text-[11px] text-wood-muted dark:text-slate-500">
                                 Not supplied
                               </span>
                             )}
                           </div>
                           {cert.credentialId && (
                             <div className="flex items-baseline justify-between gap-2">
-                              <span className="font-mono text-[10px] text-slate-500">
+                              <span className="font-mono text-[10px] text-wood-muted dark:text-slate-500">
                                 Credential ID
                               </span>
-                              <span className="font-mono text-[11px] text-slate-700 dark:text-slate-300">
+                              <span className="font-mono text-[11px] text-wood-walnut dark:text-slate-300">
                                 {cert.credentialId}
                               </span>
                             </div>
@@ -492,7 +492,7 @@ export function SkillsCertificatesSection({
                         </p>
                       </div>
 
-                      <div className="mt-4 flex flex-wrap items-center justify-between gap-2.5 border-t border-slate-200 dark:border-slate-800/70 pt-3">
+                      <div className="mt-4 flex flex-wrap items-center justify-between gap-2.5 border-t border-wood-subtle dark:border-slate-800/70 pt-3">
                         <Button
                           type="button"
                           variant={isVerified ? 'secondary' : 'ghost'}
@@ -524,8 +524,8 @@ export function SkillsCertificatesSection({
             )}
           </div>
         ) : (
-          <div className="flex flex-wrap items-center justify-between gap-4 rounded-[14px] border border-slate-200 dark:border-slate-800/80 bg-white dark:bg-[#0b1222] px-5 py-4">
-            <div className="flex items-center gap-2.5 text-xs text-slate-600 dark:text-slate-400">
+          <div className="flex flex-wrap items-center justify-between gap-4 rounded-[14px] border border-wood-subtle dark:border-slate-800/80 bg-wood-surface dark:bg-[#0b1222] px-5 py-4">
+            <div className="flex items-center gap-2.5 text-xs text-wood-muted dark:text-slate-400">
               <Award
                 className="h-4 w-4 text-cyan-700 dark:text-cyan-400 shrink-0"
                 aria-hidden="true"

@@ -379,11 +379,11 @@ export function IndustrialStudioViewport({
     (theme === 'light' && activeLighting !== 'dark-lab');
 
   const overlaySurface = isLightSurface
-    ? 'bg-white/95 text-slate-900 border-slate-300 shadow-[0_14px_32px_-12px_rgba(15,23,42,0.2)]'
+    ? 'bg-wood-surface/95 text-wood-ink border-wood-default shadow-[0_14px_32px_-12px_rgba(44,30,15,0.22)]'
     : 'bg-[#091122]/96 text-slate-100 border-slate-700/80 shadow-[0_18px_40px_-12px_rgba(2,6,23,0.9)]';
 
   const subtleChip = isLightSurface
-    ? 'border-slate-300 bg-slate-100 text-slate-700 hover:border-blue-500 hover:text-slate-950'
+    ? 'border-wood-default bg-wood-inset text-wood-walnut hover:border-blue-500 hover:text-wood-ink'
     : 'border-slate-700/90 bg-[#0e172c] text-slate-300 hover:border-cyan-400/70 hover:text-white';
 
   const activeChip = isLightSurface
@@ -392,10 +392,10 @@ export function IndustrialStudioViewport({
 
   const wrapperClassName =
     mode === 'fullscreen'
-      ? 'relative flex h-[100dvh] w-screen flex-col lg:flex-row overflow-hidden select-none bg-slate-100 dark:bg-[#050914]'
+      ? 'relative flex h-[100dvh] w-screen flex-col lg:flex-row overflow-hidden select-none bg-wood-inset dark:bg-[#050914]'
       : `relative flex flex-col md:flex-row ${
           heightClassName ?? 'min-h-[520px] md:h-[560px]'
-        } w-full overflow-hidden rounded-[16px] border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-[#050914]`;
+        } w-full overflow-hidden rounded-[16px] border border-wood-subtle dark:border-slate-800 bg-wood-inset dark:bg-[#050914]`;
 
   if (webglError) {
     return (
@@ -522,7 +522,7 @@ export function IndustrialStudioViewport({
                         ? 'border-blue-700 bg-blue-600 text-white shadow-md'
                         : 'border-cyan-300 bg-[#0284c7] text-white font-semibold shadow-md'
                       : isLightSurface
-                        ? 'border-slate-300 bg-white/95 text-slate-900 hover:border-blue-600'
+                        ? 'border-wood-default bg-wood-surface/95 text-wood-ink hover:border-blue-600'
                         : 'border-slate-700 bg-[#081022]/96 text-slate-100 hover:border-cyan-400'
                   }`}
                 >
@@ -531,7 +531,7 @@ export function IndustrialStudioViewport({
                       isSelected
                         ? 'bg-white/25 text-white'
                         : isLightSurface
-                          ? 'bg-slate-200 text-slate-800'
+                          ? 'bg-wood-inset text-wood-walnut'
                           : 'bg-cyan-500/20 text-cyan-300'
                     }`}
                   >
@@ -570,7 +570,7 @@ export function IndustrialStudioViewport({
             {mode === 'fullscreen' ? (
               <h1
                 className={`mt-0.5 line-clamp-1 font-display text-xs font-semibold tracking-tight sm:mt-1 sm:text-sm xl:text-base ${
-                  isLightSurface ? '!text-slate-950' : '!text-slate-50'
+                  isLightSurface ? '!text-wood-ink' : '!text-slate-50'
                 }`}
               >
                 {customFileName ?? modelSpec.title}
@@ -578,7 +578,7 @@ export function IndustrialStudioViewport({
             ) : (
               <h2
                 className={`mt-0.5 line-clamp-1 font-display text-xs font-semibold tracking-tight sm:mt-1 sm:text-sm xl:text-base ${
-                  isLightSurface ? '!text-slate-950' : '!text-slate-50'
+                  isLightSurface ? '!text-wood-ink' : '!text-slate-50'
                 }`}
               >
                 {customFileName ?? modelSpec.title}

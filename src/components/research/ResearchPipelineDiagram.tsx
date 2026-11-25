@@ -191,9 +191,9 @@ export function ResearchPipelineDiagram({ studyId }: ResearchPipelineDiagramProp
   };
 
   return (
-    <figure className="space-y-4 rounded-[14px] border border-slate-200 dark:border-slate-800/80 bg-white dark:bg-[#060b16] p-4 sm:p-6">
-      <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200 dark:border-slate-800/80 pb-3">
-        <figcaption className="font-mono text-xs font-medium text-slate-900 dark:text-slate-100">
+    <figure className="space-y-4 rounded-[14px] border border-wood-subtle dark:border-slate-800/80 bg-wood-surface dark:bg-[#060b16] p-4 sm:p-6">
+      <div className="flex flex-wrap items-center justify-between gap-2 border-b border-wood-subtle dark:border-slate-800/80 pb-3">
+        <figcaption className="font-mono text-xs font-medium text-wood-ink dark:text-slate-100">
           {activeManuscript
             ? `Conceptual Methodology Illustration · ${STUDY_SHORT_LABELS[activeManuscript.id] ?? activeManuscript.domain}`
             : 'Conceptual Methodology Visualization · Predictive Modelling to Operational Decisions'}
@@ -219,7 +219,7 @@ export function ResearchPipelineDiagram({ studyId }: ResearchPipelineDiagramProp
             className={`min-h-[40px] sm:min-h-[34px] rounded-[8px] border px-3 py-1.5 font-mono text-[11px] transition-colors whitespace-nowrap shrink-0 cursor-pointer ${
               selectedMode === 'macro'
                 ? 'border-blue-600 bg-blue-50 text-blue-700 dark:border-cyan-400/70 dark:bg-blue-600/20 dark:text-cyan-200'
-                : 'border-slate-200 bg-slate-50 text-slate-700 hover:border-slate-300 dark:border-slate-800 dark:bg-[#0b1222] dark:text-slate-300 dark:hover:border-slate-700'
+                : 'border-wood-subtle bg-wood-inset text-wood-walnut hover:border-wood-default dark:border-slate-800 dark:bg-[#0b1222] dark:text-slate-300 dark:hover:border-slate-700'
             }`}
           >
             All 3 Connected Studies
@@ -235,7 +235,7 @@ export function ResearchPipelineDiagram({ studyId }: ResearchPipelineDiagramProp
                 className={`min-h-[40px] sm:min-h-[34px] rounded-[8px] border px-3 py-1.5 font-mono text-[11px] transition-colors whitespace-nowrap shrink-0 cursor-pointer ${
                   active
                     ? 'border-blue-600 bg-blue-50 text-blue-700 dark:border-cyan-400/70 dark:bg-blue-600/20 dark:text-cyan-200'
-                    : 'border-slate-200 bg-slate-50 text-slate-700 hover:border-slate-300 dark:border-slate-800 dark:bg-[#0b1222] dark:text-slate-300 dark:hover:border-slate-700'
+                    : 'border-wood-subtle bg-wood-inset text-wood-walnut hover:border-wood-default dark:border-slate-800 dark:bg-[#0b1222] dark:text-slate-300 dark:hover:border-slate-700'
                 }`}
               >
                 {STUDY_SHORT_LABELS[study.id] ?? study.domain}
@@ -381,7 +381,7 @@ export function ResearchPipelineDiagram({ studyId }: ResearchPipelineDiagramProp
       </svg>
 
       {/* Interactive Stage Selection Tabs & Methodological Detail Panel */}
-      <div className="space-y-4 border-t border-slate-200 dark:border-slate-800/80 pt-4">
+      <div className="space-y-4 border-t border-wood-subtle dark:border-slate-800/80 pt-4">
         <div
           role="tablist"
           aria-label="Select research methodology stage"
@@ -424,7 +424,7 @@ export function ResearchPipelineDiagram({ studyId }: ResearchPipelineDiagramProp
                 className={`min-h-[40px] sm:min-h-[34px] rounded-[8px] border px-3 py-1.5 sm:py-1 font-mono text-[11px] text-left sm:text-center transition-colors sm:whitespace-nowrap sm:shrink-0 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600 dark:focus-visible:ring-cyan-400 ${
                   active
                     ? 'border-blue-600 bg-blue-50 text-blue-700 dark:border-cyan-400/70 dark:bg-blue-600/20 dark:text-cyan-200'
-                    : 'border-slate-200 bg-slate-50 text-slate-700 hover:border-slate-300 dark:border-slate-800 dark:bg-[#0b1222] dark:text-slate-300 dark:hover:border-slate-700'
+                    : 'border-wood-subtle bg-wood-inset text-wood-walnut hover:border-wood-default dark:border-slate-800 dark:bg-[#0b1222] dark:text-slate-300 dark:hover:border-slate-700'
                 }`}
               >
                 0{idx + 1}. {stage.title}
@@ -437,14 +437,14 @@ export function ResearchPipelineDiagram({ studyId }: ResearchPipelineDiagramProp
           id={`${diagramUid}-panel`}
           role="tabpanel"
           aria-labelledby={`${diagramUid}-tab-${activeStage.id}`}
-          className="grid gap-4 rounded-[12px] border border-slate-200 dark:border-slate-800/80 bg-slate-50 dark:bg-[#0b1222] p-4 sm:grid-cols-12 sm:items-center"
+          className="grid gap-4 rounded-[12px] border border-wood-subtle dark:border-slate-800/80 bg-wood-inset/80 dark:bg-[#0b1222] p-4 sm:grid-cols-12 sm:items-center"
         >
           <div className="space-y-1.5 sm:col-span-8">
             <p className="font-mono text-[11px] text-cyan-700 dark:text-cyan-400">
               {activeStage.index} · {activeStage.subtitle}
             </p>
             <p className={DESIGN_TOKENS.typography.body}>{activeStage.summary}</p>
-            <p className="font-mono text-[11px] text-slate-600 dark:text-slate-400">
+            <p className="font-mono text-[11px] text-wood-muted dark:text-slate-400">
               Approaches: {activeStage.techniques.join(' · ')}
             </p>
           </div>
@@ -452,7 +452,7 @@ export function ResearchPipelineDiagram({ studyId }: ResearchPipelineDiagramProp
             <div className="flex sm:col-span-4 sm:justify-end">
               <Link
                 to={`/research/${activeStage.linkedStudyId}`}
-                className="inline-flex min-h-[40px] sm:min-h-[36px] items-center gap-1.5 rounded-[10px] border border-slate-300 dark:border-slate-700/80 bg-white dark:bg-[#060b16] px-3.5 py-2 text-xs font-medium text-blue-700 dark:text-cyan-300 transition-colors hover:border-blue-500/60"
+                className="inline-flex min-h-[40px] sm:min-h-[36px] items-center gap-1.5 rounded-[10px] border border-wood-default dark:border-slate-700/80 bg-wood-surface dark:bg-[#060b16] px-3.5 py-2 text-xs font-medium text-blue-700 dark:text-cyan-300 transition-colors hover:border-blue-500/60"
               >
                 <span>{activeStage.linkedStudyLabel}</span>
                 <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />

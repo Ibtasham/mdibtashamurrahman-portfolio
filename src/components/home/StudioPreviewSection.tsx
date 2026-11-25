@@ -53,7 +53,7 @@ export function StudioPreviewSection({
   const innerContent = (
     <>
       {integrated ? (
-        <div className="flex flex-col gap-3 border-b border-slate-200 dark:border-slate-800/80 pb-4 sm:flex-row sm:items-end sm:justify-between">
+        <div className="flex flex-col gap-3 border-b border-wood-subtle dark:border-slate-800/80 pb-4 sm:flex-row sm:items-end sm:justify-between">
           <div className="space-y-1 max-w-2xl">
             <p className="font-mono text-xs text-cyan-700 dark:text-cyan-400">
               Interactive 3D Engineering Studio
@@ -61,7 +61,7 @@ export function StudioPreviewSection({
             <h3 className={DESIGN_TOKENS.typography.cardTitleLg}>
               Spatial Engineering Assemblies &amp; Kinematics
             </h3>
-            <p className="text-xs leading-relaxed text-slate-600 dark:text-slate-400">
+            <p className="text-xs leading-relaxed text-wood-muted dark:text-slate-400">
               Inspect five procedural 3D assemblies linked to my engineering systems and research manuscripts—or load your own .GLB, .GLTF, or .STL CAD files.
             </p>
           </div>
@@ -88,9 +88,9 @@ export function StudioPreviewSection({
           {viewportMounted ? (
             <Suspense
               fallback={
-                <div className="flex h-[470px] sm:h-[540px] w-full flex-col items-center justify-center gap-3 rounded-[16px] border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-[#050914] p-6 text-center">
+                <div className="flex h-[470px] sm:h-[540px] w-full flex-col items-center justify-center gap-3 rounded-[16px] border border-wood-subtle dark:border-slate-800 bg-wood-inset dark:bg-[#050914] p-6 text-center">
                   <Cpu className="h-7 w-7 animate-pulse motion-reduce:animate-none text-cyan-700 dark:text-cyan-400" aria-hidden="true" />
-                  <p className="font-mono text-xs text-slate-600 dark:text-slate-300">
+                  <p className="font-mono text-xs text-wood-walnut dark:text-slate-300">
                     Initializing 3D Engineering Viewport · {activeSpec.title}
                   </p>
                 </div>
@@ -103,18 +103,18 @@ export function StudioPreviewSection({
               />
             </Suspense>
           ) : (
-            <div className="flex h-[470px] sm:h-[540px] w-full flex-col items-center justify-center gap-4 rounded-[16px] border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-[#050914] bg-blueprint-grid p-6 text-center">
-              <div className="inline-flex h-12 w-12 items-center justify-center rounded-[12px] border border-cyan-600/35 bg-white dark:bg-[#0c1426] text-cyan-700 dark:text-cyan-400">
+            <div className="flex h-[470px] sm:h-[540px] w-full flex-col items-center justify-center gap-4 rounded-[16px] border border-wood-subtle dark:border-slate-800 bg-wood-inset dark:bg-[#050914] bg-blueprint-grid p-6 text-center">
+              <div className="inline-flex h-12 w-12 items-center justify-center rounded-[12px] border border-cyan-600/35 bg-wood-surface dark:bg-[#0c1426] text-cyan-700 dark:text-cyan-400">
                 <Box className="h-6 w-6" aria-hidden="true" />
               </div>
               <div className="space-y-1.5 max-w-md">
                 <p className="font-mono text-[11px] text-cyan-700 dark:text-cyan-400">
                   WebGL Engineering Workbench
                 </p>
-                <p className="font-display text-lg font-semibold text-slate-900 dark:text-slate-100">
+                <p className="font-display text-lg font-semibold text-wood-ink dark:text-slate-100">
                   {activeSpec.title}
                 </p>
-                <p className="text-xs leading-relaxed text-slate-600 dark:text-slate-400">
+                <p className="text-xs leading-relaxed text-wood-muted dark:text-slate-400">
                   Scroll here or launch below to load the interactive Three.js PBR rotary studio.
                 </p>
               </div>
@@ -143,8 +143,8 @@ export function StudioPreviewSection({
                 key={id}
                 className={`flex flex-col justify-between rounded-[12px] border p-3.5 transition-colors ${
                   active
-                    ? 'border-blue-600/80 dark:border-cyan-400/70 bg-blue-50/70 dark:bg-cyan-500/10'
-                    : 'border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-[#0b1222] hover:border-slate-300 dark:hover:border-slate-700'
+                    ? 'border-blue-600/80 dark:border-cyan-400/70 bg-blue-50/80 dark:bg-cyan-500/10'
+                    : 'border-wood-subtle dark:border-slate-800 bg-wood-surface dark:bg-[#0b1222] hover:border-wood-default dark:hover:border-slate-700'
                 }`}
               >
                 <button
@@ -159,16 +159,16 @@ export function StudioPreviewSection({
                   <p className="font-mono text-[10px] text-cyan-700 dark:text-cyan-400">
                     {spec.shortTitle}
                   </p>
-                  <p className="mt-0.5 text-xs font-semibold text-slate-900 dark:text-slate-100 line-clamp-2">
+                  <p className="mt-0.5 text-xs font-semibold text-wood-ink dark:text-slate-100 line-clamp-2">
                     {spec.title.split('·')[1]?.trim() ?? spec.title}
                   </p>
-                  <p className="mt-1 font-mono text-[10px] text-slate-600 dark:text-slate-400 truncate">
+                  <p className="mt-1 font-mono text-[10px] text-wood-muted dark:text-slate-400 truncate">
                     {spec.projectRef}
                   </p>
                 </button>
 
-                <div className="mt-2.5 flex items-center justify-between border-t border-slate-200/80 dark:border-slate-800/80 pt-2 font-mono text-[10px]">
-                  <span className="text-slate-600 dark:text-slate-400">
+                <div className="mt-2.5 flex items-center justify-between border-t border-wood-subtle/80 dark:border-slate-800/80 pt-2 font-mono text-[10px]">
+                  <span className="text-wood-muted dark:text-slate-400">
                     {spec.subsystems.length} stages
                   </span>
                   <Link
@@ -184,14 +184,14 @@ export function StudioPreviewSection({
           })}
         </div>
 
-        <div className="flex flex-wrap items-center justify-between gap-3 text-xs text-slate-600 dark:text-slate-400">
+        <div className="flex flex-wrap items-center justify-between gap-3 text-xs text-wood-muted dark:text-slate-400">
           <p className="inline-flex items-center gap-2 font-mono text-[11px]">
             <Box className="h-3.5 w-3.5 text-cyan-700 dark:text-cyan-400" aria-hidden="true" />
             <span>
               Supports custom .GLB, .GLTF &amp; .STL upload · Click any 3D stage or stage button to inspect engineering notes
             </span>
           </p>
-          <span className="font-mono text-[11px] text-slate-600 dark:text-slate-400">
+          <span className="font-mono text-[11px] text-wood-muted dark:text-slate-400">
             Shortcuts in fullscreen: H (Hide HUD) · Space (Pause kinematics)
           </span>
         </div>
@@ -202,7 +202,7 @@ export function StudioPreviewSection({
     return (
       <div
         id="studio-3d"
-        className="space-y-6 border-t border-slate-200 dark:border-slate-800/80 pt-10"
+        className="space-y-6 border-t border-wood-subtle dark:border-slate-800/80 pt-10"
       >
         {innerContent}
       </div>
@@ -212,7 +212,7 @@ export function StudioPreviewSection({
   return (
     <section
       id="studio-3d"
-      className={`border-b border-slate-200 dark:border-slate-800/80 bg-white dark:bg-[#080e1c] ${DESIGN_TOKENS.spacing.sectionY}`}
+      className={`border-b border-wood-subtle dark:border-slate-800/80 bg-wood-canvas dark:bg-[#080e1c] ${DESIGN_TOKENS.spacing.sectionY}`}
     >
       <div className={`${DESIGN_TOKENS.spacing.container} space-y-8`}>
         {innerContent}

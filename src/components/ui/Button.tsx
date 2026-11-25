@@ -7,11 +7,11 @@ type ButtonSize = 'sm' | 'md';
 
 const VARIANT_CLASSES: Record<ButtonVariant, string> = {
   primary:
-    'bg-[#2563eb] text-white border border-blue-600/80 dark:border-blue-500/40 hover:bg-[#1d4ed8] dark:hover:bg-[#3b82f6] shadow-[0_1px_2px_rgba(15,23,42,0.18)] dark:shadow-[0_1px_2px_rgba(2,6,23,0.5)]',
+    'bg-[#2563eb] text-white border border-blue-600/80 dark:border-blue-500/40 hover:bg-[#1d4ed8] dark:hover:bg-[#3b82f6] shadow-[0_1px_2px_rgba(45,28,12,0.2)] dark:shadow-[0_1px_2px_rgba(2,6,23,0.5)]',
   secondary:
-    'bg-white dark:bg-[#0b1222] text-slate-800 dark:text-slate-200 border border-slate-300 dark:border-slate-700/80 hover:border-blue-500/70 hover:bg-slate-100 dark:hover:bg-[#101a30] hover:text-slate-950 dark:hover:text-white',
+    'bg-wood-surface dark:bg-[#0b1222] text-wood-ink dark:text-slate-200 border border-wood-default dark:border-slate-700/80 hover:border-blue-600/70 hover:bg-wood-hover dark:hover:bg-[#101a30] hover:text-wood-ink dark:hover:text-white',
   ghost:
-    'bg-transparent text-slate-700 dark:text-slate-300 border border-transparent hover:bg-slate-200/70 dark:hover:bg-[#101a30]/70 hover:text-blue-700 dark:hover:text-cyan-200',
+    'bg-transparent text-wood-walnut dark:text-slate-300 border border-transparent hover:bg-wood-inset/65 dark:hover:bg-[#101a30]/70 hover:text-blue-700 dark:hover:text-cyan-200',
 };
 
 const SIZE_CLASSES: Record<ButtonSize, string> = {
@@ -20,7 +20,7 @@ const SIZE_CLASSES: Record<ButtonSize, string> = {
 };
 
 const BASE_CLASSES =
-  'inline-flex items-center justify-center gap-2 rounded-[10px] font-semibold transition-all duration-150 ease-[cubic-bezier(0.16,1,0.3,1)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600 dark:focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-50 dark:focus-visible:ring-offset-[#050914] disabled:pointer-events-none disabled:opacity-60 whitespace-nowrap shrink-0 cursor-pointer';
+  'inline-flex items-center justify-center gap-2 rounded-[10px] font-semibold transition-all duration-150 ease-[cubic-bezier(0.16,1,0.3,1)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600 dark:focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-wood-canvas dark:focus-visible:ring-offset-[#050914] disabled:pointer-events-none disabled:opacity-60 whitespace-nowrap shrink-0 cursor-pointer';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: ButtonVariant;

@@ -96,10 +96,10 @@ export function AchievementsSection({ expanded = false }: AchievementsSectionPro
   return (
     <section
       id="awards"
-      className={`relative border-b border-slate-200 dark:border-slate-800/80 ${
+      className={`relative border-b border-wood-subtle dark:border-slate-800/80 ${
         expanded
-          ? 'bg-slate-100/70 dark:bg-[#080e1c] py-10 sm:py-14'
-          : `bg-slate-50 dark:bg-[#050914] ${DESIGN_TOKENS.spacing.sectionY}`
+          ? 'bg-wood-alt dark:bg-[#080e1c] py-10 sm:py-14'
+          : `bg-wood-canvas dark:bg-[#050914] ${DESIGN_TOKENS.spacing.sectionY}`
       }`}
     >
       <div
@@ -135,7 +135,7 @@ export function AchievementsSection({ expanded = false }: AchievementsSectionPro
                 className={`min-h-[40px] sm:min-h-[38px] rounded-[10px] border px-3.5 py-2 text-xs font-medium transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600 dark:focus-visible:ring-cyan-400 whitespace-nowrap shrink-0 cursor-pointer ${
                   active
                     ? 'border-blue-600 bg-blue-50 text-blue-700 dark:border-blue-500/80 dark:bg-blue-600/20 dark:text-cyan-200'
-                    : 'border-slate-200 bg-white text-slate-600 hover:border-slate-300 hover:text-slate-900 dark:border-slate-800 dark:bg-[#0b1222] dark:text-slate-400 dark:hover:border-slate-700 dark:hover:text-slate-200'
+                    : 'border-wood-subtle bg-wood-surface text-wood-muted hover:border-wood-default hover:text-wood-ink dark:border-slate-800 dark:bg-[#0b1222] dark:text-slate-400 dark:hover:border-slate-700 dark:hover:text-slate-200'
                 }`}
               >
                 {cat} ({categoryCounts[cat]})
@@ -194,11 +194,11 @@ export function AchievementsSection({ expanded = false }: AchievementsSectionPro
                             <span className="font-semibold text-cyan-700 dark:text-cyan-300">
                               {award.placement}
                             </span>
-                            <span className="shrink-0 text-slate-500 tabular-nums">
+                            <span className="shrink-0 text-wood-muted dark:text-slate-500 tabular-nums">
                               {award.year}
                             </span>
                           </div>
-                          <p className="font-mono text-[10px] text-slate-500 dark:text-slate-400">
+                          <p className="font-mono text-[10px] text-wood-muted dark:text-slate-400">
                             {award.category}
                           </p>
                         </div>
@@ -223,7 +223,7 @@ export function AchievementsSection({ expanded = false }: AchievementsSectionPro
                           type="button"
                           onClick={() => setActiveCertificate(cert)}
                           aria-label={`Inspect verified certificate scan for ${award.title}`}
-                          className="group relative block w-full overflow-hidden rounded-[10px] border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-[#060b16] text-left cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500"
+                          className="group relative block w-full overflow-hidden rounded-[10px] border border-wood-subtle dark:border-slate-800 bg-wood-inset dark:bg-[#060b16] text-left cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500"
                         >
                           <ArchiveMediaFrame
                             src={cert.fileUrl}
@@ -232,11 +232,11 @@ export function AchievementsSection({ expanded = false }: AchievementsSectionPro
                             rotateDeg={cert.rotateDeg}
                             mode="thumbnail"
                           />
-                          <div className="flex items-center justify-between gap-2 border-t border-slate-200 dark:border-slate-800/80 bg-white/95 dark:bg-[#080e1d] px-3 py-1.5">
+                          <div className="flex items-center justify-between gap-2 border-t border-wood-subtle dark:border-slate-800/80 bg-wood-surface/95 dark:bg-[#080e1d] px-3 py-1.5">
                             <span className="font-mono text-[10px] text-cyan-700 dark:text-cyan-300">
                               Verified Certificate Scan
                             </span>
-                            <span className="inline-flex items-center gap-1 font-mono text-[10px] text-slate-600 dark:text-slate-400 group-hover:text-blue-600 dark:group-hover:text-cyan-300">
+                            <span className="inline-flex items-center gap-1 font-mono text-[10px] text-wood-muted dark:text-slate-400 group-hover:text-blue-600 dark:group-hover:text-cyan-300">
                               <Expand className="h-3 w-3" aria-hidden="true" />
                               <span>Zoom</span>
                             </span>
@@ -252,7 +252,7 @@ export function AchievementsSection({ expanded = false }: AchievementsSectionPro
                             })
                           }
                           aria-label={`Inspect ceremony photograph for ${award.title}`}
-                          className="group relative block w-full overflow-hidden rounded-[10px] border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-[#060b16] text-left cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500"
+                          className="group relative block w-full overflow-hidden rounded-[10px] border border-wood-subtle dark:border-slate-800 bg-wood-inset dark:bg-[#060b16] text-left cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500"
                         >
                           <ArchiveMediaFrame
                             src={linkedPhotos[0].src}
@@ -262,11 +262,11 @@ export function AchievementsSection({ expanded = false }: AchievementsSectionPro
                             focalPosition={linkedPhotos[0].focalPosition}
                             mode="thumbnail"
                           />
-                          <div className="flex items-center justify-between gap-2 border-t border-slate-200 dark:border-slate-800/80 bg-white/95 dark:bg-[#080e1d] px-3 py-1.5">
+                          <div className="flex items-center justify-between gap-2 border-t border-wood-subtle dark:border-slate-800/80 bg-wood-surface/95 dark:bg-[#080e1d] px-3 py-1.5">
                             <span className="font-mono text-[10px] text-blue-700 dark:text-cyan-300">
                               Visual Archive ({linkedPhotos.length})
                             </span>
-                            <span className="inline-flex items-center gap-1 font-mono text-[10px] text-slate-600 dark:text-slate-400 group-hover:text-blue-600 dark:group-hover:text-cyan-300">
+                            <span className="inline-flex items-center gap-1 font-mono text-[10px] text-wood-muted dark:text-slate-400 group-hover:text-blue-600 dark:group-hover:text-cyan-300">
                               <Expand className="h-3 w-3" aria-hidden="true" />
                               <span>Inspect</span>
                             </span>
@@ -277,35 +277,35 @@ export function AchievementsSection({ expanded = false }: AchievementsSectionPro
                           type="button"
                           onClick={() => setActiveCertificate(cert)}
                           aria-label={`Inspect signed digital PDF certificate for ${award.title}`}
-                          className="group flex w-full items-center justify-between gap-3 rounded-[10px] border border-blue-500/30 bg-slate-50 dark:bg-[#060b16] p-3 text-left transition-colors hover:border-cyan-500/50 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500"
+                          className="group flex w-full items-center justify-between gap-3 rounded-[10px] border border-blue-500/35 bg-wood-inset dark:bg-[#060b16] p-3 text-left transition-colors hover:border-cyan-500/50 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500"
                         >
                           <div className="flex items-center gap-2.5 min-w-0">
-                            <div className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-[8px] border border-cyan-600/30 dark:border-cyan-500/40 bg-white dark:bg-[#0b1222] text-cyan-700 dark:text-cyan-300">
+                            <div className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-[8px] border border-cyan-600/30 dark:border-cyan-500/40 bg-wood-surface dark:bg-[#0b1222] text-cyan-700 dark:text-cyan-300">
                               <FileText className="h-4 w-4" aria-hidden="true" />
                             </div>
                             <div className="min-w-0">
                               <p className="truncate font-mono text-[11px] font-medium text-cyan-700 dark:text-cyan-300">
                                 Signed Digital PDF Certificate
                               </p>
-                              <p className="truncate text-[11px] text-slate-500 dark:text-slate-400">
+                              <p className="truncate text-[11px] text-wood-muted dark:text-slate-400">
                                 {cert.issuer}
                               </p>
                             </div>
                           </div>
                           <Expand
-                            className="h-3.5 w-3.5 shrink-0 text-slate-500 group-hover:text-cyan-600 dark:group-hover:text-cyan-300"
+                            className="h-3.5 w-3.5 shrink-0 text-wood-muted dark:text-slate-500 group-hover:text-cyan-600 dark:group-hover:text-cyan-300"
                             aria-hidden="true"
                           />
                         </button>
                       ) : null}
 
                       {isOpen && award.missingInfo && award.missingInfo.length > 0 && (
-                        <div className="rounded-[8px] border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-[#060b16] p-2.5 space-y-1">
+                        <div className="rounded-[8px] border border-wood-subtle dark:border-slate-800 bg-wood-inset dark:bg-[#060b16] p-2.5 space-y-1">
                           <p className="flex items-center gap-1.5 font-mono text-[10px] text-blue-700 dark:text-blue-300">
                             <AlertCircle className="h-3 w-3 shrink-0" aria-hidden="true" />
                             <span>Marked for Manual Completion</span>
                           </p>
-                          <ul className="space-y-0.5 text-[11px] text-slate-600 dark:text-slate-400">
+                          <ul className="space-y-0.5 text-[11px] text-wood-muted dark:text-slate-400">
                             {award.missingInfo.map((note) => (
                               <li key={note}>– {note}</li>
                             ))}
@@ -314,7 +314,7 @@ export function AchievementsSection({ expanded = false }: AchievementsSectionPro
                       )}
                     </div>
 
-                    <div className="mt-4 space-y-2.5 border-t border-slate-200 dark:border-slate-800/70 pt-3">
+                    <div className="mt-4 space-y-2.5 border-t border-wood-subtle dark:border-slate-800/70 pt-3">
                       <div className="flex flex-wrap items-center justify-between gap-2">
                         <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
                           {cert && (
@@ -324,7 +324,7 @@ export function AchievementsSection({ expanded = false }: AchievementsSectionPro
                               className={`inline-flex min-h-[40px] sm:min-h-[34px] items-center gap-1.5 text-xs font-medium transition-colors cursor-pointer ${
                                 isAttached
                                   ? 'text-cyan-700 hover:text-cyan-800 dark:text-cyan-300 dark:hover:text-cyan-200'
-                                  : 'text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-200'
+                                  : 'text-wood-muted hover:text-wood-ink dark:text-slate-400 dark:hover:text-slate-200'
                               }`}
                             >
                               {isAttached ? (
@@ -362,7 +362,7 @@ export function AchievementsSection({ expanded = false }: AchievementsSectionPro
                             type="button"
                             aria-expanded={isOpen}
                             onClick={() => toggleExpand(award.id)}
-                            className="inline-flex min-h-[40px] sm:min-h-[34px] items-center gap-1 text-xs font-medium text-slate-600 dark:text-slate-400 transition-colors hover:text-cyan-700 dark:hover:text-cyan-300 cursor-pointer"
+                            className="inline-flex min-h-[40px] sm:min-h-[34px] items-center gap-1 text-xs font-medium text-wood-muted dark:text-slate-400 transition-colors hover:text-cyan-700 dark:hover:text-cyan-300 cursor-pointer"
                           >
                             <span>{isOpen ? 'Hide Notes' : 'Completion Notes'}</span>
                             {isOpen ? (
@@ -384,9 +384,9 @@ export function AchievementsSection({ expanded = false }: AchievementsSectionPro
         {/* Certificate Attachment Support Registry */}
         {expanded ? (
           <SectionReveal delay={0.05}>
-            <div className="space-y-5 border-t border-slate-200 dark:border-slate-800/80 pt-10">
+            <div className="space-y-5 border-t border-wood-subtle dark:border-slate-800/80 pt-10">
               <div className="flex flex-wrap items-center justify-between gap-3">
-                <div className="flex items-center gap-2 text-sm font-semibold text-slate-900 dark:text-slate-100">
+                <div className="flex items-center gap-2 text-sm font-semibold text-wood-ink dark:text-slate-100">
                   <Award
                     className="h-4 w-4 text-cyan-700 dark:text-cyan-400"
                     aria-hidden="true"
@@ -414,7 +414,7 @@ export function AchievementsSection({ expanded = false }: AchievementsSectionPro
                             type="button"
                             onClick={() => setActiveCertificate(cert)}
                             aria-label={`Preview certificate image: ${cert.title}`}
-                            className="block w-full overflow-hidden rounded-[10px] border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-[#060b16] cursor-pointer"
+                            className="block w-full overflow-hidden rounded-[10px] border border-wood-subtle dark:border-slate-800 bg-wood-inset dark:bg-[#060b16] cursor-pointer"
                           >
                             <ArchiveMediaFrame
                               src={cert.fileUrl}
@@ -431,16 +431,16 @@ export function AchievementsSection({ expanded = false }: AchievementsSectionPro
                             type="button"
                             onClick={() => setActiveCertificate(cert)}
                             aria-label={`Preview digital PDF certificate: ${cert.title}`}
-                            className="flex w-full items-center gap-3 rounded-[10px] border border-blue-500/30 bg-slate-50 dark:bg-[#060b16] p-3 text-left transition-colors hover:border-cyan-500/50 cursor-pointer"
+                            className="flex w-full items-center gap-3 rounded-[10px] border border-blue-500/30 bg-wood-inset dark:bg-[#060b16] p-3 text-left transition-colors hover:border-cyan-500/50 cursor-pointer"
                           >
-                            <div className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-[8px] border border-cyan-600/30 dark:border-cyan-500/40 bg-white dark:bg-[#0b1222] text-cyan-700 dark:text-cyan-300">
+                            <div className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-[8px] border border-cyan-600/30 dark:border-cyan-500/40 bg-wood-surface dark:bg-[#0b1222] text-cyan-700 dark:text-cyan-300">
                               <FileText className="h-4 w-4" aria-hidden="true" />
                             </div>
                             <div className="min-w-0">
                               <p className="font-mono text-[11px] font-medium text-cyan-700 dark:text-cyan-300">
                                 Signed PDF Certificate
                               </p>
-                              <p className="truncate font-mono text-[10px] text-slate-500 dark:text-slate-400">
+                              <p className="truncate font-mono text-[10px] text-wood-muted dark:text-slate-400">
                                 Click to inspect or download
                               </p>
                             </div>
@@ -456,7 +456,7 @@ export function AchievementsSection({ expanded = false }: AchievementsSectionPro
                             )}
                             <span>{cert.status}</span>
                           </Badge>
-                          <span className="text-slate-500 tabular-nums">{cert.date}</span>
+                          <span className="text-wood-muted dark:text-slate-400 tabular-nums">{cert.date}</span>
                         </div>
 
                         <h3 className={DESIGN_TOKENS.typography.cardTitle}>
@@ -472,7 +472,7 @@ export function AchievementsSection({ expanded = false }: AchievementsSectionPro
                         </p>
                       </div>
 
-                      <div className="mt-4 flex flex-wrap items-center justify-between gap-3 border-t border-slate-200 dark:border-slate-800/70 pt-3">
+                      <div className="mt-4 flex flex-wrap items-center justify-between gap-3 border-t border-wood-subtle dark:border-slate-800/70 pt-3">
                         <Button
                           type="button"
                           variant={isVerified ? 'secondary' : 'ghost'}
@@ -505,8 +505,8 @@ export function AchievementsSection({ expanded = false }: AchievementsSectionPro
           </SectionReveal>
         ) : (
           <div className="space-y-10">
-            <div className="flex flex-wrap items-center justify-between gap-4 border-t border-slate-200 dark:border-slate-800/80 pt-6">
-              <div className="flex items-center gap-2 text-xs text-slate-600 dark:text-slate-400">
+            <div className="flex flex-wrap items-center justify-between gap-4 border-t border-wood-subtle dark:border-slate-800/80 pt-6">
+              <div className="flex items-center gap-2 text-xs text-wood-muted dark:text-slate-400">
                 <Award
                   className="h-4 w-4 text-cyan-700 dark:text-cyan-400 shrink-0"
                   aria-hidden="true"

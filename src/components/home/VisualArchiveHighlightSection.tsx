@@ -37,7 +37,7 @@ export function VisualArchiveHighlightSection({
   const innerContent = (
     <>
       {integrated ? (
-        <div className="flex flex-col gap-3 border-b border-slate-200 dark:border-slate-800/80 pb-4 sm:flex-row sm:items-end sm:justify-between">
+        <div className="flex flex-col gap-3 border-b border-wood-subtle dark:border-slate-800/80 pb-4 sm:flex-row sm:items-end sm:justify-between">
           <div className="space-y-1 max-w-2xl">
             <p className="font-mono text-xs text-cyan-700 dark:text-cyan-400">
               Verified Event &amp; Award Photography
@@ -45,7 +45,7 @@ export function VisualArchiveHighlightSection({
             <h3 className={DESIGN_TOKENS.typography.cardTitleLg}>
               Visual Achievement Archive Highlights
             </h3>
-            <p className="text-xs leading-relaxed text-slate-600 dark:text-slate-400">
+            <p className="text-xs leading-relaxed text-wood-muted dark:text-slate-400">
               Selected real-world highlights from podium finishes, public speaking events, and executive committee induction. All {VISUAL_ARCHIVE.length} indexed assets live in the dedicated gallery.
             </p>
           </div>
@@ -83,7 +83,7 @@ export function VisualArchiveHighlightSection({
                   aria-label={`Inspect photograph: ${item.associatedRecord}`}
                   className="flex flex-1 flex-col text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-cyan-600 dark:focus-visible:ring-cyan-400 cursor-pointer"
                 >
-                  <div className="relative w-full border-b border-slate-200 dark:border-slate-800/80">
+                  <div className="relative w-full border-b border-wood-subtle dark:border-slate-800/80">
                     <ArchiveMediaFrame
                       src={item.src}
                       alt={item.alt}
@@ -94,7 +94,7 @@ export function VisualArchiveHighlightSection({
                     />
                     <span
                       aria-hidden="true"
-                      className="absolute right-2.5 bottom-2.5 inline-flex h-7 w-7 items-center justify-center rounded-[7px] border border-slate-300/80 dark:border-slate-700/80 bg-white/90 dark:bg-[#050914]/90 text-slate-700 dark:text-slate-200 opacity-0 transition-opacity duration-150 group-hover:opacity-100"
+                      className="absolute right-2.5 bottom-2.5 inline-flex h-7 w-7 items-center justify-center rounded-[7px] border border-wood-default/80 dark:border-slate-700/80 bg-wood-surface/92 dark:bg-[#050914]/90 text-wood-ink dark:text-slate-200 opacity-0 transition-opacity duration-150 group-hover:opacity-100"
                     >
                       <Expand className="h-3.5 w-3.5" />
                     </span>
@@ -108,7 +108,7 @@ export function VisualArchiveHighlightSection({
                       <h3 className={DESIGN_TOKENS.typography.cardTitle}>
                         {item.associatedRecord}
                       </h3>
-                      <p className="line-clamp-2 text-xs leading-relaxed text-slate-600 dark:text-slate-400">
+                      <p className="line-clamp-2 text-xs leading-relaxed text-wood-muted dark:text-slate-400">
                         {item.caption}
                       </p>
                     </div>
@@ -125,9 +125,9 @@ export function VisualArchiveHighlightSection({
         </SectionReveal>
 
         {/* Interactive Archive Category & Certificate Summary Bar */}
-        <div className="flex flex-col gap-4 rounded-[14px] border border-slate-200 dark:border-slate-800/80 bg-white dark:bg-[#0b1222] p-5 lg:flex-row lg:items-center lg:justify-between">
+        <div className="flex flex-col gap-4 rounded-[14px] border border-wood-subtle dark:border-slate-800/80 bg-wood-surface dark:bg-[#0b1222] p-5 lg:flex-row lg:items-center lg:justify-between">
           <div className="space-y-2.5 min-w-0">
-            <div className="flex items-center gap-2 text-xs font-semibold text-slate-900 dark:text-slate-100">
+            <div className="flex items-center gap-2 text-xs font-semibold text-wood-ink dark:text-slate-100">
               <Images
                 className="h-4 w-4 text-cyan-700 dark:text-cyan-400 shrink-0"
                 aria-hidden="true"
@@ -139,10 +139,10 @@ export function VisualArchiveHighlightSection({
                 <Link
                   key={cat}
                   to={`/archive?category=${encodeURIComponent(cat)}`}
-                  className="inline-flex items-center gap-1 rounded-[7px] border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-[#060b16] px-2.5 py-1 font-mono text-[11px] text-slate-700 dark:text-slate-300 transition-colors hover:border-blue-500/60 hover:text-blue-700 dark:hover:text-cyan-300"
+                  className="inline-flex items-center gap-1 rounded-[7px] border border-wood-subtle dark:border-slate-800 bg-wood-inset dark:bg-[#060b16] px-2.5 py-1 font-mono text-[11px] text-wood-walnut dark:text-slate-300 transition-colors hover:border-blue-500/60 hover:text-blue-700 dark:hover:text-cyan-300"
                 >
                   <span>{cat}</span>
-                  <span className="text-slate-400 dark:text-slate-500 tabular-nums">
+                  <span className="text-wood-muted dark:text-slate-500 tabular-nums">
                     ({categoryCounts[cat]})
                   </span>
                 </Link>
@@ -159,7 +159,7 @@ export function VisualArchiveHighlightSection({
             </Link>
             <Link
               to="/awards"
-              className="inline-flex min-h-[38px] sm:min-h-0 items-center py-1.5 sm:py-0 text-xs font-medium text-slate-600 dark:text-slate-300 transition-colors hover:text-cyan-700 dark:hover:text-cyan-300"
+              className="inline-flex min-h-[38px] sm:min-h-0 items-center py-1.5 sm:py-0 text-xs font-medium text-wood-muted dark:text-slate-300 transition-colors hover:text-cyan-700 dark:hover:text-cyan-300"
             >
               Awards &amp; Honors
             </Link>
@@ -177,14 +177,14 @@ export function VisualArchiveHighlightSection({
       {integrated ? (
         <div
           id="archive"
-          className="space-y-8 border-t border-slate-200 dark:border-slate-800/80 pt-10"
+          className="space-y-8 border-t border-wood-subtle dark:border-slate-800/80 pt-10"
         >
           {innerContent}
         </div>
       ) : (
         <section
           id="archive"
-          className={`border-b border-slate-200 dark:border-slate-800/80 bg-slate-50 dark:bg-[#050914] ${DESIGN_TOKENS.spacing.sectionY}`}
+          className={`border-b border-wood-subtle dark:border-slate-800/80 bg-wood-alt dark:bg-[#050914] ${DESIGN_TOKENS.spacing.sectionY}`}
         >
           <div className={`${DESIGN_TOKENS.spacing.container} space-y-10`}>
             {innerContent}

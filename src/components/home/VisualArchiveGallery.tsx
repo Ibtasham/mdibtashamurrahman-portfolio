@@ -165,7 +165,7 @@ export function VisualArchiveGallery() {
   return (
     <section
       aria-label="Visual Achievement Archive Gallery"
-      className="border-b border-slate-200 dark:border-slate-800/80 bg-slate-50 dark:bg-[#050914] py-10 sm:py-14"
+      className="border-b border-wood-subtle dark:border-slate-800/80 bg-wood-canvas dark:bg-[#050914] py-10 sm:py-14"
     >
       <div className={`${DESIGN_TOKENS.spacing.container} space-y-8`}>
         {/* Interactive Archival Summary Strip */}
@@ -175,17 +175,17 @@ export function VisualArchiveGallery() {
             onClick={resetFilters}
             className={`group rounded-[14px] border p-4 text-left transition-all duration-150 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 ${
               !isFiltered && viewMode === 'grid'
-                ? 'border-blue-600/70 bg-blue-50/70 dark:border-blue-500/60 dark:bg-blue-600/15'
-                : 'border-slate-200 dark:border-slate-800 bg-white dark:bg-[#0b1222] hover:border-blue-500/50'
+                ? 'border-blue-600/70 bg-blue-50/80 dark:border-blue-500/60 dark:bg-blue-600/15'
+                : 'border-wood-subtle dark:border-slate-800 bg-wood-surface dark:bg-[#0b1222] hover:border-blue-500/50'
             }`}
           >
             <div className="flex items-center justify-between gap-2">
-              <span className="font-mono text-[11px] text-slate-600 dark:text-slate-400">
+              <span className="font-mono text-[11px] text-wood-muted dark:text-slate-400">
                 Total Archive
               </span>
               <Images className="h-4 w-4 text-cyan-700 dark:text-cyan-400" aria-hidden="true" />
             </div>
-            <p className="mt-1.5 font-display text-2xl font-semibold text-slate-900 dark:text-slate-50 tabular-nums">
+            <p className="mt-1.5 font-display text-2xl font-semibold text-wood-ink dark:text-slate-50 tabular-nums">
               {VISUAL_ARCHIVE.length}
             </p>
             <p className="mt-0.5 font-mono text-[10px] text-blue-700 dark:text-cyan-300">
@@ -201,17 +201,17 @@ export function VisualArchiveGallery() {
             }}
             className={`group rounded-[14px] border p-4 text-left transition-all duration-150 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 ${
               selectedKind === 'Certificate'
-                ? 'border-blue-600/70 bg-blue-50/70 dark:border-blue-500/60 dark:bg-blue-600/15'
-                : 'border-slate-200 dark:border-slate-800 bg-white dark:bg-[#0b1222] hover:border-blue-500/50'
+                ? 'border-blue-600/70 bg-blue-50/80 dark:border-blue-500/60 dark:bg-blue-600/15'
+                : 'border-wood-subtle dark:border-slate-800 bg-wood-surface dark:bg-[#0b1222] hover:border-blue-500/50'
             }`}
           >
             <div className="flex items-center justify-between gap-2">
-              <span className="font-mono text-[11px] text-slate-600 dark:text-slate-400">
+              <span className="font-mono text-[11px] text-wood-muted dark:text-slate-400">
                 Certificates
               </span>
               <Award className="h-4 w-4 text-cyan-700 dark:text-cyan-400" aria-hidden="true" />
             </div>
-            <p className="mt-1.5 font-display text-2xl font-semibold text-slate-900 dark:text-slate-50 tabular-nums">
+            <p className="mt-1.5 font-display text-2xl font-semibold text-wood-ink dark:text-slate-50 tabular-nums">
               {kindCounts.Certificate}
             </p>
             <p className="mt-0.5 font-mono text-[10px] text-blue-700 dark:text-cyan-300">
@@ -227,20 +227,20 @@ export function VisualArchiveGallery() {
             }}
             className={`group rounded-[14px] border p-4 text-left transition-all duration-150 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 ${
               selectedKind === 'Official Poster' || selectedKind === 'Appointment Letter'
-                ? 'border-blue-600/70 bg-blue-50/70 dark:border-blue-500/60 dark:bg-blue-600/15'
-                : 'border-slate-200 dark:border-slate-800 bg-white dark:bg-[#0b1222] hover:border-blue-500/50'
+                ? 'border-blue-600/70 bg-blue-50/80 dark:border-blue-500/60 dark:bg-blue-600/15'
+                : 'border-wood-subtle dark:border-slate-800 bg-wood-surface dark:bg-[#0b1222] hover:border-blue-500/50'
             }`}
           >
             <div className="flex items-center justify-between gap-2">
-              <span className="font-mono text-[11px] text-slate-600 dark:text-slate-400">
+              <span className="font-mono text-[11px] text-wood-muted dark:text-slate-400">
                 Posters &amp; Letters
               </span>
               <FileBadge2 className="h-4 w-4 text-blue-700 dark:text-blue-400" aria-hidden="true" />
             </div>
-            <p className="mt-1.5 font-display text-2xl font-semibold text-slate-900 dark:text-slate-50 tabular-nums">
+            <p className="mt-1.5 font-display text-2xl font-semibold text-wood-ink dark:text-slate-50 tabular-nums">
               {kindCounts['Official Poster'] + kindCounts['Appointment Letter']}
             </p>
-            <p className="mt-0.5 font-mono text-[10px] text-slate-600 dark:text-slate-400">
+            <p className="mt-0.5 font-mono text-[10px] text-wood-muted dark:text-slate-400">
               {kindCounts['Official Poster']} posters · {kindCounts['Appointment Letter']} letters
             </p>
           </button>
@@ -250,34 +250,34 @@ export function VisualArchiveGallery() {
             onClick={() => handleViewChange(viewMode === 'events' ? 'grid' : 'events')}
             className={`group rounded-[14px] border p-4 text-left transition-all duration-150 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 ${
               viewMode === 'events'
-                ? 'border-blue-600/70 bg-blue-50/70 dark:border-blue-500/60 dark:bg-blue-600/15'
-                : 'border-slate-200 dark:border-slate-800 bg-white dark:bg-[#0b1222] hover:border-blue-500/50'
+                ? 'border-blue-600/70 bg-blue-50/80 dark:border-blue-500/60 dark:bg-blue-600/15'
+                : 'border-wood-subtle dark:border-slate-800 bg-wood-surface dark:bg-[#0b1222] hover:border-blue-500/50'
             }`}
           >
             <div className="flex items-center justify-between gap-2">
-              <span className="font-mono text-[11px] text-slate-600 dark:text-slate-400">
+              <span className="font-mono text-[11px] text-wood-muted dark:text-slate-400">
                 Event Groupings
               </span>
               <FolderKanban className="h-4 w-4 text-cyan-700 dark:text-cyan-400" aria-hidden="true" />
             </div>
-            <p className="mt-1.5 font-display text-2xl font-semibold text-slate-900 dark:text-slate-50 tabular-nums">
+            <p className="mt-1.5 font-display text-2xl font-semibold text-wood-ink dark:text-slate-50 tabular-nums">
               {allEventGroupsCount}
             </p>
-            <p className="mt-0.5 font-mono text-[10px] text-slate-600 dark:text-slate-400">
+            <p className="mt-0.5 font-mono text-[10px] text-wood-muted dark:text-slate-400">
               {viewMode === 'events' ? 'Viewing grouped story' : 'Switch to grouped story'}
             </p>
           </button>
         </div>
 
         {/* Controls Toolbar */}
-        <div className="space-y-4 rounded-[14px] border border-slate-200 dark:border-slate-800/80 bg-white dark:bg-[#0b1222] p-4 sm:p-5">
+        <div className="space-y-4 rounded-[14px] border border-wood-subtle dark:border-slate-800/80 bg-wood-surface dark:bg-[#0b1222] p-4 sm:p-5">
           <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
             {/* Gallery Grid vs Event Groupings Switcher + Live Counter */}
             <div className="flex flex-wrap items-center gap-3">
               <div
                 role="group"
                 aria-label="Archive display layout"
-                className="flex items-center rounded-[10px] border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-[#060b16] p-1"
+                className="flex items-center rounded-[10px] border border-wood-subtle dark:border-slate-800 bg-wood-inset dark:bg-[#060b16] p-1"
               >
                 <button
                   type="button"
@@ -286,7 +286,7 @@ export function VisualArchiveGallery() {
                   className={`inline-flex min-h-[38px] sm:min-h-0 items-center gap-1.5 rounded-[7px] px-3 py-2 sm:py-1.5 text-xs font-medium transition-colors whitespace-nowrap cursor-pointer ${
                     viewMode === 'grid'
                       ? 'bg-[#2563eb] text-white'
-                      : 'text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-200'
+                      : 'text-wood-muted hover:text-wood-ink dark:text-slate-400 dark:hover:text-slate-200'
                   }`}
                 >
                   <LayoutGrid className="h-3.5 w-3.5" aria-hidden="true" />
@@ -299,7 +299,7 @@ export function VisualArchiveGallery() {
                   className={`inline-flex min-h-[38px] sm:min-h-0 items-center gap-1.5 rounded-[7px] px-3 py-2 sm:py-1.5 text-xs font-medium transition-colors whitespace-nowrap cursor-pointer ${
                     viewMode === 'events'
                       ? 'bg-[#2563eb] text-white'
-                      : 'text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-200'
+                      : 'text-wood-muted hover:text-wood-ink dark:text-slate-400 dark:hover:text-slate-200'
                   }`}
                 >
                   <FolderKanban className="h-3.5 w-3.5" aria-hidden="true" />
@@ -326,7 +326,7 @@ export function VisualArchiveGallery() {
             {/* Search Input */}
             <div className="relative w-full lg:w-80">
               <Search
-                className="pointer-events-none absolute top-1/2 left-3 h-3.5 w-3.5 -translate-y-1/2 text-slate-500"
+                className="pointer-events-none absolute top-1/2 left-3 h-3.5 w-3.5 -translate-y-1/2 text-wood-muted dark:text-slate-500"
                 aria-hidden="true"
               />
               <label htmlFor="archive-search" className="sr-only">
@@ -338,14 +338,14 @@ export function VisualArchiveGallery() {
                 value={query}
                 onChange={(e) => handleQueryChange(e.target.value)}
                 placeholder="Search event, certificate, date, or caption..."
-                className="h-9 w-full rounded-[10px] border border-slate-300 dark:border-slate-800 bg-slate-50 dark:bg-[#060b16] pr-3 pl-9 text-xs text-slate-900 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500 transition-colors duration-150 focus:border-blue-600 dark:focus:border-blue-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600 dark:focus-visible:ring-cyan-400"
+                className="h-9 w-full rounded-[10px] border border-wood-default dark:border-slate-800 bg-wood-input dark:bg-[#060b16] pr-3 pl-9 text-xs text-wood-ink dark:text-slate-100 placeholder:text-wood-muted/70 dark:placeholder:text-slate-500 transition-colors duration-150 focus:border-blue-600 dark:focus:border-blue-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600 dark:focus-visible:ring-cyan-400"
               />
             </div>
           </div>
 
           {/* Media Type Quick-Filter Chips */}
-          <div className="space-y-1.5 border-t border-slate-200/80 dark:border-slate-800/70 pt-3">
-            <p className="font-mono text-[10px] uppercase tracking-wider text-slate-500">
+          <div className="space-y-1.5 border-t border-wood-subtle/80 dark:border-slate-800/70 pt-3">
+            <p className="font-mono text-[10px] uppercase tracking-wider text-wood-muted dark:text-slate-500">
               Media Type
             </p>
             <div
@@ -364,7 +364,7 @@ export function VisualArchiveGallery() {
                     className={`min-h-[34px] shrink-0 rounded-[8px] border px-2.5 py-1 text-xs font-medium transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600 dark:focus-visible:ring-cyan-400 whitespace-nowrap cursor-pointer ${
                       active
                         ? 'border-cyan-600 bg-cyan-50 text-cyan-800 dark:border-cyan-500/80 dark:bg-cyan-500/15 dark:text-cyan-200'
-                        : 'border-slate-200 bg-slate-50 text-slate-600 hover:border-slate-300 hover:text-slate-900 dark:border-slate-800 dark:bg-[#060b16] dark:text-slate-400 dark:hover:border-slate-700 dark:hover:text-slate-200'
+                        : 'border-wood-subtle bg-wood-inset text-wood-muted hover:border-wood-default hover:text-wood-ink dark:border-slate-800 dark:bg-[#060b16] dark:text-slate-400 dark:hover:border-slate-700 dark:hover:text-slate-200'
                     }`}
                   >
                     {kind === 'All' ? 'All Media' : kind} ({kindCounts[kind]})
@@ -375,8 +375,8 @@ export function VisualArchiveGallery() {
           </div>
 
           {/* Category Filter Chips */}
-          <div className="space-y-1.5 border-t border-slate-200/80 dark:border-slate-800/70 pt-3">
-            <p className="font-mono text-[10px] uppercase tracking-wider text-slate-500">
+          <div className="space-y-1.5 border-t border-wood-subtle/80 dark:border-slate-800/70 pt-3">
+            <p className="font-mono text-[10px] uppercase tracking-wider text-wood-muted dark:text-slate-500">
               Domain Category
             </p>
             <div
@@ -397,7 +397,7 @@ export function VisualArchiveGallery() {
                     className={`min-h-[38px] sm:min-h-[34px] shrink-0 rounded-[10px] border px-3 py-1.5 text-xs font-medium transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600 dark:focus-visible:ring-cyan-400 whitespace-nowrap cursor-pointer ${
                       active
                         ? 'border-blue-600 bg-blue-50 text-blue-700 dark:border-blue-500/80 dark:bg-blue-600/20 dark:text-cyan-200'
-                        : 'border-slate-200 bg-white text-slate-600 hover:border-slate-300 hover:text-slate-900 dark:border-slate-800 dark:bg-[#0b1222] dark:text-slate-400 dark:hover:border-slate-700 dark:hover:text-slate-200'
+                        : 'border-wood-subtle bg-wood-surface text-wood-muted hover:border-wood-default hover:text-wood-ink dark:border-slate-800 dark:bg-[#0b1222] dark:text-slate-400 dark:hover:border-slate-700 dark:hover:text-slate-200'
                     }`}
                   >
                     {cat} ({categoryCounts[cat]})
@@ -410,13 +410,13 @@ export function VisualArchiveGallery() {
 
         {/* Manual Confirmation Transparency Banner */}
         {pendingConfirmationCount > 0 && (
-          <div className="flex items-start gap-2.5 rounded-[12px] border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#0b1222] px-4 py-3 text-xs text-slate-600 dark:text-slate-400">
+          <div className="flex items-start gap-2.5 rounded-[12px] border border-wood-subtle dark:border-slate-800 bg-wood-surface dark:bg-[#0b1222] px-4 py-3 text-xs text-wood-muted dark:text-slate-400">
             <AlertCircle
               className="mt-0.5 h-4 w-4 shrink-0 text-blue-700 dark:text-blue-400"
               aria-hidden="true"
             />
             <p className="leading-relaxed">
-              <strong className="font-semibold text-slate-900 dark:text-slate-200">
+              <strong className="font-semibold text-wood-ink dark:text-slate-200">
                 Verification Integrity:
               </strong>{' '}
               {pendingConfirmationCount} item{pendingConfirmationCount === 1 ? '' : 's'} in the current view carry a manual confirmation note where an exact event name, tenure confirmation, or certificate date was not asserted without source proof.
@@ -454,7 +454,7 @@ export function VisualArchiveGallery() {
           <div className="space-y-10">
             {/* Quick-Jump Index for Event Groups */}
             {eventGroups.length > 1 && (
-              <div className="rounded-[12px] border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#0b1222] p-4 space-y-2.5">
+              <div className="rounded-[12px] border border-wood-subtle dark:border-slate-800 bg-wood-surface dark:bg-[#0b1222] p-4 space-y-2.5">
                 <p className="inline-flex items-center gap-1.5 font-mono text-[11px] text-cyan-700 dark:text-cyan-400">
                   <Sparkles className="h-3.5 w-3.5" aria-hidden="true" />
                   <span>Jump to Event Collection ({eventGroups.length} Groups)</span>
@@ -471,7 +471,7 @@ export function VisualArchiveGallery() {
                             .getElementById(targetId)
                             ?.scrollIntoView({ behavior: 'smooth', block: 'start' });
                         }}
-                        className="rounded-[7px] border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-[#060b16] px-2.5 py-1 text-left font-mono text-[11px] text-slate-700 dark:text-slate-300 transition-colors hover:border-blue-500/60 hover:text-blue-700 dark:hover:text-cyan-300 cursor-pointer"
+                        className="rounded-[7px] border border-wood-subtle dark:border-slate-800 bg-wood-inset dark:bg-[#060b16] px-2.5 py-1 text-left font-mono text-[11px] text-wood-walnut dark:text-slate-300 transition-colors hover:border-blue-500/60 hover:text-blue-700 dark:hover:text-cyan-300 cursor-pointer"
                       >
                         {group.eventGroup} ({group.items.length})
                       </button>
@@ -493,16 +493,16 @@ export function VisualArchiveGallery() {
                   id={groupId}
                   className="scroll-mt-24 space-y-4"
                 >
-                  <div className="flex flex-wrap items-end justify-between gap-3 border-b border-slate-200 dark:border-slate-800/80 pb-3">
+                  <div className="flex flex-wrap items-end justify-between gap-3 border-b border-wood-subtle dark:border-slate-800/80 pb-3">
                     <div className="space-y-1">
                       <p className="font-mono text-[11px] text-cyan-700 dark:text-cyan-400">
                         {uniqueCategories.join(' · ')}
                       </p>
-                      <h2 className="font-display text-base font-semibold text-slate-900 dark:text-slate-100 sm:text-lg">
+                      <h2 className="font-display text-base font-semibold text-wood-ink dark:text-slate-100 sm:text-lg">
                         {group.eventGroup}
                       </h2>
                     </div>
-                    <div className="flex items-center gap-2 font-mono text-[11px] text-slate-500 tabular-nums">
+                    <div className="flex items-center gap-2 font-mono text-[11px] text-wood-muted dark:text-slate-500 tabular-nums">
                       <span>{uniqueDates.slice(0, 2).join(' · ')}</span>
                       <span>·</span>
                       <span className="font-semibold text-blue-700 dark:text-cyan-300">
@@ -555,7 +555,7 @@ function ArchiveItemCard({
           type="button"
           onClick={onOpen}
           aria-label={`Open lightbox for ${item.associatedRecord}`}
-          className="relative block w-full border-b border-slate-200 dark:border-slate-800/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-cyan-600 dark:focus-visible:ring-cyan-400 cursor-pointer"
+          className="relative block w-full border-b border-wood-subtle dark:border-slate-800/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-cyan-600 dark:focus-visible:ring-cyan-400 cursor-pointer"
         >
           <ArchiveMediaFrame
             src={item.src}
@@ -570,7 +570,7 @@ function ArchiveItemCard({
           {item.mediaType !== 'video' && (
             <span
               aria-hidden="true"
-              className="pointer-events-none absolute top-2.5 left-2.5 inline-flex items-center gap-1 rounded-[6px] border border-slate-300/80 dark:border-slate-700/80 bg-white/92 dark:bg-[#050914]/88 px-2 py-0.5 font-mono text-[10px] font-medium text-slate-800 dark:text-slate-200 backdrop-blur-sm"
+              className="pointer-events-none absolute top-2.5 left-2.5 inline-flex items-center gap-1 rounded-[6px] border border-wood-default/80 dark:border-slate-700/80 bg-wood-surface/92 dark:bg-[#050914]/88 px-2 py-0.5 font-mono text-[10px] font-medium text-wood-ink dark:text-slate-200 backdrop-blur-sm"
             >
               {item.kind === 'Certificate' && (
                 <Award className="h-2.5 w-2.5 text-cyan-700 dark:text-cyan-400" />
@@ -581,7 +581,7 @@ function ArchiveItemCard({
 
           <span
             aria-hidden="true"
-            className="absolute right-2.5 bottom-2.5 inline-flex h-8 w-8 items-center justify-center rounded-[8px] border border-slate-300/80 dark:border-slate-700/80 bg-white/92 dark:bg-[#050914]/92 text-slate-700 dark:text-slate-200 opacity-0 transition-opacity duration-150 group-hover:opacity-100"
+            className="absolute right-2.5 bottom-2.5 inline-flex h-8 w-8 items-center justify-center rounded-[8px] border border-wood-default/80 dark:border-slate-700/80 bg-wood-surface/92 dark:bg-[#050914]/92 text-wood-ink dark:text-slate-200 opacity-0 transition-opacity duration-150 group-hover:opacity-100"
           >
             <Expand className="h-3.5 w-3.5" />
           </span>
@@ -592,7 +592,7 @@ function ArchiveItemCard({
             <span className="text-cyan-700 dark:text-cyan-400 truncate max-w-[60%]">
               {item.eventGroup}
             </span>
-            <span className="inline-flex items-center gap-1 text-slate-500 tabular-nums shrink-0">
+            <span className="inline-flex items-center gap-1 text-wood-muted dark:text-slate-500 tabular-nums shrink-0">
               <Calendar className="h-3 w-3" aria-hidden="true" />
               <span>{item.date}</span>
             </span>
@@ -611,7 +611,7 @@ function ArchiveItemCard({
           </p>
 
           {item.needsConfirmation && (
-            <p className="flex items-start gap-1.5 rounded-[8px] border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-[#060b16] p-2.5 text-[11px] leading-relaxed text-slate-600 dark:text-slate-400">
+            <p className="flex items-start gap-1.5 rounded-[8px] border border-wood-subtle dark:border-slate-800 bg-wood-inset dark:bg-[#060b16] p-2.5 text-[11px] leading-relaxed text-wood-muted dark:text-slate-400">
               <AlertCircle
                 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-blue-700 dark:text-blue-400"
                 aria-hidden="true"
@@ -622,11 +622,11 @@ function ArchiveItemCard({
         </div>
       </div>
 
-      <div className="flex flex-wrap items-center justify-between gap-2 border-t border-slate-200 dark:border-slate-800/70 px-5 py-2.5 sm:py-3">
+      <div className="flex flex-wrap items-center justify-between gap-2 border-t border-wood-subtle dark:border-slate-800/70 px-5 py-2.5 sm:py-3">
         <button
           type="button"
           onClick={onOpen}
-          className="inline-flex min-h-[38px] sm:min-h-0 items-center gap-1.5 py-1.5 sm:py-0 text-xs font-medium text-slate-700 dark:text-slate-200 transition-colors hover:text-cyan-700 dark:hover:text-cyan-300 cursor-pointer"
+          className="inline-flex min-h-[38px] sm:min-h-0 items-center gap-1.5 py-1.5 sm:py-0 text-xs font-medium text-wood-walnut dark:text-slate-200 transition-colors hover:text-cyan-700 dark:hover:text-cyan-300 cursor-pointer"
         >
           <Expand className="h-3.5 w-3.5" aria-hidden="true" />
           <span>{item.mediaType === 'video' ? 'Play Video & Details' : 'Zoom & Details'}</span>

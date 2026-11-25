@@ -79,9 +79,9 @@ export function HeroSystemsSchematic() {
   };
 
   return (
-    <div className="rounded-[12px] border border-slate-200 dark:border-slate-800/80 bg-slate-50/90 dark:bg-[#060b16] p-3.5 space-y-3">
-      <div className="flex items-center justify-between gap-2 border-b border-slate-200 dark:border-slate-800/80 pb-2">
-        <span className="font-mono text-[11px] text-slate-600 dark:text-slate-400">
+    <div className="rounded-[12px] border border-wood-subtle dark:border-slate-800/80 bg-wood-inset/80 dark:bg-[#060b16] p-3.5 space-y-3">
+      <div className="flex items-center justify-between gap-2 border-b border-wood-subtle dark:border-slate-800/80 pb-2">
+        <span className="font-mono text-[11px] text-wood-muted dark:text-slate-400">
           Systems Architecture Map
         </span>
         <span className="font-mono text-[11px] font-medium text-cyan-700 dark:text-cyan-400 tabular-nums">
@@ -110,7 +110,7 @@ export function HeroSystemsSchematic() {
               className={`min-h-[32px] rounded-[8px] border px-2 py-1 text-center font-mono text-[10.5px] font-medium whitespace-nowrap transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600 dark:focus-visible:ring-cyan-400 cursor-pointer ${
                 isActive
                   ? 'border-blue-600/75 dark:border-cyan-400/70 bg-blue-50 dark:bg-blue-600/18 text-blue-950 dark:text-cyan-200'
-                  : 'border-slate-200 dark:border-slate-800/90 bg-white dark:bg-[#0b1222] text-slate-600 dark:text-slate-400 hover:border-slate-300 dark:hover:border-slate-700 hover:text-slate-900 dark:hover:text-slate-200'
+                  : 'border-wood-subtle dark:border-slate-800/90 bg-wood-surface dark:bg-[#0b1222] text-wood-muted dark:text-slate-400 hover:border-wood-default dark:hover:border-slate-700 hover:text-wood-ink dark:hover:text-slate-200'
               }`}
             >
               {track.label}
@@ -302,8 +302,8 @@ export function HeroSystemsSchematic() {
           </text>
         </svg>
 
-        <div className="flex flex-wrap items-center justify-between gap-2 border-t border-slate-200 dark:border-slate-800/80 pt-2.5 text-xs">
-          <p className="font-mono text-[11px] text-slate-600 dark:text-slate-400">
+        <div className="flex flex-wrap items-center justify-between gap-2 border-t border-wood-subtle dark:border-slate-800/80 pt-2.5 text-xs">
+          <p className="font-mono text-[11px] text-wood-muted dark:text-slate-400">
             {activeTrack.engine}
           </p>
           <Link
